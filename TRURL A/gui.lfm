@@ -1,0 +1,458 @@
+object MainForm: TMainForm
+  Left = 309
+  Height = 402
+  Top = 133
+  Width = 338
+  ActiveControl = EnterButton
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Trurl A'
+  ClientHeight = 402
+  ClientWidth = 338
+  Color = clSilver
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
+  LCLVersion = '2.0.0.3'
+  object RDButton: TButton
+    Left = 8
+    Height = 25
+    Top = 128
+    Width = 75
+    Caption = 'R'
+    OnClick = RDButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 0
+  end
+  object PlusMinusButton: TButton
+    Left = 88
+    Height = 25
+    Top = 128
+    Width = 75
+    Caption = '+/-'
+    OnClick = PlusMinusButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 1
+  end
+  object InvButton: TButton
+    Left = 168
+    Height = 25
+    Top = 128
+    Width = 75
+    Caption = '1/x'
+    OnClick = InvButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 2
+  end
+  object PwrButton: TButton
+    Left = 248
+    Height = 25
+    Top = 128
+    Width = 75
+    Caption = 'y^x'
+    OnClick = PwrButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 3
+  end
+  object SinButton: TButton
+    Left = 8
+    Height = 25
+    Top = 160
+    Width = 75
+    Caption = 'SIN'
+    OnClick = SinButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 4
+  end
+  object CosButton: TButton
+    Left = 88
+    Height = 25
+    Top = 160
+    Width = 75
+    Caption = 'COS'
+    OnClick = CosButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 5
+  end
+  object TanButton: TButton
+    Left = 168
+    Height = 25
+    Top = 160
+    Width = 75
+    Caption = 'TAN'
+    OnClick = TanButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 6
+  end
+  object SqrtButton: TButton
+    Left = 248
+    Height = 25
+    Top = 160
+    Width = 75
+    Caption = 'SQRT'
+    OnClick = SqrtButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 7
+  end
+  object ASinButton: TButton
+    Left = 8
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'ASIN'
+    OnClick = ASinButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 8
+  end
+  object ACosButton: TButton
+    Left = 88
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'ACOS'
+    OnClick = ACosButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 9
+  end
+  object ATanButton: TButton
+    Left = 168
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'ATAN'
+    OnClick = ATanButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 10
+  end
+  object EnterButton: TButton
+    Left = 248
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'ENTER'
+    OnClick = EnterButtonClick
+    OnKeyDown = FormKeyDown
+    ParentFont = False
+    TabOrder = 11
+  end
+  object Nr7Button: TButton
+    Left = 8
+    Height = 25
+    Top = 240
+    Width = 75
+    Caption = '7'
+    OnClick = Nr7ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 12
+  end
+  object Nr8Button: TButton
+    Left = 88
+    Height = 25
+    Top = 240
+    Width = 75
+    Caption = '8'
+    OnClick = Nr8ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 13
+  end
+  object Nr9Button: TButton
+    Left = 168
+    Height = 25
+    Top = 240
+    Width = 75
+    Caption = '9'
+    OnClick = Nr9ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 14
+  end
+  object MinusButton: TButton
+    Left = 248
+    Height = 25
+    Top = 240
+    Width = 75
+    Caption = '–'
+    OnClick = MinusButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 15
+  end
+  object PlusButton: TButton
+    Left = 248
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = '+'
+    OnClick = PlusButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 16
+  end
+  object Nr6Button: TButton
+    Left = 168
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = '6'
+    OnClick = Nr6ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 17
+  end
+  object Nr5Button: TButton
+    Left = 88
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = '5'
+    OnClick = Nr5ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 18
+  end
+  object Nr4Button: TButton
+    Left = 8
+    Height = 25
+    Top = 272
+    Width = 75
+    Caption = '4'
+    OnClick = Nr4ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 19
+  end
+  object Nr1Button: TButton
+    Left = 8
+    Height = 25
+    Top = 304
+    Width = 75
+    Caption = '1'
+    OnClick = Nr1ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 20
+  end
+  object Nr2Button: TButton
+    Left = 88
+    Height = 25
+    Top = 304
+    Width = 75
+    Caption = '2'
+    OnClick = Nr2ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 21
+  end
+  object Nr3Button: TButton
+    Left = 168
+    Height = 25
+    Top = 304
+    Width = 75
+    Caption = '3'
+    OnClick = Nr3ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 22
+  end
+  object TimesButton: TButton
+    Left = 248
+    Height = 25
+    Top = 304
+    Width = 75
+    Caption = '*'
+    OnClick = TimesButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 23
+  end
+  object Nr0Button: TButton
+    Left = 8
+    Height = 25
+    Top = 336
+    Width = 75
+    Caption = '0'
+    OnClick = Nr0ButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 24
+  end
+  object DotButton: TButton
+    Left = 88
+    Height = 25
+    Top = 336
+    Width = 75
+    Caption = '.'
+    OnClick = DotButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 25
+  end
+  object CButton: TButton
+    Left = 168
+    Height = 25
+    Top = 336
+    Width = 75
+    Caption = 'C'
+    OnClick = CButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 26
+  end
+  object DivButton: TButton
+    Left = 248
+    Height = 25
+    Top = 336
+    Width = 75
+    Caption = '/'
+    OnClick = DivButtonClick
+    OnKeyDown = FormKeyDown
+    TabOrder = 27
+  end
+  object Panel1: TPanel
+    Left = 8
+    Height = 114
+    Top = 8
+    Width = 314
+    Anchors = [akTop, akLeft, akRight]
+    BevelColor = clBlack
+    ClientHeight = 114
+    ClientWidth = 314
+    Color = clBlack
+    ParentColor = False
+    TabOrder = 28
+    object TRegisterDisplay: TLabel
+      Left = 6
+      Height = 24
+      Top = 6
+      Width = 304
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      BidiMode = bdRightToLeft
+      Caption = '0'
+      Font.Color = clLime
+      Font.Height = -21
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      Layout = tlCenter
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+    end
+    object ZRegisterDisplay: TLabel
+      Left = 6
+      Height = 24
+      Top = 32
+      Width = 304
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      BidiMode = bdRightToLeft
+      Caption = '0'
+      Font.Color = clLime
+      Font.Height = -21
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      Layout = tlCenter
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+    end
+    object YRegisterDisplay: TLabel
+      Left = 6
+      Height = 24
+      Top = 58
+      Width = 304
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      BidiMode = bdRightToLeft
+      Caption = '0'
+      Font.Color = clLime
+      Font.Height = -21
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      Layout = tlCenter
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+    end
+    object XRegisterDisplay: TLabel
+      Left = 6
+      Height = 24
+      Top = 85
+      Width = 304
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      BidiMode = bdRightToLeft
+      Caption = '0'
+      Font.Color = clLime
+      Font.Height = -21
+      Font.Pitch = fpFixed
+      Font.Style = [fsBold]
+      Layout = tlCenter
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object MainMenu1: TMainMenu
+    left = 160
+    top = 208
+    object AppleMenu: TMenuItem
+      Caption = ''
+      object MacAboutItem: TMenuItem
+        Caption = 'About Trurl A'
+        OnClick = MacAboutItemClick
+      end
+    end
+    object FileMenu: TMenuItem
+      Caption = 'File'
+      object QuitItem: TMenuItem
+        Caption = 'Quit'
+        OnClick = QuitItemClick
+      end
+    end
+    object EditMenu: TMenuItem
+      Caption = 'Edit'
+      object UndoItem: TMenuItem
+        Action = EditUndo1
+      end
+      object RedoItem: TMenuItem
+        Caption = 'Redo'
+      end
+      object Dividier_2_0: TMenuItem
+        Caption = '-'
+      end
+      object CutItem: TMenuItem
+        Action = EditCut1
+      end
+      object CopyItem: TMenuItem
+        Action = EditCopy1
+      end
+      object PasteItem: TMenuItem
+        Action = EditPaste1
+      end
+    end
+    object HelpMenu: TMenuItem
+      Caption = 'Help'
+      object WinAboutItem: TMenuItem
+        Caption = 'About Trurl A'
+        OnClick = WinAboutItemClick
+      end
+    end
+  end
+  object ActionList1: TActionList
+    left = 240
+    top = 208
+    object EditUndo1: TEditUndo
+      Category = 'Edit'
+      Caption = '&Zurücknehmen'
+      Hint = 'Zurücknehmen'
+      ShortCut = 16474
+    end
+    object EditCut1: TEditCut
+      Category = 'Edit'
+      Caption = '&Ausschneiden'
+      Hint = 'Ausschneiden'
+      ShortCut = 16472
+    end
+    object EditCopy1: TEditCopy
+      Category = 'Edit'
+      Caption = '&Kopieren'
+      Hint = 'Kopieren'
+      ShortCut = 16451
+    end
+    object EditPaste1: TEditPaste
+      Category = 'Edit'
+      Caption = '&Einfügen'
+      Hint = 'Einfügen'
+      ShortCut = 16470
+    end
+  end
+end
