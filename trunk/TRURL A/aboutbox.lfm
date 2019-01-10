@@ -1,0 +1,26 @@
+object TrurlAboutBox: TTrurlAboutBox
+  Left = 394
+  Height = 143
+  Top = 205
+  Width = 300
+  Caption = 'About Trurl A'
+  ClientHeight = 143
+  ClientWidth = 300
+  LCLVersion = '2.0.0.3'
+  object AboutLabel1: TLabel
+    Left = 24
+    Height = 16
+    Top = 32
+    Width = 68
+    Caption = 'Trurl A 1.0'
+    ParentColor = False
+  end
+  object AboutLabel2: TLabel
+    Left = 24
+    Height = 16
+    Top = 64
+    Width = 174
+    Caption = '© 2003-2018 J. W. Dietrich'
+    ParentColor = False
+  end
+end
