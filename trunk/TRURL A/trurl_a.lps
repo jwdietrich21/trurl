@@ -30,7 +30,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="4" Y="2"/>
+        <CursorPos X="6" Y="2"/>
         <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -42,6 +42,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="2"/>
+        <CursorPos Y="2"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -112,7 +113,7 @@
         <UsageCount Value="10"/>
       </Unit12>
     </Units>
-    <JumpHistory Count="11" HistoryIndex="10">
+    <JumpHistory Count="15" HistoryIndex="14">
       <Position1>
         <Filename Value="trurl_a.lpr"/>
         <Caret Line="31" Column="34" TopLine="13"/>
@@ -157,6 +158,21 @@
         <Filename Value="gui.pas"/>
         <Caret Line="182" Column="43" TopLine="166"/>
       </Position11>
+      <Position12>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="129" TopLine="103"/>
+      </Position12>
+      <Position13>
+        <Filename Value="rpnengine.pas"/>
+      </Position13>
+      <Position14>
+        <Filename Value="gui.pas"/>
+        <Caret Line="3" Column="34"/>
+      </Position14>
+      <Position15>
+        <Filename Value="gui.pas"/>
+        <Caret Line="260" Column="16" TopLine="246"/>
+      </Position15>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

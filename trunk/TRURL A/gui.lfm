@@ -296,7 +296,7 @@ object MainForm: TMainForm
     OnKeyDown = FormKeyDown
     TabOrder = 27
   end
-  object Panel1: TPanel
+  object DisplayBackgroundPanel: TPanel
     Left = 8
     Height = 114
     Top = 8
