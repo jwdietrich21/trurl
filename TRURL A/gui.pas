@@ -36,12 +36,12 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
-    ACosButton: TButton;
     ActionList1: TActionList;
     EditCopy1: TEditCopy;
     EditCut1: TEditCut;
     EditPaste1: TEditPaste;
     EditUndo1: TEditUndo;
+    DisplayBackgroundPanel: TPanel;
     XRegisterDisplay: TLabel;
     YRegisterDisplay: TLabel;
     ZRegisterDisplay: TLabel;
@@ -49,7 +49,6 @@ type
     MainMenu1: TMainMenu;
     FileMenu: TMenuItem;
     HelpMenu: TMenuItem;
-    Panel1: TPanel;
     WinAboutItem: TMenuItem;
     AppleMenu: TMenuItem;
     MacAboutItem: TMenuItem;
@@ -62,32 +61,33 @@ type
     PasteItem: TMenuItem;
     Dividier_2_0: TMenuItem;
     Nr0Button: TButton;
-    Nr2Button: TButton;
-    ASinButton: TButton;
     Nr1Button: TButton;
-    DotButton: TButton;
+    Nr2Button: TButton;
     Nr3Button: TButton;
-    CButton: TButton;
-    Nr5Button: TButton;
-    EnterButton: TButton;
-    TimesButton: TButton;
-    Nr9Button: TButton;
-    Nr8Button: TButton;
-    MinusButton: TButton;
-    Nr7Button: TButton;
     Nr4Button: TButton;
+    Nr5Button: TButton;
+    Nr6Button: TButton;
+    Nr7Button: TButton;
+    Nr8Button: TButton;
+    Nr9Button: TButton;
+    DotButton: TButton;
+    RDButton: TButton;
     PlusButton: TButton;
-    TanButton: TButton;
-    CosButton: TButton;
+    MinusButton: TButton;
+    TimesButton: TButton;
+    DivButton: TButton;
+    CButton: TButton;
+    EnterButton: TButton;
     PwrButton: TButton;
     InvButton: TButton;
     PlusMinusButton: TButton;
     SqrtButton: TButton;
-    RDButton: TButton;
     SinButton: TButton;
+    ASinButton: TButton;
+    CosButton: TButton;
+    ACosButton: TButton;
+    TanButton: TButton;
     ATanButton: TButton;
-    Nr6Button: TButton;
-    DivButton: TButton;
     procedure AdaptMenus;
     procedure ACosButtonClick(Sender: TObject);
     procedure ASinButtonClick(Sender: TObject);
@@ -178,7 +178,6 @@ begin
     VK_7, VK_NUMPAD7: Nr7ButtonClick(Sender);
     VK_8, VK_NUMPAD8: Nr8ButtonClick(Sender);
     VK_9, VK_NUMPAD9: Nr9ButtonClick(Sender);
-    //VK_EXECUTE, VK_RETURN: EnterButtonClick(Sender);
     VK_DECIMAL, VK_LCL_POINT, VK_OEM_COMMA: DotButtonClick(Sender);
     VK_ADD, VK_OEM_PLUS: PlusButtonClick(Sender);
     VK_SUBTRACT, VK_LCL_MINUS: MinusButtonClick(Sender);
@@ -259,11 +258,7 @@ var
     AppleMenu.Visible := False;
     {$ENDIF}
     {$ENDIF}
-    {NewMenuItem.ShortCut := ShortCut(VK_N, modifierKey);
-    OpenMenuItem.ShortCut := ShortCut(VK_O, modifierKey);
-    CloseMenuItem.ShortCut := ShortCut(VK_W, modifierKey);
-    SaveMenuItem.ShortCut := ShortCut(VK_S, modifierKey);
-    QuitMenuItem.ShortCut := ShortCut(VK_Q, modifierKey); }
+    QuitItem.ShortCut := ShortCut(VK_Q, modifierKey);
     UndoItem.ShortCut := ShortCut(VK_Z, modifierKey);
     RedoItem.ShortCut := ShortCut(VK_Z, modifierKey + [ssShift]);
     CutItem.ShortCut := ShortCut(VK_X, modifierKey);
@@ -293,14 +288,14 @@ begin
   EntryMode := PostOper;
 end;
 
-procedure TMainForm.Nr1ButtonClick(Sender: TObject);
-begin
-  AppendChar('1');
-end;
-
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin
   AppendChar('0');
+end;
+
+procedure TMainForm.Nr1ButtonClick(Sender: TObject);
+begin
+  AppendChar('1');
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);

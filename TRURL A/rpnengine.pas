@@ -36,7 +36,7 @@ TStack = class
 public
   constructor create;
   destructor destroy; override;
-  procedure PostBinCalc;
+  procedure DownToY;
   procedure RollDown;
   procedure RollUp;
 public
@@ -62,7 +62,7 @@ public
   procedure Tangens;
   procedure ArcSinus;
   procedure ArcCosinus;
-    procedure ArcTangens;
+  procedure ArcTangens;
   procedure sqroot;
 end;
 
@@ -84,7 +84,7 @@ begin
   inherited destroy;
 end;
 
-procedure TStack.PostBinCalc;
+procedure TStack.DownToY;
 { Partial roll down after executing a binary operator }
 begin
   y := z;
@@ -104,7 +104,7 @@ begin
 end;
 
 procedure TStack.RollUp;
-{ Roll up after enter and on entry after calculation }
+{ Roll up after enter and on entry after calculation }
 begin
   t := z;
   z := y;
@@ -126,19 +126,19 @@ end;
 procedure TEngine.Add;
 begin
   Stack.x := Stack.y + Stack.x;
-  Stack.PostBinCalc;
+  Stack.DownToY;
 end;
 
 procedure TEngine.Sub;
 begin
   Stack.x := Stack.y - Stack.x;
-  Stack.PostBinCalc;
+  Stack.DownToY;
 end;
 
 procedure TEngine.Times;
 begin
   Stack.x := Stack.y * Stack.x;
-  Stack.PostBinCalc;
+  Stack.DownToY;
 end;
 
 procedure TEngine.Divide;
@@ -147,7 +147,7 @@ begin
     Stack.x := Math.Infinity
   else
     Stack.x := Stack.y / Stack.x;
-  Stack.PostBinCalc;
+  Stack.DownToY;
 end;
 
 procedure TEngine.CHS;
