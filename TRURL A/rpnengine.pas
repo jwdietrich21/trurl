@@ -15,7 +15,7 @@ unit RPNEngine;
 { See the file "license.txt", included in this distribution, }
 { for details about the copyright. }
 { Current versions and additional information are available from }
-{ http://puma-repository.sf.net }
+{ http://trurl.sf.net }
 
 { This program is distributed in the hope that it will be useful, }
 { but WITHOUT ANY WARRANTY; without even the implied warranty of }
@@ -32,8 +32,8 @@ type
 
 { TOperator }
 
-TBinOperator = (Plus, Minus, Mult, DivOp, Power);
-TUniOperator = (PlusMinus, Invert, SinOp, CosOp, TanOp, ASinOp, ACosOp, ATanOp, sqrtOp);
+TBinOperator = (PlusOp, MinusOp, MultOp, DivOp, PowerOp);
+TUniOperator = (PlusMinusOp, InvertOp, SinOp, CosOp, TanOp, ASinOp, ACosOp, ATanOp, sqrtOp);
 
 { TStack }
 
@@ -143,7 +143,7 @@ end;
 
 procedure TEngine.Add;
 begin
-  Stack.Push(rpn(Stack.Pop, Stack.Pop, Plus));
+  Stack.Push(rpn(Stack.Pop, Stack.Pop, PlusOp));
 end;
 
 procedure TEngine.Sub;
@@ -152,12 +152,12 @@ var
 begin
   operand1 := Stack.Pop;
   operand2 := Stack.Pop;
-  Stack.Push(rpn(operand2, operand1, Minus));
+  Stack.Push(rpn(operand2, operand1, MinusOp));
 end;
 
 procedure TEngine.Times;
 begin
-  Stack.Push(rpn(Stack.Pop, Stack.Pop, Mult));
+  Stack.Push(rpn(Stack.Pop, Stack.Pop, MultOp));
 end;
 
 procedure TEngine.Divide;
@@ -171,12 +171,12 @@ end;
 
 procedure TEngine.CHS;
 begin
-  Stack.Push(rpn(Stack.Pop, PlusMinus));
+  Stack.Push(rpn(Stack.Pop, PlusMinusOp));
 end;
 
 procedure TEngine.Inv;
 begin
-  Stack.Push(rpn(Stack.Pop, Invert));
+  Stack.Push(rpn(Stack.Pop, InvertOp));
 end;
 
 procedure TEngine.PWR;
@@ -185,7 +185,7 @@ var
 begin
   operand1 := Stack.Pop;
   operand2 := Stack.Pop;
-  Stack.Push(rpn(operand2, operand1, Power));
+  Stack.Push(rpn(operand2, operand1, PowerOp));
 end;
 
 procedure TEngine.Sinus;
@@ -226,9 +226,9 @@ end;
 function TEngine.rpn(operand: extended; uniOp: TUniOperator): extended;
 begin
   case UniOp of
-  PlusMinus:
+  PlusMinusOp:
     result := -operand;
-  Invert:
+  InvertOp:
     if operand = 0 then
       result := Math.Infinity
     else
@@ -254,11 +254,11 @@ function TEngine.rpn(operand1, operand2: extended; binOp: TBinOperator
   ): extended;
 begin
   case binOp of
-  Plus:
+  PlusOp:
     result := operand1 + operand2;
-  Minus:
+  MinusOp:
     result := operand1 - operand2;
-  Mult:
+  MultOp:
     result := operand1 * operand2;
   DivOp:
     begin
@@ -267,7 +267,7 @@ begin
       else
         result := operand1 / operand2;
     end;
-  Power:
+  PowerOp:
     result := exp(ln(operand1) * operand2);
   end;
 end;
