@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="10"/>
+    <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="13">
+    <Units Count="15">
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -19,8 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="10" Y="2"/>
         <UsageCount Value="33"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -29,20 +30,17 @@
         <Filename Value="rpnengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="11" Y="2"/>
+        <CursorPos Y="2"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
-          <IsVisibleTab Value="True"/>
           <EditorIndex Value="-1"/>
-          <WindowIndex Value="1"/>
+          <WindowIndex Value="-1"/>
           <TopLine Value="219"/>
           <CursorPos X="28" Y="244"/>
         </ExtraEditor1>
         <ExtraEditor2>
-          <IsVisibleTab Value="True"/>
           <EditorIndex Value="-1"/>
-          <WindowIndex Value="2"/>
+          <WindowIndex Value="-1"/>
           <TopLine Value="34"/>
           <CursorPos X="29" Y="244"/>
         </ExtraEditor2>
@@ -57,7 +55,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="2"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="11" Y="2"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -127,129 +125,136 @@
         <CursorPos X="16" Y="566"/>
         <UsageCount Value="10"/>
       </Unit12>
+      <Unit13>
+        <Filename Value="/Developer/lazarus/lcl/forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="687"/>
+        <CursorPos X="35" Y="703"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="/Developer/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="14" Y="19"/>
+        <UsageCount Value="10"/>
+      </Unit14>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="27" HistoryIndex="26">
       <Position1>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="39" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="72" Column="48" TopLine="53"/>
       </Position1>
       <Position2>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="40" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="246" Column="43" TopLine="214"/>
       </Position2>
       <Position3>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="41" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="236" Column="7" TopLine="214"/>
       </Position3>
       <Position4>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="42" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="245" Column="8" TopLine="214"/>
       </Position4>
       <Position5>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="43" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="74" Column="66" TopLine="40"/>
       </Position5>
       <Position6>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="45" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="233" Column="3" TopLine="227"/>
       </Position6>
       <Position7>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="48" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="244" Column="32" TopLine="222"/>
       </Position7>
       <Position8>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="47" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="165" TopLine="146"/>
       </Position8>
       <Position9>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="46" Column="20" TopLine="21"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="164" Column="41" TopLine="145"/>
       </Position9>
       <Position10>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="32" Column="49"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="213" Column="31" TopLine="184"/>
       </Position10>
       <Position11>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="42" Column="16" TopLine="27"/>
+        <Caret Line="212" Column="48" TopLine="184"/>
       </Position11>
       <Position12>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="44" Column="37" TopLine="32"/>
+        <Caret Line="52" Column="24" TopLine="33"/>
       </Position12>
       <Position13>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="186" Column="28" TopLine="161"/>
+        <Caret Line="56" Column="29" TopLine="36"/>
       </Position13>
       <Position14>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="230" Column="29" TopLine="197"/>
+        <Caret Line="50" Column="7" TopLine="32"/>
       </Position14>
       <Position15>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="48" Column="97" TopLine="31"/>
+        <Caret Line="109" Column="4" TopLine="88"/>
       </Position15>
       <Position16>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="72" Column="48" TopLine="53"/>
+        <Caret Line="35" Column="38" TopLine="17"/>
       </Position16>
       <Position17>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="246" Column="43" TopLine="214"/>
+        <Caret Line="36" Column="36" TopLine="17"/>
       </Position17>
       <Position18>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="236" Column="7" TopLine="214"/>
+        <Caret Line="39" Column="59" TopLine="17"/>
       </Position18>
       <Position19>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="245" Column="8" TopLine="214"/>
+        <Caret Line="270" Column="10" TopLine="244"/>
       </Position19>
       <Position20>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="74" Column="66" TopLine="40"/>
+        <Caret Line="188" Column="45" TopLine="172"/>
       </Position20>
       <Position21>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="233" Column="3" TopLine="227"/>
+        <Caret Line="231" Column="11" TopLine="215"/>
       </Position21>
       <Position22>
         <Filename Value="rpnengine.pas"/>
-        <Caret Line="244" Column="32" TopLine="222"/>
+        <Caret Line="236" Column="34" TopLine="215"/>
       </Position22>
       <Position23>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="165" TopLine="146"/>
+        <Filename Value="trurl_a.lpr"/>
+        <Caret Line="38" Column="36" TopLine="14"/>
       </Position23>
       <Position24>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="164" Column="41" TopLine="145"/>
+        <Filename Value="aboutbox.pas"/>
+        <Caret Line="2" Column="11"/>
       </Position24>
       <Position25>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="213" Column="31" TopLine="184"/>
+        <Filename Value="trurl_a.lpr"/>
+        <Caret Line="44" Column="51" TopLine="14"/>
       </Position25>
       <Position26>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="212" Column="48" TopLine="184"/>
+        <Filename Value="trurl_a.lpr"/>
+        <Caret Line="37" Column="49" TopLine="14"/>
       </Position26>
       <Position27>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="52" Column="24" TopLine="33"/>
+        <Filename Value="trurl_a.lpr"/>
+        <Caret Line="33" Column="29" TopLine="14"/>
       </Position27>
-      <Position28>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="56" Column="29" TopLine="36"/>
-      </Position28>
-      <Position29>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="50" Column="7" TopLine="32"/>
-      </Position29>
-      <Position30>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="109" Column="4" TopLine="88"/>
-      </Position30>
     </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode="default"/>
+    </RunParams>
   </ProjectSession>
   <Debugging>
     <Watches Count="3">
