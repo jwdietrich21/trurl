@@ -30,17 +30,28 @@ uses
 
 type
 
-{ TRegisters }
+{ TOperator }
+
+TBinOperator = (Plus, Minus, Mult, DivOp, Power);
+TUniOperator = (PlusMinus, Invert, SinOp, CosOp, TanOp, ASinOp, ACosOp, ATanOp, sqrtOp);
+
+{ TStack }
 
 TStack = class
+private
+  fx, fy, fz, ft: extended;
 public
   constructor create;
   destructor destroy; override;
-  procedure DownToY;
   procedure RollDown;
   procedure RollUp;
+  procedure Push(operand: extended);
+  function Pop: extended;
 public
-  x, y, z, t: extended;
+  property x: extended read fx write fx;
+  property y: extended read fy;
+  property z: extended read fz;
+  property t: extended read ft;
 end;
 
 { TEngine }
@@ -64,6 +75,8 @@ public
   procedure ArcCosinus;
   procedure ArcTangens;
   procedure sqroot;
+  function rpn(operand1, operand2: extended; binOp: TBinOperator): extended;
+  function rpn(operand: extended; uniOp: TUniOperator): extended;
 end;
 
 implementation
@@ -74,21 +87,14 @@ constructor TStack.create;
 begin
   inherited create;
   x := 0;
-  y := 0;
-  z := 0;
-  t := 0;
+  fy := 0;
+  fz := 0;
+  ft := 0;
 end;
 
 destructor TStack.destroy;
 begin
   inherited destroy;
-end;
-
-procedure TStack.DownToY;
-{ Partial roll down after executing a binary operator }
-begin
-  y := z;
-  z := t;
 end;
 
 procedure TStack.RollDown;
@@ -98,17 +104,29 @@ var
 begin
   temp := x;
   x := y;
-  y := z;
-  z := t;
-  t := temp;
+  fy := z;
+  fz := t;
+  ft := temp;
 end;
 
 procedure TStack.RollUp;
 { Roll up after enter and on entry after calculation }
 begin
-  t := z;
-  z := y;
-  y := x;
+  ft := z;
+  fz := y;
+  fy := x;
+end;
+
+procedure TStack.Push(operand: extended);
+begin
+  RollUp;
+  x := operand;
+end;
+
+function TStack.Pop: extended;
+begin
+  result := x;
+  RollDown;
 end;
 
 constructor TEngine.create;
@@ -125,82 +143,133 @@ end;
 
 procedure TEngine.Add;
 begin
-  Stack.x := Stack.y + Stack.x;
-  Stack.DownToY;
+  Stack.Push(rpn(Stack.Pop, Stack.Pop, Plus));
 end;
 
 procedure TEngine.Sub;
+var
+  operand1, operand2: extended;
 begin
-  Stack.x := Stack.y - Stack.x;
-  Stack.DownToY;
+  operand1 := Stack.Pop;
+  operand2 := Stack.Pop;
+  Stack.Push(rpn(operand2, operand1, Minus));
 end;
 
 procedure TEngine.Times;
 begin
-  Stack.x := Stack.y * Stack.x;
-  Stack.DownToY;
+  Stack.Push(rpn(Stack.Pop, Stack.Pop, Mult));
 end;
 
 procedure TEngine.Divide;
+var
+  operand1, operand2: extended;
 begin
-  if Stack.x = 0 then
-    Stack.x := Math.Infinity
-  else
-    Stack.x := Stack.y / Stack.x;
-  Stack.DownToY;
+  operand1 := Stack.Pop;
+  operand2 := Stack.Pop;
+  Stack.Push(rpn(operand2, operand1, DivOp));
 end;
 
 procedure TEngine.CHS;
 begin
-  Stack.x := -Stack.x;
+  Stack.Push(rpn(Stack.Pop, PlusMinus));
 end;
 
 procedure TEngine.Inv;
 begin
-  if Stack.x = 0 then
-    Stack.x := Math.Infinity
-  else
-    Stack.x := 1 / Stack.x;
+  Stack.Push(rpn(Stack.Pop, Invert));
 end;
 
 procedure TEngine.PWR;
+var
+  operand1, operand2: extended;
 begin
-  Stack.x := exp(ln(Stack.y) * Stack.x);
+  operand1 := Stack.Pop;
+  operand2 := Stack.Pop;
+  Stack.Push(rpn(operand2, operand1, Power));
 end;
 
 procedure TEngine.Sinus;
 begin
-  Stack.x := sin(stack.x);
+  Stack.Push(rpn(stack.Pop, SinOp));
 end;
 
 procedure TEngine.Cosinus;
 begin
-  Stack.x := cos(stack.x);
+  Stack.Push(rpn(stack.Pop, CosOp));
 end;
 
 procedure TEngine.Tangens;
 begin
-  Stack.x := tan(stack.x);
+  Stack.Push(rpn(stack.Pop, TanOp));
 end;
 
 procedure TEngine.ArcSinus;
 begin
-  Stack.x := arcsin(stack.x);
+  Stack.Push(rpn(stack.Pop, ASinOp));
 end;
 
 procedure TEngine.ArcCosinus;
 begin
-  Stack.x := arccos(stack.x);
+  Stack.Push(rpn(stack.Pop, ACosOp));
 end;
 
 procedure TEngine.ArcTangens;
 begin
-  Stack.x := arctan(stack.x);
+  Stack.Push(rpn(stack.Pop, ATanOp));
 end;
 
 procedure TEngine.sqroot;
 begin
-  Stack.x := sqrt(stack.x);
+  Stack.Push(rpn(stack.Pop, sqrtOp));
+end;
+
+function TEngine.rpn(operand: extended; uniOp: TUniOperator): extended;
+begin
+  case UniOp of
+  PlusMinus:
+    result := -operand;
+  Invert:
+    if operand = 0 then
+      result := Math.Infinity
+    else
+      result := 1 / operand;
+  SinOp:
+    result := sin(operand);
+  CosOp:
+    result := cos(operand);
+  TanOp:
+    result := tan(operand);
+  ASinOp:
+    result := arcsin(operand);
+  ACosOp:
+    result := arccos(operand);
+  ATanOp:
+    result := arctan(operand);
+  sqrtOp:
+    result := sqrt(operand);
+  end;
+end;
+
+function TEngine.rpn(operand1, operand2: extended; binOp: TBinOperator
+  ): extended;
+begin
+  case binOp of
+  Plus:
+    result := operand1 + operand2;
+  Minus:
+    result := operand1 - operand2;
+  Mult:
+    result := operand1 * operand2;
+  DivOp:
+    begin
+      if operand2 = 0 then
+        result := math.Infinity
+      else
+        result := operand1 / operand2;
+    end;
+  Power:
+    result := exp(ln(operand1) * operand2);
+  end;
 end;
 
 end.

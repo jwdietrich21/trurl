@@ -7,14 +7,14 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl A'
-  ClientHeight = 402
+  ClientHeight = 382
   ClientWidth = 338
   Color = clSilver
   Menu = MainMenu1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
-  LCLVersion = '2.0.0.3'
+  LCLVersion = '1.8.4.0'
   object RDButton: TButton
     Left = 8
     Height = 25

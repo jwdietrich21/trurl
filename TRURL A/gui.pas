@@ -414,6 +414,7 @@ begin
     PostOper:
     begin
       Engine.Stack.RollUp;
+      DisplayRegisters;
       if ch = '.' then
         XRegisterDisplay.Caption := XRegisterDisplay.Caption + ch
       else
