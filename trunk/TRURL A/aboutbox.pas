@@ -35,16 +35,7 @@ type
   TTrurlAboutBox = class(TForm)
     AboutLabel1: TLabel;
     AboutLabel2: TLabel;
-    Shape1: TShape;
-    Shape10: TShape;
-    Shape2: TShape;
-    Shape3: TShape;
-    Shape4: TShape;
-    Shape5: TShape;
-    Shape6: TShape;
-    Shape7: TShape;
-    Shape8: TShape;
-    Shape9: TShape;
+    Image1: TImage;
   private
 
   public
