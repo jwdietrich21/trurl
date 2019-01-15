@@ -1,0 +1,34 @@
+object TestAppMainForm: TTestAppMainForm
+  Left = 460
+  Height = 240
+  Top = 387
+  Width = 444
+  Caption = 'Test App for Segmitator'
+  ClientHeight = 240
+  ClientWidth = 444
+  LCLVersion = '2.0.0.3'
+  object TestFloatSpinEdit: TFloatSpinEdit
+    Left = 16
+    Height = 16
+    Top = 32
+    Width = 414
+    Anchors = [akTop, akLeft, akRight]
+    Increment = 0.1
+    MaxValue = 1000000000
+    MinValue = 0
+    OnChange = TestFloatSpinEditChange
+    TabOrder = 0
+    Value = 0
+  end
+  object TestASCIIMemo: TMemo
+    Left = 16
+    Height = 90
+    Top = 80
+    Width = 412
+    Anchors = [akTop, akLeft, akRight]
+    Font.Pitch = fpFixed
+    ParentFont = False
+    ScrollBars = ssAutoVertical
+    TabOrder = 1
+  end
+end
