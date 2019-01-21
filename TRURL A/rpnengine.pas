@@ -44,6 +44,7 @@ public
   constructor create;
   destructor destroy; override;
   procedure RollDown;
+  procedure DropDown;
   procedure RollUp;
   procedure Push(operand: extended);
   function Pop: extended;
@@ -81,7 +82,7 @@ end;
 
 implementation
 
-{ TRegisters }
+{ TStack }
 
 constructor TStack.create;
 begin
@@ -109,6 +110,15 @@ begin
   ft := temp;
 end;
 
+procedure TStack.DropDown;
+{ Drops register contents without recycling }
+begin
+  x := y;
+  fy := z;
+  fz := t;
+  ft := 0;
+end;
+
 procedure TStack.RollUp;
 { Roll up after enter and on entry after calculation }
 begin
@@ -126,7 +136,7 @@ end;
 function TStack.Pop: extended;
 begin
   result := x;
-  RollDown;
+  DropDown;
 end;
 
 constructor TEngine.create;

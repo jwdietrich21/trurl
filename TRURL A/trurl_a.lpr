@@ -34,7 +34,7 @@ uses
 
 begin
   RequireDerivedFormResource:=True;
-  Application.Title := 'Trurl A';
+  Application.Title:='Trurl A';
   Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
