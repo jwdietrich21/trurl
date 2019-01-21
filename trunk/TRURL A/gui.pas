@@ -415,18 +415,12 @@ begin
     begin
       Engine.Stack.RollUp;
       DisplayRegisters;
-      if ch = '.' then
-        XRegisterDisplay.Caption := XRegisterDisplay.Caption + ch
-      else
-        XRegisterDisplay.Caption := ch;
+      XRegisterDisplay.Caption := ch;
       EntryMode := Number;
     end;
     PostEnter:
     begin
-      if ch = '.' then
-        XRegisterDisplay.Caption := XRegisterDisplay.Caption + ch
-      else
-        XRegisterDisplay.Caption := ch;
+      XRegisterDisplay.Caption := ch;
       EntryMode := Number;
     end;
     Number:
@@ -439,6 +433,7 @@ begin
           XRegisterDisplay.Caption := ch;
       end
       else
+      if (ch <> '.') or (pos('.', XRegisterDisplay.Caption) = 0) then
         XRegisterDisplay.Caption := XRegisterDisplay.Caption + ch;
     end;
   end;
