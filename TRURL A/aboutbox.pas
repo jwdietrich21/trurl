@@ -8,7 +8,7 @@ unit AboutBox;
 
 { Version 1.0 (Leopolis) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2018 }
+{ (c) Johannes W. Dietrich, 2003 - 2019 }
 
 { Source code released under the BSD License }
 

@@ -7,14 +7,14 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl A'
-  ClientHeight = 382
+  ClientHeight = 402
   ClientWidth = 338
   Color = clSilver
   Menu = MainMenu1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.0.3'
   object RDButton: TButton
     Left = 8
     Height = 25
@@ -405,6 +405,7 @@ object MainForm: TMainForm
       end
       object RedoItem: TMenuItem
         Caption = 'Redo'
+        Enabled = False
       end
       object Dividier_2_0: TMenuItem
         Caption = '-'
@@ -446,6 +447,7 @@ object MainForm: TMainForm
       Category = 'Edit'
       Caption = '&Kopieren'
       Hint = 'Kopieren'
+      OnExecute = EditCopy1Execute
       ShortCut = 16451
     end
     object EditPaste1: TEditPaste

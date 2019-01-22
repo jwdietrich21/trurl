@@ -8,7 +8,7 @@ unit GUI;
 
 { Version 1.0 (Leopolis) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2018 }
+{ (c) Johannes W. Dietrich, 2003 - 2019 }
 
 { Source code released under the BSD License }
 
@@ -27,7 +27,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  LCLType, Menus, ActnList, StdActns, ExtCtrls, RPNEngine, aboutbox;
+  LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd,
+  RPNEngine, aboutbox;
 
 type
 
@@ -96,6 +97,7 @@ type
     procedure CosButtonClick(Sender: TObject);
     procedure DivButtonClick(Sender: TObject);
     procedure DotButtonClick(Sender: TObject);
+    procedure EditCopy1Execute(Sender: TObject);
     procedure EnterButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -141,18 +143,6 @@ implementation
 
 { TMainForm }
 
-procedure TMainForm.DotButtonClick(Sender: TObject);
-begin
-  AppendChar('.');
-end;
-
-procedure TMainForm.EnterButtonClick(Sender: TObject);
-begin
-  Engine.Stack.RollUp;
-  EntryMode := PostEnter;
-  DisplayRegisters;
-end;
-
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   AdaptMenus;
@@ -165,39 +155,9 @@ begin
   Engine.Destroy;
 end;
 
-procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
-begin
-  case key of
-    VK_0, VK_NUMPAD0: Nr0ButtonClick(Sender);
-    VK_1, VK_NUMPAD1: Nr1ButtonClick(Sender);
-    VK_2, VK_NUMPAD2: Nr2ButtonClick(Sender);
-    VK_3, VK_NUMPAD3: Nr3ButtonClick(Sender);
-    VK_4, VK_NUMPAD4: Nr4ButtonClick(Sender);
-    VK_5, VK_NUMPAD5: Nr5ButtonClick(Sender);
-    VK_6, VK_NUMPAD6: Nr6ButtonClick(Sender);
-    VK_7, VK_NUMPAD7: Nr7ButtonClick(Sender);
-    VK_8, VK_NUMPAD8: Nr8ButtonClick(Sender);
-    VK_9, VK_NUMPAD9: Nr9ButtonClick(Sender);
-    VK_DECIMAL, VK_LCL_POINT, VK_OEM_COMMA: DotButtonClick(Sender);
-    VK_ADD, VK_OEM_PLUS: PlusButtonClick(Sender);
-    VK_SUBTRACT, VK_LCL_MINUS: MinusButtonClick(Sender);
-    VK_DIVIDE: DivButtonClick(Sender);
-    VK_MULTIPLY: TimesButtonClick(Sender);
-    VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
-    VK_DOWN: RDButtonClick(Sender);
-  end;
-end;
-
-procedure TMainForm.InvButtonClick(Sender: TObject);
-begin
-  Engine.Inv;
-  DisplayRegisters;
-end;
-
 procedure TMainForm.MacAboutItemClick(Sender: TObject);
 begin
-  TrurlAboutBox.Visible := true;
-  TrurlAboutBox.BringToFront;
+  TrurlAboutBox.ShowModal;
 end;
 
 procedure TMainForm.WinAboutItemClick(Sender: TObject);
@@ -208,33 +168,6 @@ end;
 procedure TMainForm.QuitItemClick(Sender: TObject);
 begin
   application.Terminate;
-end;
-
-procedure TMainForm.MinusButtonClick(Sender: TObject);
-begin
-  Engine.Sub;
-  DisplayRegisters;
-  EntryMode := PostOper;
-end;
-
-procedure TMainForm.CButtonClick(Sender: TObject);
-begin
-  Engine.Stack.x := 0;
-  DisplayRegisters;
-end;
-
-procedure TMainForm.ASinButtonClick(Sender: TObject);
-begin
-  Engine.ArcSinus;
-  DisplayRegisters;
-  EntryMode := PostOper;
-end;
-
-procedure TMainForm.ATanButtonClick(Sender: TObject);
-begin
-  Engine.ArcTangens;
-  DisplayRegisters;
-  EntryMode := PostOper;
 end;
 
 procedure TMainForm.AdaptMenus;
@@ -266,6 +199,79 @@ var
     PasteItem.ShortCut := ShortCut(VK_V, modifierKey);
   end;
 
+procedure TMainForm.EditCopy1Execute(Sender: TObject);
+begin
+  Clipboard.AsText := XRegisterDisplay.Caption;
+end;
+
+procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  case key of
+    VK_0, VK_NUMPAD0: Nr0ButtonClick(Sender);
+    VK_1, VK_NUMPAD1: Nr1ButtonClick(Sender);
+    VK_2, VK_NUMPAD2: Nr2ButtonClick(Sender);
+    VK_3, VK_NUMPAD3: Nr3ButtonClick(Sender);
+    VK_4, VK_NUMPAD4: Nr4ButtonClick(Sender);
+    VK_5, VK_NUMPAD5: Nr5ButtonClick(Sender);
+    VK_6, VK_NUMPAD6: Nr6ButtonClick(Sender);
+    VK_7, VK_NUMPAD7: Nr7ButtonClick(Sender);
+    VK_8, VK_NUMPAD8: Nr8ButtonClick(Sender);
+    VK_9, VK_NUMPAD9: Nr9ButtonClick(Sender);
+    VK_DECIMAL, VK_LCL_POINT, VK_OEM_COMMA: DotButtonClick(Sender);
+    VK_ADD, VK_OEM_PLUS: PlusButtonClick(Sender);
+    VK_SUBTRACT, VK_LCL_MINUS: MinusButtonClick(Sender);
+    VK_DIVIDE: DivButtonClick(Sender);
+    VK_MULTIPLY: TimesButtonClick(Sender);
+    VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
+    VK_DOWN: RDButtonClick(Sender);
+  end;
+end;
+
+procedure TMainForm.DotButtonClick(Sender: TObject);
+begin
+  AppendChar('.');
+end;
+
+procedure TMainForm.EnterButtonClick(Sender: TObject);
+begin
+  Engine.Stack.RollUp;
+  EntryMode := PostEnter;
+  DisplayRegisters;
+end;
+
+procedure TMainForm.InvButtonClick(Sender: TObject);
+begin
+  Engine.Inv;
+  DisplayRegisters;
+end;
+
+procedure TMainForm.MinusButtonClick(Sender: TObject);
+begin
+  Engine.Sub;
+  DisplayRegisters;
+  EntryMode := PostOper;
+end;
+
+procedure TMainForm.CButtonClick(Sender: TObject);
+begin
+  Engine.Stack.x := 0;
+  EntryMode := PostEnter;
+  DisplayRegisters;
+end;
+
+procedure TMainForm.ASinButtonClick(Sender: TObject);
+begin
+  Engine.ArcSinus;
+  DisplayRegisters;
+  EntryMode := PostOper;
+end;
+
+procedure TMainForm.ATanButtonClick(Sender: TObject);
+begin
+  Engine.ArcTangens;
+  DisplayRegisters;
+  EntryMode := PostOper;
+end;
 
 procedure TMainForm.ACosButtonClick(Sender: TObject);
 begin
