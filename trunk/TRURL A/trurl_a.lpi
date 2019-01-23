@@ -20,7 +20,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="32"/>
+      <BuildNr Value="35"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Trurl A, a simple experimental RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl A, a simple experimental RPN calculator" InternalName="Leopolis" LegalCopyright="2003-2019 J. W. Dietrich" ProductName="Trurl A" ProductVersion="1.0.0"/>
     </VersionInfo>
@@ -45,7 +45,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -71,6 +71,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="rpnwidgets.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNWidgets"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

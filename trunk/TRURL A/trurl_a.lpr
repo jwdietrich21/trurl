@@ -28,7 +28,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Controls, GUI, RPNEngine, aboutbox;
+  Forms, Controls, GUI, RPNEngine, aboutbox, RPNWidgets;
 
 {$R *.res}
 

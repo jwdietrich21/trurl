@@ -3,13 +3,13 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="16">
+    <Units Count="20">
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
-        <CursorPos X="65" Y="22"/>
-        <UsageCount Value="37"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="17" Y="3"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,9 +20,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="9" Y="2"/>
-        <UsageCount Value="37"/>
+        <EditorIndex Value="2"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -30,7 +30,8 @@
         <Filename Value="rpnengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
-        <CursorPos X="11" Y="2"/>
+        <TopLine Value="119"/>
+        <CursorPos Y="128"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -44,7 +45,7 @@
           <TopLine Value="34"/>
           <CursorPos X="29" Y="244"/>
         </ExtraEditor2>
-        <UsageCount Value="37"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -54,218 +55,253 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
-        <EditorIndex Value="2"/>
-        <CursorPos X="14" Y="2"/>
-        <UsageCount Value="27"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="27" Y="2"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
       <Unit4>
+        <Filename Value="rpnwidgets.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNWidgets"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
         <Filename Value="C:/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2848"/>
         <CursorPos Y="2866"/>
         <UsageCount Value="10"/>
-      </Unit4>
-      <Unit5>
+      </Unit5>
+      <Unit6>
         <Filename Value="C:/lazarus/lcl/include/buttoncontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="56"/>
         <CursorPos Y="22"/>
         <UsageCount Value="10"/>
-      </Unit5>
-      <Unit6>
+      </Unit6>
+      <Unit7>
         <Filename Value="C:/lazarus/lcl/include/buttons.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="151"/>
         <CursorPos Y="170"/>
         <UsageCount Value="10"/>
-      </Unit6>
-      <Unit7>
+      </Unit7>
+      <Unit8>
         <Filename Value="C:/lazarus/lcl/interfaces/win32/win32memostrings.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos Y="68"/>
         <UsageCount Value="10"/>
-      </Unit7>
-      <Unit8>
+      </Unit8>
+      <Unit9>
         <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5740"/>
         <CursorPos Y="5758"/>
         <UsageCount Value="10"/>
-      </Unit8>
-      <Unit9>
+      </Unit9>
+      <Unit10>
         <Filename Value="C:/lazarus/lcl/lcltype.pp"/>
         <UnitName Value="LCLType"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="456"/>
         <CursorPos X="14" Y="491"/>
         <UsageCount Value="10"/>
-      </Unit9>
-      <Unit10>
+      </Unit10>
+      <Unit11>
         <Filename Value="/Developer/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="7195"/>
         <CursorPos Y="7212"/>
         <UsageCount Value="10"/>
-      </Unit10>
-      <Unit11>
+      </Unit11>
+      <Unit12>
         <Filename Value="/Developer/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1970"/>
         <CursorPos Y="1986"/>
         <UsageCount Value="10"/>
-      </Unit11>
-      <Unit12>
+      </Unit12>
+      <Unit13>
         <Filename Value="/Developer/lazarus/lcl/lcltype.pp"/>
         <UnitName Value="LCLType"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2705"/>
         <CursorPos X="82" Y="2711"/>
         <UsageCount Value="10"/>
-      </Unit12>
-      <Unit13>
+      </Unit13>
+      <Unit14>
         <Filename Value="/Developer/lazarus/lcl/forms.pp"/>
         <UnitName Value="Forms"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="687"/>
-        <CursorPos X="35" Y="703"/>
-        <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="/Developer/lazarus/lcl/controls.pp"/>
-        <UnitName Value="Controls"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="14" Y="19"/>
+        <TopLine Value="139"/>
+        <CursorPos X="3" Y="155"/>
         <UsageCount Value="10"/>
       </Unit14>
       <Unit15>
+        <Filename Value="/Developer/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2331"/>
+        <CursorPos X="3" Y="2349"/>
+        <UsageCount Value="10"/>
+      </Unit15>
+      <Unit16>
         <Filename Value="/Developer/lazarus/lcl/clipbrd.pp"/>
         <UnitName Value="Clipbrd"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="342"/>
         <CursorPos Y="374"/>
         <UsageCount Value="10"/>
-      </Unit15>
+      </Unit16>
+      <Unit17>
+        <Filename Value="/usr/local/share/fpcsrc/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1784"/>
+        <CursorPos X="3" Y="1770"/>
+        <UsageCount Value="10"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="/Developer/lazarus/lcl/lclclasses.pp"/>
+        <UnitName Value="LCLClasses"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="53" Y="7"/>
+        <UsageCount Value="10"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="/Developer/lazarus/lcl/stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1495"/>
+        <CursorPos X="3" Y="1511"/>
+        <UsageCount Value="10"/>
+      </Unit19>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="44" Column="51" TopLine="14"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="132" Column="10" TopLine="106"/>
       </Position1>
       <Position2>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="37" Column="49" TopLine="14"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="155" Column="45" TopLine="141"/>
       </Position2>
       <Position3>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="33" Column="29" TopLine="14"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="145" TopLine="144"/>
       </Position3>
       <Position4>
         <Filename Value="gui.pas"/>
-        <Caret Line="429" Column="45" TopLine="402"/>
+        <Caret Column="10"/>
       </Position4>
       <Position5>
         <Filename Value="gui.pas"/>
-        <Caret Line="428" Column="12" TopLine="402"/>
+        <Caret Line="446" TopLine="414"/>
       </Position5>
       <Position6>
         <Filename Value="gui.pas"/>
-        <Caret Line="438" Column="15" TopLine="402"/>
+        <Caret Line="419" Column="23" TopLine="414"/>
       </Position6>
       <Position7>
         <Filename Value="gui.pas"/>
-        <Caret Line="418" TopLine="396"/>
+        <Caret Line="439" Column="115" TopLine="413"/>
       </Position7>
       <Position8>
         <Filename Value="gui.pas"/>
-        <Caret Line="430" TopLine="396"/>
+        <Caret Line="5" Column="57"/>
       </Position8>
       <Position9>
         <Filename Value="gui.pas"/>
-        <Caret Line="437" TopLine="396"/>
+        <Caret Line="46" Column="21" TopLine="19"/>
       </Position9>
       <Position10>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="114" Column="30" TopLine="76"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="152" Column="40" TopLine="125"/>
       </Position10>
       <Position11>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="94" Column="9" TopLine="70"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="211" Column="39" TopLine="184"/>
       </Position11>
       <Position12>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="47" Column="17" TopLine="27"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="419" Column="24" TopLine="392"/>
       </Position12>
       <Position13>
         <Filename Value="gui.pas"/>
-        <Caret Line="2" Column="5"/>
+        <Caret Line="424" Column="24" TopLine="397"/>
       </Position13>
       <Position14>
         <Filename Value="gui.pas"/>
-        <Caret Line="363" Column="21" TopLine="322"/>
+        <Caret Line="429" Column="27" TopLine="402"/>
       </Position14>
       <Position15>
         <Filename Value="gui.pas"/>
-        <Caret Line="9" Column="43"/>
+        <Caret Line="432" Column="57" TopLine="405"/>
       </Position15>
       <Position16>
         <Filename Value="gui.pas"/>
-        <Caret Line="363" Column="21" TopLine="322"/>
+        <Caret Line="434" Column="28" TopLine="407"/>
       </Position16>
       <Position17>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="115" Column="42" TopLine="98"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="437" Column="52" TopLine="411"/>
       </Position17>
       <Position18>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="139" Column="8" TopLine="98"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="438" Column="55" TopLine="412"/>
       </Position18>
       <Position19>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="46" Column="18" TopLine="22"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="441" Column="49" TopLine="415"/>
       </Position19>
       <Position20>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="101" Column="23" TopLine="60"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="46" Column="21" TopLine="30"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="258" Column="30" TopLine="235"/>
+        <Caret Line="152" Column="40" TopLine="125"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="434" Column="34" TopLine="419"/>
+        <Caret Line="211" Column="39" TopLine="184"/>
       </Position22>
       <Position23>
         <Filename Value="gui.pas"/>
-        <Caret Line="232" Column="27" TopLine="230"/>
+        <Caret Line="47" Column="21" TopLine="30"/>
       </Position23>
       <Position24>
         <Filename Value="gui.pas"/>
-        <Caret Line="31" Column="3" TopLine="116"/>
+        <Caret Line="153" Column="40" TopLine="126"/>
       </Position24>
       <Position25>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="16" Column="37"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="49" Column="58" TopLine="31"/>
       </Position25>
       <Position26>
         <Filename Value="gui.pas"/>
-        <Caret Line="208" TopLine="185"/>
+        <Caret Line="446" TopLine="414"/>
       </Position26>
       <Position27>
         <Filename Value="gui.pas"/>
-        <Caret Line="2" Column="14"/>
       </Position27>
       <Position28>
         <Filename Value="gui.pas"/>
-        <Caret Line="6" Column="79" TopLine="24"/>
+        <Caret Line="446" TopLine="414"/>
       </Position28>
       <Position29>
         <Filename Value="gui.pas"/>
-        <Caret Line="161" TopLine="158"/>
+        <Caret Line="66" TopLine="66"/>
       </Position29>
+      <Position30>
+        <Filename Value="gui.pas"/>
+        <Caret Line="446" TopLine="414"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -273,7 +309,7 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <Watches Count="3">
+    <Watches Count="5">
       <Item1>
         <Expression Value="EntryMode"/>
       </Item1>
@@ -283,6 +319,12 @@
       <Item3>
         <Expression Value="MainForm.DisplayMemo.Lines[3]"/>
       </Item3>
+      <Item4>
+        <Expression Value="this"/>
+      </Item4>
+      <Item5>
+        <Expression Value="self"/>
+      </Item5>
     </Watches>
   </Debugging>
 </CONFIG>
