@@ -31,6 +31,8 @@ uses
 
 type
 
+TEntryMode = (PostOper, PostEnter, Number);
+
 { TFrame }
 
 TFrame = class
@@ -38,9 +40,11 @@ private
 public
   Engine: TEngine;
   TRegDisplay, ZRegDisplay, YRegDisplay, XRegDisplay: TControl;
+  EntryMode: TEntryMode;
   constructor create;
   destructor destroy; override;
   procedure DisplayRegisters;
+  procedure AppendChar(ch: char);
 end;
 
 implementation
@@ -58,6 +62,7 @@ begin
 end;
 
 procedure TFrame.DisplayRegisters;
+{ Displays register contents in controls that are provided by the GUI }
 var
   theFormat: TFormatSettings;
 begin
@@ -67,6 +72,42 @@ begin
   ZRegDisplay.Caption := FloatToStr(Engine.Stack.z, theFormat);
   YRegDisplay.Caption := FloatToStr(Engine.Stack.y, theFormat);
   XRegDisplay.Caption := FloatToStr(Engine.Stack.x, theFormat);
+end;
+
+procedure TFrame.AppendChar(ch: char);
+var
+  theFormat: TFormatSettings;
+begin
+  theFormat := DefaultFormatSettings;
+  theFormat.DecimalSeparator := '.';
+  case EntryMode of
+    PostOper:
+    begin
+      Engine.Stack.RollUp;
+      DisplayRegisters;
+      XRegDisplay.Caption := ch;
+      EntryMode := Number;
+    end;
+    PostEnter:
+    begin
+      XRegDisplay.Caption := ch;
+      EntryMode := Number;
+    end;
+    Number:
+    begin
+      if XRegDisplay.Caption = '0' then
+      begin
+        if ch = '.' then
+          XRegDisplay.Caption := XRegDisplay.Caption + ch
+        else
+          XRegDisplay.Caption := ch;
+      end
+      else
+      if (ch <> '.') or (pos('.', XRegDisplay.Caption) = 0) then
+        XRegDisplay.Caption := XRegDisplay.Caption + ch;
+    end;
+  end;
+  Engine.Stack.x := StrToFloat(XRegDisplay.Caption, theFormat);
 end;
 
 end.

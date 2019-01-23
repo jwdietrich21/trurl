@@ -32,8 +32,6 @@ uses
 
 type
 
-  TEntryMode = (PostOper, PostEnter, Number);
-
   { TMainForm }
 
   TMainForm = class(TForm)
@@ -130,8 +128,6 @@ type
   public
     Engine: TEngine;
     Frame: TFrame;
-    EntryMode: TEntryMode;
-    procedure AppendChar(ch: char);
   end;
 
 var
@@ -153,7 +149,7 @@ begin
   Frame.YRegDisplay := YRegisterDisplay;
   Frame.ZRegDisplay := ZRegisterDisplay;
   Frame.TRegDisplay := TRegisterDisplay;
-  EntryMode := Number;
+  Frame.EntryMode := Number;
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
@@ -236,13 +232,13 @@ end;
 
 procedure TMainForm.DotButtonClick(Sender: TObject);
 begin
-  AppendChar('.');
+  Frame.AppendChar('.');
 end;
 
 procedure TMainForm.EnterButtonClick(Sender: TObject);
 begin
   Engine.Stack.RollUp;
-  EntryMode := PostEnter;
+  Frame.EntryMode := PostEnter;
   Frame.DisplayRegisters;
 end;
 
@@ -256,13 +252,13 @@ procedure TMainForm.MinusButtonClick(Sender: TObject);
 begin
   Engine.Sub;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.CButtonClick(Sender: TObject);
 begin
   Engine.Stack.x := 0;
-  EntryMode := PostEnter;
+  Frame.EntryMode := PostEnter;
   Frame.DisplayRegisters;
 end;
 
@@ -270,92 +266,92 @@ procedure TMainForm.ASinButtonClick(Sender: TObject);
 begin
   Engine.ArcSinus;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.ATanButtonClick(Sender: TObject);
 begin
   Engine.ArcTangens;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.ACosButtonClick(Sender: TObject);
 begin
   Engine.ArcCosinus;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.CosButtonClick(Sender: TObject);
 begin
   Engine.Cosinus;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.DivButtonClick(Sender: TObject);
 begin
   Engine.Divide;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin
-  AppendChar('0');
+  Frame.AppendChar('0');
 end;
 
 procedure TMainForm.Nr1ButtonClick(Sender: TObject);
 begin
-  AppendChar('1');
+  Frame.AppendChar('1');
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);
 begin
-  AppendChar('2');
+  Frame.AppendChar('2');
 end;
 
 procedure TMainForm.Nr3ButtonClick(Sender: TObject);
 begin
-  AppendChar('3');
+  Frame.AppendChar('3');
 end;
 
 procedure TMainForm.Nr4ButtonClick(Sender: TObject);
 begin
-  AppendChar('4');
+  Frame.AppendChar('4');
 end;
 
 procedure TMainForm.Nr5ButtonClick(Sender: TObject);
 begin
-  AppendChar('5');
+  Frame.AppendChar('5');
 end;
 
 procedure TMainForm.Nr6ButtonClick(Sender: TObject);
 begin
-  AppendChar('6');
+  Frame.AppendChar('6');
 end;
 
 procedure TMainForm.Nr7ButtonClick(Sender: TObject);
 begin
-  AppendChar('7');
+  Frame.AppendChar('7');
 end;
 
 procedure TMainForm.Nr8ButtonClick(Sender: TObject);
 begin
-  AppendChar('8');
+  Frame.AppendChar('8');
 end;
 
 procedure TMainForm.Nr9ButtonClick(Sender: TObject);
 begin
-  AppendChar('9');
+  Frame.AppendChar('9');
 end;
 
 procedure TMainForm.PlusButtonClick(Sender: TObject);
 begin
   Engine.Add;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.PlusMinusButtonClick(Sender: TObject);
@@ -368,7 +364,7 @@ procedure TMainForm.PwrButtonClick(Sender: TObject);
 begin
   Engine.PWR;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.RDButtonClick(Sender: TObject);
@@ -381,64 +377,28 @@ procedure TMainForm.SinButtonClick(Sender: TObject);
 begin
   Engine.Sinus;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.SqrtButtonClick(Sender: TObject);
 begin
   Engine.sqroot;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.TanButtonClick(Sender: TObject);
 begin
   Engine.Tangens;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
+  Frame.EntryMode := PostOper;
 end;
 
 procedure TMainForm.TimesButtonClick(Sender: TObject);
 begin
   Engine.Times;
   Frame.DisplayRegisters;
-  EntryMode := PostOper;
-end;
-
-procedure TMainForm.AppendChar(ch: char);
-var
-  theFormat: TFormatSettings;
-begin
-  theFormat := DefaultFormatSettings;
-  theFormat.DecimalSeparator := '.';
-  case EntryMode of
-    PostOper:
-    begin
-      Engine.Stack.RollUp;
-      Frame.DisplayRegisters;
-      Frame.XRegDisplay.Caption := ch;
-      EntryMode := Number;
-    end;
-    PostEnter:
-    begin
-      Frame.XRegDisplay.Caption := ch;
-      EntryMode := Number;
-    end;
-    Number:
-    begin
-      if Frame.XRegDisplay.Caption = '0' then
-      begin
-        if ch = '.' then
-          Frame.XRegDisplay.Caption := Frame.XRegDisplay.Caption + ch
-        else
-          Frame.XRegDisplay.Caption := ch;
-      end
-      else
-      if (ch <> '.') or (pos('.', Frame.XRegDisplay.Caption) = 0) then
-        Frame.XRegDisplay.Caption := Frame.XRegDisplay.Caption + ch;
-    end;
-  end;
-  Engine.Stack.x := StrToFloat(Frame.XRegDisplay.Caption, theFormat);
+  Frame.EntryMode := PostOper;
 end;
 
 end.
