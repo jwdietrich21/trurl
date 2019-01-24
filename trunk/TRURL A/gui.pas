@@ -230,69 +230,6 @@ begin
   end;
 end;
 
-procedure TMainForm.DotButtonClick(Sender: TObject);
-begin
-  Frame.AppendChar('.');
-end;
-
-procedure TMainForm.EnterButtonClick(Sender: TObject);
-begin
-  Frame.HandleEnter;
-end;
-
-procedure TMainForm.InvButtonClick(Sender: TObject);
-begin
-  Engine.Inv;
-  Frame.DisplayRegisters;
-end;
-
-procedure TMainForm.MinusButtonClick(Sender: TObject);
-begin
-  Engine.Sub;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
-end;
-
-procedure TMainForm.CButtonClick(Sender: TObject);
-begin
-  Frame.HandleClear;
-end;
-
-procedure TMainForm.ASinButtonClick(Sender: TObject);
-begin
-  Engine.ArcSinus;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
-end;
-
-procedure TMainForm.ATanButtonClick(Sender: TObject);
-begin
-  Engine.ArcTangens;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
-end;
-
-procedure TMainForm.ACosButtonClick(Sender: TObject);
-begin
-  Engine.ArcCosinus;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
-end;
-
-procedure TMainForm.CosButtonClick(Sender: TObject);
-begin
-  Engine.Cosinus;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
-end;
-
-procedure TMainForm.DivButtonClick(Sender: TObject);
-begin
-  Engine.Divide;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
-end;
-
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('0');
@@ -343,24 +280,54 @@ begin
   Frame.AppendChar('9');
 end;
 
+procedure TMainForm.DotButtonClick(Sender: TObject);
+begin
+  Frame.AppendChar('.');
+end;
+
+procedure TMainForm.EnterButtonClick(Sender: TObject);
+begin
+  Frame.HandleEnter;
+end;
+
+procedure TMainForm.InvButtonClick(Sender: TObject);
+begin
+  Frame.HandleInv;
+end;
+
+procedure TMainForm.CButtonClick(Sender: TObject);
+begin
+  Frame.HandleClear;
+end;
+
 procedure TMainForm.PlusButtonClick(Sender: TObject);
 begin
-  Engine.Add;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
+  Frame.HandleAdd;
+end;
+
+procedure TMainForm.MinusButtonClick(Sender: TObject);
+begin
+  Frame.HandleSub;
+end;
+
+procedure TMainForm.TimesButtonClick(Sender: TObject);
+begin
+  Frame.HandleTimes;
+end;
+
+procedure TMainForm.DivButtonClick(Sender: TObject);
+begin
+  Frame.HandleDiv;
 end;
 
 procedure TMainForm.PlusMinusButtonClick(Sender: TObject);
 begin
-  Engine.CHS;
-  Frame.DisplayRegisters;
+  Frame.HandleCHS;
 end;
 
 procedure TMainForm.PwrButtonClick(Sender: TObject);
 begin
-  Engine.PWR;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
+  Frame.HandlePWR;
 end;
 
 procedure TMainForm.RDButtonClick(Sender: TObject);
@@ -370,30 +337,37 @@ end;
 
 procedure TMainForm.SinButtonClick(Sender: TObject);
 begin
-  Engine.Sinus;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
+  Frame.HandleSin;
 end;
 
-procedure TMainForm.SqrtButtonClick(Sender: TObject);
+procedure TMainForm.ASinButtonClick(Sender: TObject);
 begin
-  Engine.sqroot;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
+  Frame.HandleASin;
+end;
+
+procedure TMainForm.CosButtonClick(Sender: TObject);
+begin
+  Frame.HandleCos;
+end;
+
+procedure TMainForm.ACosButtonClick(Sender: TObject);
+begin
+  Frame.HandleACos;
 end;
 
 procedure TMainForm.TanButtonClick(Sender: TObject);
 begin
-  Engine.Tangens;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
+  Frame.HandleTan;
 end;
 
-procedure TMainForm.TimesButtonClick(Sender: TObject);
+procedure TMainForm.ATanButtonClick(Sender: TObject);
 begin
-  Engine.Times;
-  Frame.DisplayRegisters;
-  Frame.EntryMode := PostOper;
+  Frame.HandleATan;
+end;
+
+procedure TMainForm.SqrtButtonClick(Sender: TObject);
+begin
+  Frame.HandleSqrt;
 end;
 
 end.
