@@ -237,9 +237,7 @@ end;
 
 procedure TMainForm.EnterButtonClick(Sender: TObject);
 begin
-  Engine.Stack.RollUp;
-  Frame.EntryMode := PostEnter;
-  Frame.DisplayRegisters;
+  Frame.HandleEnter;
 end;
 
 procedure TMainForm.InvButtonClick(Sender: TObject);
@@ -257,9 +255,7 @@ end;
 
 procedure TMainForm.CButtonClick(Sender: TObject);
 begin
-  Engine.Stack.x := 0;
-  Frame.EntryMode := PostEnter;
-  Frame.DisplayRegisters;
+  Frame.HandleClear;
 end;
 
 procedure TMainForm.ASinButtonClick(Sender: TObject);
@@ -369,8 +365,7 @@ end;
 
 procedure TMainForm.RDButtonClick(Sender: TObject);
 begin
-  Engine.Stack.RollDown;
-  Frame.DisplayRegisters;
+  Frame.HandleRollDown;
 end;
 
 procedure TMainForm.SinButtonClick(Sender: TObject);

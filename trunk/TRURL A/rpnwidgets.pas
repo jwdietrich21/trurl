@@ -43,6 +43,9 @@ public
   EntryMode: TEntryMode;
   constructor create;
   destructor destroy; override;
+  procedure HandleEnter;
+  procedure HandleClear;
+  procedure HandleRollDown;
   procedure DisplayRegisters;
   procedure AppendChar(ch: char);
 end;
@@ -59,6 +62,26 @@ end;
 destructor TFrame.destroy;
 begin
   inherited destroy;
+end;
+
+procedure TFrame.HandleEnter;
+begin
+  Engine.Stack.RollUp;
+  EntryMode := PostEnter;
+  DisplayRegisters;
+end;
+
+procedure TFrame.HandleClear;
+begin
+  Engine.Stack.x := 0;
+  EntryMode := PostEnter;
+  DisplayRegisters;
+end;
+
+procedure TFrame.HandleRollDown;
+begin
+  Engine.Stack.RollDown;
+  DisplayRegisters;
 end;
 
 procedure TFrame.DisplayRegisters;
