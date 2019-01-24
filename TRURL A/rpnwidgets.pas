@@ -127,8 +127,11 @@ begin
 end;
 
 procedure TFrame.HandleCHS;
+{ Change sign (+/-) }
 begin
   Engine.CHS;
+  if EntryMode = PostEnter then
+    Engine.Stack.RollUp;
   DisplayRegisters;
 end;
 
