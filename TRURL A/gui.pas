@@ -209,6 +209,7 @@ end;
 
 procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
+  if Shift = [] then
   case key of
     VK_0, VK_NUMPAD0: Nr0ButtonClick(Sender);
     VK_1, VK_NUMPAD1: Nr1ButtonClick(Sender);
