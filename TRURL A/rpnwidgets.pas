@@ -95,6 +95,8 @@ end;
 procedure TFrame.HandleInv;
 begin
   Engine.Inv;
+  Engine.Stack.RollUp;
+  EntryMode := postEnter;
   DisplayRegisters;
 end;
 
