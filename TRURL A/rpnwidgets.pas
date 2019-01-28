@@ -63,6 +63,8 @@ public
   procedure DisplayRegisters;
   procedure AppendChar(ch: char);
   procedure InsertString(theString: String);
+  procedure CheckEngine;
+  procedure Error(msg: String);
 end;
 
 implementation
@@ -72,6 +74,8 @@ implementation
 constructor TFrame.create;
 begin
   inherited create;
+  if RPNEngine_major <> 1 then
+    {%H-}Error('RPN Engine version mismatch');
 end;
 
 destructor TFrame.destroy;
@@ -81,6 +85,7 @@ end;
 
 procedure TFrame.HandleEnter;
 begin
+  CheckEngine;
   Engine.Stack.RollUp;
   EntryMode := PostEnter;
   DisplayRegisters;
@@ -88,6 +93,7 @@ end;
 
 procedure TFrame.HandleClear;
 begin
+  CheckEngine;
   Engine.Stack.x := 0;
   EntryMode := PostEnter;
   DisplayRegisters;
@@ -95,6 +101,7 @@ end;
 
 procedure TFrame.HandleInv;
 begin
+  CheckEngine;
   Engine.Inv;
   Engine.Stack.RollUp;
   EntryMode := postEnter;
@@ -103,6 +110,7 @@ end;
 
 procedure TFrame.HandleAdd;
 begin
+  CheckEngine;
   Engine.Add;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -110,6 +118,7 @@ end;
 
 procedure TFrame.HandleSub;
 begin
+  CheckEngine;
   Engine.Sub;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -117,6 +126,7 @@ end;
 
 procedure TFrame.HandleTimes;
 begin
+  CheckEngine;
   Engine.Times;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -124,6 +134,7 @@ end;
 
 procedure TFrame.HandleDiv;
 begin
+  CheckEngine;
   Engine.Divide;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -132,6 +143,7 @@ end;
 procedure TFrame.HandleCHS;
 { Change sign (+/-) }
 begin
+  CheckEngine;
   Engine.CHS;
   if EntryMode = PostEnter then
     Engine.Stack.RollUp;
@@ -140,6 +152,7 @@ end;
 
 procedure TFrame.HandlePWR;
 begin
+  CheckEngine;
   Engine.PWR;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -147,6 +160,7 @@ end;
 
 procedure TFrame.HandleSin;
 begin
+  CheckEngine;
   Engine.Sinus;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -154,6 +168,7 @@ end;
 
 procedure TFrame.HandleCos;
 begin
+  CheckEngine;
   Engine.Cosinus;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -161,6 +176,7 @@ end;
 
 procedure TFrame.HandleTan;
 begin
+  CheckEngine;
   Engine.Tangens;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -168,6 +184,7 @@ end;
 
 procedure TFrame.HandleASin;
 begin
+  CheckEngine;
   Engine.ArcSinus;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -175,6 +192,7 @@ end;
 
 procedure TFrame.HandleACos;
 begin
+  CheckEngine;
   Engine.ArcCosinus;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -182,6 +200,7 @@ end;
 
 procedure TFrame.HandleATan;
 begin
+  CheckEngine;
   Engine.ArcTangens;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -189,6 +208,7 @@ end;
 
 procedure TFrame.HandleSqrt;
 begin
+  CheckEngine;
   Engine.sqroot;
   DisplayRegisters;
   EntryMode := PostOper;
@@ -196,6 +216,7 @@ end;
 
 procedure TFrame.HandleRollDown;
 begin
+  CheckEngine;
   Engine.Stack.RollDown;
   DisplayRegisters;
 end;
@@ -205,6 +226,7 @@ procedure TFrame.DisplayRegisters;
 var
   theFormat: TFormatSettings;
 begin
+  CheckEngine;
   theFormat := DefaultFormatSettings;
   theFormat.DecimalSeparator := '.';
   TRegDisplay.Caption := FloatToStr(Engine.Stack.t, theFormat);
@@ -217,6 +239,7 @@ procedure TFrame.AppendChar(ch: char);
 var
   theFormat: TFormatSettings;
 begin
+  CheckEngine;
   theFormat := DefaultFormatSettings;
   theFormat.DecimalSeparator := '.';
   case EntryMode of
@@ -254,6 +277,7 @@ var
   theFormat: TFormatSettings;
   theNumber: Extended;
 begin
+  CheckEngine;
   theFormat := DefaultFormatSettings;
   theFormat.DecimalSeparator := '.';
   Engine.Stack.RollUp;
@@ -263,6 +287,19 @@ begin
     Engine.Stack.x := NaN;
   EntryMode := PostEnter;
   DisplayRegisters;
+end;
+
+procedure TFrame.CheckEngine;
+begin
+  if not assigned(Engine) then
+    Error('Engine not available');
+end;
+
+procedure TFrame.Error(msg: String);
+begin
+  raise exception.create(Msg) at
+    get_caller_addr(get_frame),
+    get_caller_frame(get_frame);
 end;
 
 end.
