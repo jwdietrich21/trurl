@@ -96,6 +96,7 @@ type
     procedure DivButtonClick(Sender: TObject);
     procedure DotButtonClick(Sender: TObject);
     procedure EditCopy1Execute(Sender: TObject);
+    procedure EditPaste1Execute(Sender: TObject);
     procedure EnterButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -207,6 +208,11 @@ begin
   Clipboard.AsText := XRegisterDisplay.Caption;
 end;
 
+procedure TMainForm.EditPaste1Execute(Sender: TObject);
+begin
+  Frame.InsertString(Clipboard.AsText);
+end;
+
 procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if Shift = [] then
@@ -229,6 +235,7 @@ begin
     VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
     VK_DOWN: RDButtonClick(Sender);
   end;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);

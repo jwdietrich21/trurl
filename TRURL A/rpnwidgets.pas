@@ -27,7 +27,7 @@ unit RPNWidgets;
 interface
 
 uses
-  Classes, SysUtils, Controls, RPNEngine;
+  Classes, SysUtils, Controls, RPNEngine, Math;
 
 type
 
@@ -62,6 +62,7 @@ public
   procedure HandleRollDown;
   procedure DisplayRegisters;
   procedure AppendChar(ch: char);
+  procedure InsertString(theString: String);
 end;
 
 implementation
@@ -246,6 +247,22 @@ begin
     end;
   end;
   Engine.Stack.x := StrToFloat(XRegDisplay.Caption, theFormat);
+end;
+
+procedure TFrame.InsertString(theString: String);
+var
+  theFormat: TFormatSettings;
+  theNumber: Extended;
+begin
+  theFormat := DefaultFormatSettings;
+  theFormat.DecimalSeparator := '.';
+  Engine.Stack.RollUp;
+  if TryStrToFloat(theString, theNumber, theFormat) then
+    Engine.Stack.x := theNumber
+  else
+    Engine.Stack.x := NaN;
+  EntryMode := PostEnter;
+  DisplayRegisters;
 end;
 
 end.
