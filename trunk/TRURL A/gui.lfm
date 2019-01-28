@@ -7,14 +7,14 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl A'
-  ClientHeight = 402
+  ClientHeight = 382
   ClientWidth = 338
   Color = clSilver
   Menu = MainMenu1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
-  LCLVersion = '2.0.0.3'
+  LCLVersion = '1.8.4.0'
   object RDButton: TButton
     Left = 8
     Height = 25
@@ -402,6 +402,7 @@ object MainForm: TMainForm
       Caption = 'Edit'
       object UndoItem: TMenuItem
         Action = EditUndo1
+        Enabled = False
       end
       object RedoItem: TMenuItem
         Caption = 'Redo'
@@ -454,6 +455,7 @@ object MainForm: TMainForm
       Category = 'Edit'
       Caption = '&Einfügen'
       Hint = 'Einfügen'
+      OnExecute = EditPaste1Execute
       ShortCut = 16470
     end
   end
