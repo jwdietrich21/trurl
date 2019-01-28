@@ -30,10 +30,22 @@ uses
 
 type
 
-{ TOperator }
+{ Operator Types }
 
 TBinOperator = (PlusOp, MinusOp, MultOp, DivOp, PowerOp);
 TUniOperator = (PlusMinusOp, InvertOp, SinOp, CosOp, TanOp, ASinOp, ACosOp, ATanOp, sqrtOp);
+
+const
+  RPNEngine_major   = 1;
+  RPNEngine_minor   = 0;
+  RPNEngine_release = 0;
+  RPNEngine_patch   = 47;
+  RPNEngine_fullversion = ((RPNEngine_major * 100 + RPNEngine_minor) *
+    100 + RPNEngine_release) * 100 + RPNEngine_patch;
+  RPNEngine_version = '1.0.0.47';
+  RPNEngine_internalversion = 'Leopolis';
+
+type
 
 { TStack }
 
@@ -48,6 +60,7 @@ public
   procedure RollUp;
   procedure Push(operand: extended);
   function Pop: extended;
+  procedure Error(msg: String);
 public
   property x: extended read fx write fx;
   property y: extended read fy;
@@ -137,6 +150,13 @@ function TStack.Pop: extended;
 begin
   result := x;
   DropDown;
+end;
+
+procedure TStack.Error(msg: String);
+begin
+  raise exception.create(Msg) at
+    get_caller_addr(get_frame),
+    get_caller_frame(get_frame);
 end;
 
 constructor TEngine.create;
