@@ -241,56 +241,67 @@ end;
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('0');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr1ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('1');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('2');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr3ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('3');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr4ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('4');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr5ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('5');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr6ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('6');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr7ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('7');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr8ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('8');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr9ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('9');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.DotButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('.');
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.EnterButtonClick(Sender: TObject);
@@ -301,81 +312,97 @@ end;
 procedure TMainForm.InvButtonClick(Sender: TObject);
 begin
   Frame.HandleInv;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.CButtonClick(Sender: TObject);
 begin
   Frame.HandleClear;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.PlusButtonClick(Sender: TObject);
 begin
   Frame.HandleAdd;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.MinusButtonClick(Sender: TObject);
 begin
   Frame.HandleSub;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.TimesButtonClick(Sender: TObject);
 begin
   Frame.HandleTimes;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.DivButtonClick(Sender: TObject);
 begin
   Frame.HandleDiv;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.PlusMinusButtonClick(Sender: TObject);
 begin
   Frame.HandleCHS;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.PwrButtonClick(Sender: TObject);
 begin
   Frame.HandlePWR;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.RDButtonClick(Sender: TObject);
 begin
   Frame.HandleRollDown;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.SinButtonClick(Sender: TObject);
 begin
   Frame.HandleSin;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.ASinButtonClick(Sender: TObject);
 begin
   Frame.HandleASin;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.CosButtonClick(Sender: TObject);
 begin
   Frame.HandleCos;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.ACosButtonClick(Sender: TObject);
 begin
   Frame.HandleACos;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.TanButtonClick(Sender: TObject);
 begin
   Frame.HandleTan;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.ATanButtonClick(Sender: TObject);
 begin
   Frame.HandleATan;
+  ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.SqrtButtonClick(Sender: TObject);
 begin
   Frame.HandleSqrt;
+  ActiveControl := EnterButton;
 end;
 
 end.
