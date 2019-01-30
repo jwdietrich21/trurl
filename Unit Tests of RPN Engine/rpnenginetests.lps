@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="rpnenginetests.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNEngineTestCases"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="3"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="rpnengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNEngine"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit2>
+    </Units>
+    <JumpHistory Count="4" HistoryIndex="3">
+      <Position1>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="8" Column="65" TopLine="7"/>
+      </Position1>
+      <Position2>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="78" Column="41" TopLine="242"/>
+      </Position2>
+      <Position3>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="37" Column="28" TopLine="28"/>
+      </Position3>
+      <Position4>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="40" Column="18" TopLine="17"/>
+      </Position4>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
