@@ -167,7 +167,8 @@ end;
 
 destructor TEngine.destroy;
 begin
-  Stack.destroy;
+  if assigned(Stack) then
+    Stack.destroy;
   inherited destroy;
 end;
 

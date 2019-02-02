@@ -38,8 +38,6 @@ type
     procedure CodeVersionCheck;
   end;
 
-  { TStactTestCases }
-
   { TStackTestCases }
 
   TStackTestCases = class(TTestCase)
@@ -51,9 +49,22 @@ type
     procedure PopTest;
   end;
 
-  { TEngineFunctionTestCases }
+  { TEngineSingleFunctionTestCases }
 
-  TEngineFunctionTestCases = class(TTestCase)
+  TEngineSingleFunctionTestCases = class(TTestCase)
+  published
+    procedure AddFunctionTest;
+    procedure SubFunctionTest;
+    procedure TimesFunctionTest;
+    procedure DivideFunctionTest;
+    procedure CHSFunctionTest;
+    procedure InvFunctionTest;
+    procedure PWRFunctionTest;
+  end;
+
+  { TEngineRPNFunctionTestCases }
+
+  TEngineRPNFunctionTestCases = class(TTestCase)
   published
     procedure UnaryFuntionTests;
     procedure BinaryFunctionTests;
@@ -61,6 +72,105 @@ type
   end;
 
 implementation
+
+{ TEngineSingleFunctionTestCases }
+
+procedure TEngineSingleFunctionTestCases.AddFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.stack.Push(7);
+  TestEngine.stack.Push(6);
+  TestEngine.Add;
+  AssertEquals(13, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.SubFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.stack.Push(24);
+  TestEngine.stack.Push(3);
+  TestEngine.Sub;
+  AssertEquals(21, TestEngine.Stack.Pop);
+  TestEngine.stack.Push(3);
+  TestEngine.stack.Push(7);
+  TestEngine.Sub;
+  AssertEquals(-4, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.TimesFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.stack.Push(3);
+  TestEngine.stack.Push(7);
+  TestEngine.Times;
+  AssertEquals(21, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.DivideFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.stack.Push(24);
+  TestEngine.stack.Push(3);
+  TestEngine.Divide;
+  AssertEquals(8, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.CHSFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.stack.Push(23);
+  TestEngine.CHS;
+  AssertEquals(-23, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.InvFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.stack.Push(5);
+  TestEngine.Inv;
+  AssertEquals(0.2, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.PWRFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.stack.Push(5);
+  TestEngine.stack.Push(2);
+  TestEngine.PWR;
+  AssertEquals(25, TestEngine.Stack.Pop);
+  TestEngine.stack.Push(2);
+  TestEngine.stack.Push(5);
+  TestEngine.PWR;
+  AssertEquals(32, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
 
 { TStackTestCases }
 
@@ -141,7 +251,7 @@ end;
 
 { TEngineFunctionTestCases }
 
-procedure TEngineFunctionTestCases.UnaryFuntionTests;
+procedure TEngineRPNFunctionTestCases.UnaryFuntionTests;
 var
   TestEngine: TEngine;
 begin
@@ -154,7 +264,7 @@ begin
   TestEngine.destroy;
 end;
 
-procedure TEngineFunctionTestCases.BinaryFunctionTests;
+procedure TEngineRPNFunctionTestCases.BinaryFunctionTests;
 var
   TestEngine: TEngine;
 begin
@@ -169,7 +279,7 @@ begin
   TestEngine.destroy;
 end;
 
-procedure TEngineFunctionTestCases.CompoundFunctionTests;
+procedure TEngineRPNFunctionTestCases.CompoundFunctionTests;
 var
   TestEngine: TEngine;
 begin
@@ -200,7 +310,7 @@ initialization
 
 RegisterTest(TControlTestCases);
 RegisterTest(TStackTestCases);
-RegisterTest(TEngineFunctionTestCases);
-
+RegisterTest(TEngineRPNFunctionTestCases);
+RegisterTest(TEngineSingleFunctionTestCases);
 end.
 
