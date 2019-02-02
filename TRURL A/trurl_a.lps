@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="23" Y="5"/>
         <UsageCount Value="45"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -291,7 +291,7 @@
         <UsageCount Value="10"/>
       </Unit34>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="27" HistoryIndex="26">
       <Position1>
         <Filename Value="gui.pas"/>
         <Caret Line="290" Column="9" TopLine="267"/>
@@ -344,73 +344,61 @@
         <Caret Line="186" TopLine="171"/>
       </Position13>
       <Position14>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="2" TopLine="274"/>
+        <Filename Value="rpnwidgets.pas"/>
+        <Caret Line="229" TopLine="219"/>
       </Position14>
       <Position15>
         <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="229" TopLine="219"/>
+        <Caret Line="56" TopLine="45"/>
       </Position15>
       <Position16>
         <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="56" TopLine="45"/>
+        <Caret Line="62" Column="27" TopLine="45"/>
       </Position16>
       <Position17>
         <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="62" Column="27" TopLine="45"/>
+        <Caret Line="217" Column="32" TopLine="190"/>
       </Position17>
       <Position18>
-        <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="217" Column="32" TopLine="190"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="177" Column="61"/>
       </Position18>
       <Position19>
         <Filename Value="gui.pas"/>
-        <Caret Line="177" Column="61"/>
+        <Caret Line="413" Column="23" TopLine="386"/>
       </Position19>
       <Position20>
         <Filename Value="gui.pas"/>
-        <Caret Line="413" Column="23" TopLine="386"/>
+        <Caret Line="411" Column="34" TopLine="386"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="411" Column="34" TopLine="386"/>
+        <Caret Line="124" Column="28" TopLine="109"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="124" Column="28" TopLine="109"/>
+        <Caret Line="183" Column="28" TopLine="156"/>
       </Position22>
       <Position23>
         <Filename Value="gui.pas"/>
-        <Caret Line="183" Column="28" TopLine="156"/>
+        <Caret Line="262" Column="27" TopLine="235"/>
       </Position23>
       <Position24>
         <Filename Value="gui.pas"/>
-        <Caret Line="262" Column="27" TopLine="235"/>
+        <Caret Line="287" Column="27" TopLine="260"/>
       </Position24>
       <Position25>
         <Filename Value="gui.pas"/>
-        <Caret Line="287" Column="27" TopLine="260"/>
+        <Caret Line="411" Column="34" TopLine="384"/>
       </Position25>
       <Position26>
         <Filename Value="gui.pas"/>
-        <Caret Line="411" Column="34" TopLine="384"/>
+        <Caret Line="173" Column="50" TopLine="156"/>
       </Position26>
       <Position27>
-        <Filename Value="gui.pas"/>
-        <Caret Line="173" Column="50" TopLine="156"/>
-      </Position27>
-      <Position28>
         <Filename Value="rpnwidgets.pas"/>
         <Caret Line="233" Column="82" TopLine="221"/>
-      </Position28>
-      <Position29>
-        <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="74" Column="67" TopLine="177"/>
-      </Position29>
-      <Position30>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="2" TopLine="22"/>
-      </Position30>
+      </Position27>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
