@@ -38,6 +38,19 @@ type
     procedure CodeVersionCheck;
   end;
 
+  { TStactTestCases }
+
+  { TStackTestCases }
+
+  TStackTestCases = class(TTestCase)
+  published
+    procedure RollDownTest;
+    procedure DropDownTest;
+    procedure RollUpTest;
+    procedure PushTest;
+    procedure PopTest;
+  end;
+
   { TEngineFunctionTestCases }
 
   TEngineFunctionTestCases = class(TTestCase)
@@ -48,6 +61,83 @@ type
   end;
 
 implementation
+
+{ TStackTestCases }
+
+procedure TStackTestCases.RollDownTest;
+var
+  TestStack: TStack;
+begin
+  TestStack := TStack.create;
+  TestStack.x := 42;
+  TestStack.RollDown;
+  AssertEquals(0, TestStack.x);
+  TestStack.RollDown;
+  TestStack.RollDown;
+  TestStack.RollDown;
+  AssertEquals(42, TestStack.x);
+  TestStack.destroy;
+end;
+
+procedure TStackTestCases.DropDownTest;
+var
+  TestStack: TStack;
+begin
+  TestStack := TStack.create;
+  TestStack.x := 42;
+  TestStack.DropDown;
+  AssertEquals(0, TestStack.x);
+  TestStack.DropDown;
+  TestStack.DropDown;
+  TestStack.DropDown;
+  AssertEquals(0, TestStack.x);
+  TestStack.destroy;
+end;
+
+procedure TStackTestCases.RollUpTest;
+var
+  TestStack: TStack;
+begin
+  TestStack := TStack.create;
+  TestStack.x := 42;
+  TestStack.RollUp;
+  TestStack.x := 0;
+  AssertEquals(0, TestStack.x);
+  TestStack.RollDown;
+  AssertEquals(42, TestStack.x);
+  TestStack.destroy;
+end;
+
+procedure TStackTestCases.PushTest;
+var
+  TestStack: TStack;
+begin
+  TestStack := TStack.create;
+  TestStack.Push(42);
+  TestStack.Push(13);
+  TestStack.Push(0);
+  AssertEquals(0, TestStack.x);
+  TestStack.RollDown;
+  AssertEquals(13, TestStack.x);
+  TestStack.RollDown;
+  AssertEquals(42, TestStack.x);
+  TestStack.destroy;
+end;
+
+
+procedure TStackTestCases.PopTest;
+var
+  TestStack: TStack;
+begin
+  TestStack := TStack.create;
+  TestStack.Push(42);
+  TestStack.Push(13);
+  TestStack.Push(0);
+  AssertEquals(0, TestStack.Pop);
+  AssertEquals(13, TestStack.Pop);
+  AssertEquals(42, TestStack.Pop);
+  TestStack.destroy;
+end;
 
 { TEngineFunctionTestCases }
 
@@ -109,6 +199,7 @@ end;
 initialization
 
 RegisterTest(TControlTestCases);
+RegisterTest(TStackTestCases);
 RegisterTest(TEngineFunctionTestCases);
 
 end.
