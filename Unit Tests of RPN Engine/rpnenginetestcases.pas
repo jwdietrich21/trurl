@@ -26,7 +26,8 @@ unit RPNEngineTestCases;
 interface
 
 uses
-  Classes, SysUtils, fpcunit, testutils, testregistry, RPNEngine;
+  Classes, SysUtils, Controls, fpcunit, testutils, testregistry,
+  RPNEngine, RPNWidgets;
 
 type
 
@@ -67,6 +68,7 @@ type
     procedure ASinFunctionTest;
     procedure ACosFunctionTest;
     procedure ATanFunctionTest;
+    procedure sqrootTest;
   end;
 
   { TEngineRPNFunctionTestCases }
@@ -78,7 +80,49 @@ type
     procedure CompoundFunctionTests;
   end;
 
+  { TWidgetTestCases }
+
+  TWidgetTestCases = class(TTestCase)
+  published
+    procedure DisplayTest;
+  end;
+
 implementation
+
+{ TWidgetTestCases }
+
+procedure TWidgetTestCases.DisplayTest;
+var
+  TestControlX, TestControlY, TestControlZ, TestControlT: TControl;
+  TestFrame: TFrame;
+begin
+  TestFrame := TFrame.create;
+  TestFrame.Engine := TEngine.create;
+  TestFrame.Engine.Stack := TStack.create;
+  TestControlX := TControl.create(nil);
+  TestControlY := TControl.create(nil);
+  TestControlZ := TControl.create(nil);
+  TestControlT := TControl.create(nil);
+  TestFrame.XRegDisplay := TestControlX;
+  TestFrame.YRegDisplay := TestControlY;
+  TestFrame.ZRegDisplay := TestControlZ;
+  TestFrame.TRegDisplay := TestControlT;
+  TestFrame.Engine.Stack.Push(7);
+  TestFrame.Engine.Stack.Push(13);
+  TestFrame.Engine.Stack.Push(21);
+  TestFrame.Engine.Stack.Push(23);
+  TestFrame.DisplayRegisters;
+  AssertEquals('23', TestControlX.Caption);
+  AssertEquals('21', TestControlY.Caption);
+  AssertEquals('13', TestControlZ.Caption);
+  AssertEquals('7', TestControlT.Caption);
+  TestControlX.destroy;
+  TestControlY.destroy;
+  TestControlZ.destroy;
+  TestControlT.destroy;
+  TestFrame.Engine.destroy;
+  TestFrame.destroy;
+end;
 
 { TEngineSingleFunctionTestCases }
 
@@ -321,6 +365,18 @@ begin
   TestEngine.destroy;
 end;
 
+procedure TEngineSingleFunctionTestCases.sqrootTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.Stack.Push(16);
+  TestEngine.sqroot;
+  AssertEquals(4, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
 { TStackTestCases }
 
 procedure TStackTestCases.RollDownTest;
@@ -479,5 +535,6 @@ RegisterTest(TControlTestCases);
 RegisterTest(TStackTestCases);
 RegisterTest(TEngineRPNFunctionTestCases);
 RegisterTest(TEngineSingleFunctionTestCases);
+RegisterTest(TWidgetTestCases);
 end.
 
