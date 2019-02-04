@@ -55,6 +55,7 @@ private
 public
   constructor create;
   destructor destroy; override;
+  procedure Clear;
   procedure RollDown;
   procedure DropDown;
   procedure RollUp;
@@ -112,6 +113,15 @@ end;
 destructor TStack.destroy;
 begin
   inherited destroy;
+end;
+
+procedure TStack.Clear;
+begin
+  fx := 0;
+  fy := 0;
+  fz := 0;
+  ft := 0;
+  fl := 0;
 end;
 
 procedure TStack.RollDown;

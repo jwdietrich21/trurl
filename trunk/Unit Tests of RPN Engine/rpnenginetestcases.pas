@@ -47,6 +47,7 @@ type
     procedure RollUpTest;
     procedure PushTest;
     procedure PopTest;
+    procedure ClearTest;
   end;
 
   { TEngineSingleFunctionTestCases }
@@ -253,6 +254,24 @@ begin
   AssertEquals(13, TestStack.Pop);
   AssertEquals(42, TestStack.Pop);
   TestStack.destroy;
+end;
+
+procedure TStackTestCases.ClearTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.Stack.Push(4);
+  TestEngine.Stack.Push(3);
+  TestEngine.Stack.Push(2);
+  TestEngine.Stack.Push(1);
+  TestEngine.Stack.Clear;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  AssertEquals(0, TestEngine.Stack.Pop);
+  AssertEquals(0, TestEngine.Stack.Pop);
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.destroy;
 end;
 
 { TEngineFunctionTestCases }
