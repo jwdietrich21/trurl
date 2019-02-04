@@ -61,6 +61,12 @@ type
     procedure CHSFunctionTest;
     procedure InvFunctionTest;
     procedure PWRFunctionTest;
+    procedure SinFunctionTest;
+    procedure CosFunctionTest;
+    procedure TanFunctionTest;
+    procedure ASinFunctionTest;
+    procedure ACosFunctionTest;
+    procedure ATanFunctionTest;
   end;
 
   { TEngineRPNFunctionTestCases }
@@ -176,6 +182,142 @@ begin
   TestEngine.PWR;
   AssertEquals(32, TestEngine.Stack.Pop);
   AssertEquals(5, TestEngine.Stack.lastx);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.SinFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.AngleMode := Degree;
+  TestEngine.Stack.Push(90);
+  TestEngine.Sinus;
+  AssertEquals(1, TestEngine.Stack.Pop);
+  TestEngine.Stack.Push(180);
+  TestEngine.Sinus;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Radian;
+  TestEngine.Stack.Push(2 * pi);
+  TestEngine.Sinus;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Turn;
+  TestEngine.Stack.Push(1/4);
+  TestEngine.Sinus;
+  AssertEquals(1, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Grad;
+  TestEngine.Stack.Push(200);
+  TestEngine.Sinus;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.CosFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.AngleMode := Degree;
+  TestEngine.Stack.Push(90);
+  TestEngine.Cosinus;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.Stack.Push(180);
+  TestEngine.Cosinus;
+  AssertEquals(-1, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Radian;
+  TestEngine.Stack.Push(2 * pi);
+  TestEngine.Cosinus;
+  AssertEquals(1, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.TanFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.AngleMode := Degree;
+  TestEngine.Stack.Push(45);
+  TestEngine.Tangens;
+  AssertEquals(1, TestEngine.Stack.Pop);
+  TestEngine.Stack.Push(180);
+  TestEngine.Tangens;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Radian;
+  TestEngine.Stack.Push(2 * pi);
+  TestEngine.Tangens;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.ASinFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.AngleMode := Degree;
+  TestEngine.Stack.Push(1);
+  TestEngine.ArcSinus;
+  AssertEquals(90, TestEngine.Stack.Pop);
+  TestEngine.Stack.Push(0);
+  TestEngine.ArcSinus;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Radian;
+  TestEngine.Stack.Push(-1);
+  TestEngine.ArcSinus;
+  AssertEquals(-pi / 2, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Turn;
+  TestEngine.Stack.Push(1);
+  TestEngine.ArcSinus;
+  AssertEquals(1/4, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Grad;
+  TestEngine.Stack.Push(1);
+  TestEngine.ArcSinus;
+  AssertEquals(100, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.ACosFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.AngleMode := Degree;
+  TestEngine.Stack.Push(1);
+  TestEngine.ArcCosinus;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.Stack.Push(0);
+  TestEngine.ArcCosinus;
+  AssertEquals(90, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Radian;
+  TestEngine.Stack.Push(-1);
+  TestEngine.ArcCosinus;
+  AssertEquals(pi, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
+procedure TEngineSingleFunctionTestCases.ATanFunctionTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.AngleMode := Degree;
+  TestEngine.Stack.Push(1);
+  TestEngine.ArcTangens;
+  AssertEquals(45, TestEngine.Stack.Pop);
+  TestEngine.Stack.Push(0);
+  TestEngine.ArcTangens;
+  AssertEquals(0, TestEngine.Stack.Pop);
+  TestEngine.AngleMode := Radian;
+  TestEngine.Stack.Push(-1);
+  TestEngine.ArcTangens;
+  AssertEquals(-pi / 4, TestEngine.Stack.Pop);
   TestEngine.destroy;
 end;
 
