@@ -15,7 +15,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="19"/>
+      <BuildNr Value="20"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Leopolis" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="1.0.0"/>
     </VersionInfo>
@@ -45,7 +45,7 @@
         <PackageName Value="FCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -60,6 +60,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="rpnwidgets.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNWidgets"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
