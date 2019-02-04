@@ -81,10 +81,11 @@ var
 begin
   TestEngine := TEngine.create;
   TestEngine.Stack := TStack.create;
-  TestEngine.stack.Push(7);
-  TestEngine.stack.Push(6);
+  TestEngine.Stack.Push(7);
+  TestEngine.Stack.Push(6);
   TestEngine.Add;
   AssertEquals(13, TestEngine.Stack.Pop);
+  AssertEquals(6, TestEngine.Stack.lastx);
   TestEngine.destroy;
 end;
 
@@ -94,14 +95,15 @@ var
 begin
   TestEngine := TEngine.create;
   TestEngine.Stack := TStack.create;
-  TestEngine.stack.Push(24);
-  TestEngine.stack.Push(3);
+  TestEngine.Stack.Push(24);
+  TestEngine.Stack.Push(3);
   TestEngine.Sub;
   AssertEquals(21, TestEngine.Stack.Pop);
-  TestEngine.stack.Push(3);
-  TestEngine.stack.Push(7);
+  TestEngine.Stack.Push(3);
+  TestEngine.Stack.Push(7);
   TestEngine.Sub;
   AssertEquals(-4, TestEngine.Stack.Pop);
+  AssertEquals(7, TestEngine.Stack.lastx);
   TestEngine.destroy;
 end;
 
@@ -111,10 +113,11 @@ var
 begin
   TestEngine := TEngine.create;
   TestEngine.Stack := TStack.create;
-  TestEngine.stack.Push(3);
-  TestEngine.stack.Push(7);
+  TestEngine.Stack.Push(3);
+  TestEngine.Stack.Push(7);
   TestEngine.Times;
   AssertEquals(21, TestEngine.Stack.Pop);
+  AssertEquals(7, TestEngine.Stack.lastx);
   TestEngine.destroy;
 end;
 
@@ -124,10 +127,11 @@ var
 begin
   TestEngine := TEngine.create;
   TestEngine.Stack := TStack.create;
-  TestEngine.stack.Push(24);
-  TestEngine.stack.Push(3);
+  TestEngine.Stack.Push(24);
+  TestEngine.Stack.Push(3);
   TestEngine.Divide;
   AssertEquals(8, TestEngine.Stack.Pop);
+  AssertEquals(3, TestEngine.Stack.lastx);
   TestEngine.destroy;
 end;
 
@@ -137,7 +141,7 @@ var
 begin
   TestEngine := TEngine.create;
   TestEngine.Stack := TStack.create;
-  TestEngine.stack.Push(23);
+  TestEngine.Stack.Push(23);
   TestEngine.CHS;
   AssertEquals(-23, TestEngine.Stack.Pop);
   TestEngine.destroy;
@@ -149,9 +153,10 @@ var
 begin
   TestEngine := TEngine.create;
   TestEngine.Stack := TStack.create;
-  TestEngine.stack.Push(5);
+  TestEngine.Stack.Push(5);
   TestEngine.Inv;
   AssertEquals(0.2, TestEngine.Stack.Pop);
+  AssertEquals(5, TestEngine.Stack.lastx);
   TestEngine.destroy;
 end;
 
@@ -161,14 +166,15 @@ var
 begin
   TestEngine := TEngine.create;
   TestEngine.Stack := TStack.create;
-  TestEngine.stack.Push(5);
-  TestEngine.stack.Push(2);
+  TestEngine.Stack.Push(5);
+  TestEngine.Stack.Push(2);
   TestEngine.PWR;
   AssertEquals(25, TestEngine.Stack.Pop);
-  TestEngine.stack.Push(2);
-  TestEngine.stack.Push(5);
+  TestEngine.Stack.Push(2);
+  TestEngine.Stack.Push(5);
   TestEngine.PWR;
   AssertEquals(32, TestEngine.Stack.Pop);
+  AssertEquals(5, TestEngine.Stack.lastx);
   TestEngine.destroy;
 end;
 
