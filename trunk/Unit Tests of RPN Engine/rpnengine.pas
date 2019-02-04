@@ -61,11 +61,14 @@ public
   procedure Push(operand: extended);
   function Pop: extended;
   procedure Error(msg: String);
+protected
+  fl: extended;
 public
   property x: extended read fx write fx;
   property y: extended read fy;
   property z: extended read fz;
   property t: extended read ft;
+  property lastx: extended read fl;
 end;
 
 { TEngine }
@@ -174,6 +177,7 @@ end;
 
 procedure TEngine.Add;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(Stack.Pop, Stack.Pop, PlusOp));
 end;
 
@@ -181,6 +185,7 @@ procedure TEngine.Sub;
 var
   operand1, operand2: extended;
 begin
+  Stack.fl := Stack.x;
   operand1 := Stack.Pop;
   operand2 := Stack.Pop;
   Stack.Push(rpn(operand2, operand1, MinusOp));
@@ -188,6 +193,7 @@ end;
 
 procedure TEngine.Times;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(Stack.Pop, Stack.Pop, MultOp));
 end;
 
@@ -195,6 +201,7 @@ procedure TEngine.Divide;
 var
   operand1, operand2: extended;
 begin
+  Stack.fl := Stack.x;
   operand1 := Stack.Pop;
   operand2 := Stack.Pop;
   Stack.Push(rpn(operand2, operand1, DivOp));
@@ -207,6 +214,7 @@ end;
 
 procedure TEngine.Inv;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(Stack.Pop, InvertOp));
 end;
 
@@ -214,6 +222,7 @@ procedure TEngine.PWR;
 var
   operand1, operand2: extended;
 begin
+  Stack.fl := Stack.x;
   operand1 := Stack.Pop;
   operand2 := Stack.Pop;
   Stack.Push(rpn(operand2, operand1, PowerOp));
@@ -221,36 +230,43 @@ end;
 
 procedure TEngine.Sinus;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(stack.Pop, SinOp));
 end;
 
 procedure TEngine.Cosinus;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(stack.Pop, CosOp));
 end;
 
 procedure TEngine.Tangens;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(stack.Pop, TanOp));
 end;
 
 procedure TEngine.ArcSinus;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(stack.Pop, ASinOp));
 end;
 
 procedure TEngine.ArcCosinus;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(stack.Pop, ACosOp));
 end;
 
 procedure TEngine.ArcTangens;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(stack.Pop, ATanOp));
 end;
 
 procedure TEngine.sqroot;
 begin
+  Stack.fl := Stack.x;
   Stack.Push(rpn(stack.Pop, sqrtOp));
 end;
 
