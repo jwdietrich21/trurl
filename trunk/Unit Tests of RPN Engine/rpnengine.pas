@@ -34,6 +34,7 @@ type
 
 TBinOperator = (PlusOp, MinusOp, MultOp, DivOp, PowerOp);
 TUniOperator = (PlusMinusOp, InvertOp, SinOp, CosOp, TanOp, ASinOp, ACosOp, ATanOp, sqrtOp);
+TAngleMode = (Degree, Radian, Turn, Grad);
 
 const
   RPNEngine_major   = 1;
@@ -77,6 +78,7 @@ end;
 TEngine = class
 public
   Stack: TStack;
+  AngleMode: TAngleMode;
   constructor create;
   destructor destroy; override;
   procedure Add;
@@ -176,6 +178,7 @@ constructor TEngine.create;
 begin
   inherited create;
   Stack := TStack.create;
+  AngleMode := Degree;
 end;
 
 destructor TEngine.destroy;
@@ -241,37 +244,79 @@ end;
 procedure TEngine.Sinus;
 begin
   Stack.fl := Stack.x;
-  Stack.Push(rpn(stack.Pop, SinOp));
+  if AngleMode = Degree then
+    Stack.Push(rpn(degtorad(stack.Pop), SinOp))
+  else if AngleMode = Turn then
+    Stack.Push(rpn(cycletorad(stack.Pop), SinOp))
+  else if AngleMode = Grad then
+    Stack.Push(rpn(gradtorad(stack.Pop), SinOp))
+  else
+    Stack.Push(rpn(stack.Pop, SinOp));
 end;
 
 procedure TEngine.Cosinus;
 begin
   Stack.fl := Stack.x;
-  Stack.Push(rpn(stack.Pop, CosOp));
+  if AngleMode = Degree then
+    Stack.Push(rpn(degtorad(stack.Pop), CosOp))
+  else if AngleMode = Turn then
+    Stack.Push(rpn(cycletorad(stack.Pop), CosOp))
+  else if AngleMode = Grad then
+    Stack.Push(rpn(gradtorad(stack.Pop), CosOp))
+  else
+    Stack.Push(rpn(stack.Pop, CosOp));
 end;
 
 procedure TEngine.Tangens;
 begin
   Stack.fl := Stack.x;
-  Stack.Push(rpn(stack.Pop, TanOp));
+  if AngleMode = Degree then
+    Stack.Push(rpn(degtorad(stack.Pop), TanOp))
+  else if AngleMode = Turn then
+    Stack.Push(rpn(cycletorad(stack.Pop), TanOp))
+  else if AngleMode = Grad then
+    Stack.Push(rpn(gradtorad(stack.Pop), TanOp))
+  else
+    Stack.Push(rpn(stack.Pop, TanOp));
 end;
 
 procedure TEngine.ArcSinus;
 begin
   Stack.fl := Stack.x;
-  Stack.Push(rpn(stack.Pop, ASinOp));
+  if AngleMode = Degree then
+    Stack.Push(radtodeg(rpn(stack.Pop, ASinOp)))
+  else if AngleMode = Turn then
+    Stack.Push(radtocycle(rpn(stack.Pop, ASinOp)))
+  else if AngleMode = Grad then
+    Stack.Push(radtograd(rpn(stack.Pop, ASinOp)))
+  else
+    Stack.Push(rpn(stack.Pop, ASinOp));
 end;
 
 procedure TEngine.ArcCosinus;
 begin
   Stack.fl := Stack.x;
-  Stack.Push(rpn(stack.Pop, ACosOp));
+  if AngleMode = Degree then
+    Stack.Push(radtodeg(rpn(stack.Pop, ACosOp)))
+  else if AngleMode = Turn then
+    Stack.Push(radtocycle(rpn(stack.Pop, ACosOp)))
+  else if AngleMode = Grad then
+    Stack.Push(radtograd(rpn(stack.Pop, ACosOp)))
+  else
+    Stack.Push(rpn(stack.Pop, ACosOp));
 end;
 
 procedure TEngine.ArcTangens;
 begin
   Stack.fl := Stack.x;
-  Stack.Push(rpn(stack.Pop, ATanOp));
+  if AngleMode = Degree then
+    Stack.Push(radtodeg(rpn(stack.Pop, ATanOp)))
+  else if AngleMode = Turn then
+    Stack.Push(radtocycle(rpn(stack.Pop, ATanOp)))
+  else if AngleMode = Grad then
+    Stack.Push(radtograd(rpn(stack.Pop, ATanOp)))
+  else
+    Stack.Push(rpn(stack.Pop, ATanOp));
 end;
 
 procedure TEngine.sqroot;
