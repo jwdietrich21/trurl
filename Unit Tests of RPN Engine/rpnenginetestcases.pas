@@ -44,6 +44,7 @@ type
   TBCDTestCases = class(TTestCase)
   published
     procedure asRealTest;
+    procedure asBCDTest;
   end;
 
   { TStackTestCases }
@@ -105,8 +106,8 @@ var
   i: integer;
 begin
   BCDNumber.sigSign := positive; // +13
-  BCDNumber.significand[0] := (16 * 1) + 3;
-  for i := 1 to 5 do
+  BCDNumber.significand[5] := (16 * 1) + 3;
+  for i := 0 to 4 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := positive;
   BCDNumber.exponent[0] := 0;
@@ -115,9 +116,9 @@ begin
   AssertEquals(13, RealNumber);
 
   BCDNumber.sigSign := negative; // -107
-  BCDNumber.significand[0] := 7;
-  BCDNumber.significand[1] := 1;
-  for i := 2 to 5 do
+  BCDNumber.significand[5] := 7;
+  BCDNumber.significand[4] := 1;
+  for i := 0 to 3 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := positive;
   BCDNumber.exponent[0] := 0;
@@ -126,12 +127,12 @@ begin
   AssertEquals(-107, RealNumber);
 
   BCDNumber.sigSign := positive; // +33e13
-  BCDNumber.significand[0] := (16 * 3) + 3;
-  for i := 1 to 5 do
+  BCDNumber.significand[5] := (16 * 3) + 3;
+  for i := 0 to 4 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := (16 * 1) + 3;
-  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := (16 * 1) + 3;
   RealNumber := asReal(BCDNumber);
   AssertEquals(33e13, RealNumber);
 
@@ -140,10 +141,26 @@ begin
   for i := 1 to 5 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := negative;
-  BCDNumber.exponent[0] := (16 * 2) + 1;
-  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := (16 * 2) + 1;
   RealNumber := asReal(BCDNumber);
   AssertEquals(-18e-21, RealNumber);
+end;
+
+procedure TBCDTestCases.asBCDTest;
+var
+  BCDNumber: TBCDFloat;
+begin
+  BCDNumber := AsBCD(13);
+  AssertTrue(BCDNumber.sigSign = positive);
+  AssertTrue(BCDNumber.expSign = positive);
+  AssertEquals(19, BCDNumber.significand[5]); // 19 corresponds to 1 * 16 + 3 * 1
+  AssertEquals(1, BCDNumber.exponent[1]);  // 1 corresponds to 0 * 16 + 1 * 1
+  {BCDNumber := AsBCD(-18e-21);
+  AssertTrue(BCDNumber.sigSign = negative);
+  AssertTrue(BCDNumber.expSign = negative);
+  AssertEquals(24, BCDNumber.significand[0]); // 24 corresponds to 1 * 16 + 8 * 1
+  AssertEquals(33, BCDNumber.exponent[0]);  // 33 corresponds to 1 * 16 + 1 * 1  }
 end;
 
 { TWidgetTestCases }
