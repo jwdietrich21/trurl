@@ -370,7 +370,7 @@ begin
         result := operand1 / operand2;
     end;
   PowerOp:
-    result := exp(ln(operand1) * operand2);
+    result := power(operand1, operand2);
   end;
 end;
 

@@ -24,7 +24,7 @@ program rpnenginetests;
 {$mode objfpc}{$H+}
 
 uses
-  Interfaces, Forms, GuiTestRunner, RPNEngineTestCases;
+  Interfaces, Forms, GuiTestRunner, RPNEngineTestCases, BCD;
 
 {$R *.res}
 
