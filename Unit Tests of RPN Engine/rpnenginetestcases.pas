@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, Controls, fpcunit, testutils, testregistry,
-  RPNEngine, RPNWidgets;
+  BCD, RPNEngine, RPNWidgets;
 
 type
 
@@ -37,6 +37,13 @@ type
   published
     procedure PositiveCheck;
     procedure CodeVersionCheck;
+  end;
+
+  { TBCDTestCases }
+
+  TBCDTestCases = class(TTestCase)
+  published
+    procedure asRealTest;
   end;
 
   { TStackTestCases }
@@ -88,6 +95,56 @@ type
   end;
 
 implementation
+
+{ TBCDTestCases }
+
+procedure TBCDTestCases.asRealTest;
+var
+  BCDNumber: TBCDFloat;
+  RealNumber: real;
+  i: integer;
+begin
+  BCDNumber.sigSign := positive; // +13
+  BCDNumber.significand[0] := (16 * 1) + 3;
+  for i := 1 to 5 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := 0;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(13, RealNumber);
+
+  BCDNumber.sigSign := negative; // -107
+  BCDNumber.significand[0] := 7;
+  BCDNumber.significand[1] := 1;
+  for i := 2 to 5 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := 0;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(-107, RealNumber);
+
+  BCDNumber.sigSign := positive; // +33e13
+  BCDNumber.significand[0] := (16 * 3) + 3;
+  for i := 1 to 5 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := (16 * 1) + 3;
+  BCDNumber.exponent[1] := 0;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(33e13, RealNumber);
+
+  BCDNumber.sigSign := negative; // -18e-21
+  BCDNumber.significand[0] := (16 * 1) + 8;
+  for i := 1 to 5 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := negative;
+  BCDNumber.exponent[0] := (16 * 2) + 1;
+  BCDNumber.exponent[1] := 0;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(-18e-21, RealNumber);
+end;
 
 { TWidgetTestCases }
 
@@ -225,6 +282,11 @@ begin
   TestEngine.Stack.Push(5);
   TestEngine.PWR;
   AssertEquals(32, TestEngine.Stack.Pop);
+  AssertEquals(5, TestEngine.Stack.lastx);
+  TestEngine.Stack.Push(-2);
+  TestEngine.Stack.Push(5);
+  TestEngine.PWR;
+  AssertEquals(-32, TestEngine.Stack.Pop);
   AssertEquals(5, TestEngine.Stack.lastx);
   TestEngine.destroy;
 end;
@@ -532,6 +594,7 @@ end;
 initialization
 
 RegisterTest(TControlTestCases);
+RegisterTest(TBCDTestCases);
 RegisterTest(TStackTestCases);
 RegisterTest(TEngineRPNFunctionTestCases);
 RegisterTest(TEngineSingleFunctionTestCases);
