@@ -26,7 +26,7 @@ unit BCD;
 interface
 
 uses
-  Classes, SysUtils, Math;
+  Classes, SysUtils, Math, StrUtils;
 
 type
 
@@ -123,8 +123,12 @@ begin
 end;
 
 function asBCD(aNumber: real): TBCDFloat;
+const
+  maxdigits = 12;
 var
-  i, j, k: integer;
+  i, j, jmax, k, l: integer;
+  fraction: extended;
+  fracstring: String;
   expo, intpart, fracpart: Int64;
 begin
   if sign(aNumber) >= 0 then
@@ -133,7 +137,11 @@ begin
     result.sigSign := negative;
   expo := floor(log10(abs(aNumber)));
   intpart := trunc(aNumber);
-  j := 5; // 12 digits
+  fraction := frac(aNumber);
+  Str(fraction: 14: 12, fracstring);
+  fracstring := rightStr(fracstring, 12);
+  jmax := maxdigits div 2 - 1; // 5
+  j := jmax;
   k := expo;
   for i := 0 to j do
     result.significand[i] := 0;
@@ -151,6 +159,29 @@ begin
       begin
         result.significand[j] := intpart div trunc((power(10, i - 1))) mod 10 or ((intpart div trunc(power(10, i)) mod 10) shl 4);
         dec(j);
+      end;
+    end;
+  end
+  else if expo = 0 then
+  begin
+    result.significand[j] := intpart;
+  end;
+  if aNumber <> IntPart then
+  begin
+    if not odd(expo) then
+    begin
+      result.significand[j] := StrToInt(fracstring[jmax - j + 1]) or (result.significand[j] shl 4);
+      dec(j);
+    end;
+    k := j * 2;
+    l := j;
+    for i := k downto 0 do
+    begin
+      if odd(i) then
+      begin
+        result.significand[l] := StrToInt(fracstring[jmax - j + 2]) or (StrToInt(fracstring[jmax - j + 1]) shl 4);
+        dec(j, 2);
+        dec(l);
       end;
     end;
   end;
