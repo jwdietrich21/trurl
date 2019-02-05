@@ -156,6 +156,14 @@ begin
   AssertTrue(BCDNumber.expSign = positive);
   AssertEquals(19, BCDNumber.significand[5]); // 19 corresponds to 1 * 16 + 3 * 1
   AssertEquals(1, BCDNumber.exponent[1]);  // 1 corresponds to 0 * 16 + 1 * 1
+  BCDNumber := AsBCD(3.14159265359);
+  AssertEquals(49, BCDNumber.significand[5]); // 49 corresponds to 3 * 16 + 1 * 1
+  AssertEquals(65, BCDNumber.significand[4]); // 65 corresponds to 4 * 16 + 1 * 1
+  AssertEquals(89, BCDNumber.significand[3]); // 89 corresponds to 5 * 16 + 9 * 1
+  AssertEquals(38, BCDNumber.significand[2]); // 89 corresponds to 2 * 16 + 6 * 1
+  AssertEquals(83, BCDNumber.significand[1]); // 89 corresponds to 5 * 16 + 3 * 1
+  AssertEquals(0, BCDNumber.exponent[1]);
+  {BCDNumber := AsBCD(-273.15);}
   {BCDNumber := AsBCD(-18e-21);
   AssertTrue(BCDNumber.sigSign = negative);
   AssertTrue(BCDNumber.expSign = negative);
