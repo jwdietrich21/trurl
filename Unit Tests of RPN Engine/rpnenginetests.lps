@@ -37,14 +37,6 @@
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
-        <Filename Value="../TRURL A/rpnwidgets.pas"/>
-        <UnitName Value="RPNWidgets"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="17"/>
-        <CursorPos X="45" Y="34"/>
-        <UsageCount Value="10"/>
-      </Unit3>
-      <Unit4>
         <Filename Value="rpnwidgets.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
@@ -53,6 +45,14 @@
         <CursorPos Y="2"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../TRURL A/rpnwidgets.pas"/>
+        <UnitName Value="RPNWidgets"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="17"/>
+        <CursorPos X="45" Y="34"/>
+        <UsageCount Value="10"/>
       </Unit4>
       <Unit5>
         <Filename Value="/Developer/lazarus/lcl/controls.pp"/>
@@ -70,7 +70,7 @@
         <UsageCount Value="10"/>
       </Unit6>
     </Units>
-    <JumpHistory Count="26" HistoryIndex="25">
+    <JumpHistory Count="22" HistoryIndex="21">
       <Position1>
         <Filename Value="rpnengine.pas"/>
         <Caret Line="181" Column="12" TopLine="154"/>
@@ -80,101 +80,85 @@
         <Caret Line="269" Column="40" TopLine="254"/>
       </Position2>
       <Position3>
-        <Filename Value="rpnwidgets.pas"/>
-        <Caret TopLine="68"/>
-      </Position3>
-      <Position4>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="84" Column="12" TopLine="56"/>
+      </Position3>
+      <Position4>
+        <Filename Value="rpnwidgets.pas"/>
+        <Caret Line="207" Column="16" TopLine="206"/>
       </Position4>
       <Position5>
         <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="207" Column="16" TopLine="206"/>
+        <Caret Line="42" Column="63" TopLine="34"/>
       </Position5>
       <Position6>
         <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="42" Column="63" TopLine="34"/>
+        <Caret Line="219" Column="56" TopLine="214"/>
       </Position6>
       <Position7>
         <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="219" Column="56" TopLine="214"/>
+        <Caret Line="42" Column="63" TopLine="17"/>
       </Position7>
       <Position8>
-        <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="42" Column="63" TopLine="17"/>
-      </Position8>
-      <Position9>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="85" Column="27" TopLine="56"/>
-      </Position9>
-      <Position10>
+      </Position8>
+      <Position9>
         <Filename Value="rpnwidgets.pas"/>
         <Caret Line="69" Column="59" TopLine="54"/>
-      </Position10>
-      <Position11>
+      </Position9>
+      <Position10>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="106" Column="15" TopLine="92"/>
-      </Position11>
-      <Position12>
+      </Position10>
+      <Position11>
         <Filename Value="rpnwidgets.pas"/>
         <Caret Line="33" TopLine="33"/>
+      </Position11>
+      <Position12>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="30" Column="3"/>
       </Position12>
       <Position13>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="94" Column="59" TopLine="178"/>
+        <Caret Line="100" Column="34" TopLine="84"/>
       </Position13>
       <Position14>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="30" Column="3"/>
+        <Caret Line="95" Column="67" TopLine="84"/>
       </Position14>
       <Position15>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="100" Column="34" TopLine="84"/>
+        <Caret Line="93" Column="27" TopLine="84"/>
       </Position15>
       <Position16>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="95" Column="67" TopLine="84"/>
+        <Caret Line="511" Column="32" TopLine="480"/>
       </Position16>
       <Position17>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="93" Column="27" TopLine="84"/>
+        <Caret Line="91" Column="42" TopLine="82"/>
       </Position17>
       <Position18>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="511" Column="32" TopLine="480"/>
+        <Caret Line="105" Column="48" TopLine="84"/>
       </Position18>
       <Position19>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="91" Column="42" TopLine="82"/>
+        <Caret Line="113" Column="39" TopLine="89"/>
       </Position19>
       <Position20>
-        <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="105" Column="48" TopLine="84"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="18" TopLine="17"/>
       </Position20>
       <Position21>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="113" Column="39" TopLine="89"/>
+        <Caret Line="71" Column="26" TopLine="56"/>
       </Position21>
       <Position22>
-        <Filename Value="rpnwidgets.pas"/>
-        <Caret TopLine="127"/>
-      </Position22>
-      <Position23>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="18" TopLine="17"/>
-      </Position23>
-      <Position24>
-        <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="71" Column="26" TopLine="56"/>
-      </Position24>
-      <Position25>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="378" Column="5" TopLine="366"/>
-      </Position25>
-      <Position26>
-        <Filename Value="rpnengine.pas"/>
-        <Caret Line="2" TopLine="316"/>
-      </Position26>
+      </Position22>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -101,8 +101,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
-    {procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);}
-    {procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);}
+    procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure InvButtonClick(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
     procedure WinAboutItemClick(Sender: TObject);
@@ -180,8 +179,8 @@ begin
     '/': DivButtonClick(Sender);
     '*': TimesButtonClick(Sender);
     'c', 'C': CButtonClick(Sender);
-    {VK_DOWN: RDButtonClick(Sender);}
   end;
+  Key := #0;
   ActiveControl := EnterButton;
 end;
 
@@ -239,55 +238,16 @@ begin
   Frame.InsertString(Clipboard.AsText);
 end;
 
-{procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if Shift = [] then
   case key of
-    VK_0, VK_NUMPAD0: Nr0ButtonClick(Sender);
-    VK_1, VK_NUMPAD1: Nr1ButtonClick(Sender);
-    VK_2, VK_NUMPAD2: Nr2ButtonClick(Sender);
-    VK_3, VK_NUMPAD3: Nr3ButtonClick(Sender);
-    VK_4, VK_NUMPAD4: Nr4ButtonClick(Sender);
-    VK_5, VK_NUMPAD5: Nr5ButtonClick(Sender);
-    VK_6, VK_NUMPAD6: Nr6ButtonClick(Sender);
-    VK_7, VK_NUMPAD7: Nr7ButtonClick(Sender);
-    VK_8, VK_NUMPAD8: Nr8ButtonClick(Sender);
-    VK_9, VK_NUMPAD9: Nr9ButtonClick(Sender);
-    VK_DECIMAL, VK_LCL_POINT, VK_OEM_COMMA: DotButtonClick(Sender);
-    VK_ADD, VK_OEM_PLUS: PlusButtonClick(Sender);
-    VK_SUBTRACT, VK_LCL_MINUS: MinusButtonClick(Sender);
-    VK_DIVIDE: DivButtonClick(Sender);
-    VK_MULTIPLY: TimesButtonClick(Sender);
     VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
     VK_DOWN: RDButtonClick(Sender);
   end;
+  Key := 0;
   ActiveControl := EnterButton;
-end;  }
-
-{procedure TMainForm.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-begin
-  if Shift = [] then
-  case key of
-    VK_0, VK_NUMPAD0: Nr0ButtonClick(Sender);
-    VK_1, VK_NUMPAD1: Nr1ButtonClick(Sender);
-    VK_2, VK_NUMPAD2: Nr2ButtonClick(Sender);
-    VK_3, VK_NUMPAD3: Nr3ButtonClick(Sender);
-    VK_4, VK_NUMPAD4: Nr4ButtonClick(Sender);
-    VK_5, VK_NUMPAD5: Nr5ButtonClick(Sender);
-    VK_6, VK_NUMPAD6: Nr6ButtonClick(Sender);
-    VK_7, VK_NUMPAD7: Nr7ButtonClick(Sender);
-    VK_8, VK_NUMPAD8: Nr8ButtonClick(Sender);
-    VK_9, VK_NUMPAD9: Nr9ButtonClick(Sender);
-    VK_DECIMAL, VK_LCL_POINT, VK_OEM_COMMA: DotButtonClick(Sender);
-    VK_ADD, VK_OEM_PLUS: PlusButtonClick(Sender);
-    VK_SUBTRACT, VK_LCL_MINUS: MinusButtonClick(Sender);
-    VK_DIVIDE: DivButtonClick(Sender);
-    VK_MULTIPLY: TimesButtonClick(Sender);
-    VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
-    VK_DOWN: RDButtonClick(Sender);
-  end;
-  ActiveControl := EnterButton;
-end;   }
+end;
 
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin

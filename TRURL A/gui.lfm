@@ -3,6 +3,7 @@ object MainForm: TMainForm
   Height = 402
   Top = 134
   Width = 338
+  ActiveControl = EnterButton
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl A'
