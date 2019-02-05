@@ -180,7 +180,7 @@ begin
     '*': TimesButtonClick(Sender);
     'c', 'C': CButtonClick(Sender);
   end;
-  Key := #0;
+  Key := #0; // Necessary for Cocoa widgetset
   ActiveControl := EnterButton;
 end;
 
@@ -245,7 +245,7 @@ begin
     VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
     VK_DOWN: RDButtonClick(Sender);
   end;
-  Key := 0;
+  //Key := 0;
   ActiveControl := EnterButton;
 end;
 
