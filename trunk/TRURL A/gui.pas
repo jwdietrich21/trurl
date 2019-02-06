@@ -96,6 +96,7 @@ type
     procedure DivButtonClick(Sender: TObject);
     procedure DotButtonClick(Sender: TObject);
     procedure EditCopy1Execute(Sender: TObject);
+    procedure EditCut1Execute(Sender: TObject);
     procedure EditPaste1Execute(Sender: TObject);
     procedure EnterButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -231,6 +232,13 @@ var
 procedure TMainForm.EditCopy1Execute(Sender: TObject);
 begin
   Clipboard.AsText := XRegisterDisplay.Caption;
+end;
+
+procedure TMainForm.EditCut1Execute(Sender: TObject);
+begin
+  Clipboard.AsText := XRegisterDisplay.Caption;
+  Frame.Engine.Stack.DropDown;
+  Frame.DisplayRegisters;
 end;
 
 procedure TMainForm.EditPaste1Execute(Sender: TObject);

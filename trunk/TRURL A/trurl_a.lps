@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="11"/>
+    <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="35">
+    <Units Count="36">
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -19,9 +19,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="7" Y="2"/>
+        <CursorPos Y="2"/>
         <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -54,6 +53,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="2"/>
         <UsageCount Value="36"/>
@@ -290,8 +290,16 @@
         <CursorPos Y="475"/>
         <UsageCount Value="10"/>
       </Unit34>
+      <Unit35>
+        <Filename Value="C:/lazarus/lcl/interfaces/carbon/carbonbars.pp"/>
+        <UnitName Value="CarbonBars"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6"/>
+        <CursorPos X="3" Y="25"/>
+        <UsageCount Value="10"/>
+      </Unit35>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="gui.pas"/>
         <Caret Line="177" Column="61"/>
@@ -370,53 +378,45 @@
       </Position19>
       <Position20>
         <Filename Value="gui.pas"/>
-        <Caret Line="7" Column="58" TopLine="389"/>
+        <Caret Line="180" Column="21" TopLine="163"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="97" TopLine="226"/>
+        <Caret Line="276" TopLine="245"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="180" Column="21" TopLine="163"/>
+        <Caret Line="284" Column="14" TopLine="257"/>
       </Position22>
       <Position23>
         <Filename Value="gui.pas"/>
-        <Caret Line="276" TopLine="245"/>
+        <Caret Line="349" TopLine="334"/>
       </Position23>
       <Position24>
         <Filename Value="gui.pas"/>
-        <Caret Line="284" Column="14" TopLine="257"/>
+        <Caret Line="101" TopLine="81"/>
       </Position24>
       <Position25>
         <Filename Value="gui.pas"/>
-        <Caret Line="349" TopLine="334"/>
+        <Caret Line="247" Column="10" TopLine="241"/>
       </Position25>
       <Position26>
         <Filename Value="gui.pas"/>
-        <Caret Line="101" TopLine="81"/>
+        <Caret Line="258" TopLine="241"/>
       </Position26>
       <Position27>
         <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="10" TopLine="241"/>
+        <Caret Line="247" Column="9" TopLine="241"/>
       </Position27>
       <Position28>
         <Filename Value="gui.pas"/>
-        <Caret Line="258" TopLine="241"/>
+        <Caret Line="260" Column="55" TopLine="238"/>
       </Position28>
       <Position29>
         <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="9" TopLine="241"/>
+        <Caret Line="2" Column="7"/>
       </Position29>
-      <Position30>
-        <Filename Value="gui.pas"/>
-        <Caret Line="260" Column="55" TopLine="238"/>
-      </Position30>
     </JumpHistory>
-    <RunParams>
-      <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
-    </RunParams>
   </ProjectSession>
   <Debugging>
     <Watches Count="5">
