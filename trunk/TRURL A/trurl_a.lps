@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="10"/>
+    <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="36">
+    <Units Count="37">
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="23" Y="9"/>
+        <CursorPos Y="2"/>
         <UsageCount Value="46"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -19,6 +19,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
         <UsageCount Value="46"/>
@@ -53,7 +54,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="2"/>
         <UsageCount Value="36"/>
@@ -298,125 +298,140 @@
         <CursorPos X="3" Y="25"/>
         <UsageCount Value="10"/>
       </Unit35>
+      <Unit36>
+        <Filename Value="/Developer/lazarus/lcl/interfaces/win32/win32int.pp"/>
+        <UnitName Value="Win32Int"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="15"/>
+        <CursorPos X="3" Y="31"/>
+        <UsageCount Value="10"/>
+      </Unit36>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="gui.pas"/>
-        <Caret Line="177" Column="61"/>
+        <Caret Line="411" Column="34" TopLine="384"/>
       </Position1>
       <Position2>
         <Filename Value="gui.pas"/>
-        <Caret Line="413" Column="23" TopLine="386"/>
+        <Caret Line="173" Column="50" TopLine="156"/>
       </Position2>
       <Position3>
-        <Filename Value="gui.pas"/>
-        <Caret Line="411" Column="34" TopLine="386"/>
+        <Filename Value="rpnwidgets.pas"/>
+        <Caret Line="233" Column="82" TopLine="221"/>
       </Position3>
       <Position4>
         <Filename Value="gui.pas"/>
-        <Caret Line="124" Column="28" TopLine="109"/>
+        <Caret Line="293" Column="35" TopLine="284"/>
       </Position4>
       <Position5>
         <Filename Value="gui.pas"/>
-        <Caret Line="183" Column="28" TopLine="156"/>
+        <Caret Line="442" Column="54" TopLine="428"/>
       </Position5>
       <Position6>
         <Filename Value="gui.pas"/>
-        <Caret Line="262" Column="27" TopLine="235"/>
+        <Caret Line="450" Column="84" TopLine="428"/>
       </Position6>
       <Position7>
         <Filename Value="gui.pas"/>
-        <Caret Line="287" Column="27" TopLine="260"/>
+        <Caret Line="445" Column="95" TopLine="428"/>
       </Position7>
       <Position8>
         <Filename Value="gui.pas"/>
-        <Caret Line="411" Column="34" TopLine="384"/>
+        <Caret Line="166" TopLine="156"/>
       </Position8>
       <Position9>
         <Filename Value="gui.pas"/>
-        <Caret Line="173" Column="50" TopLine="156"/>
+        <Caret Line="175" TopLine="156"/>
       </Position9>
       <Position10>
-        <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="233" Column="82" TopLine="221"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="184" TopLine="157"/>
       </Position10>
       <Position11>
         <Filename Value="gui.pas"/>
-        <Caret Line="293" Column="35" TopLine="284"/>
+        <Caret Line="104" Column="26" TopLine="92"/>
       </Position11>
       <Position12>
         <Filename Value="gui.pas"/>
-        <Caret Line="442" Column="54" TopLine="428"/>
+        <Caret Line="247" Column="17" TopLine="238"/>
       </Position12>
       <Position13>
         <Filename Value="gui.pas"/>
-        <Caret Line="450" Column="84" TopLine="428"/>
+        <Caret Line="180" Column="21" TopLine="163"/>
       </Position13>
       <Position14>
         <Filename Value="gui.pas"/>
-        <Caret Line="445" Column="95" TopLine="428"/>
+        <Caret Line="276" TopLine="245"/>
       </Position14>
       <Position15>
         <Filename Value="gui.pas"/>
-        <Caret Line="166" TopLine="156"/>
+        <Caret Line="284" Column="14" TopLine="257"/>
       </Position15>
       <Position16>
         <Filename Value="gui.pas"/>
-        <Caret Line="175" TopLine="156"/>
+        <Caret Line="349" TopLine="334"/>
       </Position16>
       <Position17>
         <Filename Value="gui.pas"/>
-        <Caret Line="184" TopLine="157"/>
+        <Caret Line="101" TopLine="81"/>
       </Position17>
       <Position18>
         <Filename Value="gui.pas"/>
-        <Caret Line="104" Column="26" TopLine="92"/>
+        <Caret Line="247" Column="10" TopLine="241"/>
       </Position18>
       <Position19>
         <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="17" TopLine="238"/>
+        <Caret Line="258" TopLine="241"/>
       </Position19>
       <Position20>
         <Filename Value="gui.pas"/>
-        <Caret Line="180" Column="21" TopLine="163"/>
+        <Caret Line="247" Column="9" TopLine="241"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="276" TopLine="245"/>
+        <Caret Line="260" Column="55" TopLine="238"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="284" Column="14" TopLine="257"/>
+        <Caret Line="2" Column="7"/>
       </Position22>
       <Position23>
-        <Filename Value="gui.pas"/>
-        <Caret Line="349" TopLine="334"/>
+        <Filename Value="aboutbox.pas"/>
+        <Caret Line="2" TopLine="15"/>
       </Position23>
       <Position24>
-        <Filename Value="gui.pas"/>
-        <Caret Line="101" TopLine="81"/>
+        <Filename Value="aboutbox.pas"/>
+        <Caret Line="26" Column="65" TopLine="23"/>
       </Position24>
       <Position25>
-        <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="10" TopLine="241"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="2" TopLine="32"/>
       </Position25>
       <Position26>
-        <Filename Value="gui.pas"/>
-        <Caret Line="258" TopLine="241"/>
+        <Filename Value="aboutbox.pas"/>
+        <Caret Line="57" Column="28" TopLine="32"/>
       </Position26>
       <Position27>
-        <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="9" TopLine="241"/>
+        <Filename Value="rpnwidgets.pas"/>
+        <Caret Line="2"/>
       </Position27>
       <Position28>
-        <Filename Value="gui.pas"/>
-        <Caret Line="260" Column="55" TopLine="238"/>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="25" Column="74" TopLine="93"/>
       </Position28>
       <Position29>
-        <Filename Value="gui.pas"/>
-        <Caret Line="2" Column="7"/>
+        <Filename Value="aboutbox.pas"/>
+        <Caret Line="44" Column="32" TopLine="34"/>
       </Position29>
+      <Position30>
+        <Filename Value="aboutbox.pas"/>
+      </Position30>
     </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode="default"/>
+    </RunParams>
   </ProjectSession>
   <Debugging>
     <Watches Count="5">
