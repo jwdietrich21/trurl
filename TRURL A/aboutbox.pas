@@ -26,7 +26,8 @@ unit AboutBox;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
+  RPNEngine;
 
 type
 
@@ -36,6 +37,8 @@ type
     AboutLabel1: TLabel;
     AboutLabel2: TLabel;
     Image1: TImage;
+    EngineVersionLabel: TLabel;
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -49,6 +52,15 @@ implementation
 
 {$R *.lfm}
 
+
+{ TTrurlAboutBox }
+
+procedure TTrurlAboutBox.FormCreate(Sender: TObject);
+begin
+  EngineVersionLabel.Caption := 'Based on TRURL RPN Engine ' + IntToStr(RPNEngine_major) + '.'
+    + IntToStr(RPNEngine_minor) + '.' + IntToStr(RPNEngine_release) + '.'
+    + IntToStr(RPNEngine_patch);
+end;
 
 end.
 
