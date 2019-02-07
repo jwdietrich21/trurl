@@ -123,67 +123,29 @@ begin
 end;
 
 function asBCD(aNumber: real): TBCDFloat;
-const
-  maxdigits = 12;
 var
-  i, j, jmax, k, l: integer;
+  i: integer;
   fraction: extended;
-  fracstring: String;
-  expo, intpart, fracpart: Int64;
+  intstring, fracstring, sigstring: String;
+  expo, intpart: Int64;
 begin
   if sign(aNumber) >= 0 then
     result.sigSign := positive
   else
     result.sigSign := negative;
   expo := floor(log10(abs(aNumber)));
-  intpart := trunc(aNumber);
+  intpart := trunc(abs(aNumber));
   fraction := frac(aNumber);
+  Str(intpart, intstring);
   Str(fraction: 14: 12, fracstring);
   fracstring := rightStr(fracstring, 12);
-  jmax := maxdigits div 2 - 1; // 5
-  j := jmax;
-  k := expo;
-  for i := 0 to j do
-    result.significand[i] := 0;
-  if expo > 0 then
+  sigstring := leftStr(intstring + fracstring, 12);
+  for i := 1 to 12 do
   begin
-    if not odd(expo) then
-    begin
-      result.significand[j] := intpart div trunc((power(10, i - 1))) mod 10;
-      dec(k);
-      dec(j);
-    end;
-    for i := k downto 0 do
-    begin
-      if odd(i) then
+    if not odd(i) then
       begin
-        result.significand[j] := intpart div trunc((power(10, i - 1))) mod 10 or ((intpart div trunc(power(10, i)) mod 10) shl 4);
-        dec(j);
+        result.significand[i div 2 - 1] := StrToInt(sigstring[i]) or (StrToInt(sigstring[i - 1]) shl 4);
       end;
-    end;
-  end
-  else if expo = 0 then
-  begin
-    result.significand[j] := intpart;
-  end;
-  if aNumber <> IntPart then
-  begin
-    if not odd(expo) then
-    begin
-      result.significand[j] := StrToInt(fracstring[jmax - j + 1]) or (result.significand[j] shl 4);
-      dec(j);
-    end;
-    k := j * 2;
-    l := j;
-    for i := k downto 0 do
-    begin
-      if odd(i) then
-      begin
-        result.significand[l] := StrToInt(fracstring[jmax - j + 2]) or (StrToInt(fracstring[jmax - j + 1]) shl 4);
-        dec(j, 2);
-        dec(l);
-      end;
-    end;
   end;
   if sign(expo) >= 0 then
     result.expSign := positive
