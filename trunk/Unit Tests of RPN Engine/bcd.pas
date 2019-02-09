@@ -135,11 +135,16 @@ begin
     result.sigSign := negative;
   expo := floor(log10(abs(aNumber)));
   if expo < 0 then
-    expo2 := abs(expo)
+    begin
+      expo2 := abs(expo);
+      intpart := trunc(abs(aNumber) * 10 ** expo2); // not yet correct
+      fraction := 0;
+    end
   else
-    expo2 := 0;
-  intpart := trunc(abs(aNumber)) * 10 ** expo2; // not yet correct
-  fraction := frac(abs(aNumber));
+    begin
+      intpart := trunc(abs(aNumber));
+      fraction := frac(abs(aNumber));
+    end;
   Str(intpart, intstring);
   Str(fraction: 14: 12, fracstring);
   fracstring := rightStr(fracstring, 12);
