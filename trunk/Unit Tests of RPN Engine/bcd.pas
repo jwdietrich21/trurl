@@ -123,6 +123,8 @@ begin
 end;
 
 function asBCD(aNumber: real): TBCDFloat;
+const
+  digits = 12;
 var
   i: integer;
   fraction: extended;
@@ -137,7 +139,7 @@ begin
   if expo < 0 then
     begin
       expo2 := abs(expo);
-      intpart := trunc(abs(aNumber) * 10 ** expo2); // not yet correct
+      intpart := trunc(abs(aNumber) * 10 ** (digits * expo2)); // not yet correct
       fraction := 0;
     end
   else
@@ -149,7 +151,7 @@ begin
   Str(fraction: 14: 12, fracstring);
   fracstring := rightStr(fracstring, 12);
   sigstring := leftStr(intstring + fracstring, 12);
-  for i := 1 to 12 do
+  for i := 1 to digits do
   begin
     if not odd(i) then
       begin
@@ -160,8 +162,8 @@ begin
     result.expSign := positive
   else
     result.expSign := negative;
-  result.exponent[1] := expo mod 10 or ((expo div 10 mod 10) shl 4);
-  result.exponent[0] := expo div 100 mod 10 or ((expo div 1000 mod 10) shl 4);
+  result.exponent[1] := abs(expo) mod 10 or ((abs(expo) div 10 mod 10) shl 4);
+  result.exponent[0] := abs(expo) div 100 mod 10 or ((abs(expo) div 1000 mod 10) shl 4);
 end;
 
 end.
