@@ -127,15 +127,19 @@ var
   i: integer;
   fraction: extended;
   intstring, fracstring, sigstring: String;
-  expo, intpart: Int64;
+  expo, intpart, expo2: Int64;
 begin
   if sign(aNumber) >= 0 then
     result.sigSign := positive
   else
     result.sigSign := negative;
   expo := floor(log10(abs(aNumber)));
-  intpart := trunc(abs(aNumber));
-  fraction := frac(aNumber);
+  if expo < 0 then
+    expo2 := abs(expo)
+  else
+    expo2 := 0;
+  intpart := trunc(abs(aNumber)) * 10 ** expo2; // not yet correct
+  fraction := frac(abs(aNumber));
   Str(intpart, intstring);
   Str(fraction: 14: 12, fracstring);
   fracstring := rightStr(fracstring, 12);
