@@ -28,6 +28,9 @@ interface
 uses
   Classes, SysUtils, Math, StrUtils;
 
+const
+  digits = 12;
+
 type
 
   TSign = (positive, negative);
@@ -71,7 +74,7 @@ end;
 function asReal(aNumber: TBCDFloat): real;
 var
   mant: real;
-  expo, msign, esign: Int64;
+  expo, expo2, msign, esign: Int64;
 begin
   result := Math.NaN;
   mant := aNumber.significand[5] and $F
@@ -92,13 +95,14 @@ begin
           + (aNumber.exponent[0] shr 4) * 1000;
   msign := 2 * integer(aNumber.sigSign = positive) - 1;
   esign := 2 * integer(aNumber.expSign = positive) - 1;
-  result := msign * mant * power(10, esign * expo);
+    expo2 := 1 + esign * expo - digits;
+  result := msign * mant * power(10, expo2);
 end;
 
 function asExtended(aNumber: TBCDFloat): extended;
 var
   mant: real;
-  expo, msign, esign: Int64;
+  expo, expo2, msign, esign: Int64;
 begin
   result := Math.NaN;
   mant := aNumber.significand[5] and $F
@@ -119,17 +123,16 @@ begin
           + (aNumber.exponent[0] shr 4) * 1000;
   msign := 2 * integer(aNumber.sigSign = positive) - 1;
   esign := 2 * integer(aNumber.expSign = positive) - 1;
-  result := msign * mant * power(10, esign * expo);
+    expo2 := 1 + esign * expo - digits;
+  result := msign * mant * power(10, expo2);
 end;
 
 function asBCD(aNumber: real): TBCDFloat;
-const
-  digits = 12;
 var
   i: integer;
   fraction: extended;
   intstring, fracstring, sigstring: String;
-  expo, intpart, expo2: Int64;
+  expo, expo2, intpart: Int64;
 begin
   if sign(aNumber) >= 0 then
     result.sigSign := positive
@@ -139,7 +142,7 @@ begin
   if expo < 0 then
     begin
       expo2 := abs(expo);
-      intpart := trunc(abs(aNumber) * 10 ** (digits * expo2)); // not yet correct
+      intpart := trunc(abs(aNumber) * power(10, digits + expo2));
       fraction := 0;
     end
   else
