@@ -26,7 +26,7 @@ unit RPNEngineTestCases;
 interface
 
 uses
-  Classes, SysUtils, Controls, fpcunit, testutils, testregistry,
+  Classes, SysUtils, Controls, fpcunit, testregistry,
   BCD, RPNEngine, RPNWidgets;
 
 type
@@ -46,6 +46,7 @@ type
     procedure asRealTest;
     procedure asExtendedTest;
     procedure asBCDTest;
+    procedure DoubleConversionTest;
   end;
 
   { TStackTestCases }
@@ -272,6 +273,29 @@ begin
   BCDNumber := AsBCD(-18e-9);
   AssertTrue(BCDNumber.sigSign = negative);
   AssertTrue(BCDNumber.expSign = negative);
+end;
+
+procedure TBCDTestCases.DoubleConversionTest;
+var
+  BCDNumber: TBCDFloat;
+  RealNumber: real;
+  extNumber: extended;
+begin
+  BCDNumber := AsBCD(3.14159265359);
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(3.14159265359, RealNumber);
+
+  BCDNumber := AsBCD(-273.15);
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(-273.15, RealNumber);
+
+  BCDNumber := AsBCD(-2.6e-13);
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(-2.6e-13, RealNumber);
+
+  BCDNumber := AsBCD(6.3e13);
+  extNumber := asExtended(BCDNumber);
+  AssertEquals(6.3e13, extNumber);
 end;
 
 { TWidgetTestCases }
