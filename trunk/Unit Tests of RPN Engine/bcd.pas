@@ -30,17 +30,22 @@ uses
 
 const
   digits = 12;
+  expDig = 4;
 
 type
 
   TSign = (positive, negative);
+  TCarry = byte;
+  TNibble = 0..15;
 
   TBCDFloat = packed record
-    significand: array[0..5] of byte;
-    exponent: array[0..1] of byte;
+    significand: array[0..(digits div 2 - 1)] of byte;
+    exponent: array[0..(expDig div 2 - 1)] of byte;
     sigSign, expSign: TSign;
   end;
 
+  function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
+  function BCDZero: TBCDFloat;
   function asReal(aNumber: TBCDFloat): real;
   function asExtended(aNumber: TBCDFloat): extended;
   function asBCD(aNumber: real): TBCDFloat;
@@ -71,6 +76,82 @@ end;
 {$ENDIF}
 {$ENDIF}
 
+function GetExponent(aNumber: TBCDFloat): Int64;
+begin
+  result := aNumber.exponent[1] and $F
+            + (aNumber.exponent[1] shr 4) * 10
+            + (aNumber.exponent[0] and $F) * 100
+            + (aNumber.exponent[0] shr 4) * 1000;
+end;
+
+procedure SetExponent(var aNumber: TBCDFloat; Exponent: Int64);
+begin
+  aNumber.exponent[1] := abs(Exponent) mod 10 or ((abs(Exponent) div 10 mod 10) shl 4);
+  aNumber.exponent[0] := abs(Exponent) div 100 mod 10 or ((abs(Exponent) div 1000 mod 10) shl 4);
+end;
+
+function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
+var
+  carry: TCarry;
+  i, Subtotal, expo: integer;
+  nibbles: array[0..digits - 1] of TNibble;
+begin
+  result := BCDZero;
+  for i := 0 to digits - 1 do
+    nibbles[i] := 0;
+  expo := max(GetExponent(Number1), GetExponent(Number2));
+  carry := 0;
+  for i := digits - 1 downto 0 do
+    begin
+      if odd(i) then
+        begin
+          Subtotal := Number1.significand[(i - 1) div 2] and $F + Number2.significand[(i - 1) div 2] and $F + carry;
+          if Subtotal > 9 then
+          begin
+            Subtotal := Subtotal + 6;
+            carry := 1;
+          end
+          else
+            carry := 0;
+          nibbles[i] := Subtotal and $F;
+        end
+      else
+        begin
+           Subtotal := (Number1.significand[i div 2] and $F0 + Number2.significand[i div 2] and $F0) shr 4 + carry;
+          if Subtotal > 9 then
+          begin
+            Subtotal := Subtotal + 6;
+            carry := 1;
+          end
+          else
+            carry := 0;
+          nibbles[i] := Subtotal and $F;
+        end;
+    end;
+  if carry > 0 then
+    begin
+      inc(expo);
+      for i := digits - 1 downto 1 do
+        nibbles[i] := nibbles[i - 1];
+      nibbles[0] := carry;
+    end;
+  for i := 0 to digits div 2 - 1 do
+    result.significand[i] := 16 * nibbles[i * 2] + nibbles[i * 2 + 1];
+  SetExponent(result, expo);
+end;
+
+function BCDZero: TBCDFloat;
+var
+  i: integer;
+begin
+  result.sigSign := positive;
+  result.expSign := positive;
+  for i := 0 to digits div 2 - 1 do
+    result.significand[i] := 0;
+  for i := 0 to expDig div 2 - 1 do
+    result.exponent[i] := 0;
+end;
+
 function asReal(aNumber: TBCDFloat): real;
 var
   mant: real;
@@ -89,10 +170,7 @@ begin
           + (aNumber.significand[1] shr 4) * 1e9
           + (aNumber.significand[0] and $F) * 1e10
           + (aNumber.significand[0] shr 4) * 1e11;
-  expo := aNumber.exponent[1] and $F
-          + (aNumber.exponent[1] shr 4) * 10
-          + (aNumber.exponent[0] and $F) * 100
-          + (aNumber.exponent[0] shr 4) * 1000;
+  expo := GetExponent(aNumber);
   msign := 2 * integer(aNumber.sigSign = positive) - 1;
   esign := 2 * integer(aNumber.expSign = positive) - 1;
     expo2 := 1 + esign * expo - digits;
@@ -117,10 +195,7 @@ begin
           + (aNumber.significand[1] shr 4) * 1e9
           + (aNumber.significand[0] and $F) * 1e10
           + (aNumber.significand[0] shr 4) * 1e11;
-  expo := aNumber.exponent[1] and $F
-          + (aNumber.exponent[1] shr 4) * 10
-          + (aNumber.exponent[0] and $F) * 100
-          + (aNumber.exponent[0] shr 4) * 1000;
+  expo := GetExponent(aNumber);
   msign := 2 * integer(aNumber.sigSign = positive) - 1;
   esign := 2 * integer(aNumber.expSign = positive) - 1;
     expo2 := 1 + esign * expo - digits;
@@ -165,8 +240,7 @@ begin
     result.expSign := positive
   else
     result.expSign := negative;
-  result.exponent[1] := abs(expo) mod 10 or ((abs(expo) div 10 mod 10) shl 4);
-  result.exponent[0] := abs(expo) div 100 mod 10 or ((abs(expo) div 1000 mod 10) shl 4);
+  SetExponent(result, expo);
 end;
 
 end.

@@ -47,6 +47,7 @@ type
     procedure asExtendedTest;
     procedure asBCDTest;
     procedure DoubleConversionTest;
+    procedure SumTest;
   end;
 
   { TStackTestCases }
@@ -296,6 +297,20 @@ begin
   BCDNumber := AsBCD(6.3e13);
   extNumber := asExtended(BCDNumber);
   AssertEquals(6.3e13, extNumber);
+end;
+
+procedure TBCDTestCases.SumTest;
+var
+  Num1, Num2, num3: TBCDFloat ;
+begin
+  Num1 := AsBCD(123);
+  Num2 := AsBCD(456);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(579, AsReal(Num3));
+  Num1 := AsBCD(599);
+  Num2 := AsBCD(984);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(1583, AsReal(Num3));
 end;
 
 { TWidgetTestCases }
