@@ -34,8 +34,11 @@ type
   { TTestAppMainForm }
 
   TTestAppMainForm = class(TForm)
+    FontsCombobox: TComboBox;
     TestFloatSpinEdit: TFloatSpinEdit;
     TestASCIIMemo: TMemo;
+    procedure FontsComboboxChange(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
     procedure TestFloatSpinEditChange(Sender: TObject);
   private
 
@@ -91,6 +94,16 @@ begin
   TestASCIIMemo.Append(line1);
   TestASCIIMemo.Append(line2);
   TestASCIIMemo.Append(line3);
+end;
+
+procedure TTestAppMainForm.FormActivate(Sender: TObject);
+begin
+  FontsCombobox.Items.Assign(Screen.Fonts);
+end;
+
+procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);
+begin
+  TestAsciiMemo.Font.Name := FontsCombobox.Items[FontsCombobox.ItemIndex];
 end;
 
 end.
