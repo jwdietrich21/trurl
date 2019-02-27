@@ -37,15 +37,23 @@ type
   TSign = (positive, negative);
   TCarry = byte;
   TNibble = 0..15;
+  TSigBytes = packed array[0..(digits div 2 - 1)] of byte;
+  TExpBytes = packed array[0..(expDig div 2 - 1)] of byte;
+  TSigNibbles = packed array[0..(digits - 1)] of TNibble;
+  TExpNibbles = packed array[0..(expDig - 1)] of TNibble;
 
   TBCDFloat = packed record
-    significand: array[0..(digits div 2 - 1)] of byte;
-    exponent: array[0..(expDig div 2 - 1)] of byte;
+    significand: TSigBytes;
+    exponent: TExpBytes;
     sigSign, expSign: TSign;
   end;
 
   function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
   function BCDZero: TBCDFloat;
+  function SigAsNibbles(Bytes: TSigBytes): TSigNibbles;
+  function ExpAsNibbles(Bytes: TExpBytes): TExpNibbles;
+  function SigAsBytes(Nibbles: TSigNibbles): TSigBytes;
+  function ExpAsBytes(Nibbles: TExpNibbles): TExpBytes;
   function asReal(aNumber: TBCDFloat): real;
   function asExtended(aNumber: TBCDFloat): extended;
   function asBCD(aNumber: real): TBCDFloat;
@@ -94,7 +102,7 @@ function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
 var
   carry: TCarry;
   i, Subtotal, expo: integer;
-  nibbles: array[0..digits - 1] of TNibble;
+  nibbles: TSigNibbles;
 begin
   result := BCDZero;
   for i := 0 to digits - 1 do
@@ -150,6 +158,56 @@ begin
     result.significand[i] := 0;
   for i := 0 to expDig div 2 - 1 do
     result.exponent[i] := 0;
+end;
+
+function SigAsNibbles(Bytes: TSigBytes): TSigNibbles;
+var
+  i: integer;
+begin
+  for i := 0 to digits - 1 do
+  begin
+    if odd(i) then
+      begin
+        result[i] := Bytes[i div 2] and $F;
+      end
+    else
+      begin
+        result[i] := Bytes[i div 2] shr 4;
+      end;
+  end;
+end;
+
+function ExpAsNibbles(Bytes: TExpBytes): TExpNibbles;
+var
+  i: integer;
+begin
+  for i := 0 to expDig - 1 do
+  begin
+    if odd(i) then
+      begin
+        result[i] := Bytes[i div 2] and $F;
+      end
+    else
+      begin
+        result[i] := Bytes[i div 2] shr 4;
+      end;
+  end;
+end;
+
+function SigAsBytes(Nibbles: TSigNibbles): TSigBytes;
+var
+  i: integer;
+begin
+  for i := 0 to digits div 2 - 1 do
+    result[i] := 16 * Nibbles[i * 2] + Nibbles[i * 2 + 1];
+end;
+
+function ExpAsBytes(Nibbles: TExpNibbles): TExpBytes;
+var
+  i: integer;
+begin
+  for i := 0 to expDig div 2 - 1 do
+    result[i] := 16 * Nibbles[i * 2] + Nibbles[i * 2 + 1];
 end;
 
 function asReal(aNumber: TBCDFloat): real;
