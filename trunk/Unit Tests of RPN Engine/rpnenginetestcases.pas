@@ -160,76 +160,96 @@ var
   i: integer;
 begin
   BCDNumber.sigSign := positive; // +7
-  BCDNumber.significand[0] := 16 * 7;
-  for i := 1 to 5 do
+  BCDNumber.significand[0] := 7;
+  for i := 1 to digits - 1 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := positive;
   BCDNumber.exponent[0] := 0;
   BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 0;
+  BCDNumber.exponent[3] := 0;
   RealNumber := asReal(BCDNumber);
   AssertEquals(7, RealNumber);
 
   BCDNumber.sigSign := positive; // +70
-  BCDNumber.significand[0] := 16 * 7;
-  for i := 1 to 5 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 1;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(70, RealNumber);
-
-  BCDNumber.sigSign := positive; // +700
-  BCDNumber.significand[0] := 16 * 7;
-  for i := 1 to 5 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 2;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(700, RealNumber);
-
-  BCDNumber.sigSign := positive; // +13
-  BCDNumber.significand[0] := (16 * 1) + 3;
-  for i := 1 to 5 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 1;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(13, RealNumber);
-
-  BCDNumber.sigSign := negative; // -107
-  BCDNumber.significand[0] := 16 * 1;
-  BCDNumber.significand[1] := 16 * 7;
-  for i := 2 to 5 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 2;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(-107, RealNumber);
-
-  BCDNumber.sigSign := positive; // +1234
-  BCDNumber.significand[0] := (16 * 1) + 2;
-  BCDNumber.significand[1] := (16 * 3) + 4;
-  for i := 2 to 5 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 3;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(1234, RealNumber);
-
-  BCDNumber.sigSign := positive; // +3.1415
-  BCDNumber.significand[0] := (16 * 3) + 1;
-  BCDNumber.significand[1] := (16 * 4) + 1;
-  BCDNumber.significand[2] := (16 * 5);
-  for i := 3 to 5 do
+  BCDNumber.significand[0] := 7;
+  for i := 1 to digits - 1 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := positive;
   BCDNumber.exponent[0] := 0;
   BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 0;
+  BCDNumber.exponent[3] := 1;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(70, RealNumber);
+
+  BCDNumber.sigSign := positive; // +700
+  BCDNumber.significand[0] := 7;
+  for i := 1 to 5 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 0;
+  BCDNumber.exponent[3] := 2;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(700, RealNumber);
+
+  BCDNumber.sigSign := positive; // +13
+  BCDNumber.significand[0] := 1;
+  BCDNumber.significand[1] := 3;
+  for i := 2 to digits - 1 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 0;
+  BCDNumber.exponent[3] := 1;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(13, RealNumber);
+
+  BCDNumber.sigSign := negative; // -107
+  BCDNumber.significand[0] := 1;
+  BCDNumber.significand[1] := 0;
+  BCDNumber.significand[2] := 7;
+  for i := 3 to digits - 1 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 0;
+  BCDNumber.exponent[3] := 2;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(-107, RealNumber);
+
+  BCDNumber.sigSign := positive; // +1234
+  BCDNumber.significand[0] := 1;
+  BCDNumber.significand[1] := 2;
+  BCDNumber.significand[2] := 3;
+  BCDNumber.significand[3] := 4;
+  for i := 4 to digits - 1 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 0;
+  BCDNumber.exponent[3] := 3;
+  RealNumber := asReal(BCDNumber);
+  AssertEquals(1234, RealNumber);
+
+  BCDNumber.sigSign := positive; // +3.1415
+  BCDNumber.significand[0] := 3;
+  BCDNumber.significand[1] := 1;
+  BCDNumber.significand[2] := 4;
+  BCDNumber.significand[3] := 1;
+  BCDNumber.significand[4] := 5;
+  for i := 5 to digits - 1 do
+    BCDNumber.significand[i] := 0;
+  BCDNumber.expSign := positive;
+  BCDNumber.exponent[0] := 0;
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 0;
+  BCDNumber.exponent[3] := 0;
   RealNumber := asReal(BCDNumber);
   AssertEquals(3.1415, RealNumber);
 
@@ -261,12 +281,15 @@ var
   i: integer;
 begin
   BCDNumber.sigSign := positive; // +88e13
-  BCDNumber.significand[0] := (16 * 8) + 8;
-  for i := 1 to 5 do
+  BCDNumber.significand[0] := 8;
+  BCDNumber.significand[1] := 8;
+  for i := 2 to digits - 1 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := positive;
   BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := (16 * 1) + 4; //88e13 = 8.8e14
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 1; //88e13 = 8.8e14
+  BCDNumber.exponent[3] := 4;
   extNumber := asExtended(BCDNumber);
   AssertEquals(88e13, extNumber);
 end;
@@ -278,50 +301,74 @@ begin
   BCDNumber := AsBCD(13);
   AssertTrue(BCDNumber.sigSign = positive);
   AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(19, BCDNumber.significand[0]); // 19 corresponds to 1 * 16 + 3 * 1
-  AssertEquals(1, BCDNumber.exponent[1]);  // 1 corresponds to 0 * 16 + 1 * 1
+  AssertEquals(1, BCDNumber.significand[0]);
+  AssertEquals(3, BCDNumber.significand[1]);
+  AssertEquals(1, BCDNumber.exponent[3]);
   BCDNumber := AsBCD(107);
   BCDNumber := AsBCD(3.14159265359);
   AssertTrue(BCDNumber.sigSign = positive);
   AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(49, BCDNumber.significand[0]); // 49 corresponds to 3 * 16 + 1 * 1
-  AssertEquals(65, BCDNumber.significand[1]); // 65 corresponds to 4 * 16 + 1 * 1
-  AssertEquals(89, BCDNumber.significand[2]); // 89 corresponds to 5 * 16 + 9 * 1
-  AssertEquals(38, BCDNumber.significand[3]); // 38 corresponds to 2 * 16 + 6 * 1
-  AssertEquals(83, BCDNumber.significand[4]); // 83 corresponds to 5 * 16 + 3 * 1
-  AssertEquals(89, BCDNumber.significand[5]); // 89 corresponds to 5 * 16 + 9 * 1
+  AssertEquals(3, BCDNumber.significand[0]);
+  AssertEquals(1, BCDNumber.significand[1]);
+  AssertEquals(4, BCDNumber.significand[2]);
+  AssertEquals(1, BCDNumber.significand[3]);
+  AssertEquals(5, BCDNumber.significand[4]);
+  AssertEquals(9, BCDNumber.significand[5]);
+  AssertEquals(2, BCDNumber.significand[6]);
+  AssertEquals(6, BCDNumber.significand[7]);
+  AssertEquals(5, BCDNumber.significand[8]);
+  AssertEquals(3, BCDNumber.significand[9]);
+  AssertEquals(5, BCDNumber.significand[10]);
+  AssertEquals(9, BCDNumber.significand[11]);
   AssertEquals(0, BCDNumber.exponent[1]);
   BCDNumber := AsBCD(123.456);
   AssertTrue(BCDNumber.sigSign = positive);
   AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(18, BCDNumber.significand[0]); // 18 corresponds to 1 * 16 + 2 * 1
-  AssertEquals(52, BCDNumber.significand[1]); // 52 corresponds to 3 * 16 + 4 * 1
-  AssertEquals(86, BCDNumber.significand[2]); // 86 corresponds to 5 * 16 + 6 * 1
+  AssertEquals(1, BCDNumber.significand[0]);
+  AssertEquals(2, BCDNumber.significand[1]);
+  AssertEquals(3, BCDNumber.significand[2]);
+  AssertEquals(4, BCDNumber.significand[3]);
+  AssertEquals(5, BCDNumber.significand[4]);
+  AssertEquals(6, BCDNumber.significand[5]);
+  AssertEquals(2, BCDNumber.exponent[3]);
   BCDNumber := AsBCD(-273.15);
   AssertTrue(BCDNumber.sigSign = negative);
   AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(39, BCDNumber.significand[0]); // 39 corresponds to 2 * 16 + 7 * 1
-  AssertEquals(49, BCDNumber.significand[1]); // 49 corresponds to 3 * 16 + 1 * 1
-  AssertEquals(80, BCDNumber.significand[2]); // 18 corresponds to 5 * 16 + 0 * 1
+  AssertEquals(2, BCDNumber.significand[0]);
+  AssertEquals(7, BCDNumber.significand[1]);
+  AssertEquals(3, BCDNumber.significand[2]);
+  AssertEquals(1, BCDNumber.significand[3]);
+  AssertEquals(5, BCDNumber.significand[4]);
+  AssertEquals(2, BCDNumber.exponent[3]);
   BCDNumber := AsBCD(123.456e9);
   AssertTrue(BCDNumber.sigSign = positive);
   AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(18, BCDNumber.significand[0]); // 18 corresponds to 1 * 16 + 2 * 1
-  AssertEquals(52, BCDNumber.significand[1]); // 52 corresponds to 3 * 16 + 4 * 1
-  AssertEquals(86, BCDNumber.significand[2]); // 86 corresponds to 5 * 16 + 6 * 1
+  AssertEquals(1, BCDNumber.significand[0]);
+  AssertEquals(2, BCDNumber.significand[1]);
+  AssertEquals(3, BCDNumber.significand[2]);
+  AssertEquals(4, BCDNumber.significand[3]);
+  AssertEquals(5, BCDNumber.significand[4]);
+  AssertEquals(6, BCDNumber.significand[5]);
+  AssertEquals(1, BCDNumber.exponent[2]);
+  AssertEquals(1, BCDNumber.exponent[3]);
   BCDNumber := AsBCD(0.123);
   AssertTrue(BCDNumber.sigSign = positive);
   AssertTrue(BCDNumber.expSign = negative);
-  AssertEquals(18, BCDNumber.significand[0]); // 18 corresponds to 1 * 16 + 2 * 1   #
+  AssertEquals(1, BCDNumber.significand[0]);
+  AssertEquals(2, BCDNumber.significand[1]);
   // Delivers 1229999999.... on several platforms, therefore no further testing sensible
+  AssertEquals(1, BCDNumber.exponent[3]);
+  AssertTrue(BCDNumber.expSign = negative);
   BCDNumber := AsBCD(0.00123);
   AssertTrue(BCDNumber.sigSign = positive);
   AssertTrue(BCDNumber.expSign = negative);
-  AssertEquals(18, BCDNumber.significand[0]); // 18 corresponds to 1 * 16 + 2 * 1   #
+  AssertEquals(1, BCDNumber.significand[0]);
+  AssertEquals(2, BCDNumber.significand[1]);
   BCDNumber := AsBCD(0.0000123);
   AssertTrue(BCDNumber.sigSign = positive);
   AssertTrue(BCDNumber.expSign = negative);
-  AssertEquals(18, BCDNumber.significand[0]); // 18 corresponds to 1 * 16 + 2 * 1   #
+  AssertEquals(1, BCDNumber.significand[0]);
+  AssertEquals(2, BCDNumber.significand[1]);
   BCDNumber := AsBCD(-18e-9);
   AssertTrue(BCDNumber.sigSign = negative);
   AssertTrue(BCDNumber.expSign = negative);
