@@ -253,25 +253,31 @@ begin
   RealNumber := asReal(BCDNumber);
   AssertEquals(3.1415, RealNumber);
 
-  {BCDNumber.sigSign := positive; // +33e11
-  BCDNumber.significand[0] := (16 * 3) + 3;
-  for i := 1 to 5 do
+  BCDNumber.sigSign := positive; // +33e11
+  BCDNumber.significand[0] := 3;
+  BCDNumber.significand[1] := 3;
+  for i := 2 to digits - 1 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := positive;
   BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := (16 * 1) + 2; //33e11 = 3.3e12
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 1; //33e11 = 3.3e12
+  BCDNumber.exponent[3] := 2;
   RealNumber := asReal(BCDNumber);
   AssertEquals(33e11, RealNumber);
 
   BCDNumber.sigSign := negative; // -18e-21
-  BCDNumber.significand[0] := (16 * 1) + 8;
-  for i := 1 to 5 do
+  BCDNumber.significand[0] := 1;
+  BCDNumber.significand[1] := 8;
+  for i := 2 to digits - 1 do
     BCDNumber.significand[i] := 0;
   BCDNumber.expSign := negative;
   BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := (16 * 2) + 1;
+  BCDNumber.exponent[1] := 0;
+  BCDNumber.exponent[2] := 2;
+  BCDNumber.exponent[3] := 1;
   RealNumber := asReal(BCDNumber);
-  AssertEquals(-18e-21, RealNumber); }
+  AssertEquals(-18e-21, RealNumber);
 end;
 
 procedure TBCDTestCases.asExtendedTest;
@@ -392,9 +398,9 @@ begin
   RealNumber := asReal(BCDNumber);
   AssertEquals(-2.6e-13, RealNumber);
 
-  {BCDNumber := AsBCD(6.3e13);
+  BCDNumber := AsBCD(6.3e13);
   extNumber := asExtended(BCDNumber);
-  AssertEquals(6.3e13, extNumber);}
+  AssertEquals(6.3e13, extNumber);
 end;
 
 procedure TBCDTestCases.SumTest;

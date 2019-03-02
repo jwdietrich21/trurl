@@ -84,12 +84,28 @@ end;
 {$ENDIF}
 {$ENDIF}
 
+function GetSignificand(aNumber: TBCDFloat): Int64;
+begin
+  result := trunc(aNumber.significand[11]
+          + aNumber.significand[10] * 10
+          + aNumber.significand[9] * 100
+          + aNumber.significand[8] * 1000
+          + aNumber.significand[7] * 10000
+          + aNumber.significand[6] * 100000
+          + aNumber.significand[5] * 1e6
+          + aNumber.significand[4] * 1e7
+          + aNumber.significand[3] * 1e8
+          + aNumber.significand[2] * 1e9
+          + aNumber.significand[1] * 1e10
+          + aNumber.significand[0] * 1e11);
+end;
+
 function GetExponent(aNumber: TBCDFloat): Int64;
 begin
-  result := aNumber.exponent[3]
-            + aNumber.exponent[2] * 10
-            + aNumber.exponent[1] * 100
-            + aNumber.exponent[0] * 1000;
+  result := Int64(aNumber.exponent[3])
+            + Int64(aNumber.exponent[2]) * 10
+            + Int64(aNumber.exponent[1]) * 100
+            + Int64(aNumber.exponent[0]) * 1000;
 end;
 
 procedure SetExponent(var aNumber: TBCDFloat; Exponent: Int64);
@@ -198,50 +214,28 @@ end;
 
 function asReal(aNumber: TBCDFloat): real;
 var
-  mant: real;
+  mant: Int64;
   expo, expo2, msign, esign: Int64;
 begin
   result := Math.NaN;
-  mant := aNumber.significand[11]
-          + aNumber.significand[10] * 10
-          + aNumber.significand[9] * 100
-          + aNumber.significand[8] * 1000
-          + aNumber.significand[7] * 10000
-          + aNumber.significand[6] * 100000
-          + aNumber.significand[5] * 1e6
-          + aNumber.significand[4] * 1e7
-          + aNumber.significand[3] * 1e8
-          + aNumber.significand[2] * 1e9
-          + aNumber.significand[1] * 1e10
-          + aNumber.significand[0] * 1e11;
+  mant := GetSignificand(aNumber);
   expo := GetExponent(aNumber);
-  msign := 2 * integer(aNumber.sigSign = positive) - 1;
-  esign := 2 * integer(aNumber.expSign = positive) - 1;
+  msign := 2 * Int64(aNumber.sigSign = positive) - 1;
+  esign := 2 * Int64(aNumber.expSign = positive) - 1;
   expo2 := 1 + esign * expo - digits;
   result := msign * mant * power(10, expo2);
 end;
 
 function asExtended(aNumber: TBCDFloat): extended;
 var
-  mant: real;
+  mant: Int64;
   expo, expo2, msign, esign: Int64;
 begin
   result := Math.NaN;
-  mant := aNumber.significand[11]
-          + aNumber.significand[10] * 10
-          + aNumber.significand[9] * 100
-          + aNumber.significand[8] * 1000
-          + aNumber.significand[7] * 10000
-          + aNumber.significand[6] * 100000
-          + aNumber.significand[5] * 1e6
-          + aNumber.significand[4] * 1e7
-          + aNumber.significand[3] * 1e8
-          + aNumber.significand[2] * 1e9
-          + aNumber.significand[1] * 1e10
-          + aNumber.significand[0] * 1e11;
+  mant := GetSignificand(aNumber);
   expo := GetExponent(aNumber);
-  msign := 2 * integer(aNumber.sigSign = positive) - 1;
-  esign := 2 * integer(aNumber.expSign = positive) - 1;
+  msign := 2 * Int64(aNumber.sigSign = positive) - 1;
+  esign := 2 * Int64(aNumber.expSign = positive) - 1;
   expo2 := 1 + esign * expo - digits;
   result := msign * mant * power(10, expo2);
 end;
