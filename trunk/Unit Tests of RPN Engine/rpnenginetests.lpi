@@ -15,7 +15,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="74"/>
+      <BuildNr Value="81"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Leopolis" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="1.0.0"/>
     </VersionInfo>
