@@ -407,22 +407,38 @@ procedure TBCDTestCases.SumTest;
 var
   Num1, Num2, num3: TBCDFloat ;
 begin
-  Num1 := AsBCD(123);
+  Num1 := AsBCD(123); // Simple example without carry
   Num2 := AsBCD(456);
   Num3 := BCDSum(Num1, Num2);
   AssertEquals(579, AsReal(Num3));
-  Num1 := AsBCD(599);
+  Num1 := AsBCD(599); // Example with carry
   Num2 := AsBCD(984);
   Num3 := BCDSum(Num1, Num2);
   AssertEquals(1583, AsReal(Num3));
-  Num1 := AsBCD(3.1415);
+  Num1 := AsBCD(7); // Different sizes
+  Num2 := AsBCD(13);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(20, AsReal(Num3));
+  Num1 := AsBCD(21);
+  Num2 := AsBCD(5);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(26, AsReal(Num3));
+  Num1 := AsBCD(3);
+  Num2 := AsBCD(1300);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(1303, AsReal(Num3));
+  Num1 := AsBCD(3.1415); // Floating point numbers
   Num2 := AsBCD(6.2830);
   Num3 := BCDSum(Num1, Num2);
   AssertEquals(9.4245, AsReal(Num3));
-  Num1 := AsBCD(-12345);
+  Num1 := AsBCD(-12345); // Negative numbers
   Num2 := AsBCD(-67890);
   Num3 := BCDSum(Num1, Num2);
   AssertEquals(-80235, AsReal(Num3));
+  Num1 := AsBCD(-19.3895); // Negative floating point numbers with carry and unequal size
+  Num2 := AsBCD(-311.2988);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(-330.6883, AsReal(Num3));
 end;
 
 { TWidgetTestCases }
