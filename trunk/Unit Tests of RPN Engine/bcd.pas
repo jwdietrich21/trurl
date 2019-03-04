@@ -86,26 +86,26 @@ end;
 
 function GetSignificand(aNumber: TBCDFloat): Int64;
 begin
-  result := trunc(aNumber.significand[0] * 100000000000)
-            + trunc(aNumber.significand[1] * 10000000000)
-            + trunc(aNumber.significand[2] * 1000000000)
-            + trunc(aNumber.significand[3] * 100000000)
-            + trunc(aNumber.significand[4] * 10000000)
-            + trunc(aNumber.significand[5] * 1000000)
-            + trunc(aNumber.significand[6] * 100000)
-            + trunc(aNumber.significand[7] * 10000)
-            + trunc(aNumber.significand[8] * 1000)
-            + trunc(aNumber.significand[9] * 100)
-            + trunc(aNumber.significand[10] * 10)
-            + trunc(aNumber.significand[11]);
+  result := aNumber.significand[0] * Int64(100000000000)
+            + aNumber.significand[1] * Int64(10000000000)
+            + aNumber.significand[2] * Int64(1000000000)
+            + aNumber.significand[3] * Int64(100000000)
+            + aNumber.significand[4] * Int64(10000000)
+            + aNumber.significand[5] * Int64(1000000)
+            + aNumber.significand[6] * Int64(100000)
+            + aNumber.significand[7] * Int64(10000)
+            + aNumber.significand[8] * Int64(1000)
+            + aNumber.significand[9] * Int64(100)
+            + aNumber.significand[10] * Int64(10)
+            + aNumber.significand[11];
 end;
 
 function GetExponent(aNumber: TBCDFloat): Int64;
 begin
   result := Int64(aNumber.exponent[3])
-            + Int64(aNumber.exponent[2]) * 10
-            + Int64(aNumber.exponent[1]) * 100
-            + Int64(aNumber.exponent[0]) * 1000;
+            + Int64(aNumber.exponent[2]) * Int64(10)
+            + Int64(aNumber.exponent[1]) * Int64(100)
+            + Int64(aNumber.exponent[0]) * Int64(1000);
 end;
 
 procedure SetExponent(var aNumber: TBCDFloat; Exponent: Int64);
@@ -116,16 +116,46 @@ begin
   aNumber.exponent[0] := abs(Exponent) div 1000 mod 10;
 end;
 
+procedure ShiftDigits(var nibbles: TSigNibbles; direction: TSign);
+var
+  i: integer;
+begin
+  if direction = negative then
+    begin
+      for i := digits - 1 downto 1 do
+        nibbles[i] := nibbles[i - 1];
+      nibbles[0] := 0;
+    end
+  else
+    begin
+      for i := 0 to digits - 2 do
+        nibbles[i] := nibbles[i + 1];
+      nibbles[digits - 1] := 0;
+    end;
+end;
+
 function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
 var
   carry: TCarry;
-  i, Subtotal, expo: integer;
+  i, Subtotal, expo, expo1, expo2: integer;
 begin
   if Number1.sigSign = Number2.sigSign then
   begin
     result := BCDZero;
-    expo := max(GetExponent(Number1), GetExponent(Number2));
+    expo1 := GetExponent(Number1);
+    expo2 := GetExponent(Number2);
+    expo := max(expo1, expo2); // total exponent for result
     carry := 0;
+    if expo1 > expo2 then
+    begin // correctly align digits
+      for i := 1 to expo1 - expo2 do
+        ShiftDigits(Number2.significand, negative);
+    end
+    else if expo1 < expo2 then
+    begin
+      for i := 1 to expo2 - expo1 do
+        ShiftDigits(Number1.significand, negative);
+    end;
     for i := digits - 1 downto 0 do
       begin
         Subtotal := Number1.significand[i] + Number2.significand[i] + carry;
@@ -136,17 +166,16 @@ begin
         end
         else
           carry := 0;
-        result.significand[i] := Subtotal and $F;
+        result.significand[i] := Subtotal and $F; // extract nibble
       end;
     if carry > 0 then
-      begin
+      begin // make room for carry
         inc(expo);
-        for i := digits - 1 downto 1 do
-          result.significand[i] := result.significand[i - 1];
+        ShiftDigits(result.significand, negative);
         result.significand[0] := carry;
       end;
     SetExponent(result, expo);
-    if Number1.sigSign = negative then
+    if Number1.sigSign = negative then // both have same sign, therefore checking one is enough
       result.sigSign := negative;
   end
   else
