@@ -86,18 +86,18 @@ end;
 
 function GetSignificand(aNumber: TBCDFloat): Int64;
 begin
-  result := trunc(aNumber.significand[11]
-          + aNumber.significand[10] * 10
-          + aNumber.significand[9] * 100
-          + aNumber.significand[8] * 1000
-          + aNumber.significand[7] * 10000
-          + aNumber.significand[6] * 100000
-          + aNumber.significand[5] * 1e6
-          + aNumber.significand[4] * 1e7
-          + aNumber.significand[3] * 1e8
-          + aNumber.significand[2] * 1e9
-          + aNumber.significand[1] * 1e10
-          + aNumber.significand[0] * 1e11);
+  result := trunc(aNumber.significand[0] * 100000000000)
+            + trunc(aNumber.significand[1] * 10000000000)
+            + trunc(aNumber.significand[2] * 1000000000)
+            + trunc(aNumber.significand[3] * 100000000)
+            + trunc(aNumber.significand[4] * 10000000)
+            + trunc(aNumber.significand[5] * 1000000)
+            + trunc(aNumber.significand[6] * 100000)
+            + trunc(aNumber.significand[7] * 10000)
+            + trunc(aNumber.significand[8] * 1000)
+            + trunc(aNumber.significand[9] * 100)
+            + trunc(aNumber.significand[10] * 10)
+            + trunc(aNumber.significand[11]);
 end;
 
 function GetExponent(aNumber: TBCDFloat): Int64;
@@ -120,34 +120,39 @@ function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
 var
   carry: TCarry;
   i, Subtotal, expo: integer;
-  nibbles: TSigNibbles;
 begin
-  result := BCDZero;
-  for i := 0 to digits - 1 do
-    nibbles[i] := 0;
-  expo := max(GetExponent(Number1), GetExponent(Number2));
-  carry := 0;
-  for i := digits - 1 downto 0 do
-    begin
-      Subtotal := Number1.significand[i] + Number2.significand[i] + carry;
-      if Subtotal > 9 then
+  if Number1.sigSign = Number2.sigSign then
+  begin
+    result := BCDZero;
+    expo := max(GetExponent(Number1), GetExponent(Number2));
+    carry := 0;
+    for i := digits - 1 downto 0 do
       begin
-        Subtotal := Subtotal + 6;
-        carry := 1;
-      end
-      else
-        carry := 0;
-      nibbles[i] := Subtotal and $F;
-    end;
-  if carry > 0 then
-    begin
-      inc(expo);
-      for i := digits - 1 downto 1 do
-        nibbles[i] := nibbles[i - 1];
-      nibbles[0] := carry;
-    end;
-  result.significand := nibbles;
-  SetExponent(result, expo);
+        Subtotal := Number1.significand[i] + Number2.significand[i] + carry;
+        if Subtotal > 9 then
+        begin
+          Subtotal := Subtotal + 6;
+          carry := 1;
+        end
+        else
+          carry := 0;
+        result.significand[i] := Subtotal and $F;
+      end;
+    if carry > 0 then
+      begin
+        inc(expo);
+        for i := digits - 1 downto 1 do
+          result.significand[i] := result.significand[i - 1];
+        result.significand[0] := carry;
+      end;
+    SetExponent(result, expo);
+    if Number1.sigSign = negative then
+      result.sigSign := negative;
+  end
+  else
+  begin
+    // place holder for future handler using a to be implemented subtraction method.
+  end;
 end;
 
 function BCDZero: TBCDFloat;

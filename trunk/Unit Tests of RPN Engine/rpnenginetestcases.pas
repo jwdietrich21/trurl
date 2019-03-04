@@ -415,6 +415,14 @@ begin
   Num2 := AsBCD(984);
   Num3 := BCDSum(Num1, Num2);
   AssertEquals(1583, AsReal(Num3));
+  Num1 := AsBCD(3.1415);
+  Num2 := AsBCD(6.2830);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(9.4245, AsReal(Num3));
+  Num1 := AsBCD(-12345);
+  Num2 := AsBCD(-67890);
+  Num3 := BCDSum(Num1, Num2);
+  AssertEquals(-80235, AsReal(Num3));
 end;
 
 { TWidgetTestCases }
