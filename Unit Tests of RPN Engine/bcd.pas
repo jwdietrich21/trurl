@@ -134,28 +134,36 @@ begin
     end;
 end;
 
+procedure AlignSignificands(var Number1, Number2: TBCDFloat; var expo: integer);
+// correctly align digits for addition and subtraction
+var
+  expo1, expo2, i: integer;
+begin
+  expo1 := GetExponent(Number1);
+  expo2 := GetExponent(Number2);
+  expo := max(expo1, expo2); // total exponent for result
+  if expo1 > expo2 then
+  begin
+    for i := 1 to expo1 - expo2 do
+      ShiftDigits(Number2.significand, negative);
+  end
+  else if expo1 < expo2 then
+  begin
+    for i := 1 to expo2 - expo1 do
+      ShiftDigits(Number1.significand, negative);
+  end;
+end;
+
 function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
 var
   carry: TCarry;
-  i, Subtotal, expo, expo1, expo2: integer;
+  i, Subtotal, expo: integer;
 begin
   if Number1.sigSign = Number2.sigSign then
   begin
     result := BCDZero;
-    expo1 := GetExponent(Number1);
-    expo2 := GetExponent(Number2);
-    expo := max(expo1, expo2); // total exponent for result
     carry := 0;
-    if expo1 > expo2 then
-    begin // correctly align digits
-      for i := 1 to expo1 - expo2 do
-        ShiftDigits(Number2.significand, negative);
-    end
-    else if expo1 < expo2 then
-    begin
-      for i := 1 to expo2 - expo1 do
-        ShiftDigits(Number1.significand, negative);
-    end;
+    AlignSignificands(Number1, Number2, expo);
     for i := digits - 1 downto 0 do
       begin
         Subtotal := Number1.significand[i] + Number2.significand[i] + carry;
