@@ -49,7 +49,9 @@ type
     procedure asExtendedTest;
     procedure asBCDTest;
     procedure DoubleConversionTest;
+    procedure absTest;
     procedure SumTest;
+    procedure SubTest;
   end;
 
   { TStackTestCases }
@@ -403,6 +405,19 @@ begin
   AssertEquals(6.3e13, extNumber);
 end;
 
+procedure TBCDTestCases.absTest;
+var
+  BCDNumber: TBCDFloat;
+  RealNumber: real;
+begin
+  BCDNumber := AsBCD(3.14159265359);
+  RealNumber := asReal(BCDAbs(BCDNumber));
+  AssertEquals(3.14159265359, RealNumber);
+  BCDNumber := AsBCD(-273.15);
+  RealNumber := asReal(BCDAbs(BCDNumber));
+  AssertEquals(273.15, RealNumber);
+end;
+
 procedure TBCDTestCases.SumTest;
 var
   Num1, Num2, num3: TBCDFloat ;
@@ -439,6 +454,20 @@ begin
   Num2 := AsBCD(-311.2988);
   Num3 := BCDSum(Num1, Num2);
   AssertEquals(-330.6883, AsReal(Num3));
+end;
+
+procedure TBCDTestCases.SubTest;
+var
+  Num1, Num2, num3: TBCDFloat ;
+begin
+  Num1 := AsBCD(123);
+  Num2 := AsBCD(-456);
+  Num3 := BCDSub(Num1, Num2);
+  AssertEquals(579, AsReal(Num3));
+  Num1 := AsBCD(-599);
+  Num2 := AsBCD(984);
+  Num3 := BCDSub(Num1, Num2);
+  AssertEquals(-1583, AsReal(Num3));
 end;
 
 { TWidgetTestCases }
