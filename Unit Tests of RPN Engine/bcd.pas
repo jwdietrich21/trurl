@@ -136,7 +136,7 @@ begin
     end;
 end;
 
-procedure AlignSignificands(var Number1, Number2: TBCDFloat; var expo: integer);
+procedure AlignSignificands(var Number1, Number2: TBCDFloat; out expo: integer);
 // correctly align digits for addition and subtraction
 var
   expo1, expo2, i: integer;
@@ -200,6 +200,10 @@ begin
     begin
       // place holder for future implementation
       { TODO 1 -oJWD -cessential : Develop handler for BCD numbers with identical sign }
+      if Number1.sigSign = positive then
+        result.sigSign := positive
+      else
+        result.sigSign := negative;
     end
   else
     begin
