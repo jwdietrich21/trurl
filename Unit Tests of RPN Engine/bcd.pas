@@ -49,6 +49,8 @@ type
   end;
 
   function BCDSum(Number1, Number2: TBCDFloat): TBCDFloat;
+  function BCDSub(Number1, Number2: TBCDFloat): TBCDFloat;
+  function BCDAbs(aNumber: TBCDFloat): TBCDFloat;
   function BCDZero: TBCDFloat;
   function SigAsNibbles(Bytes: TSigBytes): TSigNibbles;
   function ExpAsNibbles(Bytes: TExpBytes): TExpNibbles;
@@ -190,6 +192,29 @@ begin
   begin
     // place holder for future handler using a to be implemented subtraction method.
   end;
+end;
+
+function BCDSub(Number1, Number2: TBCDFloat): TBCDFloat;
+begin
+  if Number1.sigSign = Number2.sigSign then
+    begin
+      // place holder for future implementation
+      { TODO 1 -oJWD -cessential : Develop handler for BCD numbers with identical sign }
+    end
+  else
+    begin
+      result := BCDSum(BCDAbs(Number1), BCDAbs(Number2));
+      if Number1.sigSign = positive then
+        result.sigSign := positive
+      else
+        result.sigSign := negative;
+    end;
+end;
+
+function BCDAbs(aNumber: TBCDFloat): TBCDFloat;
+begin
+  result := aNumber;
+  result.sigSign := positive;
 end;
 
 function BCDZero: TBCDFloat;
