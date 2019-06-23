@@ -6,7 +6,7 @@ unit RPNEngine;
 
 { Basic RPN Engine }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0 (Aleph) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -40,10 +40,10 @@ const
   RPNEngine_major   = 1;
   RPNEngine_minor   = 0;
   RPNEngine_release = 0;
-  RPNEngine_patch   = 47;
+  RPNEngine_patch   = 91;
   RPNEngine_fullversion = ((RPNEngine_major * 100 + RPNEngine_minor) *
     100 + RPNEngine_release) * 100 + RPNEngine_patch;
-  RPNEngine_version = '1.0.0.47';
+  RPNEngine_version = '1.0.0.85';
   RPNEngine_internalversion = 'Leopolis';
 
 type
@@ -370,7 +370,7 @@ begin
         result := operand1 / operand2;
     end;
   PowerOp:
-    result := exp(ln(operand1) * operand2);
+    result := power(operand1, operand2);
   end;
 end;
 
