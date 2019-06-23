@@ -20,14 +20,17 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="60"/>
+      <BuildNr Value="61"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Trurl A, a simple experimental RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl A, a simple experimental RPN calculator" InternalName="Leopolis" LegalCopyright="2003-2019 J. W. Dietrich" ProductName="Trurl A" ProductVersion="1.0.0"/>
     </VersionInfo>
+    <MacroValues Count="1">
+      <Macro1 Name="LCLWidgetType" Value="cocoa"/>
+    </MacroValues>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
       <SharedMatrixOptions Count="5">
-        <Item1 ID="277692160986" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
+        <Item1 ID="277692160986" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
         <Item2 ID="612667886005" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
         <Item3 ID="791620938275" Type="IDEMacro" MacroName="LCLWidgetType" Value="carbon"/>
         <Item4 ID="067347763554" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
