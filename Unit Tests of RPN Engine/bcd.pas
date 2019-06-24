@@ -6,7 +6,7 @@ unit BCD;
 
 { BCD Support }
 
-{ Version 1.0 (Aleph) }
+{ Version 1.0 (Bet) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 

@@ -6,7 +6,7 @@ unit RPNEngineTestCases;
 
 { Unit Tests for Basic RPN Engine }
 
-{ Version 1.0 (Aleph) }
+{ Version 1.0 (Bet) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -909,9 +909,9 @@ begin
 end;
 
 procedure TControlTestCases.CodeVersionCheck;
-{ The subsequent tests are compatible with RPN Engine version 1.0 }
+{ The subsequent tests are compatible with RPN Engine version 2.0 }
 begin
-  AssertEquals(1, RPNEngine_major);
+  AssertEquals(2, RPNEngine_major);
   AssertEquals(0, RPNEngine_minor);
 end;
 

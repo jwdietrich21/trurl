@@ -7,9 +7,8 @@
       <Unit0>
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="21" Y="9"/>
+        <CursorPos X="10" Y="2"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -17,8 +16,9 @@
         <Filename Value="rpnenginetestcases.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngineTestCases"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="9" Y="2"/>
+        <CursorPos Y="2"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -27,8 +27,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="7"/>
-        <CursorPos X="14" Y="4"/>
+        <CursorPos X="14" Y="2"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -44,7 +43,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="6" Y="2"/>
+        <CursorPos Y="2"/>
         <UsageCount Value="71"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -52,7 +51,7 @@
         <Filename Value="bcd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="BCD"/>
-        <CursorPos X="21" Y="9"/>
+        <CursorPos X="46"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -142,123 +141,123 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="bcd.pas"/>
-        <Caret Line="101" Column="50" TopLine="76"/>
-      </Position1>
-      <Position2>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="222" TopLine="203"/>
+      </Position1>
+      <Position2>
+        <Filename Value="bcd.pas"/>
+        <Caret Line="257" TopLine="242"/>
       </Position2>
       <Position3>
         <Filename Value="bcd.pas"/>
-        <Caret Line="257" TopLine="242"/>
+        <Caret Line="258" TopLine="242"/>
       </Position3>
       <Position4>
         <Filename Value="bcd.pas"/>
-        <Caret Line="258" TopLine="242"/>
+        <Caret Line="91" TopLine="76"/>
       </Position4>
       <Position5>
         <Filename Value="bcd.pas"/>
-        <Caret Line="91" TopLine="76"/>
+        <Caret Line="92" TopLine="76"/>
       </Position5>
       <Position6>
         <Filename Value="bcd.pas"/>
-        <Caret Line="92" TopLine="76"/>
+        <Caret Line="93" TopLine="76"/>
       </Position6>
       <Position7>
         <Filename Value="bcd.pas"/>
-        <Caret Line="93" TopLine="76"/>
+        <Caret Line="94" TopLine="76"/>
       </Position7>
       <Position8>
         <Filename Value="bcd.pas"/>
-        <Caret Line="94" TopLine="76"/>
+        <Caret Line="91" TopLine="76"/>
       </Position8>
       <Position9>
         <Filename Value="bcd.pas"/>
-        <Caret Line="91" TopLine="76"/>
+        <Caret Line="92" Column="11" TopLine="76"/>
       </Position9>
       <Position10>
-        <Filename Value="bcd.pas"/>
-        <Caret Line="92" Column="11" TopLine="76"/>
-      </Position10>
-      <Position11>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="217" Column="124" TopLine="203"/>
-      </Position11>
-      <Position12>
+      </Position10>
+      <Position11>
         <Filename Value="bcd.pas"/>
         <Caret Line="86" Column="50" TopLine="86"/>
-      </Position12>
-      <Position13>
+      </Position11>
+      <Position12>
         <Filename Value="rpnengine.pas"/>
         <Caret Line="38" Column="27" TopLine="19"/>
+      </Position12>
+      <Position13>
+        <Filename Value="bcd.pas"/>
+        <Caret Line="171" TopLine="142"/>
       </Position13>
       <Position14>
         <Filename Value="bcd.pas"/>
-        <Caret Line="171" TopLine="142"/>
+        <Caret Line="163" Column="20" TopLine="148"/>
       </Position14>
       <Position15>
         <Filename Value="bcd.pas"/>
-        <Caret Line="163" Column="20" TopLine="148"/>
+        <Caret Line="119" TopLine="118"/>
       </Position15>
       <Position16>
         <Filename Value="bcd.pas"/>
-        <Caret Line="119" TopLine="118"/>
+        <Caret Line="52" Column="59" TopLine="31"/>
       </Position16>
       <Position17>
         <Filename Value="bcd.pas"/>
-        <Caret Line="52" Column="59" TopLine="31"/>
+        <Caret Line="204" Column="7" TopLine="180"/>
       </Position17>
       <Position18>
         <Filename Value="bcd.pas"/>
-        <Caret Line="204" Column="7" TopLine="180"/>
+        <Caret Line="53" Column="50" TopLine="37"/>
       </Position18>
       <Position19>
-        <Filename Value="bcd.pas"/>
-        <Caret Line="53" Column="50" TopLine="37"/>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="52" Column="23" TopLine="31"/>
       </Position19>
       <Position20>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="52" Column="23" TopLine="31"/>
+        <Caret Line="414" Column="49" TopLine="385"/>
       </Position20>
       <Position21>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="414" Column="49" TopLine="385"/>
+        <Caret Line="417" Column="16" TopLine="390"/>
       </Position21>
       <Position22>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="417" Column="16" TopLine="390"/>
+        <Caret Line="54" Column="23" TopLine="31"/>
       </Position22>
       <Position23>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="54" Column="23" TopLine="31"/>
+        <Caret Line="469" Column="39" TopLine="446"/>
       </Position23>
       <Position24>
         <Filename Value="rpnenginetestcases.pas"/>
-        <Caret Line="469" Column="39" TopLine="446"/>
       </Position24>
       <Position25>
-        <Filename Value="rpnenginetestcases.pas"/>
+        <Filename Value="bcd.pas"/>
+        <Caret Line="202" Column="89" TopLine="185"/>
       </Position25>
       <Position26>
         <Filename Value="bcd.pas"/>
-        <Caret Line="202" Column="89" TopLine="185"/>
+        <Caret Line="203" Column="20" TopLine="185"/>
       </Position26>
       <Position27>
         <Filename Value="bcd.pas"/>
-        <Caret Line="203" Column="20" TopLine="185"/>
+        <Caret Line="193" Column="26" TopLine="190"/>
       </Position27>
       <Position28>
         <Filename Value="bcd.pas"/>
-        <Caret Line="193" Column="26" TopLine="190"/>
+        <Caret Line="2"/>
       </Position28>
       <Position29>
         <Filename Value="bcd.pas"/>
-        <Caret Line="2"/>
+        <Caret Line="168" Column="22" TopLine="153"/>
       </Position29>
       <Position30>
-        <Filename Value="bcd.pas"/>
-        <Caret Line="168" Column="22" TopLine="153"/>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="909" Column="42" TopLine="868"/>
       </Position30>
     </JumpHistory>
     <RunParams>

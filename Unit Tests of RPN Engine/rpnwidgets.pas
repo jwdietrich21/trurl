@@ -6,7 +6,7 @@ unit RPNWidgets;
 
 { GUI Widgets for Basic RPN Engine }
 
-{ Version 1.0 (Aleph) }
+{ Version 1.0 (Bet) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -74,7 +74,7 @@ implementation
 constructor TFrame.create;
 begin
   inherited create;
-  if RPNEngine_major <> 1 then
+  if RPNEngine_major <> 2 then
     {%H-}Error('RPN Engine version mismatch');
 end;
 
