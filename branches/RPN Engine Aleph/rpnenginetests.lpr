@@ -6,7 +6,7 @@ program rpnenginetests;
 
 { Unit Tests for Basic RPN Engine }
 
-{ Version 1.0 (Bet) }
+{ Version 1.0 (Aleph) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -24,7 +24,7 @@ program rpnenginetests;
 {$mode objfpc}{$H+}
 
 uses
-  Interfaces, Forms, GuiTestRunner, RPNEngineTestCases, BCD;
+  Interfaces, Forms, GuiTestRunner, RPNEngineTestCases;
 
 {$R *.res}
 

@@ -6,7 +6,7 @@ unit RPNEngineTestCases;
 
 { Unit Tests for Basic RPN Engine }
 
-{ Version 1.0 (Bet) }
+{ Version 1.0 (Aleph) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, Controls, fpcunit, testregistry,
-  BCD, RPNEngine, RPNWidgets;
+  RPNEngine, RPNWidgets;
 
 type
 
@@ -37,21 +37,6 @@ type
   published
     procedure PositiveCheck;
     procedure CodeVersionCheck;
-  end;
-
-  { TBCDTestCases }
-
-  TBCDTestCases = class(TTestCase)
-  published
-    procedure asNibblesTest;
-    procedure asBytesTest;
-    procedure asRealTest;
-    procedure asExtendedTest;
-    procedure asBCDTest;
-    procedure DoubleConversionTest;
-    procedure absTest;
-    procedure SumTest;
-    procedure SubTest;
   end;
 
   { TStackTestCases }
@@ -103,372 +88,6 @@ type
   end;
 
 implementation
-
-{ TBCDTestCases }
-
-procedure TBCDTestCases.asNibblesTest;
-var
-  TestSigBytes: TSigBytes;
-  TestSigNibbles: TSigNibbles;
-  TestExpBytes: TExpBytes;
-  TestExpNibbles: TExpNibbles;
-  i: integer;
-begin
-  TestSigBytes[0] := (16 * 1) + 2;
-  TestSigBytes[1] := (16 * 3) + 4;
-  for i := 2 to digits div 2 - 1 do
-    TestSigBytes[i] := 0;
-  TestSigNibbles := SigAsNibbles(TestSigBytes);
-  AssertEquals(1, TestSigNibbles[0]);
-  AssertEquals(2, TestSigNibbles[1]);
-  AssertEquals(3, TestSigNibbles[2]);
-  AssertEquals(4, TestSigNibbles[3]);
-  TestExpBytes[0] := (16 * 1) + 2;
-  TestExpBytes[1] := (16 * 3) + 4;
-  TestExpNibbles := ExpAsNibbles(TestExpBytes);
-  AssertEquals(1, TestExpNibbles[0]);
-  AssertEquals(2, TestExpNibbles[1]);
-  AssertEquals(3, TestExpNibbles[2]);
-  AssertEquals(4, TestExpNibbles[3]);
-end;
-
-procedure TBCDTestCases.asBytesTest;
-var
-  TestSigBytes: TSigBytes;
-  TestSigNibbles: TSigNibbles;
-  TestExpBytes: TExpBytes;
-  TestExpNibbles: TExpNibbles;
-begin
-  TestSigNibbles[0] := 1;
-  TestSigNibbles[1] := 2;
-  TestSigNibbles[2] := 3;
-  TestSigNibbles[3] := 4;
-  TestSigBytes := SigAsBytes(TestSigNibbles);
-  AssertEquals((16 * 1) + 2, TestSigBytes[0]);
-  AssertEquals((16 * 3) + 4, TestSigBytes[1]);
-  TestExpNibbles[0] := 1;
-  TestExpNibbles[1] := 2;
-  TestExpNibbles[2] := 3;
-  TestExpNibbles[3] := 4;
-  TestExpBytes := ExpAsBytes(TestExpNibbles);
-  AssertEquals((16 * 1) + 2, TestExpBytes[0]);
-  AssertEquals((16 * 3) + 4, TestExpBytes[1]);
-end;
-
-procedure TBCDTestCases.asRealTest;
-var
-  BCDNumber: TBCDFloat;
-  RealNumber: real;
-  i: integer;
-begin
-  BCDNumber.sigSign := positive; // +7
-  BCDNumber.significand[0] := 7;
-  for i := 1 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 0;
-  BCDNumber.exponent[3] := 0;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(7, RealNumber);
-
-  BCDNumber.sigSign := positive; // +70
-  BCDNumber.significand[0] := 7;
-  for i := 1 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 0;
-  BCDNumber.exponent[3] := 1;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(70, RealNumber);
-
-  BCDNumber.sigSign := positive; // +700
-  BCDNumber.significand[0] := 7;
-  for i := 1 to 5 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 0;
-  BCDNumber.exponent[3] := 2;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(700, RealNumber);
-
-  BCDNumber.sigSign := positive; // +13
-  BCDNumber.significand[0] := 1;
-  BCDNumber.significand[1] := 3;
-  for i := 2 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 0;
-  BCDNumber.exponent[3] := 1;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(13, RealNumber);
-
-  BCDNumber.sigSign := negative; // -107
-  BCDNumber.significand[0] := 1;
-  BCDNumber.significand[1] := 0;
-  BCDNumber.significand[2] := 7;
-  for i := 3 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 0;
-  BCDNumber.exponent[3] := 2;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(-107, RealNumber);
-
-  BCDNumber.sigSign := positive; // +1234
-  BCDNumber.significand[0] := 1;
-  BCDNumber.significand[1] := 2;
-  BCDNumber.significand[2] := 3;
-  BCDNumber.significand[3] := 4;
-  for i := 4 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 0;
-  BCDNumber.exponent[3] := 3;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(1234, RealNumber);
-
-  BCDNumber.sigSign := positive; // +3.1415
-  BCDNumber.significand[0] := 3;
-  BCDNumber.significand[1] := 1;
-  BCDNumber.significand[2] := 4;
-  BCDNumber.significand[3] := 1;
-  BCDNumber.significand[4] := 5;
-  for i := 5 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 0;
-  BCDNumber.exponent[3] := 0;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(3.1415, RealNumber);
-
-  BCDNumber.sigSign := positive; // +33e11
-  BCDNumber.significand[0] := 3;
-  BCDNumber.significand[1] := 3;
-  for i := 2 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 1; //33e11 = 3.3e12
-  BCDNumber.exponent[3] := 2;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(33e11, RealNumber);
-
-  BCDNumber.sigSign := negative; // -18e-21
-  BCDNumber.significand[0] := 1;
-  BCDNumber.significand[1] := 8;
-  for i := 2 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := negative;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 2;
-  BCDNumber.exponent[3] := 1;
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(-18e-21, RealNumber);
-end;
-
-procedure TBCDTestCases.asExtendedTest;
-var
-  BCDNumber: TBCDFloat;
-  extNumber: extended;
-  i: integer;
-begin
-  BCDNumber.sigSign := positive; // +88e13
-  BCDNumber.significand[0] := 8;
-  BCDNumber.significand[1] := 8;
-  for i := 2 to digits - 1 do
-    BCDNumber.significand[i] := 0;
-  BCDNumber.expSign := positive;
-  BCDNumber.exponent[0] := 0;
-  BCDNumber.exponent[1] := 0;
-  BCDNumber.exponent[2] := 1; //88e13 = 8.8e14
-  BCDNumber.exponent[3] := 4;
-  extNumber := asExtended(BCDNumber);
-  AssertEquals(88e13, extNumber);
-end;
-
-procedure TBCDTestCases.asBCDTest;
-var
-  BCDNumber: TBCDFloat;
-begin
-  BCDNumber := AsBCD(13);
-  AssertTrue(BCDNumber.sigSign = positive);
-  AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(1, BCDNumber.significand[0]);
-  AssertEquals(3, BCDNumber.significand[1]);
-  AssertEquals(1, BCDNumber.exponent[3]);
-  BCDNumber := AsBCD(107);
-  BCDNumber := AsBCD(3.14159265359);
-  AssertTrue(BCDNumber.sigSign = positive);
-  AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(3, BCDNumber.significand[0]);
-  AssertEquals(1, BCDNumber.significand[1]);
-  AssertEquals(4, BCDNumber.significand[2]);
-  AssertEquals(1, BCDNumber.significand[3]);
-  AssertEquals(5, BCDNumber.significand[4]);
-  AssertEquals(9, BCDNumber.significand[5]);
-  AssertEquals(2, BCDNumber.significand[6]);
-  AssertEquals(6, BCDNumber.significand[7]);
-  AssertEquals(5, BCDNumber.significand[8]);
-  AssertEquals(3, BCDNumber.significand[9]);
-  AssertEquals(5, BCDNumber.significand[10]);
-  AssertEquals(9, BCDNumber.significand[11]);
-  AssertEquals(0, BCDNumber.exponent[1]);
-  BCDNumber := AsBCD(123.456);
-  AssertTrue(BCDNumber.sigSign = positive);
-  AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(1, BCDNumber.significand[0]);
-  AssertEquals(2, BCDNumber.significand[1]);
-  AssertEquals(3, BCDNumber.significand[2]);
-  AssertEquals(4, BCDNumber.significand[3]);
-  AssertEquals(5, BCDNumber.significand[4]);
-  AssertEquals(6, BCDNumber.significand[5]);
-  AssertEquals(2, BCDNumber.exponent[3]);
-  BCDNumber := AsBCD(-273.15);
-  AssertTrue(BCDNumber.sigSign = negative);
-  AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(2, BCDNumber.significand[0]);
-  AssertEquals(7, BCDNumber.significand[1]);
-  AssertEquals(3, BCDNumber.significand[2]);
-  AssertEquals(1, BCDNumber.significand[3]);
-  AssertEquals(5, BCDNumber.significand[4]);
-  AssertEquals(2, BCDNumber.exponent[3]);
-  BCDNumber := AsBCD(123.456e9);
-  AssertTrue(BCDNumber.sigSign = positive);
-  AssertTrue(BCDNumber.expSign = positive);
-  AssertEquals(1, BCDNumber.significand[0]);
-  AssertEquals(2, BCDNumber.significand[1]);
-  AssertEquals(3, BCDNumber.significand[2]);
-  AssertEquals(4, BCDNumber.significand[3]);
-  AssertEquals(5, BCDNumber.significand[4]);
-  AssertEquals(6, BCDNumber.significand[5]);
-  AssertEquals(1, BCDNumber.exponent[2]);
-  AssertEquals(1, BCDNumber.exponent[3]);
-  BCDNumber := AsBCD(0.123);
-  AssertTrue(BCDNumber.sigSign = positive);
-  AssertTrue(BCDNumber.expSign = negative);
-  AssertEquals(1, BCDNumber.significand[0]);
-  AssertEquals(2, BCDNumber.significand[1]);
-  // Delivers 1229999999.... on several platforms, therefore no further testing sensible
-  AssertEquals(1, BCDNumber.exponent[3]);
-  AssertTrue(BCDNumber.expSign = negative);
-  BCDNumber := AsBCD(0.00123);
-  AssertTrue(BCDNumber.sigSign = positive);
-  AssertTrue(BCDNumber.expSign = negative);
-  AssertEquals(1, BCDNumber.significand[0]);
-  AssertEquals(2, BCDNumber.significand[1]);
-  BCDNumber := AsBCD(0.0000123);
-  AssertTrue(BCDNumber.sigSign = positive);
-  AssertTrue(BCDNumber.expSign = negative);
-  AssertEquals(1, BCDNumber.significand[0]);
-  AssertEquals(2, BCDNumber.significand[1]);
-  BCDNumber := AsBCD(-18e-9);
-  AssertTrue(BCDNumber.sigSign = negative);
-  AssertTrue(BCDNumber.expSign = negative);
-end;
-
-procedure TBCDTestCases.DoubleConversionTest;
-var
-  BCDNumber: TBCDFloat;
-  RealNumber: real;
-  extNumber: extended;
-begin
-  BCDNumber := AsBCD(3.14159265359);
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(3.14159265359, RealNumber);
-
-  BCDNumber := AsBCD(-273.15);
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(-273.15, RealNumber);
-
-  BCDNumber := AsBCD(-2.6e-13);
-  RealNumber := asReal(BCDNumber);
-  AssertEquals(-2.6e-13, RealNumber);
-
-  BCDNumber := AsBCD(6.3e13);
-  extNumber := asExtended(BCDNumber);
-  AssertEquals(6.3e13, extNumber);
-end;
-
-procedure TBCDTestCases.absTest;
-var
-  BCDNumber: TBCDFloat;
-  RealNumber: real;
-begin
-  BCDNumber := AsBCD(3.14159265359);
-  RealNumber := asReal(BCDAbs(BCDNumber));
-  AssertEquals(3.14159265359, RealNumber);
-  BCDNumber := AsBCD(-273.15);
-  RealNumber := asReal(BCDAbs(BCDNumber));
-  AssertEquals(273.15, RealNumber);
-end;
-
-procedure TBCDTestCases.SumTest;
-var
-  Num1, Num2, num3: TBCDFloat ;
-begin
-  Num1 := AsBCD(123); // Simple example without carry
-  Num2 := AsBCD(456);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(579, AsReal(Num3));
-  Num1 := AsBCD(599); // Example with carry
-  Num2 := AsBCD(984);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(1583, AsReal(Num3));
-  Num1 := AsBCD(7); // Different sizes
-  Num2 := AsBCD(13);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(20, AsReal(Num3));
-  Num1 := AsBCD(21);
-  Num2 := AsBCD(5);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(26, AsReal(Num3));
-  Num1 := AsBCD(3);
-  Num2 := AsBCD(1300);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(1303, AsReal(Num3));
-  Num1 := AsBCD(3.1415); // Floating point numbers
-  Num2 := AsBCD(6.2830);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(9.4245, AsReal(Num3));
-  Num1 := AsBCD(-12345); // Negative numbers
-  Num2 := AsBCD(-67890);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(-80235, AsReal(Num3));
-  Num1 := AsBCD(-19.3895); // Negative floating point numbers with carry and unequal size
-  Num2 := AsBCD(-311.2988);
-  Num3 := BCDSum(Num1, Num2);
-  AssertEquals(-330.6883, AsReal(Num3));
-end;
-
-procedure TBCDTestCases.SubTest;
-var
-  Num1, Num2, num3: TBCDFloat ;
-begin
-  Num1 := AsBCD(123);
-  Num2 := AsBCD(-456);
-  Num3 := BCDSub(Num1, Num2);
-  AssertEquals(579, AsReal(Num3));
-  Num1 := AsBCD(-599);
-  Num2 := AsBCD(984);
-  Num3 := BCDSub(Num1, Num2);
-  AssertEquals(-1583, AsReal(Num3));
-end;
 
 { TWidgetTestCases }
 
@@ -909,16 +528,15 @@ begin
 end;
 
 procedure TControlTestCases.CodeVersionCheck;
-{ The subsequent tests are compatible with RPN Engine version 2.0 }
+{ The subsequent tests are compatible with RPN Engine version 1.0 }
 begin
-  AssertEquals(2, RPNEngine_major);
+  AssertEquals(1, RPNEngine_major);
   AssertEquals(0, RPNEngine_minor);
 end;
 
 initialization
 
 RegisterTest(TControlTestCases);
-RegisterTest(TBCDTestCases);
 RegisterTest(TStackTestCases);
 RegisterTest(TEngineRPNFunctionTestCases);
 RegisterTest(TEngineSingleFunctionTestCases);
