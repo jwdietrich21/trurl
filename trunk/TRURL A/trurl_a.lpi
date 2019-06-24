@@ -20,8 +20,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="61"/>
-      <Attributes pvaDebug="True" pvaPreRelease="True"/>
+      <BuildNr Value="63"/>
       <StringTable Comments="Trurl A, a simple experimental RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl A, a simple experimental RPN calculator" InternalName="Leopolis" LegalCopyright="2003-2019 J. W. Dietrich" ProductName="Trurl A" ProductVersion="1.0.0"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -77,16 +76,21 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="trurl_a"/>
+      <Filename Value="Trurl A"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <CodeGeneration>
+      <SmartLinkUnit Value="True"/>
+    </CodeGeneration>
     <Linking>
       <Debugging>
+        <GenerateDebugInfo Value="False"/>
         <DebugInfoType Value="dsDwarf2Set"/>
       </Debugging>
+      <LinkSmart Value="True"/>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
