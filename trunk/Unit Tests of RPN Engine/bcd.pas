@@ -6,7 +6,7 @@ unit BCD;
 
 { BCD Support }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0 (Aleph) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
