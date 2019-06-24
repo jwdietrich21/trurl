@@ -1,12 +1,12 @@
-program trurl_a;
+program rpnenginetests;
 
-{ Trurl A }
+{ Trurl }
 
-{ Simple RPN calculator in Object Pascal }
+{ A suite of RPN calculators in Object Pascal }
 
-{ Main program file }
+{ Unit Tests for Basic RPN Engine }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0 (Aleph) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -24,23 +24,14 @@ program trurl_a;
 {$mode objfpc}{$H+}
 
 uses
-  {$IFDEF UNIX}{$IFDEF UseCThreads}
-  cthreads,
-  {$ENDIF}{$ENDIF}
-  Interfaces, // this includes the LCL widgetset
-  Forms, Controls, GUI, RPNEngine, aboutbox, RPNWidgets;
+  Interfaces, Forms, GuiTestRunner, RPNEngineTestCases;
 
 {$R *.res}
 
 begin
-  RequireDerivedFormResource:=True;
-  Application.Title:='Trurl A';
   Application.Scaled := True;
   Application.Initialize;
-  Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TTrurlAboutBox, TrurlAboutBox);
-  TrurlAboutBox.FormStyle := fsStayOnTop;
-  Application.BringToFront;
+  Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;
 end.
 

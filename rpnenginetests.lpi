@@ -5,27 +5,25 @@
     <General>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
-      <Title Value="Trurl A"/>
+      <Title Value="rpnenginetests"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
-      <XPManifest>
-        <DpiAware Value="True"/>
-        <TextName Value="net.sf.trurl.trurl_a"/>
-        <TextDesc Value="Simple experimental RPN calculator"/>
-      </XPManifest>
       <Icon Value="0"/>
     </General>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="61"/>
+      <BuildNr Value="92"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable Comments="Trurl A, a simple experimental RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl A, a simple experimental RPN calculator" InternalName="Leopolis" LegalCopyright="2003-2019 J. W. Dietrich" ProductName="Trurl A" ProductVersion="1.0.0"/>
+      <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Aleph" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="1.0.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="741214658670" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
+      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -36,23 +34,26 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="3">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="fpcunittestrunner"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+      </Item3>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="4">
       <Unit0>
-        <Filename Value="trurl_a.lpr"/>
+        <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="gui.pas"/>
+        <Filename Value="rpnenginetestcases.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="MainForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="GUI"/>
+        <UnitName Value="RPNEngineTestCases"/>
       </Unit1>
       <Unit2>
         <Filename Value="rpnengine.pas"/>
@@ -60,24 +61,16 @@
         <UnitName Value="RPNEngine"/>
       </Unit2>
       <Unit3>
-        <Filename Value="aboutbox.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="TrurlAboutBox"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="AboutBox"/>
-      </Unit3>
-      <Unit4>
         <Filename Value="rpnwidgets.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
-      </Unit4>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="trurl_a"/>
+      <Filename Value="rpnenginetests"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
@@ -95,7 +88,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="3">
+    <Exceptions Count="4">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -105,6 +98,9 @@
       <Item3>
         <Name Value="EFOpenError"/>
       </Item3>
+      <Item4>
+        <Name Value="EFCreateError"/>
+      </Item4>
     </Exceptions>
   </Debugging>
 </CONFIG>
