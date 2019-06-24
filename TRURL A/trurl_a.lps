@@ -70,42 +70,42 @@
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/control.inc"/>
+        <Filename Value="/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2848"/>
         <CursorPos Y="2866"/>
         <UsageCount Value="10"/>
       </Unit5>
       <Unit6>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/buttoncontrol.inc"/>
+        <Filename Value="/lazarus/lcl/include/buttoncontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="56"/>
         <CursorPos Y="22"/>
         <UsageCount Value="10"/>
       </Unit6>
       <Unit7>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/buttons.inc"/>
+        <Filename Value="/lazarus/lcl/include/buttons.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="151"/>
         <CursorPos Y="170"/>
         <UsageCount Value="10"/>
       </Unit7>
       <Unit8>
-        <Filename Value="../../../../../../../../lazarus/lcl/interfaces/win32/win32memostrings.inc"/>
+        <Filename Value="/lazarus/lcl/interfaces/win32/win32memostrings.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos Y="68"/>
         <UsageCount Value="10"/>
       </Unit8>
       <Unit9>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/wincontrol.inc"/>
+        <Filename Value="/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5740"/>
         <CursorPos Y="5758"/>
         <UsageCount Value="10"/>
       </Unit9>
       <Unit10>
-        <Filename Value="../../../../../../../../lazarus/lcl/lcltype.pp"/>
+        <Filename Value="/lazarus/lcl/lcltype.pp"/>
         <UnitName Value="LCLType"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="456"/>
@@ -181,14 +181,14 @@
         <UsageCount Value="10"/>
       </Unit19>
       <Unit20>
-        <Filename Value="../../../../../../../../lazarus/fpc/3.0.4/source/rtl/objpas/sysutils/sysstrh.inc"/>
+        <Filename Value="/lazarus/fpc/3.0.4/source/rtl/objpas/sysutils/sysstrh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="161"/>
         <CursorPos X="10" Y="180"/>
         <UsageCount Value="10"/>
       </Unit20>
       <Unit21>
-        <Filename Value="../../../../../../../../lazarus/fpc/3.0.4/source/rtl/objpas/sysutils/sysutilh.inc"/>
+        <Filename Value="/lazarus/fpc/3.0.4/source/rtl/objpas/sysutils/sysutilh.inc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="4" Y="107"/>
         <UsageCount Value="10"/>
@@ -291,7 +291,7 @@
         <UsageCount Value="10"/>
       </Unit34>
       <Unit35>
-        <Filename Value="../../../../../../../../lazarus/lcl/interfaces/carbon/carbonbars.pp"/>
+        <Filename Value="/lazarus/lcl/interfaces/carbon/carbonbars.pp"/>
         <UnitName Value="CarbonBars"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
@@ -307,7 +307,7 @@
         <UsageCount Value="10"/>
       </Unit36>
       <Unit37>
-        <Filename Value="../../../../../../../../lazarus/lcl/interfaces/cocoa/cocoa_extra.pas"/>
+        <Filename Value="/lazarus/lcl/interfaces/cocoa/cocoa_extra.pas"/>
         <UnitName Value="Cocoa_Extra"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="2" Y="18"/>
