@@ -7,8 +7,9 @@
       <Unit0>
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="22" Y="24"/>
+        <CursorPos X="21" Y="9"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -17,7 +18,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngineTestCases"/>
         <EditorIndex Value="3"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="9" Y="2"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -26,7 +27,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
         <EditorIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <TopLine Value="7"/>
+        <CursorPos X="14" Y="4"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -50,8 +52,7 @@
         <Filename Value="bcd.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="BCD"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="21" Y="9"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -131,7 +132,7 @@
         <UsageCount Value="8"/>
       </Unit14>
       <Unit15>
-        <Filename Value="C:/lazarus/fpc/3.0.4/source/rtl/win64/system.pp"/>
+        <Filename Value="../../../../../../../../lazarus/fpc/3.0.4/source/rtl/win64/system.pp"/>
         <UnitName Value="System"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="25"/>
