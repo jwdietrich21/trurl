@@ -14,10 +14,10 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MajorVersionNr Value="2"/>
-      <BuildNr Value="93"/>
+      <MajorVersionNr Value="1"/>
+      <BuildNr Value="92"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Bet" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="2.0.0"/>
+      <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Aleph" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="1.0.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -45,7 +45,7 @@
         <PackageName Value="FCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="4">
       <Unit0>
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -65,11 +65,6 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
       </Unit3>
-      <Unit4>
-        <Filename Value="bcd.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="BCD"/>
-      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
