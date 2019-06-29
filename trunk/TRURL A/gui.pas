@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0.1 (Leopolis) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
