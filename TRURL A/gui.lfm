@@ -9,7 +9,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl A'
-  ClientHeight = 402
+  ClientHeight = 375
   ClientWidth = 338
   Color = clSilver
   Icon.Data = {
@@ -441,7 +441,7 @@ object MainForm: TMainForm
   OnDestroy = FormDestroy
   OnKeyPress = FormKeyPress
   Position = poScreenCenter
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '1.6.2.0'
   Visible = True
   object RDButton: TButton
     Left = 8
@@ -730,7 +730,7 @@ object MainForm: TMainForm
     Top = 8
     Width = 314
     Anchors = [akTop, akLeft, akRight]
-    BevelColor = clBlack
+    BevelOuter = bvNone
     ClientHeight = 114
     ClientWidth = 314
     Color = clBlack

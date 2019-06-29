@@ -180,6 +180,9 @@ begin
     '/': DivButtonClick(Sender);
     '*': TimesButtonClick(Sender);
     'c', 'C': CButtonClick(Sender);
+    {$IFDEF LINUX}
+      #13: EnterButtonClick(Sender);
+    {$ENDIF}
   end;
   Key := #0; // Necessary for Cocoa widgetset
   ActiveControl := EnterButton;
@@ -253,7 +256,6 @@ begin
     VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
     VK_DOWN: RDButtonClick(Sender);
   end;
-  //Key := 0;
   ActiveControl := EnterButton;
 end;
 
