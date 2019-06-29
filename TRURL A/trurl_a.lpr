@@ -6,7 +6,7 @@ program trurl_a;
 
 { Main program file }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0.1 (Leopolis) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -28,14 +28,20 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Controls, GUI, RPNEngine, aboutbox, RPNWidgets;
+  LCLVersion, Forms, Controls, GUI, RPNEngine, aboutbox, RPNWidgets;
 
 {$R *.res}
 
 begin
+  {$IF (LCL_MAJOR >= 2) OR (LCL_MAJOR >= 1) AND (LCL_MINOR >=8)}
+    {$DEFINE NewLaz}
+  {$ENDIF}
   RequireDerivedFormResource:=True;
+  Application.Scaled:=True;
   Application.Title:='Trurl A';
-  Application.Scaled := True;
+  {$IFDEF NewLaz}
+    Application.Scaled := True;
+  {$ENDIF}
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TTrurlAboutBox, TrurlAboutBox);

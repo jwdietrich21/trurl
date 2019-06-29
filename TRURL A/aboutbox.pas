@@ -6,7 +6,7 @@ unit AboutBox;
 
 { About Box }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0.1 (Leopolis) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -51,7 +51,6 @@ var
 implementation
 
 {$R *.lfm}
-
 
 { TTrurlAboutBox }
 
