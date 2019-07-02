@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="11"/>
+    <Version Value="10"/>
     <BuildModes Count="1" Active="Default">
       <Item1 Name="Cocoa">
         <MacroValues Count="1">
@@ -36,15 +36,14 @@
         <Item1 ID="769390080357" Modes="Cocoa" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
       </SessionMatrixOptions>
     </BuildModes>
-    <Units Count="40">
+    <Units Count="44">
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="20"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="14"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -54,9 +53,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="36" Y="8"/>
-        <UsageCount Value="47"/>
+        <TopLine Value="169"/>
+        <CursorPos Y="179"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -78,7 +79,7 @@
           <TopLine Value="34"/>
           <CursorPos X="29" Y="244"/>
         </ExtraEditor2>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -88,9 +89,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="37" Y="2"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -100,7 +101,7 @@
         <UnitName Value="RPNWidgets"/>
         <EditorIndex Value="1"/>
         <CursorPos X="8" Y="2"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -362,128 +363,158 @@
         <CursorPos Y="663"/>
         <UsageCount Value="10"/>
       </Unit39>
+      <Unit40>
+        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5665"/>
+        <CursorPos Y="5684"/>
+        <UsageCount Value="10"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="C:/lazarus/lcl/include/winapih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="111"/>
+        <CursorPos X="21" Y="130"/>
+        <UsageCount Value="10"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="C:/lazarus/lcl/include/intfbasewinapi.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1022"/>
+        <CursorPos X="3" Y="1024"/>
+        <UsageCount Value="10"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="C:/lazarus/lcl/include/brush.inc"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="6"/>
+        <CursorPos Y="37"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit43>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="gui.pas"/>
-        <Caret Line="104" Column="26" TopLine="92"/>
+        <Caret Line="356" Column="3" TopLine="319"/>
       </Position1>
       <Position2>
         <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="17" TopLine="238"/>
+        <Caret Line="107" Column="79" TopLine="97"/>
       </Position2>
       <Position3>
         <Filename Value="gui.pas"/>
-        <Caret Line="180" Column="21" TopLine="163"/>
+        <Caret Line="258" Column="3" TopLine="253"/>
       </Position3>
       <Position4>
         <Filename Value="gui.pas"/>
-        <Caret Line="276" TopLine="245"/>
+        <Caret Line="170" Column="3" TopLine="168"/>
       </Position4>
       <Position5>
         <Filename Value="gui.pas"/>
-        <Caret Line="284" Column="14" TopLine="257"/>
+        <Caret Line="349" TopLine="335"/>
       </Position5>
       <Position6>
         <Filename Value="gui.pas"/>
-        <Caret Line="349" TopLine="334"/>
+        <Caret Line="350" TopLine="335"/>
       </Position6>
       <Position7>
         <Filename Value="gui.pas"/>
-        <Caret Line="101" TopLine="81"/>
+        <Caret Line="349" TopLine="335"/>
       </Position7>
       <Position8>
         <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="10" TopLine="241"/>
+        <Caret Line="350" TopLine="343"/>
       </Position8>
       <Position9>
         <Filename Value="gui.pas"/>
-        <Caret Line="258" TopLine="241"/>
+        <Caret Line="165" Column="32" TopLine="163"/>
       </Position9>
       <Position10>
         <Filename Value="gui.pas"/>
-        <Caret Line="247" Column="9" TopLine="241"/>
+        <Caret Line="356" Column="17" TopLine="319"/>
       </Position10>
       <Position11>
         <Filename Value="gui.pas"/>
-        <Caret Line="260" Column="55" TopLine="238"/>
+        <Caret Line="177" Column="32" TopLine="175"/>
       </Position11>
       <Position12>
         <Filename Value="gui.pas"/>
-        <Caret Line="2" Column="7"/>
+        <Caret Line="367" TopLine="348"/>
       </Position12>
       <Position13>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="26" Column="65" TopLine="23"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="281" Column="32" TopLine="279"/>
       </Position13>
       <Position14>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="57" Column="28" TopLine="32"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="370" Column="6" TopLine="355"/>
       </Position14>
       <Position15>
-        <Filename Value="rpnwidgets.pas"/>
-        <Caret Line="2"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="277" Column="32" TopLine="256"/>
       </Position15>
       <Position16>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="44" Column="32" TopLine="34"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="206" Column="32" TopLine="162"/>
       </Position16>
       <Position17>
-        <Filename Value="aboutbox.pas"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="106" TopLine="85"/>
       </Position17>
       <Position18>
         <Filename Value="gui.pas"/>
-        <Caret Column="9"/>
+        <Caret Line="169" Column="10" TopLine="147"/>
       </Position18>
       <Position19>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="2" Column="4"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="178" TopLine="170"/>
       </Position19>
       <Position20>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="37" Column="18" TopLine="15"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="188" TopLine="170"/>
       </Position20>
       <Position21>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="55" Column="16" TopLine="33"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="199" TopLine="170"/>
       </Position21>
       <Position22>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="37" Column="18" TopLine="24"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="200" TopLine="170"/>
       </Position22>
       <Position23>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="41" TopLine="24"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="370" TopLine="351"/>
       </Position23>
       <Position24>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="42" TopLine="24"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="371" TopLine="351"/>
       </Position24>
       <Position25>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="43" TopLine="24"/>
+        <Filename Value="C:/lazarus/lcl/include/brush.inc"/>
+        <Caret Line="37" TopLine="6"/>
       </Position25>
       <Position26>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="45" TopLine="24"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="178" TopLine="159"/>
       </Position26>
       <Position27>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="41" TopLine="26"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="182" TopLine="159"/>
       </Position27>
       <Position28>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="42" TopLine="26"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="199" TopLine="181"/>
       </Position28>
       <Position29>
-        <Filename Value="trurl_a.lpr"/>
-        <Caret Line="44" TopLine="26"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="200" TopLine="181"/>
       </Position29>
+      <Position30>
+        <Filename Value="gui.pas"/>
+        <Caret Line="178" TopLine="168"/>
+      </Position30>
     </JumpHistory>
-    <RunParams>
-      <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
-    </RunParams>
   </ProjectSession>
   <Debugging>
     <Watches Count="5">
