@@ -223,27 +223,21 @@ procedure TMainForm.AdaptMenus;
 var
   modifierKey: TShiftState;
   begin
-    {$IFDEF LCLcarbon}
-    modifierKey := [ssMeta];
-    WinAboutItem.Visible := False;
-    AppleMenu.Visible := True;
+    {$IF DEFINED(LCLcarbon) or DEFINED(LCLCocoa)}
+      modifierKey := [ssMeta];
+      WinAboutItem.Visible := False;
+      AppleMenu.Visible := True;
     {$ELSE}
-    {$IFDEF LCLCocoa}
-    modifierKey := [ssMeta];
-    WinAboutItem.Visible := False;
-    AppleMenu.Visible := True;
-    {$ELSE}
-    modifierKey := [ssCtrl];
-    WinAboutItem.Visible := True;
-    AppleMenu.Visible := False;
+      modifierKey := [ssCtrl];
+      WinAboutItem.Visible := True;
+      AppleMenu.Visible := False;
     {$ENDIF}
-    {$ENDIF}
-    QuitItem.ShortCut := ShortCut(VK_Q, modifierKey);
-    UndoItem.ShortCut := ShortCut(VK_Z, modifierKey);
-    RedoItem.ShortCut := ShortCut(VK_Z, modifierKey + [ssShift]);
-    CutItem.ShortCut := ShortCut(VK_X, modifierKey);
-    CopyItem.ShortCut := ShortCut(VK_C, modifierKey);
-    PasteItem.ShortCut := ShortCut(VK_V, modifierKey);
+      QuitItem.ShortCut := ShortCut(VK_Q, modifierKey);
+      UndoItem.ShortCut := ShortCut(VK_Z, modifierKey);
+      RedoItem.ShortCut := ShortCut(VK_Z, modifierKey + [ssShift]);
+      CutItem.ShortCut := ShortCut(VK_X, modifierKey);
+      CopyItem.ShortCut := ShortCut(VK_C, modifierKey);
+      PasteItem.ShortCut := ShortCut(VK_V, modifierKey);
   end;
 
 procedure TMainForm.EditCopy1Execute(Sender: TObject);
@@ -288,6 +282,29 @@ end;
 procedure TMainForm.FormShow(Sender: TObject);
 begin
   IndicateNumLockState(Sender);
+end;
+
+procedure TMainForm.FormActivate(Sender: TObject);
+begin
+  IndicateNumLockState(Sender);
+end;
+
+procedure TMainForm.IndicateNumLockState(Sender: TObject);
+begin
+  {$IF DEFINED(LCLcarbon) or DEFINED(LCLCocoa)}
+    NumLockIndicator.visible := false;
+  {$ELSE}
+  if Odd(GetKeyState(VK_NUMLOCK)) then
+  begin
+    NumLockIndicator.Brush.Color := clLime;
+    NumLockIndicator.Hint := 'Num Lock is activated. You can enter numbers via the numeric keypad.';
+  end
+  else
+  begin
+    NumLockIndicator.Brush.Color := clRed;
+    NumLockIndicator.Hint := 'Num Lock is deactivated. Numbers cannot be entered via the numeric keypad.';
+  end;
+  {$ENDIF}
 end;
 
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
@@ -359,25 +376,6 @@ end;
 procedure TMainForm.EnterButtonClick(Sender: TObject);
 begin
   Frame.HandleEnter;
-end;
-
-procedure TMainForm.FormActivate(Sender: TObject);
-begin
-  IndicateNumLockState(Sender);
-end;
-
-procedure TMainForm.IndicateNumLockState(Sender: TObject);
-begin
-  if Odd(GetKeyState(VK_NUMLOCK)) then
-  begin
-    NumLockIndicator.Brush.Color := clLime;
-    NumLockIndicator.Hint := 'Num Lock is activated. You can enter numbers via the numeric keypad.';
-  end
-  else
-  begin
-    NumLockIndicator.Brush.Color := clRed;
-    NumLockIndicator.Hint := 'Num Lock is deactivated. Numbers cannot be entered via the numeric keypad.';
-  end;
 end;
 
 procedure TMainForm.InvButtonClick(Sender: TObject);
