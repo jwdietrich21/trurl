@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd,
+  LclIntf, LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd,
   RPNEngine, RPNWidgets, aboutbox;
 
 type
@@ -41,6 +41,8 @@ type
     EditPaste1: TEditPaste;
     EditUndo1: TEditUndo;
     DisplayBackgroundPanel: TPanel;
+    NumLockIndicator: TShape;
+    KeyCheckTimer: TTimer;
     XRegisterDisplay: TLabel;
     YRegisterDisplay: TLabel;
     ZRegisterDisplay: TLabel;
@@ -99,10 +101,16 @@ type
     procedure EditCut1Execute(Sender: TObject);
     procedure EditPaste1Execute(Sender: TObject);
     procedure EnterButtonClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDeactivate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormPaint(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure IndicateNumLockState(Sender: TObject);
     procedure InvButtonClick(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
     procedure WinAboutItemClick(Sender: TObject);
@@ -155,6 +163,11 @@ begin
   Frame.EntryMode := Number;
 end;
 
+procedure TMainForm.FormDeactivate(Sender: TObject);
+begin
+
+end;
+
 procedure TMainForm.FormDestroy(Sender: TObject);
 begin
   Frame.destroy;
@@ -185,6 +198,7 @@ begin
     {$ENDIF}
   end;
   Key := #0; // Necessary for Cocoa widgetset
+  IndicateNumLockState(Sender);
   ActiveControl := EnterButton;
 end;
 
@@ -256,7 +270,24 @@ begin
     VK_C, VK_CLEAR, VK_BACK, VK_DELETE: CButtonClick(Sender);
     VK_DOWN: RDButtonClick(Sender);
   end;
+  IndicateNumLockState(Sender);
   ActiveControl := EnterButton;
+end;
+
+procedure TMainForm.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
+  );
+begin
+  IndicateNumLockState(Sender);
+end;
+
+procedure TMainForm.FormPaint(Sender: TObject);
+begin
+  IndicateNumLockState(Sender);
+end;
+
+procedure TMainForm.FormShow(Sender: TObject);
+begin
+  IndicateNumLockState(Sender);
 end;
 
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
@@ -328,6 +359,19 @@ end;
 procedure TMainForm.EnterButtonClick(Sender: TObject);
 begin
   Frame.HandleEnter;
+end;
+
+procedure TMainForm.FormActivate(Sender: TObject);
+begin
+  IndicateNumLockState(Sender);
+end;
+
+procedure TMainForm.IndicateNumLockState(Sender: TObject);
+begin
+  if Odd(GetKeyState(VK_NUMLOCK)) then
+    NumLockIndicator.Brush.Color := clLime
+  else
+    NumLockIndicator.Brush.Color := clRed;
 end;
 
 procedure TMainForm.InvButtonClick(Sender: TObject);

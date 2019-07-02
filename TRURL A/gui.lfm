@@ -9,7 +9,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl A'
-  ClientHeight = 375
+  ClientHeight = 382
   ClientWidth = 338
   Color = clSilver
   Icon.Data = {
@@ -437,11 +437,16 @@ object MainForm: TMainForm
     3613D40000000049454E44AE426082
   }
   Menu = MainMenu1
+  OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
   OnKeyPress = FormKeyPress
+  OnKeyUp = FormKeyUp
+  OnPaint = FormPaint
+  OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '1.6.2.0'
+  LCLVersion = '1.8.4.0'
   Visible = True
   object RDButton: TButton
     Left = 8
@@ -808,6 +813,14 @@ object MainForm: TMainForm
       ParentColor = False
       ParentFont = False
     end
+    object NumLockIndicator: TShape
+      Left = 5
+      Height = 11
+      Top = 5
+      Width = 11
+      Brush.Color = clYellow
+      Shape = stCircle
+    end
   end
   object MainMenu1: TMainMenu
     left = 160
@@ -887,5 +900,11 @@ object MainForm: TMainForm
       OnExecute = EditPaste1Execute
       ShortCut = 16470
     end
+  end
+  object KeyCheckTimer: TTimer
+    Interval = 130
+    OnTimer = IndicateNumLockState
+    left = 80
+    top = 208
   end
 end
