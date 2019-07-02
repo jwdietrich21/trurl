@@ -446,7 +446,7 @@ object MainForm: TMainForm
   OnPaint = FormPaint
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.2.0'
   Visible = True
   object RDButton: TButton
     Left = 8
@@ -816,10 +816,13 @@ object MainForm: TMainForm
     object NumLockIndicator: TShape
       Left = 5
       Height = 11
+      Hint = 'Indicator for Num Lock status'
       Top = 5
       Width = 11
       Brush.Color = clYellow
+      ParentShowHint = False
       Shape = stCircle
+      ShowHint = True
     end
   end
   object MainMenu1: TMainMenu
