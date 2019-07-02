@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="10"/>
+    <Version Value="11"/>
     <BuildModes Count="1" Active="Default">
       <Item1 Name="Cocoa">
         <MacroValues Count="1">
@@ -40,7 +40,7 @@
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="14"/>
         <CursorPos Y="2"/>
         <UsageCount Value="48"/>
@@ -55,8 +55,7 @@
         <UnitName Value="GUI"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="169"/>
-        <CursorPos Y="179"/>
+        <CursorPos X="53" Y="15"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -89,7 +88,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="37" Y="2"/>
         <UsageCount Value="38"/>
         <Loaded Value="True"/>
@@ -364,36 +363,35 @@
         <UsageCount Value="10"/>
       </Unit39>
       <Unit40>
-        <Filename Value="C:/lazarus/lcl/include/wincontrol.inc"/>
+        <Filename Value="../../../../../../../../lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5665"/>
         <CursorPos Y="5684"/>
         <UsageCount Value="10"/>
       </Unit40>
       <Unit41>
-        <Filename Value="C:/lazarus/lcl/include/winapih.inc"/>
+        <Filename Value="../../../../../../../../lazarus/lcl/include/winapih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="111"/>
         <CursorPos X="21" Y="130"/>
         <UsageCount Value="10"/>
       </Unit41>
       <Unit42>
-        <Filename Value="C:/lazarus/lcl/include/intfbasewinapi.inc"/>
+        <Filename Value="../../../../../../../../lazarus/lcl/include/intfbasewinapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1022"/>
         <CursorPos X="3" Y="1024"/>
         <UsageCount Value="10"/>
       </Unit42>
       <Unit43>
-        <Filename Value="C:/lazarus/lcl/include/brush.inc"/>
-        <EditorIndex Value="3"/>
+        <Filename Value="../../../../../../../../lazarus/lcl/include/brush.inc"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos Y="37"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit43>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="gui.pas"/>
         <Caret Line="356" Column="3" TopLine="319"/>
@@ -491,30 +489,30 @@
         <Caret Line="371" TopLine="351"/>
       </Position24>
       <Position25>
-        <Filename Value="C:/lazarus/lcl/include/brush.inc"/>
-        <Caret Line="37" TopLine="6"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="178" TopLine="159"/>
       </Position25>
       <Position26>
         <Filename Value="gui.pas"/>
-        <Caret Line="178" TopLine="159"/>
+        <Caret Line="182" TopLine="159"/>
       </Position26>
       <Position27>
         <Filename Value="gui.pas"/>
-        <Caret Line="182" TopLine="159"/>
+        <Caret Line="199" TopLine="181"/>
       </Position27>
       <Position28>
         <Filename Value="gui.pas"/>
-        <Caret Line="199" TopLine="181"/>
+        <Caret Line="200" TopLine="181"/>
       </Position28>
       <Position29>
         <Filename Value="gui.pas"/>
-        <Caret Line="200" TopLine="181"/>
-      </Position29>
-      <Position30>
-        <Filename Value="gui.pas"/>
         <Caret Line="178" TopLine="168"/>
-      </Position30>
+      </Position29>
     </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode="default"/>
+    </RunParams>
   </ProjectSession>
   <Debugging>
     <Watches Count="5">
