@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="69"/>
+      <BuildNr Value="70"/>
       <StringTable Comments="Trurl A, a simple experimental RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl A, a simple experimental RPN calculator" InternalName="Leopolis" LegalCopyright="2003-2019 J. W. Dietrich" ProductName="Trurl A" ProductVersion="1.0.1"/>
     </VersionInfo>
     <BuildModes Count="1">

@@ -9,7 +9,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl A'
-  ClientHeight = 382
+  ClientHeight = 402
   ClientWidth = 338
   Color = clSilver
   Icon.Data = {

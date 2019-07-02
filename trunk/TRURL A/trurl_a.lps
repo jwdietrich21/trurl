@@ -36,14 +36,13 @@
         <Item1 ID="769390080357" Modes="Cocoa" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
       </SessionMatrixOptions>
     </BuildModes>
-    <Units Count="44">
+    <Units Count="43">
       <Unit0>
         <Filename Value="trurl_a.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="14"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="48"/>
+        <UsageCount Value="49"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -55,8 +54,8 @@
         <UnitName Value="GUI"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="53" Y="15"/>
-        <UsageCount Value="48"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="49"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -78,7 +77,7 @@
           <TopLine Value="34"/>
           <CursorPos X="29" Y="244"/>
         </ExtraEditor2>
-        <UsageCount Value="48"/>
+        <UsageCount Value="49"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -89,8 +88,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="37" Y="2"/>
-        <UsageCount Value="38"/>
+        <CursorPos X="10" Y="2"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -100,7 +99,7 @@
         <UnitName Value="RPNWidgets"/>
         <EditorIndex Value="1"/>
         <CursorPos X="8" Y="2"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -134,8 +133,8 @@
       <Unit9>
         <Filename Value="/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="5740"/>
-        <CursorPos Y="5758"/>
+        <TopLine Value="5665"/>
+        <CursorPos Y="5684"/>
         <UsageCount Value="10"/>
       </Unit9>
       <Unit10>
@@ -363,33 +362,26 @@
         <UsageCount Value="10"/>
       </Unit39>
       <Unit40>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/wincontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="5665"/>
-        <CursorPos Y="5684"/>
-        <UsageCount Value="10"/>
-      </Unit40>
-      <Unit41>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/winapih.inc"/>
+        <Filename Value="/lazarus/lcl/include/winapih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="111"/>
         <CursorPos X="21" Y="130"/>
         <UsageCount Value="10"/>
-      </Unit41>
-      <Unit42>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/intfbasewinapi.inc"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="/lazarus/lcl/include/intfbasewinapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1022"/>
         <CursorPos X="3" Y="1024"/>
         <UsageCount Value="10"/>
-      </Unit42>
-      <Unit43>
-        <Filename Value="../../../../../../../../lazarus/lcl/include/brush.inc"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="/lazarus/lcl/include/brush.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos Y="37"/>
         <UsageCount Value="10"/>
-      </Unit43>
+      </Unit42>
     </Units>
     <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
