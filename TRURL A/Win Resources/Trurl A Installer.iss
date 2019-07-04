@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Trurl A"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "FORMATIO RETICULARIS"
 #define MyAppURL "http://trurl.sf.net"
 #define MyAppExeName "Trurl A.exe"
