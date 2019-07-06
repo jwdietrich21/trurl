@@ -15,7 +15,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <BuildNr Value="93"/>
+      <BuildNr Value="94"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Bet" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="2.0.0"/>
     </VersionInfo>
