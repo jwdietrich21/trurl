@@ -74,6 +74,11 @@ const
      %11111011  // 9.
      );
 
+  xH: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
+  yH: array[0..5] of integer = (1, 0, 0, 1, 2, 2);
+  xV: array[0..5] of integer = (1, 2, 2, 1, 0, 0);
+  yV: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
+
 function AsciiA(i: Byte): char;
 function AsciiB(i: Byte): char;
 function AsciiC(i: Byte): char;
@@ -218,18 +223,67 @@ end;
 procedure DrawDigits(aCanvas: TCanvas; aColor: TColor; n: real);
 { Draw seven-segment display representation of n on the specified canvas }
 var
-  oldColor: TColor;
-  oldStyle: TBrushStyle;
+  oldBColor, oldPColor: TColor;
+  oldBStyle: TBrushStyle;
+  oldPStyle: TPenStyle;
+  pointsA, pointsB, pointsC, pointsD, pointsE, pointsF, pointsG: array[0..5] of TPoint;
+  scale, offsetX, offsetY, posX, posY: integer;
+  i: integer;
 begin
-  oldColor := aCanvas.Brush.Color;
-  oldStyle := aCanvas.Brush.Style;
+  scale := 3;
+  for i := 0 to 5 do
+  begin
+    offsetX := 13;
+    offsetY := 9;
+    posX := offsetX + scale;
+    posY := offsetY;
+    pointsA[i].x := xH[i] * scale + posX;
+    pointsA[i].y := yH[i] * scale + posY;
+    posX := offsetX + 9 * scale;
+    posY := offsetY + 1 * scale;
+    pointsB[i].x := xV[i] * scale + posX;
+    pointsB[i].y := yV[i] * scale + posY;
+    posY := offsetY + 10 * scale;
+    pointsC[i].x := xV[i] * scale + posX;
+    pointsC[i].y := yV[i] * scale + posY;
+    posX := offsetX + scale;
+    posY := offsetY + 18 * scale;
+    pointsD[i].x := xH[i] * scale + posX;
+    pointsD[i].y := yH[i] * scale + posY;
+    posX := offsetX;
+    posY := offsetY + 10 * scale;
+    pointsE[i].x := xV[i] * scale + posX;
+    pointsE[i].y := yV[i] * scale + posY;
+    posY := offsetY + 1 * scale;
+    pointsF[i].x := xV[i] * scale + posX;
+    pointsF[i].y := yV[i] * scale + posY;
+    posX := offsetX + scale;
+    posY := offsetY + 9 * scale;
+    pointsG[i].x := xH[i] * scale + posX;
+    pointsG[i].y := yH[i] * scale + posY;
+  end;
+
+  oldBColor := aCanvas.Brush.Color;
+  oldBStyle := aCanvas.Brush.Style;
+  oldPColor := aCanvas.Pen.Color;
+  oldPStyle := aCanvas.Pen.Style;
   aCanvas.Brush.Color := aColor;
   aCanvas.Brush.Style := bsSolid;
+  aCanvas.Pen.Style := psSolid;
+  aCanvas.Pen.Color := oldBColor;
 
-  aCanvas.FillRect(3, 3, 9, 9); { TODO : Replace this test code with segment drawing code }
+  aCanvas.Polygon(pointsA);
+  aCanvas.Polygon(pointsB);
+  aCanvas.Polygon(pointsC);
+  aCanvas.Polygon(pointsD);
+  aCanvas.Polygon(pointsE);
+  aCanvas.Polygon(pointsF);
+  aCanvas.Polygon(pointsG);
 
-  aCanvas.Brush.Style := oldStyle;
-  aCanvas.Brush.Color := oldColor;
+  aCanvas.Pen.Style := oldPStyle;
+  aCanvas.Pen.Color := oldPColor;
+  aCanvas.Brush.Style := oldBStyle;
+  aCanvas.Brush.Color := oldBColor;
 end;
 
 end.
