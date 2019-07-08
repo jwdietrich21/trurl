@@ -8,7 +8,7 @@ unit testappgui;
 
 { Version 1.0 (Leopolis) }
 
-{ (c) Johannes W. Dietrich, 1990 - 2018 }
+{ (c) Johannes W. Dietrich, 1990 - 2019 }
 
 { Source code released under the BSD License }
 
@@ -43,7 +43,7 @@ type
   private
 
   public
-
+    courierpos: integer;
   end;
 
 var
@@ -57,48 +57,31 @@ implementation
 
 procedure TTestAppMainForm.TestFloatSpinEditChange(Sender: TObject);
 var
-  i, digit: integer;
-  stringToTest: String[11];
-  line1, line2, line3: String;
+  theNumber: real;
+  stringToTest: string[11];
+  DisplayStrings: TASCIIDisplay;
 begin
-  stringToTest := FloatToStr(TestFloatSpinEdit.Value);
+  theNumber := TestFloatSpinEdit.Value;
+  stringToTest := FloatToStr(theNumber);
   TestASCIIMemo.Clear;
   TestASCIIMemo.Append(stringToTest);
-  line1 := '';
-  line2 := '';
-  line3 := '';
-  i := 1;
-  if length(stringToTest) > 1 then for i := 2 to length(stringToTest) do
-  begin
-    if stringToTest[i] <> '.' then
-      begin
-        if TryStrToInt(stringToTest[i - 1], digit) then
-          begin
-            line1 := line1 + AsciiLine(0, digit);
-            line2 := line2 + AsciiLine(1, digit);
-            line3 := line3 + AsciiLine(2, digit);
-          end;
-      end
-    else
-      begin
-        digit := StrToInt(stringToTest[i - 1]);
-        line1 := line1 + AsciiLine(0, digit + 10);
-        line2 := line2 + AsciiLine(1, digit + 10);
-        line3 := line3 + AsciiLine(2, digit + 10);
-      end;
-  end;
-  digit := StrToInt(stringToTest[i]);
-  line1 := line1 + AsciiLine(0, digit);
-  line2 := line2 + AsciiLine(1, digit);
-  line3 := line3 + AsciiLine(2, digit);
-  TestASCIIMemo.Append(line1);
-  TestASCIIMemo.Append(line2);
-  TestASCIIMemo.Append(line3);
+  DisplayStrings := ASCIIDigits(theNumber);
+  TestASCIIMemo.Append(DisplayStrings[0]);
+  TestASCIIMemo.Append(DisplayStrings[1]);
+  TestASCIIMemo.Append(DisplayStrings[2]);
 end;
 
 procedure TTestAppMainForm.FormActivate(Sender: TObject);
 begin
   FontsCombobox.Items.Assign(Screen.Fonts);
+  courierpos := FontsCombobox.Items.IndexOf('Courier');
+  if courierpos = -1 then
+    courierpos := FontsCombobox.Items.IndexOf('Courier New');
+  if courierpos >= 0 then
+    begin
+      FontsCombobox.ItemIndex := courierpos;
+      TestAsciiMemo.Font.Name := FontsCombobox.Items[FontsCombobox.ItemIndex];
+    end;
 end;
 
 procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);

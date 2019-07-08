@@ -8,7 +8,7 @@ unit segmitator;
 
 { Version 1.0 (Leopolis) }
 
-{ (c) Johannes W. Dietrich, 1990 - 2018 }
+{ (c) Johannes W. Dietrich, 1990 - 2019 }
 
 { Source code released under the BSD License }
 
@@ -47,6 +47,7 @@ uses
 
 type
   tASCIILine = string[4];
+  tASCIIDisplay = array[0..2] of string;
 
 const
 
@@ -83,6 +84,7 @@ function AsciiF(i: Byte): char;
 function AsciiG(i: Byte): char;
 function AsciiDot(i: Byte): char;
 function AsciiLine(i, j: Byte): tASCIILine;
+function ASCIIDigits(n: real): TASCIIDisplay;
 
 implementation
 
@@ -157,6 +159,50 @@ begin
   1: result := AsciiF(j) + AsciiG(j) + AsciiB(j) + ' ';
   2: result := AsciiE(j) + AsciiD(j) + AsciiC(j) + AsciiDot(j);
   end;
+end;
+
+function ASCIIDigits(n: real): TASCIIDisplay;
+const
+  kDot = '.';
+var
+  i, digit: integer;
+  nString: AnsiString;
+  theFormat: TFormatSettings;
+  line0, line1, line2: string;
+begin
+  theFormat := DefaultFormatSettings;
+  theFormat.DecimalSeparator := kDot;
+  nString := FloatToStr(n, theFormat);
+  line0 := '';
+  line1 := '';
+  line2 := '';
+  i := 1;
+  if length(nString) > 1 then for i := 2 to length(nString) do
+  begin
+    if nString[i] <> kDot then
+      begin
+        if TryStrToInt(nString[i - 1], digit) then
+          begin
+            line0 := line0 + AsciiLine(0, digit);
+            line1 := line1 + AsciiLine(1, digit);
+            line2 := line2 + AsciiLine(2, digit);
+          end;
+      end
+    else
+      begin
+        digit := StrToInt(nString[i - 1]);
+        line0 := line0 + AsciiLine(0, digit + 10);
+        line1 := line1 + AsciiLine(1, digit + 10);
+        line2 := line2 + AsciiLine(2, digit + 10);
+      end;
+  end;
+  digit := StrToInt(nString[i]);
+  line0 := line0 + AsciiLine(0, digit);
+  line1 := line1 + AsciiLine(1, digit);
+  line2 := line2 + AsciiLine(2, digit);
+  result[0] := line0;
+  result[1] := line1;
+  result[2] := line2;
 end;
 
 end.
