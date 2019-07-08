@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="10"/>
+    <Version Value="11"/>
     <PathDelim Value="\"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
@@ -16,7 +16,7 @@
       <MajorVersionNr Value="1"/>
       <BuildNr Value="7"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable Comments="Trurl, a suite of RPN calculators in and for Object Pascal" CompanyName="formatio reticularis" FileDescription="Trurl, a suite of RPN calculators in and for Object Pascal" InternalName="Leopolis" LegalCopyright="1990-2019 J. W. Dietrich" ProductName="Segmitator Test App" ProductVersion="1.0.0"/>
+      <StringTable Comments="Trurl, a suite of RPN calculators in and for Object Pascal" CompanyName="formatio reticularis" FileDescription="Trurl, a suite of RPN calculators in and for Object Pascal" InternalName="Cook" LegalCopyright="1990-2019 J. W. Dietrich" ProductName="Segmitator Test App" ProductVersion="1.0.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -25,9 +25,10 @@
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
-      <local>
-        <FormatVersion Value="1"/>
-      </local>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
     </RunParams>
     <RequiredPackages Count="1">
       <Item1>

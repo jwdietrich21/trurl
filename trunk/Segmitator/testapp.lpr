@@ -6,7 +6,7 @@ program testapp;
 
 { Test application for Segmitator unit }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0 (Cook) }
 
 { (c) Johannes W. Dietrich, 1990 - 2018 }
 
@@ -34,7 +34,7 @@ uses
 {$R *.res}
 
 begin
-  RequireDerivedFormResource:=True;
+  RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TTestAppMainForm, TestAppMainForm);
   Application.BringToFront;

@@ -7,7 +7,7 @@ object TestAppMainForm: TTestAppMainForm
   ClientHeight = 261
   ClientWidth = 447
   OnActivate = FormActivate
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.2.0'
   object TestFloatSpinEdit: TFloatSpinEdit
     Left = 16
     Height = 23
