@@ -1,18 +1,18 @@
 object TestAppMainForm: TTestAppMainForm
-  Left = 460
-  Height = 237
-  Top = 387
-  Width = 448
+  Left = 424
+  Height = 261
+  Top = 282
+  Width = 447
   Caption = 'Test App for Segmitator'
-  ClientHeight = 237
-  ClientWidth = 448
+  ClientHeight = 261
+  ClientWidth = 447
   OnActivate = FormActivate
   LCLVersion = '1.8.4.0'
   object TestFloatSpinEdit: TFloatSpinEdit
     Left = 16
     Height = 23
     Top = 32
-    Width = 418
+    Width = 417
     Anchors = [akTop, akLeft, akRight]
     Increment = 0.1
     MaxValue = 1000000000
@@ -23,10 +23,10 @@ object TestAppMainForm: TTestAppMainForm
   end
   object TestASCIIMemo: TMemo
     Left = 16
-    Height = 90
+    Height = 107
     Top = 80
-    Width = 416
-    Anchors = [akTop, akLeft, akRight]
+    Width = 415
+    Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Pitch = fpFixed
     ParentFont = False
     ScrollBars = ssAutoVertical
@@ -35,9 +35,9 @@ object TestAppMainForm: TTestAppMainForm
   object FontsCombobox: TComboBox
     Left = 16
     Height = 23
-    Top = 192
-    Width = 416
-    Anchors = [akTop, akLeft, akRight]
+    Top = 209
+    Width = 415
+    Anchors = [akLeft, akRight, akBottom]
     ItemHeight = 15
     ItemIndex = 0
     Items.Strings = (
