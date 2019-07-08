@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Spin,
-  StdCtrls, segmitator;
+  StdCtrls, ExtCtrls, segmitator;
 
 type
 
@@ -35,15 +35,19 @@ type
 
   TTestAppMainForm = class(TForm)
     FontsCombobox: TComboBox;
+    TestPaintbox: TPaintBox;
     TestFloatSpinEdit: TFloatSpinEdit;
     TestASCIIMemo: TMemo;
     procedure FontsComboboxChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
     procedure TestFloatSpinEditChange(Sender: TObject);
   private
 
   public
     courierpos: integer;
+    theNumber: real;
   end;
 
 var
@@ -57,18 +61,20 @@ implementation
 
 procedure TTestAppMainForm.TestFloatSpinEditChange(Sender: TObject);
 var
-  theNumber: real;
   stringToTest: string[11];
   DisplayStrings: TASCIIDisplay;
 begin
   theNumber := TestFloatSpinEdit.Value;
   stringToTest := FloatToStr(theNumber);
+
   TestASCIIMemo.Clear;
   TestASCIIMemo.Append(stringToTest);
   DisplayStrings := ASCIIDigits(theNumber);
   TestASCIIMemo.Append(DisplayStrings[0]);
   TestASCIIMemo.Append(DisplayStrings[1]);
   TestASCIIMemo.Append(DisplayStrings[2]);
+
+  DrawDigits(TestPaintBox.Canvas, clLime, theNumber);
 end;
 
 procedure TTestAppMainForm.FormActivate(Sender: TObject);
@@ -82,6 +88,19 @@ begin
       FontsCombobox.ItemIndex := courierpos;
       TestAsciiMemo.Font.Name := FontsCombobox.Items[FontsCombobox.ItemIndex];
     end;
+end;
+
+procedure TTestAppMainForm.FormCreate(Sender: TObject);
+begin
+  theNumber := 0;
+end;
+
+procedure TTestAppMainForm.FormPaint(Sender: TObject);
+begin
+  TestPaintbox.Canvas.Brush.Style := bsSolid;
+  TestPaintbox.Canvas.Brush.Color := TestASCIIMemo.Color;
+  TestPaintbox.Canvas.FillRect(0, 0, TestPaintbox.Width, TestPaintbox.Height);
+  DrawDigits(TestPaintbox.Canvas, clLime, theNumber);
 end;
 
 procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);

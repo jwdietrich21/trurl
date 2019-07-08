@@ -24,7 +24,6 @@ unit segmitator;
 
 {
 
-
 Names of segments:
 
     A
@@ -43,7 +42,7 @@ E |___| C  .
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, Graphics;
 
 type
   tASCIILine = string[4];
@@ -84,7 +83,8 @@ function AsciiF(i: Byte): char;
 function AsciiG(i: Byte): char;
 function AsciiDot(i: Byte): char;
 function AsciiLine(i, j: Byte): tASCIILine;
-function ASCIIDigits(n: real): TASCIIDisplay;
+function AsciiDigits(n: real): TASCIIDisplay;
+procedure DrawDigits(aCanvas: TCanvas; aColor: TColor; n: real);
 
 implementation
 
@@ -170,7 +170,7 @@ begin
   end;
 end;
 
-function ASCIIDigits(n: real): TASCIIDisplay;
+function AsciiDigits(n: real): TASCIIDisplay;
 { Returns array of lines as ASCII representation of the segment display }
 const
   kDot = '.';
@@ -213,6 +213,23 @@ begin
   result[0] := line0;
   result[1] := line1;
   result[2] := line2;
+end;
+
+procedure DrawDigits(aCanvas: TCanvas; aColor: TColor; n: real);
+{ Draw seven-segment display representation of n on the specified canvas }
+var
+  oldColor: TColor;
+  oldStyle: TBrushStyle;
+begin
+  oldColor := aCanvas.Brush.Color;
+  oldStyle := aCanvas.Brush.Style;
+  aCanvas.Brush.Color := aColor;
+  aCanvas.Brush.Style := bsSolid;
+
+  aCanvas.FillRect(3, 3, 9, 9); { TODO : Replace this test code with segment drawing code }
+
+  aCanvas.Brush.Style := oldStyle;
+  aCanvas.Brush.Color := oldColor;
 end;
 
 end.
