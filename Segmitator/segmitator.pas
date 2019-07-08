@@ -4,9 +4,9 @@ unit segmitator;
 
 { Suite of RPN calculators in Object Pascal }
 
-{ Unit implementing seven segment displays }
+{ Unit implementing seven-segment displays }
 
-{ Version 1.0 (Leopolis) }
+{ Version 1.0 (Cook) }
 
 { (c) Johannes W. Dietrich, 1990 - 2019 }
 
@@ -89,6 +89,7 @@ function ASCIIDigits(n: real): TASCIIDisplay;
 implementation
 
 function AsciiA(i: Byte): char;
+{ Create string representation for 'A' segment }
 begin
   if odd(kSegments[i] shr 6) then
     result := '_'
@@ -97,6 +98,7 @@ begin
 end;
 
 function AsciiB(i: Byte): char;
+{ Create string representation for 'B' segment }
 begin
   if odd(kSegments[i] shr 5) then
     result := '|'
@@ -105,6 +107,7 @@ begin
 end;
 
 function AsciiC(i: Byte): char;
+{ Create string representation for 'C' segment }
 begin
   if odd(kSegments[i] shr 4) then
     result := '|'
@@ -113,6 +116,7 @@ begin
 end;
 
 function AsciiD(i: Byte): char;
+{ Create string representation for 'D' segment }
 begin
   if odd(kSegments[i] shr 3) then
     result := '_'
@@ -121,6 +125,7 @@ begin
 end;
 
 function AsciiE(i: Byte): char;
+{ Create string representation for 'E' segment }
 begin
   if odd(kSegments[i] shr 2) then
     result := '|'
@@ -129,6 +134,7 @@ begin
 end;
 
 function AsciiF(i: Byte): char;
+{ Create string representation for 'F' segment }
 begin
   if odd(kSegments[i] shr 1) then
     result := '|'
@@ -137,6 +143,7 @@ begin
 end;
 
 function AsciiG(i: Byte): char;
+{ Create string representation for 'G' segment }
 begin
   if odd(kSegments[i]) then
     result := '_'
@@ -145,6 +152,7 @@ begin
 end;
 
 function AsciiDot(i: Byte): char;
+{ Create string representation for decimal point }
 begin
   if odd(kSegments[i] shr 7) then
     result := '.'
@@ -153,6 +161,7 @@ begin
 end;
 
 function AsciiLine(i, j: Byte): tASCIILine;
+{ Returns string representation of line i as part of the whole display }
 begin
   case i of
   0: result := ' ' + AsciiA(j) + ' ' + ' ';
@@ -162,6 +171,7 @@ begin
 end;
 
 function ASCIIDigits(n: real): TASCIIDisplay;
+{ Returns array of lines as ASCII representation of the segment display }
 const
   kDot = '.';
 var
