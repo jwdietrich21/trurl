@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Spin,
-  StdCtrls, ExtCtrls, segmitator;
+  StdCtrls, ExtCtrls, segmitator, segmitatorWidgets;
 
 type
 
@@ -41,13 +41,16 @@ type
     procedure FontsComboboxChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormPaint(Sender: TObject);
     procedure TestFloatSpinEditChange(Sender: TObject);
+    procedure TestPaintboxPaint(Sender: TObject);
   private
-
+    Display: TDisplay;
   public
     courierpos: integer;
     theNumber: real;
+    procedure DrawTestPaintBox(Sender: TObject);
   end;
 
 var
@@ -74,7 +77,20 @@ begin
   TestASCIIMemo.Append(DisplayStrings[1]);
   TestASCIIMemo.Append(DisplayStrings[2]);
 
-  DrawDigits(TestPaintBox.Canvas, clLime, theNumber);
+  Display.DrawDigits(theNumber);
+end;
+
+procedure TTestAppMainForm.TestPaintboxPaint(Sender: TObject);
+begin
+  DrawTestPaintBox(Sender);
+end;
+
+procedure TTestAppMainForm.DrawTestPaintBox(Sender: TObject);
+begin
+  TestPaintbox.Canvas.Brush.Style := bsSolid;
+  TestPaintbox.Canvas.Brush.Color := TestASCIIMemo.Color;
+  TestPaintbox.Canvas.FillRect(0, 0, TestPaintbox.Width, TestPaintbox.Height);
+  Display.DrawDigits(theNumber);
 end;
 
 procedure TTestAppMainForm.FormActivate(Sender: TObject);
@@ -93,14 +109,21 @@ end;
 procedure TTestAppMainForm.FormCreate(Sender: TObject);
 begin
   theNumber := 0;
+  Display := TDisplay.create;
+  Display.Canvas := TestPaintBox.Canvas;
+  Display.Color := clLime;
+  Display.offsetX := 9;
+  Display.offsetY := 9;
+end;
+
+procedure TTestAppMainForm.FormDestroy(Sender: TObject);
+begin
+  Display.destroy;
 end;
 
 procedure TTestAppMainForm.FormPaint(Sender: TObject);
 begin
-  TestPaintbox.Canvas.Brush.Style := bsSolid;
-  TestPaintbox.Canvas.Brush.Color := TestASCIIMemo.Color;
-  TestPaintbox.Canvas.FillRect(0, 0, TestPaintbox.Width, TestPaintbox.Height);
-  DrawDigits(TestPaintbox.Canvas, clLime, theNumber);
+  DrawTestPaintBox(Sender);
 end;
 
 procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);

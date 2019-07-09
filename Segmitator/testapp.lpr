@@ -28,7 +28,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, testappgui, segmitator
+  Forms, testappgui, segmitator, segmitatorWidgets
   { you can add units after this };
 
 {$R *.res}
