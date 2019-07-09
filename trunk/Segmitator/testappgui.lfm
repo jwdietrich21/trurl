@@ -8,11 +8,12 @@ object TestAppMainForm: TTestAppMainForm
   ClientWidth = 495
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnPaint = FormPaint
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '1.8.4.0'
   object TestFloatSpinEdit: TFloatSpinEdit
     Left = 16
-    Height = 16
+    Height = 23
     Top = 32
     Width = 465
     Anchors = [akTop, akLeft, akRight]
@@ -33,16 +34,15 @@ object TestAppMainForm: TTestAppMainForm
     Font.Color = clLime
     Font.Pitch = fpFixed
     ParentFont = False
-    ScrollBars = ssAutoVertical
     TabOrder = 1
   end
   object FontsCombobox: TComboBox
     Left = 16
-    Height = 21
-    Top = 290
+    Height = 23
+    Top = 288
     Width = 463
     Anchors = [akLeft, akRight, akBottom]
-    ItemHeight = 0
+    ItemHeight = 15
     ItemIndex = 0
     Items.Strings = (
       'Font...'
@@ -58,5 +58,6 @@ object TestAppMainForm: TTestAppMainForm
     Width = 462
     Anchors = [akTop, akLeft, akRight, akBottom]
     ParentColor = False
+    OnPaint = TestPaintboxPaint
   end
 end
