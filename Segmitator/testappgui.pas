@@ -78,6 +78,7 @@ begin
   TestASCIIMemo.Append(DisplayStrings[2]);
 
   Display.DrawDigits(theNumber);
+  TestPaintBox.Invalidate; // necessary for macOS
 end;
 
 procedure TTestAppMainForm.TestPaintboxPaint(Sender: TObject);

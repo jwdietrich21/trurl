@@ -10,10 +10,10 @@ object TestAppMainForm: TTestAppMainForm
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnPaint = FormPaint
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.2.0'
   object TestFloatSpinEdit: TFloatSpinEdit
     Left = 16
-    Height = 23
+    Height = 16
     Top = 32
     Width = 465
     Anchors = [akTop, akLeft, akRight]
@@ -38,11 +38,11 @@ object TestAppMainForm: TTestAppMainForm
   end
   object FontsCombobox: TComboBox
     Left = 16
-    Height = 23
-    Top = 288
+    Height = 21
+    Top = 290
     Width = 463
     Anchors = [akLeft, akRight, akBottom]
-    ItemHeight = 15
+    ItemHeight = 0
     ItemIndex = 0
     Items.Strings = (
       'Font...'
