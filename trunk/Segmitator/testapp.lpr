@@ -8,7 +8,7 @@ program testapp;
 
 { Version 1.0 (Cook) }
 
-{ (c) Johannes W. Dietrich, 1990 - 2018 }
+{ (c) Johannes W. Dietrich, 1990 - 2019 }
 
 { Source code released under the BSD License }
 
