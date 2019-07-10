@@ -77,7 +77,6 @@ begin
   TestASCIIMemo.Append(DisplayStrings[1]);
   TestASCIIMemo.Append(DisplayStrings[2]);
 
-  Display.DrawDigits(theNumber);
   TestPaintBox.Invalidate; // necessary for macOS
 end;
 
@@ -91,7 +90,7 @@ begin
   TestPaintbox.Canvas.Brush.Style := bsSolid;
   TestPaintbox.Canvas.Brush.Color := TestASCIIMemo.Color;
   TestPaintbox.Canvas.FillRect(0, 0, TestPaintbox.Width, TestPaintbox.Height);
-  Display.DrawDigits(theNumber);
+  Display.n := theNumber;
 end;
 
 procedure TTestAppMainForm.FormActivate(Sender: TObject);
@@ -124,7 +123,7 @@ end;
 
 procedure TTestAppMainForm.FormPaint(Sender: TObject);
 begin
-  DrawTestPaintBox(Sender);
+  //DrawTestPaintBox(Sender);
 end;
 
 procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);

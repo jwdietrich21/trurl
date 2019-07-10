@@ -57,6 +57,7 @@ private
   pointsA, pointsB, pointsC, pointsD, pointsE, pointsF, pointsG: array[0..5] of TPoint;
   pointsH: array[0..1] of TPoint;
   lastXPos: integer;
+  fn: real;
   procedure DrawA(i: Byte);
   procedure DrawB(i: Byte);
   procedure DrawC(i: Byte);
@@ -66,6 +67,7 @@ private
   procedure DrawG(i: Byte);
   procedure DrawDot(i: Byte);
   procedure DrawDigit(i: Byte);
+  procedure DrawDigits(n: real);
 public
   Canvas: TCanvas;
   Color: TColor;
@@ -73,7 +75,7 @@ public
   offsetX, offsetY: integer;
   constructor create;
   destructor destroy; override;
-  procedure DrawDigits(n: real);
+  property n: real read fn write DrawDigits;
 end;
 
 implementation
@@ -227,6 +229,9 @@ end;
 constructor TDisplay.create;
 begin
   inherited create;
+  color := clLime;
+  offsetX := 3;
+  offsetY := 3;
   scale := 3;
 end;
 
@@ -246,6 +251,7 @@ var
   nString: AnsiString;
   theFormat: TFormatSettings;
 begin
+  fn := n;
   lastXPos := offsetX;
 
   Canvas.Clear;

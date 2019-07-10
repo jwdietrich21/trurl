@@ -15,7 +15,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="13"/>
+      <BuildNr Value="17"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Trurl, a suite of RPN calculators in and for Object Pascal" CompanyName="formatio reticularis" FileDescription="Segmitator Test App" InternalName="Cook" LegalCopyright="1990-2019 J. W. Dietrich" ProductName="Segmitator Test App" ProductVersion="1.0.0"/>
     </VersionInfo>
