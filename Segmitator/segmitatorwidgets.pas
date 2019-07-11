@@ -68,6 +68,7 @@ private
   procedure DrawDot(i: Byte);
   procedure DrawDigit(i: Byte);
   procedure DrawDigits(n: real);
+  procedure Error(msg: String);
 public
   Canvas: TCanvas;
   Color: TColor;
@@ -253,50 +254,60 @@ var
 begin
   fn := n;
   lastXPos := offsetX;
+  if assigned(Canvas) then
+    begin
+      Canvas.Clear;
+      oldBColor := Canvas.Brush.Color;
+      oldBStyle := Canvas.Brush.Style;
+      oldPColor := Canvas.Pen.Color;
+      oldPStyle := Canvas.Pen.Style;
+      oldWidth := Canvas.Pen.Width;
+      Canvas.Brush.Color := Color;
+      Canvas.Brush.Style := bsSolid;
+      Canvas.Pen.Style := psSolid;
+      Canvas.Pen.Color := oldBColor;
+      Canvas.Pen.Width := 1 + trunc(0.3 * scale);
 
-  Canvas.Clear;
+      theFormat := DefaultFormatSettings;
+      theFormat.DecimalSeparator := kDot;
+      nString := FloatToStr(n, theFormat);
 
-  oldBColor := Canvas.Brush.Color;
-  oldBStyle := Canvas.Brush.Style;
-  oldPColor := Canvas.Pen.Color;
-  oldPStyle := Canvas.Pen.Style;
-  oldWidth := Canvas.Pen.Width;
-  Canvas.Brush.Color := Color;
-  Canvas.Brush.Style := bsSolid;
-  Canvas.Pen.Style := psSolid;
-  Canvas.Pen.Color := oldBColor;
-  Canvas.Pen.Width := 1 + trunc(0.3 * scale);
-
-  theFormat := DefaultFormatSettings;
-  theFormat.DecimalSeparator := kDot;
-  nString := FloatToStr(n, theFormat);
-
-  i := 1;
-  if length(nString) > 1 then for i := 2 to length(nString) do
-  begin
-    if nString[i] <> kDot then
+      i := 1;
+      if length(nString) > 1 then for i := 2 to length(nString) do
       begin
-        if TryStrToInt(nString[i - 1], digit) then
+        if nString[i] <> kDot then
           begin
-            DrawDigit(digit);
+            if TryStrToInt(nString[i - 1], digit) then
+              begin
+                DrawDigit(digit);
+                lastXPos := lastXPos + 18 * scale;
+              end;
+          end
+        else
+          begin
+            digit := StrToInt(nString[i - 1]);
+            DrawDigit(digit + 10);
             lastXPos := lastXPos + 18 * scale;
           end;
-      end
-    else
-      begin
-        digit := StrToInt(nString[i - 1]);
-        DrawDigit(digit + 10);
-        lastXPos := lastXPos + 18 * scale;
       end;
-  end;
-  digit := StrToInt(nString[i]);
-  DrawDigit(digit);
+      digit := StrToInt(nString[i]);
+      DrawDigit(digit);
 
-  Canvas.Pen.Width := oldWidth;
-  Canvas.Pen.Style := oldPStyle;
-  Canvas.Pen.Color := oldPColor;
-  Canvas.Brush.Style := oldBStyle;
-  Canvas.Brush.Color := oldBColor;
+      Canvas.Pen.Width := oldWidth;
+      Canvas.Pen.Style := oldPStyle;
+      Canvas.Pen.Color := oldPColor;
+      Canvas.Brush.Style := oldBStyle;
+      Canvas.Brush.Color := oldBColor;
+    end
+  else
+    Error('Canvas not assigned');
+end;
+
+procedure TDisplay.Error(msg: String);
+begin
+  raise Exception(msg) at
+     get_caller_addr(get_frame),
+     get_caller_frame(get_frame);
 end;
 
 end.
