@@ -42,7 +42,6 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure FormPaint(Sender: TObject);
     procedure TestFloatSpinEditChange(Sender: TObject);
     procedure TestPaintboxPaint(Sender: TObject);
   private
@@ -119,11 +118,6 @@ end;
 procedure TTestAppMainForm.FormDestroy(Sender: TObject);
 begin
   Display.destroy;
-end;
-
-procedure TTestAppMainForm.FormPaint(Sender: TObject);
-begin
-  //DrawTestPaintBox(Sender);
 end;
 
 procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);
