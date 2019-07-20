@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  LclIntf, LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd,
+  LclIntf, LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd, Buttons,
   RPNEngine, RPNWidgets, aboutbox;
 
 type
@@ -36,15 +36,44 @@ type
 
   TMainForm = class(TForm)
     ActionList1: TActionList;
+    DivSpeedButton: TSpeedButton;
     EditCopy1: TEditCopy;
     EditCut1: TEditCut;
     EditPaste1: TEditPaste;
     EditUndo1: TEditUndo;
     DisplayBackgroundPanel: TPanel;
+    CSpeedButton: TSpeedButton;
+    OneSpeedButton: TSpeedButton;
+    FourSpeedButton: TSpeedButton;
+    Shape10: TShape;
+    Shape11: TShape;
+    Shape12: TShape;
+    Shape13: TShape;
+    Shape14: TShape;
+    Shape15: TShape;
+    Shape16: TShape;
+    Shape17: TShape;
+    Shape3: TShape;
+    Shape4: TShape;
+    Shape5: TShape;
+    Shape6: TShape;
+    Shape7: TShape;
+    Shape8: TShape;
+    Shape9: TShape;
+    SixSpeedButton: TSpeedButton;
+    TwoSpeedButton: TSpeedButton;
+    ThreeSpeedButton: TSpeedButton;
+    DotSpeedButton: TSpeedButton;
+    FiveSpeedButton: TSpeedButton;
+    ZeroSpeedButton: TSpeedButton;
     NumLockIndicator: TShape;
     KeyCheckTimer: TTimer;
+    EnterSpeedButton: TSpeedButton;
+    Shape1: TShape;
+    Shape2: TShape;
     XRegisterDisplay: TLabel;
     YRegisterDisplay: TLabel;
+    MinusSpeedButton: TSpeedButton;
     ZRegisterDisplay: TLabel;
     TRegisterDisplay: TLabel;
     MainMenu1: TMainMenu;
@@ -79,22 +108,15 @@ type
     DivButton: TButton;
     CButton: TButton;
     EnterButton: TButton;
-    PwrButton: TButton;
-    InvButton: TButton;
     PlusMinusButton: TButton;
-    SqrtButton: TButton;
-    SinButton: TButton;
-    ASinButton: TButton;
-    CosButton: TButton;
-    ACosButton: TButton;
-    TanButton: TButton;
-    ATanButton: TButton;
     procedure AdaptMenus;
     procedure ACosButtonClick(Sender: TObject);
     procedure ASinButtonClick(Sender: TObject);
     procedure ATanButtonClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
     procedure CButtonClick(Sender: TObject);
     procedure CosButtonClick(Sender: TObject);
+    procedure DisplayBackgroundPanelClick(Sender: TObject);
     procedure DivButtonClick(Sender: TObject);
     procedure DotButtonClick(Sender: TObject);
     procedure EditCopy1Execute(Sender: TObject);
@@ -450,6 +472,11 @@ begin
   ActiveControl := EnterButton;
 end;
 
+procedure TMainForm.DisplayBackgroundPanelClick(Sender: TObject);
+begin
+
+end;
+
 procedure TMainForm.ACosButtonClick(Sender: TObject);
 begin
   Frame.HandleACos;
@@ -466,6 +493,11 @@ procedure TMainForm.ATanButtonClick(Sender: TObject);
 begin
   Frame.HandleATan;
   ActiveControl := EnterButton;
+end;
+
+procedure TMainForm.BitBtn1Click(Sender: TObject);
+begin
+
 end;
 
 procedure TMainForm.SqrtButtonClick(Sender: TObject);
