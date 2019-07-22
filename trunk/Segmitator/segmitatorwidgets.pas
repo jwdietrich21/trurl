@@ -43,10 +43,14 @@ uses
   Classes, SysUtils, Graphics, segmitator;
 
 const
-  xH: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
-  yH: array[0..5] of integer = (1, 0, 0, 1, 2, 2);
-  xV: array[0..5] of integer = (1, 2, 2, 1, 0, 0);
-  yV: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
+  xHr: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
+  yHr: array[0..5] of integer = (1, 0, 0, 1, 2, 2);
+  xVr: array[0..5] of integer = (1, 2, 2, 1, 0, 0);
+  yVr: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
+  xHi: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
+  yHi: array[0..5] of integer = (1, 0, 0, 1, 2, 2);
+  xVi: array[0..5] of integer = (2, 3, 2, 1, 0, 1);
+  yVi: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
 
 type
 
@@ -56,6 +60,8 @@ TDisplay = class
 private
   pointsA, pointsB, pointsC, pointsD, pointsE, pointsF, pointsG: array[0..5] of TPoint;
   pointsH: array[0..1] of TPoint;
+  xH, yH, xV, yV: array[0..5] of integer;
+  fStyle: TFontStyles;
   lastXPos: integer;
   fn: real;
   procedure DrawA(i: Byte);
@@ -69,6 +75,7 @@ private
   procedure DrawDigit(i: Byte);
   procedure DrawDigits(n: real);
   procedure Error(msg: String);
+  procedure SetStyle(theStyle: TFontStyles);
 public
   Canvas: TCanvas;
   Color: TColor;
@@ -76,6 +83,7 @@ public
   offsetX, offsetY: integer;
   constructor create;
   destructor destroy; override;
+  property Style: TFontStyles read fStyle write SetStyle;
   property n: real read fn write DrawDigits;
 end;
 
@@ -86,12 +94,16 @@ implementation
 procedure TDisplay.DrawA(i: Byte);
 { Draw 'A' segment }
 var
-  j, posX, posY: integer;
+  j, posX, posY, localOffset: integer;
 begin
+  if fsItalic in fStyle then
+    localOffset := 2 * scale
+  else
+    localOffset := 0;
   if odd(kSegments[i] shr 6) then
     begin
       for j := 0 to 5 do begin
-        posX := lastXPos + 1 * scale;
+        posX := lastXPos + localOffset + 1 * scale;
         posY := offsetY;
         pointsA[j].x := xH[j] * scale + posX;
         pointsA[j].y := yH[j] * scale + posY;
@@ -103,12 +115,16 @@ end;
 procedure TDisplay.DrawB(i: Byte);
 { Draw 'B' segment }
 var
-  j, posX, posY: integer;
+  j, posX, posY, localOffset: integer;
 begin
+  if fsItalic in fStyle then
+    localOffset := 1 * scale
+  else
+    localOffset := 0;
   if odd(kSegments[i] shr 5) then
     begin
       for j := 0 to 5 do begin
-        posX := lastXPos + 9 * scale;
+        posX := lastXPos + localOffset + 9 * scale;
         posY := offsetY + 1 * scale;
         pointsB[j].x := xV[j] * scale + posX;
         pointsB[j].y := yV[j] * scale + posY;
@@ -171,12 +187,16 @@ end;
 procedure TDisplay.DrawF(i: Byte);
 { Draw 'F' segment }
 var
-  j, posX, posY: integer;
+  j, posX, posY, localOffset: integer;
 begin
+  if fsItalic in fStyle then
+    localOffset := 1 * scale
+  else
+    localOffset := 0;
   if odd(kSegments[i] shr 1) then
     begin
       for j := 0 to 5 do begin
-        posX := lastXPos;
+        posX := lastXPos + localOffset;
         posY := offsetY + 1 * scale;
         pointsF[j].x := xV[j] * scale + posX;
         pointsF[j].y := yV[j] * scale + posY;
@@ -188,12 +208,16 @@ end;
 procedure TDisplay.DrawG(i: Byte);
 { Draw 'G' segment }
 var
-  j, posX, posY: integer;
+  j, posX, posY, localOffset: integer;
 begin
+  if fsItalic in fStyle then
+    localOffset := 1 * scale
+  else
+    localOffset := 0;
   if odd(kSegments[i]) then
     begin
       for j := 0 to 5 do begin
-        posX := lastXPos + 1 * scale;
+        posX := lastXPos + localOffset + 1 * scale;
         posY := offsetY + 9 * scale;
         pointsG[j].x := xH[j] * scale + posX;
         pointsG[j].y := yH[j] * scale + posY;
@@ -233,7 +257,12 @@ begin
   color := clLime;
   offsetX := 3;
   offsetY := 3;
+  Style := [];
   scale := 3;
+  xH := xHr;
+  yH := yHr;
+  xV := xVr;
+  yV := yVr;
 end;
 
 destructor TDisplay.destroy;
@@ -308,6 +337,25 @@ begin
   raise Exception(msg) at
      get_caller_addr(get_frame),
      get_caller_frame(get_frame);
+end;
+
+procedure TDisplay.SetStyle(theStyle: TFontStyles);
+begin
+  fStyle := theStyle;
+  if fsItalic in fStyle then
+    begin
+      xH := xHi;
+      yH := yHi;
+      xV := xVi;
+      yV := yVi;
+    end
+  else
+    begin
+      xH := xHr;
+      yH := yHr;
+      xV := xVr;
+      yV := yVr;
+    end;
 end;
 
 end.

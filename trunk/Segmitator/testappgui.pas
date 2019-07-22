@@ -34,6 +34,7 @@ type
   { TTestAppMainForm }
 
   TTestAppMainForm = class(TForm)
+    ItalicCheckBox: TCheckBox;
     FontsCombobox: TComboBox;
     TestPaintbox: TPaintBox;
     TestFloatSpinEdit: TFloatSpinEdit;
@@ -42,6 +43,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure ItalicCheckBoxChange(Sender: TObject);
     procedure TestFloatSpinEditChange(Sender: TObject);
     procedure TestPaintboxPaint(Sender: TObject);
   private
@@ -89,6 +91,10 @@ begin
   TestPaintbox.Canvas.Brush.Style := bsSolid;
   TestPaintbox.Canvas.Brush.Color := TestASCIIMemo.Color;
   TestPaintbox.Canvas.FillRect(0, 0, TestPaintbox.Width, TestPaintbox.Height);
+  if ItalicCheckBox.Checked then
+    Display.Style := [fsItalic]
+  else
+    Display.Style := [];
   Display.n := theNumber;
 end;
 
@@ -111,6 +117,7 @@ begin
   Display := TDisplay.create;
   Display.Canvas := TestPaintBox.Canvas;
   Display.Color := clLime;
+  Display.Style := [];
   Display.offsetX := 9;
   Display.offsetY := 9;
 end;
@@ -118,6 +125,11 @@ end;
 procedure TTestAppMainForm.FormDestroy(Sender: TObject);
 begin
   Display.destroy;
+end;
+
+procedure TTestAppMainForm.ItalicCheckBoxChange(Sender: TObject);
+begin
+  TestPaintBox.Invalidate; // necessary for macOS
 end;
 
 procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);
