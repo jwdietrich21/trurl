@@ -9,13 +9,13 @@
   <key>CFBundleName</key>
   <string>Trurl G</string>
   <key>CFBundleIdentifier</key>
-  <string>com.company.Trurl G</string>
+  <string>com.company.TrurlG</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleSignature</key>
-  <string>Trur</string>
+  <string>TruG</string>
   <key>CFBundleShortVersionString</key>
   <string>0.1</string>
   <key>CFBundleVersion</key>
