@@ -40,7 +40,7 @@
       <Unit0>
         <Filename Value="trurl_g.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="44"/>
       </Unit0>
       <Unit1>
         <Filename Value="gui.pas"/>
@@ -52,8 +52,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="469"/>
-        <CursorPos X="3" Y="477"/>
-        <UsageCount Value="52"/>
+        <CursorPos X="61" Y="481"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -75,7 +75,7 @@
           <TopLine Value="34"/>
           <CursorPos X="29" Y="244"/>
         </ExtraEditor2>
-        <UsageCount Value="52"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -87,7 +87,7 @@
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="3"/>
         <CursorPos X="54" Y="12"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="63"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -97,49 +97,49 @@
         <UnitName Value="RPNWidgets"/>
         <EditorIndex Value="1"/>
         <CursorPos X="8" Y="2"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="trurl_a.lpr"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="47"/>
       </Unit5>
       <Unit6>
         <Filename Value="/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2848"/>
         <CursorPos Y="2866"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit6>
       <Unit7>
         <Filename Value="/lazarus/lcl/include/buttoncontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="56"/>
         <CursorPos Y="22"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit7>
       <Unit8>
         <Filename Value="/lazarus/lcl/include/buttons.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="151"/>
         <CursorPos Y="170"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit8>
       <Unit9>
         <Filename Value="/lazarus/lcl/interfaces/win32/win32memostrings.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos Y="68"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit9>
       <Unit10>
         <Filename Value="/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5665"/>
         <CursorPos Y="5684"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit10>
       <Unit11>
         <Filename Value="/lazarus/lcl/lcltype.pp"/>
@@ -147,21 +147,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="456"/>
         <CursorPos X="14" Y="491"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit11>
       <Unit12>
         <Filename Value="/Developer/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5905"/>
         <CursorPos Y="5920"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit12>
       <Unit13>
         <Filename Value="/Developer/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2229"/>
         <CursorPos Y="2244"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit13>
       <Unit14>
         <Filename Value="/Developer/lazarus/lcl/lcltype.pp"/>
@@ -169,7 +169,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="405"/>
         <CursorPos X="3" Y="421"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit14>
       <Unit15>
         <Filename Value="/Developer/lazarus/lcl/forms.pp"/>
@@ -177,7 +177,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1962"/>
         <CursorPos Y="1979"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit15>
       <Unit16>
         <Filename Value="/Developer/lazarus/lcl/controls.pp"/>
@@ -185,7 +185,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2331"/>
         <CursorPos X="3" Y="2349"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit16>
       <Unit17>
         <Filename Value="/Developer/lazarus/lcl/clipbrd.pp"/>
@@ -193,21 +193,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="342"/>
         <CursorPos Y="374"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit17>
       <Unit18>
         <Filename Value="/usr/local/share/fpcsrc/rtl/objpas/classes/classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="93"/>
         <CursorPos X="3" Y="109"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit18>
       <Unit19>
         <Filename Value="/Developer/lazarus/lcl/lclclasses.pp"/>
         <UnitName Value="LCLClasses"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="53" Y="7"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit19>
       <Unit20>
         <Filename Value="/Developer/lazarus/lcl/stdctrls.pp"/>
@@ -215,34 +215,34 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1495"/>
         <CursorPos X="3" Y="1511"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit20>
       <Unit21>
         <Filename Value="/lazarus/fpc/3.0.4/source/rtl/objpas/sysutils/sysstrh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="161"/>
         <CursorPos X="10" Y="180"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit21>
       <Unit22>
         <Filename Value="/lazarus/fpc/3.0.4/source/rtl/objpas/sysutils/sysutilh.inc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="4" Y="107"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit22>
       <Unit23>
         <Filename Value="/Developer/lazarus/lcl/include/buttoncontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos Y="22"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit23>
       <Unit24>
         <Filename Value="/Developer/lazarus/lcl/include/buttons.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="154"/>
         <CursorPos Y="170"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit24>
       <Unit25>
         <Filename Value="/Developer/lazarus/lcl/lclmessageglue.pas"/>
@@ -250,7 +250,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="97"/>
         <CursorPos Y="123"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit25>
       <Unit26>
         <Filename Value="/Developer/lazarus/lcl/interfaces/cocoa/cocoawscommon.pas"/>
@@ -258,7 +258,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1064"/>
         <CursorPos Y="1090"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit26>
       <Unit27>
         <Filename Value="/Developer/lazarus/lcl/interfaces/cocoa/cocoawindows.pas"/>
@@ -266,14 +266,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="986"/>
         <CursorPos Y="1046"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit27>
       <Unit28>
         <Filename Value="/Developer/lazarus/lcl/include/customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1905"/>
         <CursorPos X="66" Y="1922"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit28>
       <Unit29>
         <Filename Value="/Developer/lazarus/components/lazutils/lazmethodlist.pas"/>
@@ -281,14 +281,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="176"/>
         <CursorPos Y="203"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit29>
       <Unit30>
         <Filename Value="/Developer/lazarus/lcl/include/menu.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="253"/>
         <CursorPos Y="279"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit30>
       <Unit31>
         <Filename Value="/Developer/lazarus/lcl/lclintf.pas"/>
@@ -296,21 +296,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="183"/>
         <CursorPos Y="205"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit31>
       <Unit32>
         <Filename Value="/Developer/lazarus/lcl/include/winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="407"/>
         <CursorPos Y="424"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit32>
       <Unit33>
         <Filename Value="/Developer/lazarus/lcl/interfaces/cocoa/cocoawinapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2070"/>
         <CursorPos Y="2085"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit33>
       <Unit34>
         <Filename Value="/Developer/lazarus/lcl/menus.pp"/>
@@ -318,14 +318,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="644"/>
         <CursorPos Y="661"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit34>
       <Unit35>
         <Filename Value="/Developer/lazarus/lcl/include/menuitem.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="455"/>
         <CursorPos Y="475"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit35>
       <Unit36>
         <Filename Value="/lazarus/lcl/interfaces/carbon/carbonbars.pp"/>
@@ -333,7 +333,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos X="3" Y="25"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit36>
       <Unit37>
         <Filename Value="/Developer/lazarus/lcl/interfaces/win32/win32int.pp"/>
@@ -341,14 +341,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="15"/>
         <CursorPos X="3" Y="31"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit37>
       <Unit38>
         <Filename Value="/lazarus/lcl/interfaces/cocoa/cocoa_extra.pas"/>
         <UnitName Value="Cocoa_Extra"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="2" Y="18"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit38>
       <Unit39>
         <Filename Value="/Developer/lazarus/lcl/lclversion.pas"/>
@@ -356,35 +356,35 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="28"/>
         <CursorPos X="17" Y="41"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit39>
       <Unit40>
         <Filename Value="/Developer/lazarus/lcl/include/application.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="650"/>
         <CursorPos Y="663"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit40>
       <Unit41>
         <Filename Value="/lazarus/lcl/include/winapih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="111"/>
         <CursorPos X="21" Y="130"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit41>
       <Unit42>
         <Filename Value="/lazarus/lcl/include/intfbasewinapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1022"/>
         <CursorPos X="3" Y="1024"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit42>
       <Unit43>
         <Filename Value="/lazarus/lcl/include/brush.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos Y="37"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit43>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
@@ -394,7 +394,7 @@
       </Position1>
       <Position2>
         <Filename Value="gui.pas"/>
-        <Caret Line="146" Column="3" TopLine="144"/>
+        <Caret Line="148" Column="3" TopLine="146"/>
       </Position2>
       <Position3>
         <Filename Value="gui.pas"/>
@@ -414,95 +414,95 @@
       </Position6>
       <Position7>
         <Filename Value="gui.pas"/>
-        <Caret Line="147" Column="3" TopLine="145"/>
+        <Caret Line="150" Column="3" TopLine="148"/>
       </Position7>
       <Position8>
         <Filename Value="gui.pas"/>
-        <Caret Line="148" Column="3" TopLine="146"/>
+        <Caret Line="468" Column="3" TopLine="445"/>
       </Position8>
       <Position9>
         <Filename Value="gui.pas"/>
-        <Caret Line="150" Column="3" TopLine="148"/>
+        <Caret Line="467" Column="3" TopLine="444"/>
       </Position9>
       <Position10>
         <Filename Value="gui.pas"/>
-        <Caret Line="468" Column="3" TopLine="445"/>
+        <Caret Line="466" Column="3" TopLine="443"/>
       </Position10>
       <Position11>
         <Filename Value="gui.pas"/>
-        <Caret Line="467" Column="3" TopLine="444"/>
+        <Caret Line="469" TopLine="438"/>
       </Position11>
       <Position12>
         <Filename Value="gui.pas"/>
-        <Caret Line="466" Column="3" TopLine="443"/>
+        <Caret Line="476" TopLine="442"/>
       </Position12>
       <Position13>
         <Filename Value="gui.pas"/>
-        <Caret Line="469" TopLine="438"/>
+        <Caret Line="450" Column="3" TopLine="442"/>
       </Position13>
       <Position14>
         <Filename Value="gui.pas"/>
-        <Caret Line="476" TopLine="442"/>
+        <Caret Line="451" Column="3" TopLine="443"/>
       </Position14>
       <Position15>
         <Filename Value="gui.pas"/>
-        <Caret Line="450" Column="3" TopLine="442"/>
+        <Caret Line="452" Column="3" TopLine="444"/>
       </Position15>
       <Position16>
         <Filename Value="gui.pas"/>
-        <Caret Line="451" Column="3" TopLine="443"/>
+        <Caret Line="453" Column="3" TopLine="445"/>
       </Position16>
       <Position17>
         <Filename Value="gui.pas"/>
-        <Caret Line="452" Column="3" TopLine="444"/>
+        <Caret Line="454" Column="3" TopLine="446"/>
       </Position17>
       <Position18>
         <Filename Value="gui.pas"/>
-        <Caret Line="453" Column="3" TopLine="445"/>
+        <Caret Line="455" Column="3" TopLine="447"/>
       </Position18>
       <Position19>
         <Filename Value="gui.pas"/>
-        <Caret Line="454" Column="3" TopLine="446"/>
+        <Caret Line="456" Column="3" TopLine="448"/>
       </Position19>
       <Position20>
         <Filename Value="gui.pas"/>
-        <Caret Line="455" Column="3" TopLine="447"/>
+        <Caret Line="457" Column="3" TopLine="449"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="456" Column="3" TopLine="448"/>
+        <Caret Line="458" Column="3" TopLine="450"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="457" Column="3" TopLine="449"/>
+        <Caret Line="459" Column="3" TopLine="451"/>
       </Position22>
       <Position23>
         <Filename Value="gui.pas"/>
-        <Caret Line="458" Column="3" TopLine="450"/>
+        <Caret Line="460" Column="3" TopLine="452"/>
       </Position23>
       <Position24>
         <Filename Value="gui.pas"/>
-        <Caret Line="459" Column="3" TopLine="451"/>
+        <Caret Line="462" Column="3" TopLine="454"/>
       </Position24>
       <Position25>
         <Filename Value="gui.pas"/>
-        <Caret Line="460" Column="3" TopLine="452"/>
+        <Caret Line="466" Column="3" TopLine="458"/>
       </Position25>
       <Position26>
         <Filename Value="gui.pas"/>
-        <Caret Line="462" Column="3" TopLine="454"/>
+        <Caret Line="470" Column="3" TopLine="462"/>
       </Position26>
       <Position27>
         <Filename Value="gui.pas"/>
-        <Caret Line="466" Column="3" TopLine="458"/>
+        <Caret Line="472" Column="3" TopLine="464"/>
       </Position27>
       <Position28>
         <Filename Value="gui.pas"/>
-        <Caret Line="470" Column="3" TopLine="462"/>
+        <Caret Line="477" Column="3" TopLine="469"/>
       </Position28>
       <Position29>
         <Filename Value="gui.pas"/>
-        <Caret Line="472" Column="3" TopLine="464"/>
+        <Caret Line="478" Column="3" TopLine="470"/>
       </Position29>
       <Position30>
         <Filename Value="gui.pas"/>
