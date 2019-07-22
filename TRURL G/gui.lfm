@@ -659,7 +659,6 @@ object MainForm: TMainForm
     Color = clBlack
     ParentColor = False
     TabOrder = 19
-    OnClick = DisplayBackgroundPanelClick
     object TRegisterDisplay: TLabel
       Left = 6
       Height = 29
@@ -670,7 +669,7 @@ object MainForm: TMainForm
       BidiMode = bdRightToLeft
       Caption = '0'
       Font.Color = clLime
-      Font.Height = -21
+      Font.Height = -13
       Font.Pitch = fpFixed
       Font.Style = [fsBold]
       Layout = tlCenter
@@ -681,14 +680,14 @@ object MainForm: TMainForm
     object ZRegisterDisplay: TLabel
       Left = 6
       Height = 29
-      Top = 37
+      Top = 60
       Width = 140
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
       BidiMode = bdRightToLeft
       Caption = '0'
       Font.Color = clLime
-      Font.Height = -21
+      Font.Height = -13
       Font.Pitch = fpFixed
       Font.Style = [fsBold]
       Layout = tlCenter
@@ -699,14 +698,14 @@ object MainForm: TMainForm
     object YRegisterDisplay: TLabel
       Left = 6
       Height = 29
-      Top = 69
+      Top = 120
       Width = 140
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
       BidiMode = bdRightToLeft
       Caption = '0'
       Font.Color = clLime
-      Font.Height = -21
+      Font.Height = -13
       Font.Pitch = fpFixed
       Font.Style = [fsBold]
       Layout = tlCenter
@@ -717,7 +716,7 @@ object MainForm: TMainForm
     object XRegisterDisplay: TLabel
       Left = 6
       Height = 29
-      Top = 101
+      Top = 180
       Width = 140
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
