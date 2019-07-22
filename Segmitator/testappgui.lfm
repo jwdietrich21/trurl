@@ -2,19 +2,19 @@ object TestAppMainForm: TTestAppMainForm
   Left = 424
   Height = 340
   Top = 282
-  Width = 495
+  Width = 501
   Caption = 'Test App for Segmitator'
   ClientHeight = 340
-  ClientWidth = 495
+  ClientWidth = 501
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.2.0'
   object TestFloatSpinEdit: TFloatSpinEdit
     Left = 16
-    Height = 23
+    Height = 16
     Top = 32
-    Width = 465
+    Width = 471
     Anchors = [akTop, akLeft, akRight]
     Increment = 0.1
     MaxValue = 1000000000
@@ -27,7 +27,7 @@ object TestAppMainForm: TTestAppMainForm
     Left = 16
     Height = 97
     Top = 72
-    Width = 463
+    Width = 469
     Anchors = [akTop, akLeft, akRight]
     Color = 5000268
     Font.Color = clLime
@@ -37,11 +37,11 @@ object TestAppMainForm: TTestAppMainForm
   end
   object FontsCombobox: TComboBox
     Left = 16
-    Height = 23
-    Top = 288
-    Width = 463
+    Height = 21
+    Top = 290
+    Width = 397
     Anchors = [akLeft, akRight, akBottom]
-    ItemHeight = 15
+    ItemHeight = 0
     ItemIndex = 0
     Items.Strings = (
       'Font...'
@@ -54,9 +54,19 @@ object TestAppMainForm: TTestAppMainForm
     Left = 16
     Height = 87
     Top = 179
-    Width = 462
+    Width = 468
     Anchors = [akTop, akLeft, akRight, akBottom]
     ParentColor = False
     OnPaint = TestPaintboxPaint
+  end
+  object ItalicCheckBox: TCheckBox
+    Left = 432
+    Height = 18
+    Top = 290
+    Width = 49
+    Anchors = [akTop, akRight]
+    Caption = 'Italic'
+    OnChange = ItalicCheckBoxChange
+    TabOrder = 3
   end
 end
