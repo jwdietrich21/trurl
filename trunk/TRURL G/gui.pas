@@ -36,13 +36,21 @@ type
 
   TMainForm = class(TForm)
     ActionList1: TActionList;
+    NumlockLabel1: TLabel;
+    NumlockLabel2: TLabel;
+    PlusMinusSpeedButton: TSpeedButton;
     DivSpeedButton: TSpeedButton;
+    RollDownSpeedButton: TSpeedButton;
+    TimesSpeedButton: TSpeedButton;
     EditCopy1: TEditCopy;
     EditCut1: TEditCut;
     EditPaste1: TEditPaste;
     EditUndo1: TEditUndo;
     DisplayBackgroundPanel: TPanel;
     CSpeedButton: TSpeedButton;
+    EightSpeedButton: TSpeedButton;
+    SevenSpeedButton: TSpeedButton;
+    PlusSpeedButton: TSpeedButton;
     OneSpeedButton: TSpeedButton;
     FourSpeedButton: TSpeedButton;
     Shape10: TShape;
@@ -54,19 +62,19 @@ type
     Shape16: TShape;
     Shape17: TShape;
     Shape3: TShape;
-    Shape4: TShape;
+    NumLockIndicator: TShape;
     Shape5: TShape;
     Shape6: TShape;
     Shape7: TShape;
     Shape8: TShape;
     Shape9: TShape;
     SixSpeedButton: TSpeedButton;
+    NineSpeedButton: TSpeedButton;
     TwoSpeedButton: TSpeedButton;
     ThreeSpeedButton: TSpeedButton;
     DotSpeedButton: TSpeedButton;
     FiveSpeedButton: TSpeedButton;
     ZeroSpeedButton: TSpeedButton;
-    NumLockIndicator: TShape;
     KeyCheckTimer: TTimer;
     EnterSpeedButton: TSpeedButton;
     Shape1: TShape;
@@ -314,7 +322,7 @@ end;
 procedure TMainForm.IndicateNumLockState(Sender: TObject);
 begin
   {$IF DEFINED(LCLcarbon) or DEFINED(LCLCocoa)}
-    NumLockIndicator.visible := false;
+    NumLockIndicator.Brush.Color := clYellow;
   {$ELSE}
   if Odd(GetKeyState(VK_NUMLOCK)) then
   begin

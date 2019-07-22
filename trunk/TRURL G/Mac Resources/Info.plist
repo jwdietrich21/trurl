@@ -1,66 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-TRURL G
-
-Version 1.0
-
-(c) J. W. Dietrich, 2003 - 2019
-
-Source code released under the BSD License
-See http://trurl.sourceforge.net for details
--->
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleExecutable</key>
-	<string>Trurl G</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>CFBundleName</key>
-	<string>Trurl</string>
-	<key>CFBundleDisplayName</key>
-	<string>Trurl</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
-	<key>CFBundleGetInfoString</key>
-	<string>1.0.1, ©2003-2019 J. W. Dietrich</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>1.0.1, ©2003-2019 J. W. Dietrich</string>
-	<key>CFBundleIdentifier</key>
-	<string>net.sf.trurl</string>
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.utilities</string>
-	<key>CFBundleIconFile</key>
-	<string>Trurl G Icon.icns</string>
-	<key>CSResourcesFileMapped</key>
-	<true/>
-	<key>LSRequiresCarbon</key>
-	<true/>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>*</string>
-				<string>xml</string>
-			</array>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>fold</string>
-				<string>disk</string>
-				<string>****</string>
-			</array>
-		</dict>
-	</array>
-	<key>LSMinimumSystemVersion</key>
-	<string>10.4.0</string>
+  <key>CFBundleDevelopmentRegion</key>
+  <string>English</string>
+  <key>CFBundleExecutable</key>
+  <string>Trurl G</string>
+  <key>CFBundleName</key>
+  <string>Trurl G</string>
+  <key>CFBundleIdentifier</key>
+  <string>com.company.TrurlG</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleSignature</key>
+  <string>TruG</string>
+  <key>CFBundleShortVersionString</key>
+  <string>0.1</string>
+  <key>CFBundleVersion</key>
+  <string>1</string>
+  <key>CSResourcesFileMapped</key>
+  <true/>
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeRole</key>
+      <string>Viewer</string>
+      <key>CFBundleTypeExtensions</key>
+      <array>
+        <string>*</string>
+      </array>
+      <key>CFBundleTypeOSTypes</key>
+      <array>
+        <string>fold</string>
+        <string>disk</string>
+        <string>****</string>
+      </array>
+    </dict>
+  </array>
+  <key>NSHighResolutionCapable</key>
+  <true/>
 </dict>
 </plist>
