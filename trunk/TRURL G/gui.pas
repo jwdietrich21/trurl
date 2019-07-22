@@ -121,10 +121,8 @@ type
     procedure ACosButtonClick(Sender: TObject);
     procedure ASinButtonClick(Sender: TObject);
     procedure ATanButtonClick(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
     procedure CButtonClick(Sender: TObject);
     procedure CosButtonClick(Sender: TObject);
-    procedure DisplayBackgroundPanelClick(Sender: TObject);
     procedure DivButtonClick(Sender: TObject);
     procedure DotButtonClick(Sender: TObject);
     procedure EditCopy1Execute(Sender: TObject);
@@ -480,11 +478,6 @@ begin
   ActiveControl := EnterButton;
 end;
 
-procedure TMainForm.DisplayBackgroundPanelClick(Sender: TObject);
-begin
-
-end;
-
 procedure TMainForm.ACosButtonClick(Sender: TObject);
 begin
   Frame.HandleACos;
@@ -501,11 +494,6 @@ procedure TMainForm.ATanButtonClick(Sender: TObject);
 begin
   Frame.HandleATan;
   ActiveControl := EnterButton;
-end;
-
-procedure TMainForm.BitBtn1Click(Sender: TObject);
-begin
-
 end;
 
 procedure TMainForm.SqrtButtonClick(Sender: TObject);
