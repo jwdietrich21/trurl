@@ -735,8 +735,10 @@ object MainForm: TMainForm
   object EnterSpeedButton: TSpeedButton
     Left = 336
     Height = 49
+    Hint = 'Enter'
     Top = 296
     Width = 50
+    AllowAllUp = True
     Color = clBlack
     Glyph.Data = {
       5E0E0000424D5E0E000000000000360400002800000032000000320000000100
@@ -860,6 +862,8 @@ object MainForm: TMainForm
     Transparent = False
     OnClick = EnterButtonClick
     ShowCaption = False
+    ShowHint = True
+    ParentShowHint = False
   end
   object Shape1: TShape
     Left = 32
@@ -879,6 +883,7 @@ object MainForm: TMainForm
   object CSpeedButton: TSpeedButton
     Left = 336
     Height = 49
+    Hint = 'Clear'
     Top = 352
     Width = 50
     Color = clBlack
@@ -1004,6 +1009,8 @@ object MainForm: TMainForm
     Transparent = False
     OnClick = CButtonClick
     ShowCaption = False
+    ShowHint = True
+    ParentShowHint = False
   end
   object ZeroSpeedButton: TSpeedButton
     Left = 59
@@ -3055,6 +3062,7 @@ object MainForm: TMainForm
   object RollDownSpeedButton: TSpeedButton
     Left = 4
     Height = 49
+    Hint = 'Roll down'
     Top = 296
     Width = 50
     Color = clBlack
@@ -3180,6 +3188,8 @@ object MainForm: TMainForm
     Transparent = False
     OnClick = RDButtonClick
     ShowCaption = False
+    ShowHint = True
+    ParentShowHint = False
   end
   object PlusMinusSpeedButton: TSpeedButton
     Left = 4
@@ -3384,7 +3394,7 @@ object MainForm: TMainForm
   end
   object ActionList1: TActionList
     left = 184
-    top = 248
+    top = 88
     object EditUndo1: TEditUndo
       Category = 'Edit'
       Caption = '&Zurücknehmen'
