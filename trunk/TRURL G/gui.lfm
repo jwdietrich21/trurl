@@ -8,7 +8,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl G'
-  ClientHeight = 448
+  ClientHeight = 428
   ClientWidth = 390
   Color = 5460305
   Icon.Data = {
