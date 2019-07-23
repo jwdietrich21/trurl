@@ -2,7 +2,7 @@ unit GUI;
 
 { Trurl G }
 
-{ Simple RPN calculator in Object Pascal }
+{ RPN calculator in Object Pascal, inspired by the Apollo Guidance Computer }
 
 { GUI }
 
