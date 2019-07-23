@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="78"/>
+      <BuildNr Value="79"/>
       <StringTable Comments="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" CompanyName="formatio reticularis" FileDescription="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" InternalName="Apollo" LegalCopyright="2003-2019 J. W. Dietrich" ProductName="Trurl G" ProductVersion="1.0.1"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -38,7 +38,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="7">
       <Unit0>
         <Filename Value="trurl_g.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -69,6 +69,15 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="segmitator.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="segmitatorWidgets"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
