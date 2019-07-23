@@ -28,7 +28,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   LclIntf, LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd, Buttons,
-  RPNEngine, RPNWidgets, aboutbox;
+  RPNEngine, RPNWidgets, segmitatorWidgets, aboutbox;
 
 type
 
@@ -38,6 +38,7 @@ type
     ActionList1: TActionList;
     NumlockLabel1: TLabel;
     NumlockLabel2: TLabel;
+    XRegisterPaintBox: TPaintBox;
     PlusMinusSpeedButton: TSpeedButton;
     DivSpeedButton: TSpeedButton;
     RollDownSpeedButton: TSpeedButton;
@@ -162,11 +163,13 @@ type
     procedure SqrtButtonClick(Sender: TObject);
     procedure TanButtonClick(Sender: TObject);
     procedure TimesButtonClick(Sender: TObject);
+    procedure XRegisterPaintBoxPaint(Sender: TObject);
   private
-
+    DisplayX: TDisplay;
   public
     Engine: TEngine;
     Frame: TFrame;
+    procedure RedrawDisplay(Sender: TObject);
   end;
 
 var
@@ -189,6 +192,13 @@ begin
   Frame.ZRegDisplay := ZRegisterDisplay;
   Frame.TRegDisplay := TRegisterDisplay;
   Frame.EntryMode := Number;
+  DisplayX := TDisplay.create;
+  DisplayX.Canvas := XRegisterPaintBox.Canvas;
+  DisplayX.Color := clLime;
+  DisplayX.scale := 1;
+  DisplayX.Style := [];
+  DisplayX.offsetX := 9;
+  DisplayX.offsetY := 9;
 end;
 
 procedure TMainForm.FormDeactivate(Sender: TObject);
@@ -338,167 +348,209 @@ end;
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('0');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr1ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('1');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('2');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr3ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('3');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr4ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('4');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr5ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('5');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr6ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('6');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr7ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('7');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr8ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('8');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.Nr9ButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('9');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.DotButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('.');
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.EnterButtonClick(Sender: TObject);
 begin
   Frame.HandleEnter;
+  RedrawDisplay(Sender);
 end;
 
 procedure TMainForm.InvButtonClick(Sender: TObject);
 begin
   Frame.HandleInv;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.CButtonClick(Sender: TObject);
 begin
   Frame.HandleClear;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.PlusButtonClick(Sender: TObject);
 begin
   Frame.HandleAdd;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.MinusButtonClick(Sender: TObject);
 begin
   Frame.HandleSub;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.TimesButtonClick(Sender: TObject);
 begin
   Frame.HandleTimes;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+end;
+
+procedure TMainForm.XRegisterPaintBoxPaint(Sender: TObject);
+begin
+  XRegisterPaintBox.Canvas.Brush.Style := bsSolid;
+  XRegisterPaintBox.Canvas.Brush.Color := DisplayBackgroundPanel.Brush.Color;
+  XRegisterPaintBox.Canvas.FillRect(0, 0, XRegisterPaintBox.Width, XRegisterPaintBox.Height);
+  DisplayX.Style := [fsItalic];
+  DisplayX.n := Engine.Stack.x;
+end;
+
+procedure TMainForm.RedrawDisplay(Sender: TObject);
+begin
+  XRegisterPaintBox.Invalidate;
 end;
 
 procedure TMainForm.DivButtonClick(Sender: TObject);
 begin
   Frame.HandleDiv;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.PlusMinusButtonClick(Sender: TObject);
 begin
   Frame.HandleCHS;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.PwrButtonClick(Sender: TObject);
 begin
   Frame.HandlePWR;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.RDButtonClick(Sender: TObject);
 begin
   Frame.HandleRollDown;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.SinButtonClick(Sender: TObject);
 begin
   Frame.HandleSin;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.ASinButtonClick(Sender: TObject);
 begin
   Frame.HandleASin;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.CosButtonClick(Sender: TObject);
 begin
   Frame.HandleCos;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.ACosButtonClick(Sender: TObject);
 begin
   Frame.HandleACos;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.TanButtonClick(Sender: TObject);
 begin
   Frame.HandleTan;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.ATanButtonClick(Sender: TObject);
 begin
   Frame.HandleATan;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 
 procedure TMainForm.SqrtButtonClick(Sender: TObject);
 begin
   Frame.HandleSqrt;
+  RedrawDisplay(Sender);
   ActiveControl := EnterButton;
 end;
 

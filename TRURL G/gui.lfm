@@ -8,7 +8,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl G'
-  ClientHeight = 428
+  ClientHeight = 448
   ClientWidth = 390
   Color = 5460305
   Icon.Data = {
@@ -730,6 +730,17 @@ object MainForm: TMainForm
       ParentBidiMode = False
       ParentColor = False
       ParentFont = False
+      Visible = False
+    end
+    object XRegisterPaintBox: TPaintBox
+      Left = 0
+      Height = 30
+      Top = 160
+      Width = 150
+      Anchors = [akTop, akLeft, akRight]
+      Color = clBlack
+      ParentColor = False
+      OnPaint = XRegisterPaintBoxPaint
     end
   end
   object EnterSpeedButton: TSpeedButton
