@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="16">
+      <Unit0>
+        <Filename Value="rpnenginetests.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="7" Y="2"/>
+        <UsageCount Value="77"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNEngineTestCases"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="21" Y="2"/>
+        <UsageCount Value="77"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="rpnengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNEngine"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="3" Y="2"/>
+        <ExtraEditorCount Value="1"/>
+        <ExtraEditor1>
+          <EditorIndex Value="-1"/>
+          <WindowIndex Value="-1"/>
+          <TopLine Value="35"/>
+          <CursorPos Y="2"/>
+        </ExtraEditor1>
+        <UsageCount Value="77"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="rpnwidgets.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RPNWidgets"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="71"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="bcd.pas"/>
+        <UnitName Value="BCD"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="164"/>
+        <CursorPos X="95" Y="196"/>
+        <ExtraEditorCount Value="1"/>
+        <ExtraEditor1>
+          <EditorIndex Value="-1"/>
+          <CursorPos X="21" Y="9"/>
+        </ExtraEditor1>
+        <UsageCount Value="70"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="../TRURL A/rpnwidgets.pas"/>
+        <UnitName Value="RPNWidgets"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="17"/>
+        <CursorPos X="45" Y="34"/>
+        <UsageCount Value="7"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="/Developer/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1580"/>
+        <CursorPos X="23" Y="1606"/>
+        <UsageCount Value="7"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="/usr/local/share/fpcsrc/rtl/inc/objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="178"/>
+        <CursorPos X="23" Y="194"/>
+        <UsageCount Value="7"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="/usr/local/share/fpcsrc/rtl/objpas/math.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="341"/>
+        <CursorPos X="10" Y="357"/>
+        <UsageCount Value="8"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="/usr/local/share/fpcsrc/packages/fcl-fpcunit/src/fpcunit.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="64"/>
+        <CursorPos X="21" Y="112"/>
+        <UsageCount Value="7"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="/vs-chs01/PUMA Repository/code/trunk/EDFplus engine/Example_Programs/EDF Inspector/gui.pas"/>
+        <UnitName Value="GUI"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="7"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="/vs-chs01/PUMA Repository/code/trunk/EDFplus engine/Example_Programs/Test Function Generator/gui.pas"/>
+        <UnitName Value="GUI"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="7"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="/usr/local/share/fpcsrc/rtl/objpas/sysutils/sysstrh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="191"/>
+        <CursorPos X="25" Y="206"/>
+        <UsageCount Value="8"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="/usr/local/share/fpcsrc/rtl/objpas/sysutils/sysstr.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="/usr/local/share/fpcsrc/rtl/inc/systemh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="803"/>
+        <CursorPos X="10" Y="819"/>
+        <UsageCount Value="8"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="../../../../../../../../lazarus/fpc/3.0.4/source/rtl/win64/system.pp"/>
+        <UnitName Value="System"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="25"/>
+        <CursorPos Y="16"/>
+        <UsageCount Value="10"/>
+      </Unit15>
+    </Units>
+    <JumpHistory Count="11" HistoryIndex="10">
+      <Position1>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="222" TopLine="203"/>
+      </Position1>
+      <Position2>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="217" Column="124" TopLine="203"/>
+      </Position2>
+      <Position3>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="38" Column="27" TopLine="19"/>
+      </Position3>
+      <Position4>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="52" Column="23" TopLine="31"/>
+      </Position4>
+      <Position5>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="414" Column="49" TopLine="385"/>
+      </Position5>
+      <Position6>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="417" Column="16" TopLine="390"/>
+      </Position6>
+      <Position7>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="54" Column="23" TopLine="31"/>
+      </Position7>
+      <Position8>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="469" Column="39" TopLine="446"/>
+      </Position8>
+      <Position9>
+        <Filename Value="rpnenginetestcases.pas"/>
+      </Position9>
+      <Position10>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="92"/>
+      </Position10>
+      <Position11>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="87" Column="26" TopLine="67"/>
+      </Position11>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode="default"/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
