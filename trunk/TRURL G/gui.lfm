@@ -8,7 +8,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl G'
-  ClientHeight = 448
+  ClientHeight = 428
   ClientWidth = 390
   Color = 5460305
   Icon.Data = {
@@ -659,79 +659,6 @@ object MainForm: TMainForm
     Color = clBlack
     ParentColor = False
     TabOrder = 19
-    object TRegisterDisplay: TLabel
-      Left = 6
-      Height = 29
-      Top = 6
-      Width = 140
-      Anchors = [akTop, akLeft, akRight]
-      AutoSize = False
-      BidiMode = bdRightToLeft
-      Caption = '0'
-      Font.Color = clLime
-      Font.Height = -13
-      Font.Pitch = fpFixed
-      Font.Style = [fsBold]
-      Layout = tlCenter
-      ParentBidiMode = False
-      ParentColor = False
-      ParentFont = False
-    end
-    object ZRegisterDisplay: TLabel
-      Left = 6
-      Height = 29
-      Top = 60
-      Width = 140
-      Anchors = [akTop, akLeft, akRight]
-      AutoSize = False
-      BidiMode = bdRightToLeft
-      Caption = '0'
-      Font.Color = clLime
-      Font.Height = -13
-      Font.Pitch = fpFixed
-      Font.Style = [fsBold]
-      Layout = tlCenter
-      ParentBidiMode = False
-      ParentColor = False
-      ParentFont = False
-    end
-    object YRegisterDisplay: TLabel
-      Left = 6
-      Height = 29
-      Top = 120
-      Width = 140
-      Anchors = [akTop, akLeft, akRight]
-      AutoSize = False
-      BidiMode = bdRightToLeft
-      Caption = '0'
-      Font.Color = clLime
-      Font.Height = -13
-      Font.Pitch = fpFixed
-      Font.Style = [fsBold]
-      Layout = tlCenter
-      ParentBidiMode = False
-      ParentColor = False
-      ParentFont = False
-    end
-    object XRegisterDisplay: TLabel
-      Left = 6
-      Height = 29
-      Top = 180
-      Width = 140
-      Anchors = [akTop, akLeft, akRight]
-      AutoSize = False
-      BidiMode = bdRightToLeft
-      Caption = '0'
-      Font.Color = clLime
-      Font.Height = -13
-      Font.Pitch = fpFixed
-      Font.Style = [fsBold]
-      Layout = tlCenter
-      ParentBidiMode = False
-      ParentColor = False
-      ParentFont = False
-      Visible = False
-    end
     object XRegisterPaintBox: TPaintBox
       Left = 0
       Height = 30
@@ -741,6 +668,36 @@ object MainForm: TMainForm
       Color = clBlack
       ParentColor = False
       OnPaint = XRegisterPaintBoxPaint
+    end
+    object YRegisterPaintBox: TPaintBox
+      Left = 0
+      Height = 30
+      Top = 125
+      Width = 150
+      Anchors = [akTop, akLeft, akRight]
+      Color = clBlack
+      ParentColor = False
+      OnPaint = YRegisterPaintBoxPaint
+    end
+    object ZRegisterPaintBox: TPaintBox
+      Left = 0
+      Height = 30
+      Top = 65
+      Width = 150
+      Anchors = [akTop, akLeft, akRight]
+      Color = clBlack
+      ParentColor = False
+      OnPaint = ZRegisterPaintBoxPaint
+    end
+    object TRegisterPaintBox: TPaintBox
+      Left = 0
+      Height = 30
+      Top = 10
+      Width = 150
+      Anchors = [akTop, akLeft, akRight]
+      Color = clBlack
+      ParentColor = False
+      OnPaint = TRegisterPaintBoxPaint
     end
   end
   object EnterSpeedButton: TSpeedButton

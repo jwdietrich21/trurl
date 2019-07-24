@@ -40,10 +40,10 @@ const
   RPNEngine_major   = 1;
   RPNEngine_minor   = 0;
   RPNEngine_release = 1;
-  RPNEngine_patch   = 93;
+  RPNEngine_patch   = 95;
   RPNEngine_fullversion = ((RPNEngine_major * 100 + RPNEngine_minor) *
     100 + RPNEngine_release) * 100 + RPNEngine_patch;
-  RPNEngine_version = '1.0.1.93';
+  RPNEngine_version = '1.0.1.95';
   RPNEngine_internalversion = 'Aleph';
 
 type
