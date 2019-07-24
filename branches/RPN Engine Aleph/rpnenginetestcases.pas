@@ -6,7 +6,7 @@ unit RPNEngineTestCases;
 
 { Unit Tests for Basic RPN Engine }
 
-{ Version 1.0 (Aleph) }
+{ Version 1.0.1 (Aleph) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
