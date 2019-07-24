@@ -8,7 +8,7 @@
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="7" Y="2"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -17,7 +17,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngineTestCases"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="9" Y="2"/>
+        <CursorPos X="21" Y="2"/>
         <UsageCount Value="77"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -26,7 +26,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="7" Y="2"/>
+        <CursorPos X="3" Y="2"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -137,7 +137,7 @@
         <UsageCount Value="10"/>
       </Unit15>
     </Units>
-    <JumpHistory Count="10" HistoryIndex="9">
+    <JumpHistory Count="11" HistoryIndex="10">
       <Position1>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="222" TopLine="203"/>
@@ -177,6 +177,10 @@
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="92"/>
       </Position10>
+      <Position11>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="87" Column="26" TopLine="67"/>
+      </Position11>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

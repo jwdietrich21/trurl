@@ -15,9 +15,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="92"/>
-      <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Aleph" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="1.0.0"/>
+      <RevisionNr Value="1"/>
+      <BuildNr Value="95"/>
+      <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Aleph" LegalCopyright="2003-2019 J. W. Dietrich" LegalTrademarks="TRURL" ProductName="TRURL RPN Engine" ProductVersion="1.0.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
