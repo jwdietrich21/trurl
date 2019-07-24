@@ -229,10 +229,14 @@ begin
   CheckEngine;
   theFormat := DefaultFormatSettings;
   theFormat.DecimalSeparator := '.';
-  TRegDisplay.Caption := FloatToStr(Engine.Stack.t, theFormat);
-  ZRegDisplay.Caption := FloatToStr(Engine.Stack.z, theFormat);
-  YRegDisplay.Caption := FloatToStr(Engine.Stack.y, theFormat);
-  XRegDisplay.Caption := FloatToStr(Engine.Stack.x, theFormat);
+  if assigned(TRegDisplay) then
+    TRegDisplay.Caption := FloatToStr(Engine.Stack.t, theFormat);
+  if assigned(ZRegDisplay) then
+    ZRegDisplay.Caption := FloatToStr(Engine.Stack.z, theFormat);
+  if assigned(YRegDisplay) then
+    YRegDisplay.Caption := FloatToStr(Engine.Stack.y, theFormat);
+  if assigned(XRegDisplay) then
+    XRegDisplay.Caption := FloatToStr(Engine.Stack.x, theFormat);
 end;
 
 procedure TFrame.AppendChar(ch: char);
@@ -247,29 +251,35 @@ begin
     begin
       Engine.Stack.RollUp;
       DisplayRegisters;
-      XRegDisplay.Caption := ch;
+      if assigned(XRegDisplay) then
+        XRegDisplay.Caption := ch;
       EntryMode := Number;
     end;
     PostEnter:
     begin
-      XRegDisplay.Caption := ch;
+      if assigned(XRegDisplay) then
+        XRegDisplay.Caption := ch;
       EntryMode := Number;
     end;
     Number:
     begin
-      if XRegDisplay.Caption = '0' then
+      if assigned(XRegDisplay) then
       begin
-        if ch = '.' then
-          XRegDisplay.Caption := XRegDisplay.Caption + ch
+        if XRegDisplay.Caption = '0' then
+        begin
+          if ch = '.' then
+            XRegDisplay.Caption := XRegDisplay.Caption + ch
+          else
+            XRegDisplay.Caption := ch;
+        end
         else
-          XRegDisplay.Caption := ch;
-      end
-      else
-      if (ch <> '.') or (pos('.', XRegDisplay.Caption) = 0) then
-        XRegDisplay.Caption := XRegDisplay.Caption + ch;
+        if (ch <> '.') or (pos('.', XRegDisplay.Caption) = 0) then
+          XRegDisplay.Caption := XRegDisplay.Caption + ch;
+      end;
     end;
   end;
-  Engine.Stack.x := StrToFloat(XRegDisplay.Caption, theFormat);
+  if assigned(XRegDisplay) then
+    Engine.Stack.x := StrToFloat(XRegDisplay.Caption, theFormat);
 end;
 
 procedure TFrame.InsertString(theString: String);

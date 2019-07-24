@@ -6,7 +6,7 @@ unit RPNEngine;
 
 { Basic RPN Engine }
 
-{ Version 1.0.1 (Aleph) }
+{ Version 2.0 (Bet) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -37,14 +37,14 @@ TUniOperator = (PlusMinusOp, InvertOp, SinOp, CosOp, TanOp, ASinOp, ACosOp, ATan
 TAngleMode = (Degree, Radian, Turn, Grad);
 
 const
-  RPNEngine_major   = 1;
+  RPNEngine_major   = 2;
   RPNEngine_minor   = 0;
-  RPNEngine_release = 1;
-  RPNEngine_patch   = 93;
+  RPNEngine_release = 0;
+  RPNEngine_patch   = 94;
   RPNEngine_fullversion = ((RPNEngine_major * 100 + RPNEngine_minor) *
     100 + RPNEngine_release) * 100 + RPNEngine_patch;
-  RPNEngine_version = '1.0.1.93';
-  RPNEngine_internalversion = 'Aleph';
+  RPNEngine_version = '2.0.0.94';
+  RPNEngine_internalversion = 'Bet';
 
 type
 
