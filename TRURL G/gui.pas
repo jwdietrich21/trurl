@@ -75,16 +75,15 @@ type
     ThreeSpeedButton: TSpeedButton;
     DotSpeedButton: TSpeedButton;
     FiveSpeedButton: TSpeedButton;
+    YRegisterPaintBox: TPaintBox;
+    ZRegisterPaintBox: TPaintBox;
+    TRegisterPaintBox: TPaintBox;
     ZeroSpeedButton: TSpeedButton;
     KeyCheckTimer: TTimer;
     EnterSpeedButton: TSpeedButton;
     Shape1: TShape;
     Shape2: TShape;
-    XRegisterDisplay: TLabel;
-    YRegisterDisplay: TLabel;
     MinusSpeedButton: TSpeedButton;
-    ZRegisterDisplay: TLabel;
-    TRegisterDisplay: TLabel;
     MainMenu1: TMainMenu;
     FileMenu: TMenuItem;
     HelpMenu: TMenuItem;
@@ -142,6 +141,7 @@ type
     procedure IndicateNumLockState(Sender: TObject);
     procedure InvButtonClick(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
+    procedure TRegisterPaintBoxPaint(Sender: TObject);
     procedure WinAboutItemClick(Sender: TObject);
     procedure QuitItemClick(Sender: TObject);
     procedure MinusButtonClick(Sender: TObject);
@@ -164,8 +164,11 @@ type
     procedure TanButtonClick(Sender: TObject);
     procedure TimesButtonClick(Sender: TObject);
     procedure XRegisterPaintBoxPaint(Sender: TObject);
+    procedure YRegisterPaintBoxPaint(Sender: TObject);
+    procedure ZRegisterPaintBoxPaint(Sender: TObject);
   private
-    DisplayX: TDisplay;
+    DisplayX, DisplayY, DisplayZ, DisplayT: TDisplay;
+    XRegisterBuffer: TControl;
   public
     Engine: TEngine;
     Frame: TFrame;
@@ -184,13 +187,14 @@ implementation
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   AdaptMenus;
+  XRegisterBuffer := TControl.create(nil);
   Engine := TEngine.create;
   Frame := TFrame.create;
   Frame.Engine := Engine;
-  Frame.XRegDisplay := XRegisterDisplay;
-  Frame.YRegDisplay := YRegisterDisplay;
-  Frame.ZRegDisplay := ZRegisterDisplay;
-  Frame.TRegDisplay := TRegisterDisplay;
+  Frame.XRegDisplay := XRegisterBuffer;
+  Frame.YRegDisplay := nil; // YRegisterDisplay;
+  Frame.ZRegDisplay := nil; // ZRegisterDisplay;
+  Frame.TRegDisplay := nil; // TRegisterDisplay;
   Frame.EntryMode := Number;
   DisplayX := TDisplay.create;
   DisplayX.Canvas := XRegisterPaintBox.Canvas;
@@ -199,6 +203,27 @@ begin
   DisplayX.Style := [];
   DisplayX.offsetX := 9;
   DisplayX.offsetY := 9;
+  DisplayY := TDisplay.create;
+  DisplayY.Canvas := YRegisterPaintBox.Canvas;
+  DisplayY.Color := clLime;
+  DisplayY.scale := 1;
+  DisplayY.Style := [];
+  DisplayY.offsetX := 9;
+  DisplayY.offsetY := 9;
+  DisplayZ := TDisplay.create;
+  DisplayZ.Canvas := ZRegisterPaintBox.Canvas;
+  DisplayZ.Color := clLime;
+  DisplayZ.scale := 1;
+  DisplayZ.Style := [];
+  DisplayZ.offsetX := 9;
+  DisplayZ.offsetY := 9;
+  DisplayT := TDisplay.create;
+  DisplayT.Canvas := TRegisterPaintBox.Canvas;
+  DisplayT.Color := clLime;
+  DisplayT.scale := 1;
+  DisplayT.Style := [];
+  DisplayT.offsetX := 9;
+  DisplayT.offsetY := 9;
 end;
 
 procedure TMainForm.FormDeactivate(Sender: TObject);
@@ -280,14 +305,15 @@ var
 
 procedure TMainForm.EditCopy1Execute(Sender: TObject);
 begin
-  Clipboard.AsText := XRegisterDisplay.Caption;
+  Clipboard.AsText := XRegisterBuffer.Caption;
 end;
 
 procedure TMainForm.EditCut1Execute(Sender: TObject);
 begin
-  Clipboard.AsText := XRegisterDisplay.Caption;
+  Clipboard.AsText := XRegisterBuffer.Caption;
   Frame.Engine.Stack.DropDown;
   Frame.DisplayRegisters;
+  RedrawDisplay(Sender);
 end;
 
 procedure TMainForm.EditPaste1Execute(Sender: TObject);
@@ -472,9 +498,39 @@ begin
   DisplayX.n := Engine.Stack.x;
 end;
 
+procedure TMainForm.YRegisterPaintBoxPaint(Sender: TObject);
+begin
+  YRegisterPaintBox.Canvas.Brush.Style := bsSolid;
+  YRegisterPaintBox.Canvas.Brush.Color := DisplayBackgroundPanel.Brush.Color;
+  YRegisterPaintBox.Canvas.FillRect(0, 0, YRegisterPaintBox.Width, YRegisterPaintBox.Height);
+  DisplayY.Style := [fsItalic];
+  DisplayY.n := Engine.Stack.y;
+end;
+
+procedure TMainForm.ZRegisterPaintBoxPaint(Sender: TObject);
+begin
+  ZRegisterPaintBox.Canvas.Brush.Style := bsSolid;
+  ZRegisterPaintBox.Canvas.Brush.Color := DisplayBackgroundPanel.Brush.Color;
+  ZRegisterPaintBox.Canvas.FillRect(0, 0, ZRegisterPaintBox.Width, ZRegisterPaintBox.Height);
+  DisplayZ.Style := [fsItalic];
+  DisplayZ.n := Engine.Stack.z;
+end;
+
+procedure TMainForm.TRegisterPaintBoxPaint(Sender: TObject);
+begin
+  TRegisterPaintBox.Canvas.Brush.Style := bsSolid;
+  TRegisterPaintBox.Canvas.Brush.Color := DisplayBackgroundPanel.Brush.Color;
+  TRegisterPaintBox.Canvas.FillRect(0, 0, TRegisterPaintBox.Width, TRegisterPaintBox.Height);
+  DisplayT.Style := [fsItalic];
+  DisplayT.n := Engine.Stack.t;
+end;
+
 procedure TMainForm.RedrawDisplay(Sender: TObject);
 begin
   XRegisterPaintBox.Invalidate;
+  YRegisterPaintBox.Invalidate;
+  ZRegisterPaintBox.Invalidate;
+  TRegisterPaintBox.Invalidate;
 end;
 
 procedure TMainForm.DivButtonClick(Sender: TObject);
