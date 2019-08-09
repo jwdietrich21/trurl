@@ -1,12 +1,12 @@
-program trurl_a;
+program trurl_g;
 
-{ Trurl A }
+{ Trurl G }
 
-{ Simple RPN calculator in Object Pascal }
+{ RPN calculator in Object Pascal, inspired by the Apollo Guidance Computer }
 
 { Main program file }
 
-{ Version 1.0.1 (Leopolis) }
+{ Version 1.0.1 (Apollo) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 

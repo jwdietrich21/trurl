@@ -1,14 +1,14 @@
 object MainForm: TMainForm
-  Left = 729
+  Left = 732
   Height = 448
   Hint = 'Kopieren'
-  Top = 316
+  Top = 248
   Width = 390
   AlphaBlendValue = 128
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl G'
-  ClientHeight = 428
+  ClientHeight = 448
   ClientWidth = 390
   Color = 5460305
   Icon.Data = {
