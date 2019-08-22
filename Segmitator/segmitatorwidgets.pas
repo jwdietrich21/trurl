@@ -302,22 +302,31 @@ begin
       nString := FloatToStr(n, theFormat);
 
       i := 1;
-      if length(nString) > 1 then for i := 2 to length(nString) do
+      if length(nString) > 1 then
       begin
-        if nString[i] <> kDot then
-          begin
-            if TryStrToInt(nString[i - 1], digit) then
-              begin
-                DrawDigit(digit);
-                lastXPos := lastXPos + 18 * scale;
-              end;
-          end
-        else
-          begin
-            digit := StrToInt(nString[i - 1]);
-            DrawDigit(digit + 10);
-            lastXPos := lastXPos + 18 * scale;
-          end;
+        if nString[i] = '-' then // negative number
+        begin
+          digit := 20;
+          DrawDigit(digit);
+          lastXPos := lastXPos + 18 * scale;
+        end;
+        for i := 2 to length(nString) do
+        begin
+          if nString[i] <> kDot then // no decimal dot
+            begin
+              if TryStrToInt(nString[i - 1], digit) then
+                begin
+                  DrawDigit(digit);
+                  lastXPos := lastXPos + 18 * scale;
+                end;
+            end
+          else
+            begin // following decimal dot
+              digit := StrToInt(nString[i - 1]);
+              DrawDigit(digit + 10);
+              lastXPos := lastXPos + 18 * scale;
+            end;
+        end;
       end;
       digit := StrToInt(nString[i]);
       DrawDigit(digit);
