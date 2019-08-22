@@ -48,7 +48,7 @@ type
 
 const
 
-  kSegments: array[0..19] of byte =
+  kSegments: array[0..20] of byte =
     (
      %01111110, // 0
      %00110000, // 1
@@ -69,7 +69,8 @@ const
      %11011111, // 6.
      %11110000, // 7.
      %11111111, // 8.
-     %11111011  // 9.
+     %11111011, // 9.
+     %00000001  // -
      );
 
   kDot = '.';
@@ -175,24 +176,34 @@ begin
   line1 := '';
   line2 := '';
   i := 1;
-  if length(nString) > 1 then for i := 2 to length(nString) do
+  if length(nString) > 1 then
   begin
-    if nString[i] <> kDot then
-      begin
-        if TryStrToInt(nString[i - 1], digit) then
-          begin
-            line0 := line0 + AsciiLine(0, digit);
-            line1 := line1 + AsciiLine(1, digit);
-            line2 := line2 + AsciiLine(2, digit);
-          end;
-      end
-    else
-      begin
-        digit := StrToInt(nString[i - 1]);
-        line0 := line0 + AsciiLine(0, digit + 10);
-        line1 := line1 + AsciiLine(1, digit + 10);
-        line2 := line2 + AsciiLine(2, digit + 10);
-      end;
+    if nString[i] = '-' then  // negative number
+    begin
+      digit := 20;
+      line0 := line0 + AsciiLine(0, digit);
+      line1 := line1 + AsciiLine(1, digit);
+      line2 := line2 + AsciiLine(2, digit);
+    end;
+    for i := 2 to length(nString) do
+    begin
+      if nString[i] <> kDot then  // no decimal dot
+        begin
+          if TryStrToInt(nString[i - 1], digit) then
+            begin
+              line0 := line0 + AsciiLine(0, digit);
+              line1 := line1 + AsciiLine(1, digit);
+              line2 := line2 + AsciiLine(2, digit);
+            end;
+        end
+      else
+        begin  // following decimal dot
+          digit := StrToInt(nString[i - 1]);
+          line0 := line0 + AsciiLine(0, digit + 10);
+          line1 := line1 + AsciiLine(1, digit + 10);
+          line2 := line2 + AsciiLine(2, digit + 10);
+        end;
+    end;
   end;
   digit := StrToInt(nString[i]);
   line0 := line0 + AsciiLine(0, digit);
