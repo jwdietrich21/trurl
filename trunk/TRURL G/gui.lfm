@@ -446,7 +446,7 @@ object MainForm: TMainForm
   OnPaint = FormPaint
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '2.0.4.0'
   Visible = True
   object Shape3: TShape
     Left = 22
@@ -662,7 +662,7 @@ object MainForm: TMainForm
     object XRegisterPaintBox: TPaintBox
       Left = 0
       Height = 30
-      Top = 160
+      Top = 180
       Width = 150
       Anchors = [akTop, akLeft, akRight]
       Color = clBlack
@@ -672,7 +672,7 @@ object MainForm: TMainForm
     object YRegisterPaintBox: TPaintBox
       Left = 0
       Height = 30
-      Top = 125
+      Top = 120
       Width = 150
       Anchors = [akTop, akLeft, akRight]
       Color = clBlack

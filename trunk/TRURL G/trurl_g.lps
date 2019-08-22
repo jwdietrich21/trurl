@@ -7,7 +7,6 @@
       <Unit0>
         <Filename Value="trurl_g.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <CursorPos X="46"/>
         <UsageCount Value="20"/>
@@ -21,6 +20,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
         <EditorIndex Value="5"/>
+        <TopLine Value="543"/>
+        <CursorPos X="3" Y="545"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -29,6 +30,7 @@
         <Filename Value="rpnengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
+        <IsVisibleTab Value="True"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -67,7 +69,11 @@
         <Loaded Value="True"/>
       </Unit6>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="gui.pas"/>
+      </Position1>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode="default"/>
