@@ -21,7 +21,7 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleDisplayName</key>
   <string>Trurl</string>
   <key>CFBundleIdentifier</key>
-  <string>net.sf.trurl.trurl_g</string>
+  <string>net.sf.trurl.trurlg</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundlePackageType</key>

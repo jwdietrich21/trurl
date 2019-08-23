@@ -21,7 +21,7 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleDisplayName</key>
   <string>Trurl</string>
   <key>CFBundleIdentifier</key>
-  <string>net.sf.trurl.trurl_g</string>
+  <string>net.sf.trurl.trurlg</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundlePackageType</key>
@@ -39,7 +39,7 @@ See http://trurl.sourceforge.net for details
   <key>LSApplicationCategoryType</key>
   <string>public.app-category.utilities</string>
   <key>CFBundleIconFile</key>
-  <string>Trurl G Icon.icns</string>
+  <string>TRURL G Icon.icns</string>
   <key>CSResourcesFileMapped</key>
   <true/>
   <key>CFBundleDocumentTypes</key>
