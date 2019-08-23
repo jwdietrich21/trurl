@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Spin,
-  StdCtrls, ExtCtrls, segmitator, segmitatorWidgets;
+  StdCtrls, ExtCtrls, Math, segmitator, segmitatorWidgets;
 
 type
 
@@ -36,6 +36,7 @@ type
   TTestAppMainForm = class(TForm)
     ItalicCheckBox: TCheckBox;
     FontsCombobox: TComboBox;
+    TestValueRadioGroup: TRadioGroup;
     TestPaintbox: TPaintBox;
     TestFloatSpinEdit: TFloatSpinEdit;
     TestASCIIMemo: TMemo;
@@ -46,6 +47,7 @@ type
     procedure ItalicCheckBoxChange(Sender: TObject);
     procedure TestFloatSpinEditChange(Sender: TObject);
     procedure TestPaintboxPaint(Sender: TObject);
+    procedure TestValueRadioGroupClick(Sender: TObject);
   private
     Display: TDisplay;
   public
@@ -84,6 +86,16 @@ end;
 procedure TTestAppMainForm.TestPaintboxPaint(Sender: TObject);
 begin
   DrawTestPaintBox(Sender);
+end;
+
+procedure TTestAppMainForm.TestValueRadioGroupClick(Sender: TObject);
+begin
+  case TestValueRadioGroup.ItemIndex of
+    0: TestFloatSpinEdit.Value := math.Infinity;
+    1: TestFloatSpinEdit.Value := math.NegInfinity;
+    2: TestFloatSpinEdit.Value := math.NaN;
+  end;
+  TestFloatSpinEditChange(Sender);
 end;
 
 procedure TTestAppMainForm.DrawTestPaintBox(Sender: TObject);

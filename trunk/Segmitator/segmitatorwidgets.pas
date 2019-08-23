@@ -40,7 +40,7 @@ E |___| C  .
 interface
 
 uses
-  Classes, SysUtils, Graphics, segmitator;
+  Classes, SysUtils, Graphics, segmitator, math;
 
 const
   xHr: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
@@ -299,36 +299,44 @@ begin
 
       theFormat := DefaultFormatSettings;
       theFormat.DecimalSeparator := kDot;
-      nString := FloatToStr(n, theFormat);
-
-      i := 1;
-      if length(nString) > 1 then
-      begin
-        if nString[i] = '-' then // negative number
+      if isNaN(n) or IsInfinite(n) then
         begin
+          nString := 'EEE';
           digit := 20;
-          DrawDigit(digit);
-          lastXPos := lastXPos + 18 * scale;
-        end;
-        for i := 2 to length(nString) do
+        end
+      else
+      begin
+        nString := FloatToStr(n, theFormat);
+
+        i := 1;
+        if length(nString) > 1 then
         begin
-          if nString[i] <> kDot then // no decimal dot
-            begin
-              if TryStrToInt(nString[i - 1], digit) then
-                begin
-                  DrawDigit(digit);
-                  lastXPos := lastXPos + 18 * scale;
-                end;
-            end
-          else
-            begin // following decimal dot
-              digit := StrToInt(nString[i - 1]);
-              DrawDigit(digit + 10);
-              lastXPos := lastXPos + 18 * scale;
-            end;
+          if nString[i] = '-' then // negative number
+          begin
+            digit := 20;
+            DrawDigit(digit);
+            lastXPos := lastXPos + 18 * scale;
+          end;
+          for i := 2 to length(nString) do
+          begin
+            if nString[i] <> kDot then // no decimal dot
+              begin
+                if TryStrToInt(nString[i - 1], digit) then
+                  begin
+                    DrawDigit(digit);
+                    lastXPos := lastXPos + 18 * scale;
+                  end;
+              end
+            else
+              begin // following decimal dot
+                digit := StrToInt(nString[i - 1]);
+                DrawDigit(digit + 10);
+                lastXPos := lastXPos + 18 * scale;
+              end;
+          end;
         end;
+        digit := StrToInt(nString[i]);
       end;
-      digit := StrToInt(nString[i]);
       DrawDigit(digit);
 
       Canvas.Pen.Width := oldWidth;
