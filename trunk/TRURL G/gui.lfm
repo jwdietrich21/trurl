@@ -1,15 +1,15 @@
 object MainForm: TMainForm
   Left = 732
-  Height = 527
+  Height = 458
   Hint = 'Kopieren'
   Top = 169
-  Width = 390
+  Width = 392
   AlphaBlendValue = 128
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl G'
-  ClientHeight = 527
-  ClientWidth = 390
+  ClientHeight = 458
+  ClientWidth = 392
   Color = 5460305
   Icon.Data = {
     263F0000000001000100403D000001002000103F000016000000280000004000
@@ -735,11 +735,11 @@ object MainForm: TMainForm
     Left = 224
     Height = 228
     Top = 24
-    Width = 150
+    Width = 152
     Anchors = [akTop, akLeft, akRight]
     BevelOuter = bvNone
     ClientHeight = 228
-    ClientWidth = 150
+    ClientWidth = 152
     Color = clBlack
     ParentColor = False
     TabOrder = 19
@@ -747,7 +747,7 @@ object MainForm: TMainForm
       Left = 0
       Height = 30
       Top = 180
-      Width = 150
+      Width = 152
       Anchors = [akTop, akLeft, akRight]
       Color = clBlack
       ParentColor = False
@@ -757,7 +757,7 @@ object MainForm: TMainForm
       Left = 0
       Height = 30
       Top = 120
-      Width = 150
+      Width = 152
       Anchors = [akTop, akLeft, akRight]
       Color = clBlack
       ParentColor = False
@@ -767,7 +767,7 @@ object MainForm: TMainForm
       Left = 0
       Height = 30
       Top = 65
-      Width = 150
+      Width = 152
       Anchors = [akTop, akLeft, akRight]
       Color = clBlack
       ParentColor = False
@@ -777,7 +777,7 @@ object MainForm: TMainForm
       Left = 0
       Height = 30
       Top = 10
-      Width = 150
+      Width = 152
       Anchors = [akTop, akLeft, akRight]
       Color = clBlack
       ParentColor = False
