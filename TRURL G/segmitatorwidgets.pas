@@ -299,7 +299,7 @@ begin
 
       theFormat := DefaultFormatSettings;
       theFormat.DecimalSeparator := kDot;
-      if n = math.Infinity then
+      if isNaN(n) or IsInfinite(n) then
         begin
           nString := 'EEE';
           digit := 20;
