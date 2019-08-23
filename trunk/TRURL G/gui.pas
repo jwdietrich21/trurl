@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.0.1 (Apollo) }
+{ Version 1.0.0 (Apollo) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -256,9 +256,11 @@ begin
     '/': DivButtonClick(Sender);
     '*': TimesButtonClick(Sender);
     'c', 'C': CButtonClick(Sender);
-    {$IFDEF LINUX}
-      #13: EnterButtonClick(Sender);
-    {$ENDIF}
+   {$IF DEFINED(LINUX) or DEFINED(LCLCocoa)
+        or DEFINED(LCLQt) or DEFINED(LCLQt5)
+        or DEFINED(LCLGtk2) or DEFINED(LCLGtk3)}
+    #13: EnterButtonClick(Sender);
+   {$ENDIF}
   end;
   Key := #0; // Necessary for Cocoa widgetset
   IndicateNumLockState(Sender);
