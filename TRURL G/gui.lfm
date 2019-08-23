@@ -3296,6 +3296,7 @@ object MainForm: TMainForm
     Alignment = taCenter
     AutoSize = False
     Caption = 'NUM'
+    Font.Color = clBlack
     Font.Height = 12
     ParentColor = False
     ParentFont = False
@@ -3308,6 +3309,7 @@ object MainForm: TMainForm
     Alignment = taCenter
     AutoSize = False
     Caption = 'LOCK'
+    Font.Color = clBlack
     Font.Height = 12
     ParentColor = False
     ParentFont = False
