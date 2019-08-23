@@ -40,7 +40,7 @@ E |___| C  .
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, Math;
 
 type
   tASCIILine = string[4];
@@ -171,41 +171,49 @@ var
 begin
   theFormat := DefaultFormatSettings;
   theFormat.DecimalSeparator := kDot;
-  nString := FloatToStr(n, theFormat);
-  line0 := '';
-  line1 := '';
-  line2 := '';
-  i := 1;
-  if length(nString) > 1 then
-  begin
-    if nString[i] = '-' then  // negative number
+  if n = math.Infinity then
     begin
+      nString := 'EEE';
       digit := 20;
-      line0 := line0 + AsciiLine(0, digit);
-      line1 := line1 + AsciiLine(1, digit);
-      line2 := line2 + AsciiLine(2, digit);
-    end;
-    for i := 2 to length(nString) do
+    end
+  else
+  begin
+    nString := FloatToStr(n, theFormat);
+    line0 := '';
+    line1 := '';
+    line2 := '';
+    i := 1;
+    if length(nString) > 1 then
     begin
-      if nString[i] <> kDot then  // no decimal dot
-        begin
-          if TryStrToInt(nString[i - 1], digit) then
-            begin
-              line0 := line0 + AsciiLine(0, digit);
-              line1 := line1 + AsciiLine(1, digit);
-              line2 := line2 + AsciiLine(2, digit);
-            end;
-        end
-      else
-        begin  // following decimal dot
-          digit := StrToInt(nString[i - 1]);
-          line0 := line0 + AsciiLine(0, digit + 10);
-          line1 := line1 + AsciiLine(1, digit + 10);
-          line2 := line2 + AsciiLine(2, digit + 10);
-        end;
+      if nString[i] = '-' then  // negative number
+      begin
+        digit := 20;
+        line0 := line0 + AsciiLine(0, digit);
+        line1 := line1 + AsciiLine(1, digit);
+        line2 := line2 + AsciiLine(2, digit);
+      end;
+      for i := 2 to length(nString) do
+      begin
+        if nString[i] <> kDot then  // no decimal dot
+          begin
+            if TryStrToInt(nString[i - 1], digit) then
+              begin
+                line0 := line0 + AsciiLine(0, digit);
+                line1 := line1 + AsciiLine(1, digit);
+                line2 := line2 + AsciiLine(2, digit);
+              end;
+          end
+        else
+          begin  // following decimal dot
+            digit := StrToInt(nString[i - 1]);
+            line0 := line0 + AsciiLine(0, digit + 10);
+            line1 := line1 + AsciiLine(1, digit + 10);
+            line2 := line2 + AsciiLine(2, digit + 10);
+          end;
+      end;
     end;
+    digit := StrToInt(nString[i]);
   end;
-  digit := StrToInt(nString[i]);
   line0 := line0 + AsciiLine(0, digit);
   line1 := line1 + AsciiLine(1, digit);
   line2 := line2 + AsciiLine(2, digit);
