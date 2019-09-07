@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.0.0 (Apollo) }
+{ Version 1.0.1 (Apollo) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
@@ -36,6 +36,8 @@ type
 
   TMainForm = class(TForm)
     ActionList1: TActionList;
+    PressedButtons: TImageList;
+    StandardButtons: TImageList;
     NumlockLabel1: TLabel;
     NumlockLabel2: TLabel;
     XRegisterPaintBox: TPaintBox;
@@ -375,72 +377,115 @@ end;
 
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin
+  { TODO -oJWD : Check https://forum.lazarus.freepascal.org/index.php?topic=46403.0 }
+  ZeroSpeedButton.Down := true;
+  PressedButtons.GetBitmap(0, ZeroSpeedButton.Glyph);
+  ZeroSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('0');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  ZeroSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr1ButtonClick(Sender: TObject);
 begin
+  OneSpeedButton.Down := true;
+  PressedButtons.GetBitmap(1, OneSpeedButton.Glyph);
+  OneSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('1');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  OneSpeedButton.Down := false;
+  //StandardButtons.GetBitmap(1, OneSpeedButton.Glyph);
+  //OneSpeedButton.Glyph.Modified := true;
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);
 begin
+  TwoSpeedButton.Down := true;
+  PressedButtons.GetBitmap(2, TwoSpeedButton.Glyph);
+  TwoSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('2');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  TwoSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr3ButtonClick(Sender: TObject);
 begin
+  ThreeSpeedButton.Down := true;
+  PressedButtons.GetBitmap(3, ThreeSpeedButton.Glyph);
+  ThreeSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('3');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  ThreeSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr4ButtonClick(Sender: TObject);
 begin
+  FourSpeedButton.Down := true;
+  PressedButtons.GetBitmap(4, FourSpeedButton.Glyph);
+  FourSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('4');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  FourSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr5ButtonClick(Sender: TObject);
 begin
+  FiveSpeedButton.Down := true;
+  PressedButtons.GetBitmap(5, FiveSpeedButton.Glyph);
+  FiveSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('5');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  FiveSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr6ButtonClick(Sender: TObject);
 begin
+  SixSpeedButton.Down := true;
+  PressedButtons.GetBitmap(6, SixSpeedButton.Glyph);
+  SixSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('6');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  SixSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr7ButtonClick(Sender: TObject);
 begin
+  SevenSpeedButton.Down := true;
+  PressedButtons.GetBitmap(7, SevenSpeedButton.Glyph);
+  SevenSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('7');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  SevenSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr8ButtonClick(Sender: TObject);
 begin
+  EightSpeedButton.Down := true;
+  PressedButtons.GetBitmap(8, EightSpeedButton.Glyph);
+  EightSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('8');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  EightSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr9ButtonClick(Sender: TObject);
 begin
+  NineSpeedButton.Down := true;
+  PressedButtons.GetBitmap(9, NineSpeedButton.Glyph);
+  NineSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('9');
   RedrawDisplay(Sender);
   ActiveControl := EnterButton;
+  NineSpeedButton.Down := false;
 end;
 
 procedure TMainForm.DotButtonClick(Sender: TObject);

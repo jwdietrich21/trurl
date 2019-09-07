@@ -6,7 +6,7 @@ program trurl_g;
 
 { Main program file }
 
-{ Version 1.0.0 (Apollo) }
+{ Version 1.0.1 (Apollo) }
 
 { (c) Johannes W. Dietrich, 2003 - 2019 }
 
