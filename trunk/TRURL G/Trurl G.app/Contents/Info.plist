@@ -29,13 +29,13 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleSignature</key>
   <string>TruG</string>
   <key>CFBundleShortVersionString</key>
-  <string>1.0.0</string>
+  <string>1.0.1</string>
   <key>CFBundleGetInfoString</key>
-  <string>1.0.0, ©2003-2019 J. W. Dietrich</string>
+  <string>1.0.1, ©2003-2019 J. W. Dietrich</string>
   <key>NSHumanReadableCopyright</key>
-  <string>1.0.0, ©2003-2019 J. W. Dietrich</string>
+  <string>1.0.1, ©2003-2019 J. W. Dietrich</string>
   <key>CFBundleVersion</key>
-  <string>1.0.0</string>
+  <string>1.0.1</string>
   <key>LSApplicationCategoryType</key>
   <string>public.app-category.utilities</string>
   <key>CFBundleIconFile</key>
