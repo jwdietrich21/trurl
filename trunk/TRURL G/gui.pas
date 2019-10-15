@@ -28,7 +28,10 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   LclIntf, LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd, Buttons,
-  RPNEngine, RPNWidgets, segmitatorWidgets, aboutbox;
+  RPNEngine, RPNWidgets, segmitatorWidgets, aboutbox
+  {$IFDEF WINDOWS}
+  , Windows
+  {$ENDIF};
 
 type
 
@@ -143,6 +146,8 @@ type
     procedure IndicateNumLockState(Sender: TObject);
     procedure InvButtonClick(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
+    procedure NumlockLabel1Click(Sender: TObject);
+    procedure NumlockLabel2Click(Sender: TObject);
     procedure TRegisterPaintBoxPaint(Sender: TObject);
     procedure WinAboutItemClick(Sender: TObject);
     procedure QuitItemClick(Sender: TObject);
@@ -272,6 +277,29 @@ end;
 procedure TMainForm.MacAboutItemClick(Sender: TObject);
 begin
   TrurlAboutBox.ShowModal;
+end;
+
+procedure TMainForm.NumlockLabel1Click(Sender: TObject);
+var
+  keyState: TKeyboardState;
+begin
+  {$IFDEF WINDOWS}
+  if KeyState[VK_NUMLOCK] = 0 then
+  begin
+    Keybd_Event(VK_NUMLOCK, 1, KEYEVENTF_EXTENDEDKEY or 0, 0) ;
+    Keybd_Event(VK_NUMLOCK, 1, KEYEVENTF_EXTENDEDKEY or KEYEVENTF_KEYUP, 0) ;
+  end
+  else
+  begin
+    Keybd_Event(VK_NUMLOCK, 0, KEYEVENTF_EXTENDEDKEY or 0, 0) ;
+    Keybd_Event(VK_NUMLOCK, 0, KEYEVENTF_EXTENDEDKEY or KEYEVENTF_KEYUP, 0) ;
+  end;
+  {$ENDIF}
+end;
+
+procedure TMainForm.NumlockLabel2Click(Sender: TObject);
+begin
+  NumlockLabel1Click(Sender);
 end;
 
 procedure TMainForm.WinAboutItemClick(Sender: TObject);
