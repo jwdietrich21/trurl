@@ -351,7 +351,9 @@ end;
 procedure TMainForm.EditPaste1Execute(Sender: TObject);
 begin
   Frame.InsertString(Clipboard.AsText);
+  RedrawDisplay(Sender);
 end;
+
 
 procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
