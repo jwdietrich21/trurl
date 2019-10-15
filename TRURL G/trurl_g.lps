@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="11"/>
+    <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="16">
+    <Units Count="18">
       <Unit0>
         <Filename Value="trurl_g.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
         <CursorPos X="31" Y="8"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,9 +21,8 @@
         <UnitName Value="GUI"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="389"/>
-        <CursorPos X="3" Y="400"/>
-        <UsageCount Value="24"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -33,7 +32,7 @@
         <UnitName Value="RPNEngine"/>
         <TopLine Value="204"/>
         <CursorPos Y="221"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -45,7 +44,7 @@
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="4"/>
         <CursorPos X="6" Y="2"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -56,7 +55,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="122"/>
         <CursorPos Y="141"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -64,7 +63,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -73,7 +72,7 @@
         <UnitName Value="segmitatorWidgets"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -139,132 +138,63 @@
         <CursorPos X="8" Y="157"/>
         <UsageCount Value="10"/>
       </Unit15>
+      <Unit16>
+        <Filename Value="C:/lazarus/lcl/lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="358"/>
+        <CursorPos X="3" Y="524"/>
+        <UsageCount Value="10"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="C:/lazarus/lcl/include/winapih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="111"/>
+        <CursorPos X="18" Y="130"/>
+        <UsageCount Value="10"/>
+      </Unit17>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="10" HistoryIndex="9">
       <Position1>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="301" TopLine="275"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="283" Column="14" TopLine="264"/>
       </Position1>
       <Position2>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="302" TopLine="276"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="284" Column="25" TopLine="264"/>
       </Position2>
       <Position3>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="304" TopLine="278"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="288" Column="7" TopLine="264"/>
       </Position3>
       <Position4>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="305" TopLine="279"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="283" Column="10" TopLine="269"/>
       </Position4>
       <Position5>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="307" TopLine="281"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="283" Column="14" TopLine="269"/>
       </Position5>
       <Position6>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="313" TopLine="297"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="288" Column="14" TopLine="269"/>
       </Position6>
       <Position7>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="315" TopLine="297"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="285" Column="7" TopLine="269"/>
       </Position7>
       <Position8>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="317" TopLine="297"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="292" Column="7" TopLine="264"/>
       </Position8>
       <Position9>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="313" TopLine="297"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="34" Column="11" TopLine="10"/>
       </Position9>
       <Position10>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="315" TopLine="297"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="297" Column="3" TopLine="273"/>
       </Position10>
-      <Position11>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="317" TopLine="297"/>
-      </Position11>
-      <Position12>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="313" TopLine="297"/>
-      </Position12>
-      <Position13>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="315" TopLine="297"/>
-      </Position13>
-      <Position14>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="317" TopLine="297"/>
-      </Position14>
-      <Position15>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="313" TopLine="297"/>
-      </Position15>
-      <Position16>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="336" Column="9" TopLine="306"/>
-      </Position16>
-      <Position17>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="302" Column="27" TopLine="287"/>
-      </Position17>
-      <Position18>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="43" Column="48" TopLine="30"/>
-      </Position18>
-      <Position19>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="284" TopLine="268"/>
-      </Position19>
-      <Position20>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="302" TopLine="273"/>
-      </Position20>
-      <Position21>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="303" TopLine="277"/>
-      </Position21>
-      <Position22>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="337" TopLine="321"/>
-      </Position22>
-      <Position23>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="307" Column="29" TopLine="296"/>
-      </Position23>
-      <Position24>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="305" Column="33" TopLine="301"/>
-      </Position24>
-      <Position25>
-        <Filename Value="gui.pas"/>
-        <Caret Line="242" TopLine="226"/>
-      </Position25>
-      <Position26>
-        <Filename Value="gui.pas"/>
-        <Caret Line="243"/>
-      </Position26>
-      <Position27>
-        <Filename Value="gui.pas"/>
-        <Caret Line="244" TopLine="212"/>
-      </Position27>
-      <Position28>
-        <Filename Value="gui.pas"/>
-        <Caret Line="408" Column="6" TopLine="381"/>
-      </Position28>
-      <Position29>
-        <Filename Value="gui.pas"/>
-        <Caret Line="407" TopLine="391"/>
-      </Position29>
-      <Position30>
-        <Filename Value="gui.pas"/>
-        <Caret Line="146" TopLine="124"/>
-      </Position30>
     </JumpHistory>
-    <RunParams>
-      <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
-    </RunParams>
   </ProjectSession>
 </CONFIG>
