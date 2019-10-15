@@ -8,7 +8,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Trurl G'
-  ClientHeight = 438
+  ClientHeight = 458
   ClientWidth = 392
   Color = 5460305
   Icon.Data = {
@@ -530,7 +530,7 @@ object MainForm: TMainForm
   OnPaint = FormPaint
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.4.0'
   Visible = True
   object Shape3: TShape
     Left = 22

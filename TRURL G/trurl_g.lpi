@@ -18,11 +18,14 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="93"/>
+      <BuildNr Value="94"/>
       <StringTable Comments="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" CompanyName="formatio reticularis" FileDescription="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" InternalName="Apollo" LegalCopyright="2003-2019 J. W. Dietrich" ProductName="Trurl G" ProductVersion="1.0.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="266641431747" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
+      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -94,9 +97,7 @@
     </CodeGeneration>
     <Linking>
       <Debugging>
-        <GenerateDebugInfo Value="False"/>
         <DebugInfoType Value="dsDwarf2Set"/>
-        <StripSymbols Value="True"/>
       </Debugging>
       <LinkSmart Value="True"/>
       <Options>
