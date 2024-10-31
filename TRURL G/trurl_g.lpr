@@ -6,9 +6,9 @@ program trurl_g;
 
 { Main program file }
 
-{ Version 1.0.1 (Apollo) }
+{ Version 1.2.0 (Columbia) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2019 }
+{ (c) Johannes W. Dietrich, 2003 - 2024 }
 
 { Source code released under the BSD License }
 
@@ -37,7 +37,7 @@ begin
     {$DEFINE NewLaz}
   {$ENDIF}
   RequireDerivedFormResource:=True;
-  Application.Title:='Trurl G';
+  Application.Title := 'Trurl G';
   {$IFDEF NewLaz}
     Application.Scaled := True;
   {$ENDIF}

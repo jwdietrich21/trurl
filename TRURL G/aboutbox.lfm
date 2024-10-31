@@ -9,21 +9,21 @@ object TrurlAboutBox: TTrurlAboutBox
   ClientWidth = 448
   OnCreate = FormCreate
   Position = poOwnerFormCenter
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '3.7.0.0'
   object AboutLabel1: TLabel
     Left = 184
     Height = 16
     Top = 48
-    Width = 81
-    Caption = 'Trurl G 1.0.1'
+    Width = 73
+    Caption = 'Trurl G 1.2.0'
     ParentColor = False
   end
   object AboutLabel2: TLabel
     Left = 184
     Height = 16
     Top = 71
-    Width = 174
-    Caption = '© 2003-2019 J. W. Dietrich'
+    Width = 168
+    Caption = '© 2003-2024 J. W. Dietrich'
     ParentColor = False
   end
   object Image1: TImage
@@ -767,7 +767,7 @@ object TrurlAboutBox: TTrurlAboutBox
     Left = 184
     Height = 16
     Top = 93
-    Width = 177
+    Width = 176
     Caption = 'Based on TRURL RPN Engine'
     ParentColor = False
   end

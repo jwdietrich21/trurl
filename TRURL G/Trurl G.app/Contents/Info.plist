@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-TRURL A
+TRURL G
 
-Version 1.0
+Version 1.1.2
 
-(c) J. W. Dietrich, 2003 - 2019
+(c) J. W. Dietrich, 2003 - 2023
 
 Source code released under the BSD License
 See http://trurl.sourceforge.net for details
@@ -21,7 +21,7 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleDisplayName</key>
   <string>Trurl</string>
   <key>CFBundleIdentifier</key>
-  <string>net.sf.trurl.trurlg</string>
+  <string>net.sf.trurl.g</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundlePackageType</key>
@@ -29,13 +29,13 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleSignature</key>
   <string>TruG</string>
   <key>CFBundleShortVersionString</key>
-  <string>1.0.1</string>
+  <string>1.1.2</string>
   <key>CFBundleGetInfoString</key>
-  <string>1.0.1, ©2003-2019 J. W. Dietrich</string>
+  <string>1.1.2, ©2003-2023 J. W. Dietrich</string>
   <key>NSHumanReadableCopyright</key>
-  <string>1.0.1, ©2003-2019 J. W. Dietrich</string>
+  <string>1.1.2, ©2003-2023 J. W. Dietrich</string>
   <key>CFBundleVersion</key>
-  <string>1.0.1</string>
+  <string>1.1.1</string>
   <key>LSApplicationCategoryType</key>
   <string>public.app-category.utilities</string>
   <key>CFBundleIconFile</key>

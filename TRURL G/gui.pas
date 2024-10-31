@@ -6,9 +6,9 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.0.1 (Apollo) }
+{ Version 1.2.0 (Columbia) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2019 }
+{ (c) Johannes W. Dietrich, 2003 - 2024 }
 
 { Source code released under the BSD License }
 
@@ -26,12 +26,15 @@ unit GUI;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Math,
   LclIntf, LCLType, Menus, ActnList, StdActns, ExtCtrls, Clipbrd, Buttons,
   RPNEngine, RPNWidgets, segmitatorWidgets, aboutbox
   {$IFDEF WINDOWS}
   , Windows
   {$ENDIF};
+
+const
+  clInactiveIndicator = $00565557;
 
 type
 
@@ -39,10 +42,29 @@ type
 
   TMainForm = class(TForm)
     ActionList1: TActionList;
+    ErrorLabel: TLabel;
+    VirtualEnterButton: TButton;
     PressedButtons: TImageList;
     StandardButtons: TImageList;
     NumlockLabel1: TLabel;
     NumlockLabel2: TLabel;
+    Timer1: TTimer;
+    Timer0: TTimer;
+    TimerEnter: TTimer;
+    TimerClear: TTimer;
+    TimerDot: TTimer;
+    TimerDiv: TTimer;
+    TimerTimes: TTimer;
+    TimerMinus: TTimer;
+    TimerPlus: TTimer;
+    Timer2: TTimer;
+    Timer3: TTimer;
+    Timer4: TTimer;
+    Timer5: TTimer;
+    Timer6: TTimer;
+    Timer7: TTimer;
+    Timer8: TTimer;
+    Timer9: TTimer;
     XRegisterPaintBox: TPaintBox;
     PlusMinusSpeedButton: TSpeedButton;
     DivSpeedButton: TSpeedButton;
@@ -69,7 +91,7 @@ type
     Shape17: TShape;
     Shape3: TShape;
     NumLockIndicator: TShape;
-    Shape5: TShape;
+    ErrorIndicator: TShape;
     Shape6: TShape;
     Shape7: TShape;
     Shape8: TShape;
@@ -103,37 +125,42 @@ type
     CopyItem: TMenuItem;
     PasteItem: TMenuItem;
     Dividier_2_0: TMenuItem;
-    Nr0Button: TButton;
-    Nr1Button: TButton;
-    Nr2Button: TButton;
-    Nr3Button: TButton;
-    Nr4Button: TButton;
-    Nr5Button: TButton;
-    Nr6Button: TButton;
-    Nr7Button: TButton;
-    Nr8Button: TButton;
-    Nr9Button: TButton;
-    DotButton: TButton;
-    RDButton: TButton;
-    PlusButton: TButton;
-    MinusButton: TButton;
-    TimesButton: TButton;
-    DivButton: TButton;
-    CButton: TButton;
-    EnterButton: TButton;
-    PlusMinusButton: TButton;
     procedure AdaptMenus;
     procedure ACosButtonClick(Sender: TObject);
     procedure ASinButtonClick(Sender: TObject);
     procedure ATanButtonClick(Sender: TObject);
     procedure CButtonClick(Sender: TObject);
     procedure CosButtonClick(Sender: TObject);
+    procedure CSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure CSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure DivButtonClick(Sender: TObject);
+    procedure DivSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure DivSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure DotButtonClick(Sender: TObject);
+    procedure DotSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure DotSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure EditCopy1Execute(Sender: TObject);
     procedure EditCut1Execute(Sender: TObject);
     procedure EditPaste1Execute(Sender: TObject);
+    procedure EightSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure EightSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure EnterButtonClick(Sender: TObject);
+    procedure EnterSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure EnterSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure FiveSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure FiveSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDeactivate(Sender: TObject);
@@ -143,12 +170,95 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormPaint(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FourSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure FourSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure IndicateNumLockState(Sender: TObject);
+    procedure IndicateErrorState(Sender: TObject);
     procedure InvButtonClick(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
+    procedure MinusSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure MinusSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure NineSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure NineSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure NumlockLabel1Click(Sender: TObject);
     procedure NumlockLabel2Click(Sender: TObject);
+    procedure OneSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure OneSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PlusMinusSpeedButtonMouseDown(Sender: TObject;
+      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure PlusMinusSpeedButtonMouseUp(Sender: TObject;
+      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure PlusSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PlusSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure RollDownSpeedButtonMouseDown(Sender: TObject;
+      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure RollDownSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure SevenSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure SevenSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure SixSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure SixSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure ThreeSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure ThreeSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Timer0StartTimer(Sender: TObject);
+    procedure Timer0Timer(Sender: TObject);
+    procedure Timer1StartTimer(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Timer2StartTimer(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Timer3StartTimer(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
+    procedure Timer4StartTimer(Sender: TObject);
+    procedure Timer4Timer(Sender: TObject);
+    procedure Timer5StartTimer(Sender: TObject);
+    procedure Timer5Timer(Sender: TObject);
+    procedure Timer6StartTimer(Sender: TObject);
+    procedure Timer6Timer(Sender: TObject);
+    procedure Timer7StartTimer(Sender: TObject);
+    procedure Timer7Timer(Sender: TObject);
+    procedure Timer8StartTimer(Sender: TObject);
+    procedure Timer8Timer(Sender: TObject);
+    procedure Timer9StartTimer(Sender: TObject);
+    procedure Timer9Timer(Sender: TObject);
+    procedure TimerClearStartTimer(Sender: TObject);
+    procedure TimerClearTimer(Sender: TObject);
+    procedure TimerDivStartTimer(Sender: TObject);
+    procedure TimerDivTimer(Sender: TObject);
+    procedure TimerDotStartTimer(Sender: TObject);
+    procedure TimerDotTimer(Sender: TObject);
+    procedure TimerEnterStartTimer(Sender: TObject);
+    procedure TimerEnterTimer(Sender: TObject);
+    procedure TimerMinusStartTimer(Sender: TObject);
+    procedure TimerMinusTimer(Sender: TObject);
+    procedure TimerPlusStartTimer(Sender: TObject);
+    procedure TimerPlusTimer(Sender: TObject);
+    procedure TimerTimesStartTimer(Sender: TObject);
+    procedure TimerTimesTimer(Sender: TObject);
+    procedure TimesSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure TimesSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure TRegisterPaintBoxPaint(Sender: TObject);
+    procedure TwoSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure TwoSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure WinAboutItemClick(Sender: TObject);
     procedure QuitItemClick(Sender: TObject);
     procedure MinusButtonClick(Sender: TObject);
@@ -172,10 +282,15 @@ type
     procedure TimesButtonClick(Sender: TObject);
     procedure XRegisterPaintBoxPaint(Sender: TObject);
     procedure YRegisterPaintBoxPaint(Sender: TObject);
+    procedure ZeroSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure ZeroSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure ZRegisterPaintBoxPaint(Sender: TObject);
   private
     DisplayX, DisplayY, DisplayZ, DisplayT: TDisplay;
     XRegisterBuffer: TControl;
+    ErrorState: boolean;
   public
     Engine: TEngine;
     Frame: TFrame;
@@ -247,31 +362,100 @@ end;
 procedure TMainForm.FormKeyPress(Sender: TObject; var Key: char);
 begin
   case key of
-    '0': Nr0ButtonClick(Sender);
-    '1': Nr1ButtonClick(Sender);
-    '2': Nr2ButtonClick(Sender);
-    '3': Nr3ButtonClick(Sender);
-    '4': Nr4ButtonClick(Sender);
-    '5': Nr5ButtonClick(Sender);
-    '6': Nr6ButtonClick(Sender);
-    '7': Nr7ButtonClick(Sender);
-    '8': Nr8ButtonClick(Sender);
-    '9': Nr9ButtonClick(Sender);
-    '.', ',': DotButtonClick(Sender);
-    '+': PlusButtonClick(Sender);
-    '-': MinusButtonClick(Sender);
-    '/': DivButtonClick(Sender);
-    '*': TimesButtonClick(Sender);
-    'c', 'C': CButtonClick(Sender);
+    '0':
+      begin
+        Timer0.Enabled := true;
+        Nr0ButtonClick(Sender);
+      end;
+    '1':
+      begin
+        Timer1.Enabled := true;
+        Nr1ButtonClick(Sender);
+      end;
+    '2':
+      begin
+        Timer2.Enabled := true;
+        Nr2ButtonClick(Sender);
+      end;
+    '3':
+      begin
+        Timer3.Enabled := true;
+        Nr3ButtonClick(Sender);
+      end;
+    '4':
+      begin
+        Timer4.Enabled := true;
+        Nr4ButtonClick(Sender);
+      end;
+    '5':
+      begin
+        Timer5.Enabled := true;
+        Nr5ButtonClick(Sender);
+      end;
+    '6':
+      begin
+        Timer6.Enabled := true;
+        Nr6ButtonClick(Sender);
+      end;
+    '7':
+      begin
+        Timer7.Enabled := true;
+        Nr7ButtonClick(Sender);
+      end;
+    '8':
+      begin
+        Timer8.Enabled := true;
+        Nr8ButtonClick(Sender);
+      end;
+    '9':
+      begin
+        Timer9.Enabled := true;
+        Nr9ButtonClick(Sender);
+      end;
+    '.', ',':
+      begin
+        TimerDot.Enabled := true;
+        DotButtonClick(Sender);
+      end;
+    '+':
+      begin
+        TimerPlus.Enabled := true;
+        PlusButtonClick(Sender);
+      end;
+    '-':
+      begin
+        TimerMinus.Enabled := true;
+        MinusButtonClick(Sender);
+      end;
+    '/':
+      begin
+        TimerDiv.Enabled := true;
+        DivButtonClick(Sender);
+      end;
+    '*':
+      begin
+        TimerTimes.Enabled := true;
+        TimesButtonClick(Sender);
+      end;
+    'c', 'C':
+      begin
+        TimerClear.Enabled := true;
+        CButtonClick(Sender);
+      end;
    {$IF DEFINED(LINUX) or DEFINED(LCLCocoa)
         or DEFINED(LCLQt) or DEFINED(LCLQt5)
         or DEFINED(LCLGtk2) or DEFINED(LCLGtk3)}
-    #13: EnterButtonClick(Sender);
+    #13:
+      begin
+        TimerEnter.Enabled := true;
+        EnterButtonClick(Sender);
+      end;
    {$ENDIF}
   end;
   Key := #0; // Necessary for Cocoa widgetset
   IndicateNumLockState(Sender);
-  ActiveControl := EnterButton;
+  IndicateErrorState(Sender);
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.MacAboutItemClick(Sender: TObject);
@@ -354,7 +538,6 @@ begin
   RedrawDisplay(Sender);
 end;
 
-
 procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if Shift = [] then
@@ -363,7 +546,8 @@ begin
     VK_DOWN: RDButtonClick(Sender);
   end;
   IndicateNumLockState(Sender);
-  ActiveControl := EnterButton;
+  IndicateErrorState(Sender);
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
@@ -405,116 +589,452 @@ begin
   {$ENDIF}
 end;
 
+procedure TMainForm.IndicateErrorState(Sender: TObject);
+begin
+  if ErrorState then
+    ErrorIndicator.Brush.Color := clRed
+  else
+    ErrorIndicator.Brush.Color := clInactiveIndicator;
+end;
+
 procedure TMainForm.Nr0ButtonClick(Sender: TObject);
 begin
-  { TODO -oJWD : Check https://forum.lazarus.freepascal.org/index.php?topic=46403.0 }
-  ZeroSpeedButton.Down := true;
-  PressedButtons.GetBitmap(0, ZeroSpeedButton.Glyph);
-  ZeroSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('0');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.ZeroSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  ZeroSpeedButton.Down := true;
+  Nr0ButtonClick(Sender);
+  ZeroSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.ZeroSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  ZeroSpeedButton.Images := StandardButtons;
   ZeroSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr1ButtonClick(Sender: TObject);
 begin
-  OneSpeedButton.Down := true;
-  PressedButtons.GetBitmap(1, OneSpeedButton.Glyph);
-  OneSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('1');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.OneSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  OneSpeedButton.Down := true;
+  Nr1ButtonClick(Sender);
+  OneSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.OneSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  OneSpeedButton.Images := StandardButtons;
   OneSpeedButton.Down := false;
-  //StandardButtons.GetBitmap(1, OneSpeedButton.Glyph);
-  //OneSpeedButton.Glyph.Modified := true;
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);
 begin
-  TwoSpeedButton.Down := true;
-  PressedButtons.GetBitmap(2, TwoSpeedButton.Glyph);
-  TwoSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('2');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.TwoSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  TwoSpeedButton.Down := true;
+  Nr2ButtonClick(Sender);
+  TwoSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TwoSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  TwoSpeedButton.Images := StandardButtons;
   TwoSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr3ButtonClick(Sender: TObject);
 begin
-  ThreeSpeedButton.Down := true;
-  PressedButtons.GetBitmap(3, ThreeSpeedButton.Glyph);
-  ThreeSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('3');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.ThreeSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  ThreeSpeedButton.Down := true;
+  Nr3ButtonClick(Sender);
+  ThreeSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.ThreeSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  ThreeSpeedButton.Images := StandardButtons;
   ThreeSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer0StartTimer(Sender: TObject);
+begin
+  ZeroSpeedButton.Down := true;
+  ZeroSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer0Timer(Sender: TObject);
+begin
+  Timer0.Enabled := false;
+  ZeroSpeedButton.Images := StandardButtons;
+  ZeroSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer1StartTimer(Sender: TObject);
+begin
+  OneSpeedButton.Down := true;
+  OneSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer1Timer(Sender: TObject);
+begin
+  Timer1.Enabled := false;
+  OneSpeedButton.Images := StandardButtons;
+  OneSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer2StartTimer(Sender: TObject);
+begin
+  TwoSpeedButton.Down := true;
+  TwoSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer2Timer(Sender: TObject);
+begin
+  Timer2.Enabled := false;
+  TwoSpeedButton.Images := StandardButtons;
+  TwoSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer3StartTimer(Sender: TObject);
+begin
+  ThreeSpeedButton.Down := true;
+  ThreeSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer3Timer(Sender: TObject);
+begin
+  Timer3.Enabled := false;
+  ThreeSpeedButton.Images := StandardButtons;
+  ThreeSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer4StartTimer(Sender: TObject);
+begin
+  FourSpeedButton.Down := true;
+  FourSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer4Timer(Sender: TObject);
+begin
+  Timer4.Enabled := false;
+  FourSpeedButton.Images := StandardButtons;
+  FourSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer5StartTimer(Sender: TObject);
+begin
+  FiveSpeedButton.Down := true;
+  FiveSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer5Timer(Sender: TObject);
+begin
+  Timer5.Enabled := false;
+  FiveSpeedButton.Images := StandardButtons;
+  FiveSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer6StartTimer(Sender: TObject);
+begin
+  SixSpeedButton.Down := true;
+  SixSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer6Timer(Sender: TObject);
+begin
+  Timer6.Enabled := false;
+  SixSpeedButton.Images := StandardButtons;
+  SixSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer7StartTimer(Sender: TObject);
+begin
+  SevenSpeedButton.Down := true;
+  SevenSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer7Timer(Sender: TObject);
+begin
+  Timer7.Enabled := false;
+  SevenSpeedButton.Images := StandardButtons;
+  SevenSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer8StartTimer(Sender: TObject);
+begin
+  EightSpeedButton.Down := true;
+  EightSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer8Timer(Sender: TObject);
+begin
+  Timer8.Enabled := false;
+  EightSpeedButton.Images := StandardButtons;
+  EightSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Timer9StartTimer(Sender: TObject);
+begin
+  NineSpeedButton.Down := true;
+  NineSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Timer9Timer(Sender: TObject);
+begin
+  Timer9.Enabled := false;
+  NineSpeedButton.Images := StandardButtons;
+  NineSpeedButton.Down := false;
+end;
+
+procedure TMainForm.TimerClearStartTimer(Sender: TObject);
+begin
+  CSpeedButton.Down := true;
+  CSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerClearTimer(Sender: TObject);
+begin
+  TimerClear.Enabled := false;
+  CSpeedButton.Images := StandardButtons;
+  CSpeedButton.Down := false;
+end;
+
+procedure TMainForm.TimerDivStartTimer(Sender: TObject);
+begin
+  DivSpeedButton.Down := true;
+  DivSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerDivTimer(Sender: TObject);
+begin
+  TimerDiv.Enabled := false;
+  DivSpeedButton.Images := StandardButtons;
+  DivSpeedButton.Down := false;
+end;
+
+procedure TMainForm.TimerDotStartTimer(Sender: TObject);
+begin
+  DotSpeedButton.Down := true;
+  DotSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerDotTimer(Sender: TObject);
+begin
+  TimerDot.Enabled := false;
+  DotSpeedButton.Images := StandardButtons;
+  DotSpeedButton.Down := false;
+end;
+
+procedure TMainForm.TimerEnterStartTimer(Sender: TObject);
+begin
+  EnterSpeedButton.Down := true;
+  EnterSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerEnterTimer(Sender: TObject);
+begin
+  TimerEnter.Enabled := false;
+  EnterSpeedButton.Images := StandardButtons;
+  EnterSpeedButton.Down := false;
+end;
+
+procedure TMainForm.TimerMinusStartTimer(Sender: TObject);
+begin
+  MinusSpeedButton.Down := true;
+  MinusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerMinusTimer(Sender: TObject);
+begin
+  TimerMinus.Enabled := false;
+  MinusSpeedButton.Images := StandardButtons;
+  MinusSpeedButton.Down := false;
+end;
+
+procedure TMainForm.TimerPlusStartTimer(Sender: TObject);
+begin
+  PlusSpeedButton.Down := true;
+  PlusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerPlusTimer(Sender: TObject);
+begin
+  TimerPlus.Enabled := false;
+  PlusSpeedButton.Images := StandardButtons;
+  PlusSpeedButton.Down := false;
+end;
+
+procedure TMainForm.TimerTimesStartTimer(Sender: TObject);
+begin
+  TimesSpeedButton.Down := true;
+  TimesSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerTimesTimer(Sender: TObject);
+begin
+  TimerTimes.Enabled := false;
+  TimesSpeedButton.Images := StandardButtons;
+  TimesSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr4ButtonClick(Sender: TObject);
 begin
-  FourSpeedButton.Down := true;
-  PressedButtons.GetBitmap(4, FourSpeedButton.Glyph);
-  FourSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('4');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.FourSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  FourSpeedButton.Down := true;
+  Nr4ButtonClick(Sender);
+  FourSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.FourSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  FourSpeedButton.Images := StandardButtons;
   FourSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr5ButtonClick(Sender: TObject);
 begin
-  FiveSpeedButton.Down := true;
-  PressedButtons.GetBitmap(5, FiveSpeedButton.Glyph);
-  FiveSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('5');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.FiveSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  FiveSpeedButton.Down := true;
+  Nr5ButtonClick(Sender);
+  FiveSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.FiveSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  FiveSpeedButton.Images := StandardButtons;
   FiveSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr6ButtonClick(Sender: TObject);
 begin
-  SixSpeedButton.Down := true;
-  PressedButtons.GetBitmap(6, SixSpeedButton.Glyph);
-  SixSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('6');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.SixSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  SixSpeedButton.Down := true;
+  Nr6ButtonClick(Sender);
+  SixSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.SixSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  SixSpeedButton.Images := StandardButtons;
   SixSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr7ButtonClick(Sender: TObject);
 begin
-  SevenSpeedButton.Down := true;
-  PressedButtons.GetBitmap(7, SevenSpeedButton.Glyph);
-  SevenSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('7');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.SevenSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  SevenSpeedButton.Down := true;
+  Nr7ButtonClick(Sender);
+  SevenSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.SevenSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  SevenSpeedButton.Images := StandardButtons;
   SevenSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr8ButtonClick(Sender: TObject);
 begin
-  EightSpeedButton.Down := true;
-  PressedButtons.GetBitmap(8, EightSpeedButton.Glyph);
-  EightSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('8');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.EightSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  EightSpeedButton.Down := true;
+  Nr8ButtonClick(Sender);
+  EightSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.EightSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  EightSpeedButton.Images := StandardButtons;
   EightSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr9ButtonClick(Sender: TObject);
 begin
-  NineSpeedButton.Down := true;
-  PressedButtons.GetBitmap(9, NineSpeedButton.Glyph);
-  NineSpeedButton.Glyph.Modified := true;
   Frame.AppendChar('9');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.NineSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  NineSpeedButton.Down := true;
+  Nr9ButtonClick(Sender);
+  NineSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.NineSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  NineSpeedButton.Images := StandardButtons;
   NineSpeedButton.Down := false;
 end;
 
@@ -522,48 +1042,139 @@ procedure TMainForm.DotButtonClick(Sender: TObject);
 begin
   Frame.AppendChar('.');
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.DotSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  DotSpeedButton.Down := true;
+  DotButtonClick(Sender);
+  DotSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.DotSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  DotSpeedButton.Images := StandardButtons;
+  DotSpeedButton.Down := false;
 end;
 
 procedure TMainForm.EnterButtonClick(Sender: TObject);
 begin
+  TimerEnter.Enabled := true;
   Frame.HandleEnter;
   RedrawDisplay(Sender);
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.EnterSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  EnterSpeedButton.Down := true;
+  EnterButtonClick(Sender);
+  EnterSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.EnterSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  EnterSpeedButton.Images := StandardButtons;
+  EnterSpeedButton.Down := false;
 end;
 
 procedure TMainForm.InvButtonClick(Sender: TObject);
 begin
   Frame.HandleInv;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.CButtonClick(Sender: TObject);
 begin
   Frame.HandleClear;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+end;
+
+procedure TMainForm.CSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  CSpeedButton.Down := true;
+  CButtonClick(Sender);
+  CSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.CSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  CSpeedButton.Images := StandardButtons;
+  CSpeedButton.Down := false;
 end;
 
 procedure TMainForm.PlusButtonClick(Sender: TObject);
 begin
   Frame.HandleAdd;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.PlusSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  PlusSpeedButton.Down := true;
+  PlusButtonClick(Sender);
+  PlusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PlusSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  PlusSpeedButton.Images := StandardButtons;
+  PlusSpeedButton.Down := false;
 end;
 
 procedure TMainForm.MinusButtonClick(Sender: TObject);
 begin
   Frame.HandleSub;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.MinusSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  MinusSpeedButton.Down := true;
+  MinusButtonClick(Sender);
+  MinusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.MinusSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  MinusSpeedButton.Images := StandardButtons;
+  MinusSpeedButton.Down := false;
 end;
 
 procedure TMainForm.TimesButtonClick(Sender: TObject);
 begin
   Frame.HandleTimes;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.TimesSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  TimesSpeedButton.Down := true;
+  TimesButtonClick(Sender);
+  TimesSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimesSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  TimesSpeedButton.Images := StandardButtons;
+  TimesSpeedButton.Down := false;
 end;
 
 procedure TMainForm.XRegisterPaintBoxPaint(Sender: TObject);
@@ -604,87 +1215,137 @@ end;
 
 procedure TMainForm.RedrawDisplay(Sender: TObject);
 begin
+  if IsInfinite(engine.Stack.x) then
+    ErrorState := true
+  else
+    ErrorState := false;
   XRegisterPaintBox.Invalidate;
   YRegisterPaintBox.Invalidate;
   ZRegisterPaintBox.Invalidate;
   TRegisterPaintBox.Invalidate;
+  IndicateErrorState(Sender);
 end;
 
 procedure TMainForm.DivButtonClick(Sender: TObject);
 begin
   Frame.HandleDiv;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.DivSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  DivSpeedButton.Down := true;
+  DivButtonClick(Sender);
+  DivSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.DivSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  DivSpeedButton.Images := StandardButtons;
+  DivSpeedButton.Down := false;
 end;
 
 procedure TMainForm.PlusMinusButtonClick(Sender: TObject);
 begin
   Frame.HandleCHS;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.PlusMinusSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  PlusMinusSpeedButton.Down := true;
+  PlusMinusButtonClick(Sender);
+  PlusMinusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PlusMinusSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  PlusMinusSpeedButton.Images := StandardButtons;
+  PlusMinusSpeedButton.Down := false;
 end;
 
 procedure TMainForm.PwrButtonClick(Sender: TObject);
 begin
   Frame.HandlePWR;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.RDButtonClick(Sender: TObject);
 begin
   Frame.HandleRollDown;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
+end;
+
+procedure TMainForm.RollDownSpeedButtonMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  RollDownSpeedButton.Down := true;
+  RDButtonClick(Sender);
+  RollDownSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.RollDownSpeedButtonMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  RollDownSpeedButton.Images := StandardButtons;
+  RollDownSpeedButton.Down := false;
 end;
 
 procedure TMainForm.SinButtonClick(Sender: TObject);
 begin
   Frame.HandleSin;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.ASinButtonClick(Sender: TObject);
 begin
   Frame.HandleASin;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.CosButtonClick(Sender: TObject);
 begin
   Frame.HandleCos;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.ACosButtonClick(Sender: TObject);
 begin
   Frame.HandleACos;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.TanButtonClick(Sender: TObject);
 begin
   Frame.HandleTan;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.ATanButtonClick(Sender: TObject);
 begin
   Frame.HandleATan;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.SqrtButtonClick(Sender: TObject);
 begin
   Frame.HandleSqrt;
   RedrawDisplay(Sender);
-  ActiveControl := EnterButton;
+  ActiveControl := VirtualEnterButton;
 end;
 
 end.

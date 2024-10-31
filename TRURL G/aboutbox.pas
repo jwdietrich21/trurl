@@ -6,9 +6,9 @@ unit AboutBox;
 
 { About Box }
 
-{ Version 1.0.1 (Apollo) }
+{ Version 1.2.0 (Columbia) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2019 }
+{ (c) Johannes W. Dietrich, 2003 - 2024 }
 
 { Source code released under the BSD License }
 
