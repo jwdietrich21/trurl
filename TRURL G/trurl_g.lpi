@@ -20,7 +20,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="2"/>
-      <BuildNr Value="112"/>
+      <BuildNr Value="114"/>
       <StringTable Comments="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" CompanyName="formatio reticularis" FileDescription="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" InternalName="Columbia" LegalCopyright="2003-2024 J. W. Dietrich" ProductName="Trurl G" ProductVersion="1.2.0"/>
     </VersionInfo>
     <MacroValues Count="1">
