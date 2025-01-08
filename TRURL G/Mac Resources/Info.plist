@@ -5,7 +5,7 @@ TRURL G
 
 Version 1.2.0
 
-(c) J. W. Dietrich, 2003 - 2024
+(c) J. W. Dietrich, 2003 - 2025
 
 Source code released under the BSD License
 See http://trurl.sourceforge.net for details
@@ -31,9 +31,9 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleShortVersionString</key>
   <string>1.2.0</string>
   <key>CFBundleGetInfoString</key>
-  <string>1.2.0, ©2003-2024 J. W. Dietrich</string>
+  <string>1.2.0, ©2003-2025 J. W. Dietrich</string>
   <key>NSHumanReadableCopyright</key>
-  <string>1.2.0, ©2003-2024 J. W. Dietrich</string>
+  <string>1.2.0, ©2003-2025 J. W. Dietrich</string>
   <key>CFBundleVersion</key>
   <string>1.2.0</string>
   <key>LSApplicationCategoryType</key>

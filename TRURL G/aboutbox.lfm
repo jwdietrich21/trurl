@@ -23,7 +23,7 @@ object TrurlAboutBox: TTrurlAboutBox
     Height = 16
     Top = 71
     Width = 168
-    Caption = '© 2003-2024 J. W. Dietrich'
+    Caption = '© 2003-2025 J. W. Dietrich'
     ParentColor = False
   end
   object Image1: TImage

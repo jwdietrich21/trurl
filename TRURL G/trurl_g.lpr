@@ -8,7 +8,7 @@ program trurl_g;
 
 { Version 1.2.0 (Columbia) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2024 }
+{ (c) Johannes W. Dietrich, 2003 - 2025 }
 
 { Source code released under the BSD License }
 
@@ -37,6 +37,7 @@ begin
     {$DEFINE NewLaz}
   {$ENDIF}
   RequireDerivedFormResource:=True;
+  Application.Scaled := True;
   Application.Title := 'Trurl G';
   {$IFDEF NewLaz}
     Application.Scaled := True;

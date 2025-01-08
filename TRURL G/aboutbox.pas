@@ -8,7 +8,7 @@ unit AboutBox;
 
 { Version 1.2.0 (Columbia) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2024 }
+{ (c) Johannes W. Dietrich, 2003 - 2025 }
 
 { Source code released under the BSD License }
 

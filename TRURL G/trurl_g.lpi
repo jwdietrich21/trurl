@@ -8,10 +8,13 @@
       </Flags>
       <SessionStorage Value="InProjectDir"/>
       <Title Value="Trurl G"/>
+      <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <XPManifest>
         <DpiAware Value="True"/>
+        <TextName Value="net.sf.trurl.g"/>
+        <TextDesc Value="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
@@ -20,8 +23,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="2"/>
-      <BuildNr Value="114"/>
-      <StringTable Comments="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" CompanyName="formatio reticularis" FileDescription="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" InternalName="Columbia" LegalCopyright="2003-2024 J. W. Dietrich" ProductName="Trurl G" ProductVersion="1.2.0"/>
+      <BuildNr Value="116"/>
+      <StringTable Comments="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" CompanyName="formatio reticularis" FileDescription="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" InternalName="Columbia" LegalCopyright="2003-2025 J. W. Dietrich" ProductName="Trurl G" ProductVersion="1.2.0"/>
     </VersionInfo>
     <MacroValues Count="1">
       <Macro2 Name="LCLWidgetType" Value="carbon"/>
@@ -49,7 +52,10 @@
           </CodeGeneration>
           <Linking>
             <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
               <DebugInfoType Value="dsDwarf2Set"/>
+              <StripSymbols Value="True"/>
             </Debugging>
             <LinkSmart Value="True"/>
           </Linking>
