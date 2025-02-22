@@ -2,18 +2,18 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Cocoa">
+    <BuildModes Active="Cocoa Apple Silicon">
       <SessionMatrixOptions Count="1">
         <Item1 ID="939324851222" Modes="Windows 32,Windows 64" Type="IDEMacro" MacroName="LCLWidgetType" Value="win32"/>
       </SessionMatrixOptions>
     </BuildModes>
-    <Units Count="28">
+    <Units Count="29">
       <Unit0>
         <Filename Value="trurl_g.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
         <CursorPos X="21" Y="18"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -27,7 +27,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="461"/>
         <CursorPos X="10"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -36,7 +36,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -48,7 +48,7 @@
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="4"/>
         <CursorPos X="15"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -57,7 +57,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -65,7 +65,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="226"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -74,7 +74,7 @@
         <UnitName Value="segmitatorWidgets"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -228,6 +228,14 @@
         <CursorPos Y="1426"/>
         <UsageCount Value="10"/>
       </Unit27>
+      <Unit28>
+        <Filename Value="/lazarus/lcl/interfaces/cocoa/cocoa_extra.pas"/>
+        <UnitName Value="Cocoa_Extra"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6"/>
+        <CursorPos X="2" Y="18"/>
+        <UsageCount Value="10"/>
+      </Unit28>
     </Units>
     <JumpHistory Count="29" HistoryIndex="28">
       <Position1>

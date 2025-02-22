@@ -1,4 +1,4 @@
-Copyright (c) 2003-2024, PD Dr. med. Johannes W. Dietrich, M.D.
+Copyright (c) 2003-2025, PD Dr. med. Johannes W. Dietrich, M.D.
 
 All rights reserved.
 
