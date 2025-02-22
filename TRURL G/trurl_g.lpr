@@ -37,8 +37,8 @@ begin
     {$DEFINE NewLaz}
   {$ENDIF}
   RequireDerivedFormResource:=True;
-  Application.Scaled := True;
-  Application.Title := 'Trurl G';
+  Application.Scaled:=True;
+  Application.Title:='Trurl G';
   {$IFDEF NewLaz}
     Application.Scaled := True;
   {$ENDIF}

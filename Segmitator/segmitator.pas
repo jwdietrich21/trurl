@@ -6,9 +6,9 @@ unit segmitator;
 
 { Unit implementing seven-segment displays as ASCII art }
 
-{ Version 1.0 (Cook) }
+{ Version 1.0.1 (Cook) }
 
-{ (c) Johannes W. Dietrich, 1990 - 2019 }
+{ (c) Johannes W. Dietrich, 1990 - 2025 }
 
 { Source code released under the BSD License }
 
@@ -171,6 +171,9 @@ var
 begin
   theFormat := DefaultFormatSettings;
   theFormat.DecimalSeparator := kDot;
+  line0 := '';
+  line1 := '';
+  line2 := '';
   if isNaN(n) or IsInfinite(n) then
     begin
       nString := 'EEE';
@@ -179,9 +182,6 @@ begin
   else
   begin
     nString := FloatToStr(n, theFormat);
-    line0 := '';
-    line1 := '';
-    line2 := '';
     i := 1;
     if length(nString) > 1 then
     begin

@@ -6,9 +6,9 @@ program testapp;
 
 { Test application for Segmitator unit }
 
-{ Version 1.0 (Cook) }
+{ Version 1.0.1 (Cook) }
 
-{ (c) Johannes W. Dietrich, 1990 - 2019 }
+{ (c) Johannes W. Dietrich, 1990 - 2025 }
 
 { Source code released under the BSD License }
 

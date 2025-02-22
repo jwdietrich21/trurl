@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Active="Default"/>
     <Units Count="13">
       <Unit0>
@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,7 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -29,14 +29,15 @@
         <Filename Value="segmitator.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos Y="2"/>
+        <TopLine Value="2"/>
+        <CursorPos Y="6"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
           <WindowIndex Value="-1"/>
           <CursorPos X="16" Y="41"/>
         </ExtraEditor1>
-        <UsageCount Value="42"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -52,7 +53,7 @@
           <TopLine Value="245"/>
           <CursorPos X="6" Y="248"/>
         </ExtraEditor1>
-        <UsageCount Value="28"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -121,46 +122,46 @@
         <UsageCount Value="10"/>
       </Unit12>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="69" Column="43" TopLine="63"/>
+        <Caret Line="95" TopLine="86"/>
       </Position1>
       <Position2>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="298" Column="31" TopLine="160"/>
+        <Filename Value="testappgui.pas"/>
+        <Caret Line="97" TopLine="86"/>
       </Position2>
       <Position3>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="92" TopLine="86"/>
+        <Caret Line="72" TopLine="56"/>
       </Position3>
       <Position4>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="95" TopLine="86"/>
+        <Caret Line="73" TopLine="56"/>
       </Position4>
       <Position5>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="97" TopLine="86"/>
+        <Caret Line="75" TopLine="56"/>
       </Position5>
       <Position6>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="72" TopLine="56"/>
+        <Caret Line="76" TopLine="56"/>
       </Position6>
       <Position7>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="73" TopLine="56"/>
+        <Caret Line="77" TopLine="56"/>
       </Position7>
       <Position8>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="75" TopLine="56"/>
+        <Caret Line="92" TopLine="76"/>
       </Position8>
       <Position9>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="76" TopLine="56"/>
+        <Caret Line="95" TopLine="76"/>
       </Position9>
       <Position10>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="77" TopLine="56"/>
+        <Caret Line="97" TopLine="76"/>
       </Position10>
       <Position11>
         <Filename Value="testappgui.pas"/>
@@ -176,83 +177,79 @@
       </Position13>
       <Position14>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="92" TopLine="76"/>
+        <Caret Line="72" TopLine="56"/>
       </Position14>
       <Position15>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="95" TopLine="76"/>
+        <Caret Line="73" TopLine="56"/>
       </Position15>
       <Position16>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="97" TopLine="76"/>
+        <Caret Line="75" TopLine="56"/>
       </Position16>
       <Position17>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="72" TopLine="56"/>
+        <Caret Line="76" TopLine="56"/>
       </Position17>
       <Position18>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="73" TopLine="56"/>
+        <Caret Line="77" TopLine="56"/>
       </Position18>
       <Position19>
-        <Filename Value="testappgui.pas"/>
-        <Caret Line="75" TopLine="56"/>
-      </Position19>
-      <Position20>
-        <Filename Value="testappgui.pas"/>
-        <Caret Line="76" TopLine="56"/>
-      </Position20>
-      <Position21>
-        <Filename Value="testappgui.pas"/>
-        <Caret Line="77" TopLine="56"/>
-      </Position21>
-      <Position22>
         <Filename Value="segmitator.pas"/>
         <Caret Line="172" TopLine="166"/>
+      </Position19>
+      <Position20>
+        <Filename Value="segmitator.pas"/>
+        <Caret Line="173" TopLine="166"/>
+      </Position20>
+      <Position21>
+        <Filename Value="segmitator.pas"/>
+        <Caret Line="174" TopLine="166"/>
+      </Position21>
+      <Position22>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="302" Column="63" TopLine="291"/>
       </Position22>
       <Position23>
         <Filename Value="segmitator.pas"/>
-        <Caret Line="173" TopLine="166"/>
+        <Caret Line="174" Column="10" TopLine="157"/>
       </Position23>
       <Position24>
-        <Filename Value="segmitator.pas"/>
-        <Caret Line="174" TopLine="166"/>
-      </Position24>
-      <Position25>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="302" Column="63" TopLine="291"/>
-      </Position25>
-      <Position26>
-        <Filename Value="segmitator.pas"/>
-        <Caret Line="174" Column="10" TopLine="157"/>
-      </Position26>
-      <Position27>
         <Filename Value="segmitatorwidgets.pas"/>
         <Caret Line="300" Column="61" TopLine="291"/>
+      </Position24>
+      <Position25>
+        <Filename Value="testappgui.pas"/>
+        <Caret Line="92" TopLine="76"/>
+      </Position25>
+      <Position26>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="300" Column="61" TopLine="291"/>
+      </Position26>
+      <Position27>
+        <Filename Value="segmitator.pas"/>
+        <Caret Line="172" Column="37" TopLine="158"/>
       </Position27>
       <Position28>
         <Filename Value="testappgui.pas"/>
-        <Caret Line="92" TopLine="76"/>
+        <Caret Line="2" Column="4"/>
       </Position28>
       <Position29>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="300" Column="61" TopLine="291"/>
+        <Caret Line="61" Column="41" TopLine="61"/>
       </Position29>
-      <Position30>
-        <Filename Value="segmitator.pas"/>
-        <Caret Line="172" Column="37" TopLine="158"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
+      <Modes ActiveMode="default"/>
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <Watches Count="1">
-      <Item1>
+    <Watches>
+      <Item>
         <Expression Value="segments[1]"/>
-      </Item1>
+      </Item>
     </Watches>
   </Debugging>
 </CONFIG>
