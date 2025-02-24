@@ -23,8 +23,9 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="2"/>
-      <BuildNr Value="119"/>
-      <StringTable Comments="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" CompanyName="formatio reticularis" FileDescription="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" InternalName="Columbia" LegalCopyright="2003-2025 J. W. Dietrich" ProductName="Trurl G" ProductVersion="1.2.0"/>
+      <RevisionNr Value="1"/>
+      <BuildNr Value="121"/>
+      <StringTable Comments="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" CompanyName="formatio reticularis" FileDescription="Trurl G, an RPN calculator celebrating the Apollo Guidance Computer" InternalName="Columbia" LegalCopyright="2003-2025 J. W. Dietrich" ProductName="Trurl G" ProductVersion="1.2.1"/>
     </VersionInfo>
     <MacroValues Count="1">
       <Macro2 Name="LCLWidgetType" Value="carbon"/>
@@ -146,8 +147,20 @@
             <IncludeFiles Value="$(ProjOutDir)"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <IncludeAssertionCode Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
           <CodeGeneration>
             <SmartLinkUnit Value="True"/>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <VerifyObjMethodCallValidity Value="True"/>
             <TargetCPU Value="aarch64"/>
             <Optimizations>
               <OptimizationLevel Value="3"/>
@@ -155,10 +168,7 @@
           </CodeGeneration>
           <Linking>
             <Debugging>
-              <GenerateDebugInfo Value="False"/>
-              <RunWithoutDebug Value="True"/>
               <DebugInfoType Value="dsDwarf2Set"/>
-              <StripSymbols Value="True"/>
             </Debugging>
             <LinkSmart Value="True"/>
           </Linking>

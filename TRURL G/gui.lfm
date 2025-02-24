@@ -529,7 +529,7 @@ object MainForm: TMainForm
   OnPaint = FormPaint
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '3.7.0.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Shape3: TShape
     Left = 22

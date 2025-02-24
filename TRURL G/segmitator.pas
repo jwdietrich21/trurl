@@ -6,7 +6,7 @@ unit segmitator;
 
 { Unit implementing seven-segment displays as ASCII art }
 
-{ Version 1.0.1 (Cook) }
+{ Version 1.1.0 (Dorado) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 
@@ -48,124 +48,125 @@ type
 
 const
 
-  kSegments: array[0..20] of byte =
-    (
-     %01111110, // 0
-     %00110000, // 1
-     %01101101, // 2
-     %01111001, // 3
-     %00110011, // 4
-     %01011011, // 5
-     %01011111, // 6
-     %01110000, // 7
-     %01111111, // 8
-     %01111011, // 9
-     %11111110, // 0.
-     %10110000, // 1.
-     %11101101, // 2.
-     %11111001, // 3.
-     %10110011, // 4.
-     %11011011, // 5.
-     %11011111, // 6.
-     %11110000, // 7.
-     %11111111, // 8.
-     %11111011, // 9.
-     %00000001  // -
-     );
+  kSegments: array[0..22] of byte =
+    (%01111110, // 0
+    %00110000, // 1
+    %01101101, // 2
+    %01111001, // 3
+    %00110011, // 4
+    %01011011, // 5
+    %01011111, // 6
+    %01110000, // 7
+    %01111111, // 8
+    %01111011, // 9
+    %11111110, // 0.
+    %10110000, // 1.
+    %11101101, // 2.
+    %11111001, // 3.
+    %10110011, // 4.
+    %11011011, // 5.
+    %11011111, // 6.
+    %11110000, // 7.
+    %11111111, // 8.
+    %11111011, // 9.
+    %00000001, // -
+    %01001111, // E
+    %00000101  // r
+    );
 
   kDot = '.';
 
-function AsciiDigits(n: real): TASCIIDisplay;
+function AsciiDigits(n: real; errorState: boolean): TASCIIDisplay;
 
 implementation
 
-function AsciiA(i: Byte): char;
-{ Create string representation for 'A' segment }
+function AsciiA(i: byte): char;
+  { Create string representation for 'A' segment }
 begin
   if odd(kSegments[i] shr 6) then
-    result := '_'
+    Result := '_'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiB(i: Byte): char;
-{ Create string representation for 'B' segment }
+function AsciiB(i: byte): char;
+  { Create string representation for 'B' segment }
 begin
   if odd(kSegments[i] shr 5) then
-    result := '|'
+    Result := '|'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiC(i: Byte): char;
-{ Create string representation for 'C' segment }
+function AsciiC(i: byte): char;
+  { Create string representation for 'C' segment }
 begin
   if odd(kSegments[i] shr 4) then
-    result := '|'
+    Result := '|'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiD(i: Byte): char;
-{ Create string representation for 'D' segment }
+function AsciiD(i: byte): char;
+  { Create string representation for 'D' segment }
 begin
   if odd(kSegments[i] shr 3) then
-    result := '_'
+    Result := '_'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiE(i: Byte): char;
-{ Create string representation for 'E' segment }
+function AsciiE(i: byte): char;
+  { Create string representation for 'E' segment }
 begin
   if odd(kSegments[i] shr 2) then
-    result := '|'
+    Result := '|'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiF(i: Byte): char;
-{ Create string representation for 'F' segment }
+function AsciiF(i: byte): char;
+  { Create string representation for 'F' segment }
 begin
   if odd(kSegments[i] shr 1) then
-    result := '|'
+    Result := '|'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiG(i: Byte): char;
-{ Create string representation for 'G' segment }
+function AsciiG(i: byte): char;
+  { Create string representation for 'G' segment }
 begin
   if odd(kSegments[i]) then
-    result := '_'
+    Result := '_'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiDot(i: Byte): char;
-{ Create string representation for decimal point }
+function AsciiDot(i: byte): char;
+  { Create string representation for decimal point }
 begin
   if odd(kSegments[i] shr 7) then
-    result := '.'
+    Result := '.'
   else
-    result := ' ';
+    Result := ' ';
 end;
 
-function AsciiLine(i, j: Byte): tASCIILine;
-{ Returns string representation of line i as part of the whole display }
+function AsciiLine(i, j: byte): tASCIILine;
+  { Returns string representation of line i as part of the whole display }
 begin
   case i of
-  0: result := ' ' + AsciiA(j) + ' ' + ' ';
-  1: result := AsciiF(j) + AsciiG(j) + AsciiB(j) + ' ';
-  2: result := AsciiE(j) + AsciiD(j) + AsciiC(j) + AsciiDot(j);
+    0: Result := ' ' + AsciiA(j) + ' ' + ' ';
+    1: Result := AsciiF(j) + AsciiG(j) + AsciiB(j) + ' ';
+    2: Result := AsciiE(j) + AsciiD(j) + AsciiC(j) + AsciiDot(j);
   end;
 end;
 
-function AsciiDigits(n: real): TASCIIDisplay;
-{ Returns array of lines as ASCII representation of the segment display }
+function AsciiDigits(n: real; errorState: boolean): TASCIIDisplay;
+  { Returns array of lines as ASCII representation of the segment display }
 var
   i, digit: integer;
-  nString: AnsiString;
+  nString: ansistring;
   theFormat: TFormatSettings;
   line0, line1, line2: string;
 begin
@@ -175,41 +176,75 @@ begin
   line1 := '';
   line2 := '';
   if isNaN(n) or IsInfinite(n) then
-    begin
-      nString := 'EEE';
-      digit := 20;
-    end
+  begin
+    // 'EEE'
+    digit := 21;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 21;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 21;
+  end
+  else
+  if errorState then
+  begin
+    // 'Err'
+    digit := 21;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 22;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 22;
+  end
   else
   begin
     nString := FloatToStr(n, theFormat);
     i := 1;
     if length(nString) > 1 then
     begin
-      if nString[i] = '-' then  // negative number
-      begin
-        digit := 20;
-        line0 := line0 + AsciiLine(0, digit);
-        line1 := line1 + AsciiLine(1, digit);
-        line2 := line2 + AsciiLine(2, digit);
-      end;
       for i := 2 to length(nString) do
       begin
-        if nString[i] <> kDot then  // no decimal dot
+        if nString[i - 1] = '-' then  // negative number or exponent
+        begin
+          digit := 20;
+          line0 := line0 + AsciiLine(0, digit);
+          line1 := line1 + AsciiLine(1, digit);
+          line2 := line2 + AsciiLine(2, digit);
+        end
+        else if LowerCase(nString[i - 1]) = 'e' then  // exponent
+        begin
+          digit := 21;
+          line0 := line0 + AsciiLine(0, digit);
+          line1 := line1 + AsciiLine(1, digit);
+          line2 := line2 + AsciiLine(2, digit);
+        end
+        else
+        begin
+          if nString[i] <> kDot then  // no decimal dot
           begin
             if TryStrToInt(nString[i - 1], digit) then
-              begin
-                line0 := line0 + AsciiLine(0, digit);
-                line1 := line1 + AsciiLine(1, digit);
-                line2 := line2 + AsciiLine(2, digit);
-              end;
+            begin
+              line0 := line0 + AsciiLine(0, digit);
+              line1 := line1 + AsciiLine(1, digit);
+              line2 := line2 + AsciiLine(2, digit);
+            end;
           end
-        else
+          else
           begin  // following decimal dot
-            digit := StrToInt(nString[i - 1]);
-            line0 := line0 + AsciiLine(0, digit + 10);
-            line1 := line1 + AsciiLine(1, digit + 10);
-            line2 := line2 + AsciiLine(2, digit + 10);
+            if TryStrToInt(nString[i - 1], digit) then
+            begin
+              line0 := line0 + AsciiLine(0, digit + 10);
+              line1 := line1 + AsciiLine(1, digit + 10);
+              line2 := line2 + AsciiLine(2, digit + 10);
+            end;
           end;
+        end;
       end;
     end;
     digit := StrToInt(nString[i]);
@@ -217,10 +252,9 @@ begin
   line0 := line0 + AsciiLine(0, digit);
   line1 := line1 + AsciiLine(1, digit);
   line2 := line2 + AsciiLine(2, digit);
-  result[0] := line0;
-  result[1] := line1;
-  result[2] := line2;
+  Result[0] := line0;
+  Result[1] := line1;
+  Result[2] := line2;
 end;
 
 end.
-

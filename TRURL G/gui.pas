@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.2.0 (Columbia) }
+{ Version 1.2.1 (Columbia) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 

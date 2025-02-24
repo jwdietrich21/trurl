@@ -9,7 +9,7 @@ object TrurlAboutBox: TTrurlAboutBox
   ClientWidth = 448
   OnCreate = FormCreate
   Position = poOwnerFormCenter
-  LCLVersion = '3.7.0.0'
+  LCLVersion = '3.8.0.0'
   object AboutLabel1: TLabel
     Left = 184
     Height = 16
