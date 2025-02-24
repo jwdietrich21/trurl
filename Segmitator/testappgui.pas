@@ -6,7 +6,7 @@ unit testappgui;
 
 { Test application for Segmitator unit }
 
-{ Version 1.0.1 (Cook) }
+{ Version 1.1.0 (Dorado) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 
@@ -53,6 +53,7 @@ type
   private
     Display: TDisplay;
   public
+    error: boolean;
     courierpos: integer;
     theNumber: real;
     procedure DrawTestPaintBox(Sender: TObject);
@@ -77,7 +78,7 @@ begin
 
   TestASCIIMemo.Clear;
   TestASCIIMemo.Append(stringToTest);
-  DisplayStrings := ASCIIDigits(theNumber);
+  DisplayStrings := ASCIIDigits(theNumber, error);
   TestASCIIMemo.Append(DisplayStrings[0]);
   TestASCIIMemo.Append(DisplayStrings[1]);
   TestASCIIMemo.Append(DisplayStrings[2]);
@@ -92,10 +93,17 @@ end;
 
 procedure TTestAppMainForm.TestValueRadioGroupClick(Sender: TObject);
 begin
+  error := false;
   case TestValueRadioGroup.ItemIndex of
     0: TestFloatSpinEdit.Value := math.Infinity;
     1: TestFloatSpinEdit.Value := math.NegInfinity;
     2: TestFloatSpinEdit.Value := math.NaN;
+    3:
+    begin
+      error := true;
+      TestFloatSpinEdit.Value := math.NaN;
+    end;
+    4: error := false;
   end;
   TestFloatSpinEditChange(Sender);
 end;
@@ -109,6 +117,7 @@ begin
     Display.Style := [fsItalic]
   else
     Display.Style := [];
+  Display.errorState := error;
   Display.n := theNumber;
 end;
 
@@ -134,6 +143,7 @@ begin
   Display.Style := [];
   Display.offsetX := 9;
   Display.offsetY := 9;
+  TestValueRadioGroup.ItemIndex := 4;
 end;
 
 procedure TTestAppMainForm.FormDestroy(Sender: TObject);

@@ -6,7 +6,7 @@ program testapp;
 
 { Test application for Segmitator unit }
 
-{ Version 1.0.1 (Cook) }
+{ Version 1.1.0 (Dorado) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 

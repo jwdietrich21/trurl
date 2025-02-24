@@ -87,14 +87,16 @@ object TestAppMainForm: TTestAppMainForm
     ChildSizing.ShrinkHorizontal = crsScaleChilds
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
-    ChildSizing.ControlsPerLine = 3
+    ChildSizing.ControlsPerLine = 5
     ClientHeight = 14
     ClientWidth = 455
-    Columns = 3
+    Columns = 5
     Items.Strings = (
       '+Infinity'
       '-Infinity'
       'NaN'
+      'Error'
+      'off'
     )
     OnClick = TestValueRadioGroupClick
     TabOrder = 4

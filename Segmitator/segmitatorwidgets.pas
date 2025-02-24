@@ -6,7 +6,7 @@ unit segmitatorWidgets;
 
 { Unit implementing seven-segment displays in graphic representation }
 
-{ Version 1.0.1 (Cook) }
+{ Version 1.1.0 (Dorado) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 
@@ -40,7 +40,7 @@ E |___| C  .
 interface
 
 uses
-  Classes, SysUtils, Graphics, segmitator, math;
+  Classes, SysUtils, Graphics, segmitator, Math;
 
 const
   xHr: array[0..5] of integer = (0, 1, 8, 9, 8, 1);
@@ -54,44 +54,46 @@ const
 
 type
 
-{ TDisplay }
+  { TDisplay }
 
-TDisplay = class
-private
-  pointsA, pointsB, pointsC, pointsD, pointsE, pointsF, pointsG: array[0..5] of TPoint;
-  pointsH: array[0..1] of TPoint;
-  xH, yH, xV, yV: array[0..5] of integer;
-  fStyle: TFontStyles;
-  lastXPos: integer;
-  fn: real;
-  procedure DrawA(i: Byte);
-  procedure DrawB(i: Byte);
-  procedure DrawC(i: Byte);
-  procedure DrawD(i: Byte);
-  procedure DrawE(i: Byte);
-  procedure DrawF(i: Byte);
-  procedure DrawG(i: Byte);
-  procedure DrawDot(i: Byte);
-  procedure DrawDigit(i: Byte);
-  procedure DrawDigits(n: real);
-  procedure Error(msg: String);
-  procedure SetStyle(theStyle: TFontStyles);
-public
-  Canvas: TCanvas;
-  Color: TColor;
-  scale: integer;
-  offsetX, offsetY: integer;
-  constructor create;
-  destructor destroy; override;
-  property Style: TFontStyles read fStyle write SetStyle;
-  property n: real read fn write DrawDigits;
-end;
+  TDisplay = class
+  private
+    pointsA, pointsB, pointsC, pointsD, pointsE, pointsF, pointsG: array[0..5] of TPoint;
+    pointsH: array[0..1] of TPoint;
+    xH, yH, xV, yV: array[0..5] of integer;
+    fStyle: TFontStyles;
+    lastXPos: integer;
+    fn: real;
+    procedure DrawA(i: byte);
+    procedure DrawB(i: byte);
+    procedure DrawC(i: byte);
+    procedure DrawD(i: byte);
+    procedure DrawE(i: byte);
+    procedure DrawF(i: byte);
+    procedure DrawG(i: byte);
+    procedure DrawDot(i: byte);
+    procedure DrawDigit(i: byte);
+    procedure DrawDigit(c: char);
+    procedure DrawDigits(n: real);
+    procedure Error(msg: string);
+    procedure SetStyle(theStyle: TFontStyles);
+  public
+    Canvas: TCanvas;
+    Color: TColor;
+    scale: integer;
+    offsetX, offsetY: integer;
+    errorState: boolean;
+    constructor Create;
+    destructor Destroy; override;
+    property Style: TFontStyles read fStyle write SetStyle;
+    property n: real read fn write DrawDigits;
+  end;
 
 implementation
 
 { TDisplay }
 
-procedure TDisplay.DrawA(i: Byte);
+procedure TDisplay.DrawA(i: byte);
 { Draw 'A' segment }
 var
   j, posX, posY, localOffset: integer;
@@ -101,18 +103,19 @@ begin
   else
     localOffset := 0;
   if odd(kSegments[i] shr 6) then
+  begin
+    for j := 0 to 5 do
     begin
-      for j := 0 to 5 do begin
-        posX := lastXPos + localOffset + 1 * scale;
-        posY := offsetY;
-        pointsA[j].x := xH[j] * scale + posX;
-        pointsA[j].y := yH[j] * scale + posY;
-      end;
-      Canvas.Polygon(pointsA);
+      posX := lastXPos + localOffset + 1 * scale;
+      posY := offsetY;
+      pointsA[j].x := xH[j] * scale + posX;
+      pointsA[j].y := yH[j] * scale + posY;
     end;
+    Canvas.Polygon(pointsA);
+  end;
 end;
 
-procedure TDisplay.DrawB(i: Byte);
+procedure TDisplay.DrawB(i: byte);
 { Draw 'B' segment }
 var
   j, posX, posY, localOffset: integer;
@@ -122,69 +125,73 @@ begin
   else
     localOffset := 0;
   if odd(kSegments[i] shr 5) then
+  begin
+    for j := 0 to 5 do
     begin
-      for j := 0 to 5 do begin
-        posX := lastXPos + localOffset + 9 * scale;
-        posY := offsetY + 1 * scale;
-        pointsB[j].x := xV[j] * scale + posX;
-        pointsB[j].y := yV[j] * scale + posY;
-      end;
-      Canvas.Polygon(pointsB);
+      posX := lastXPos + localOffset + 9 * scale;
+      posY := offsetY + 1 * scale;
+      pointsB[j].x := xV[j] * scale + posX;
+      pointsB[j].y := yV[j] * scale + posY;
     end;
+    Canvas.Polygon(pointsB);
+  end;
 end;
 
-procedure TDisplay.DrawC(i: Byte);
+procedure TDisplay.DrawC(i: byte);
 { Draw 'C' segment }
 var
   j, posX, posY: integer;
 begin
   if odd(kSegments[i] shr 4) then
+  begin
+    for j := 0 to 5 do
     begin
-      for j := 0 to 5 do begin
-        posX := lastXPos + 9 * scale;
-        posY := offsetY + 10 * scale;
-        pointsC[j].x := xV[j] * scale + posX;
-        pointsC[j].y := yV[j] * scale + posY;
-      end;
-      Canvas.Polygon(pointsC);
+      posX := lastXPos + 9 * scale;
+      posY := offsetY + 10 * scale;
+      pointsC[j].x := xV[j] * scale + posX;
+      pointsC[j].y := yV[j] * scale + posY;
     end;
+    Canvas.Polygon(pointsC);
+  end;
 end;
 
-procedure TDisplay.DrawD(i: Byte);
+procedure TDisplay.DrawD(i: byte);
 { Draw 'D' segment }
 var
   j, posX, posY: integer;
 begin
   if odd(kSegments[i] shr 3) then
+  begin
+    for j := 0 to 5 do
     begin
-      for j := 0 to 5 do begin
-        posX := lastXPos + 1 * scale;
-        posY := offsetY + 18 * scale;
-        pointsD[j].x := xH[j] * scale + posX;
-        pointsD[j].y := yH[j] * scale + posY;
-      end;
-      Canvas.Polygon(pointsD);
+      posX := lastXPos + 1 * scale;
+      posY := offsetY + 18 * scale;
+      pointsD[j].x := xH[j] * scale + posX;
+      pointsD[j].y := yH[j] * scale + posY;
     end;
+    Canvas.Polygon(pointsD);
+  end;
 end;
 
-procedure TDisplay.DrawE(i: Byte);
+procedure TDisplay.DrawE(i: byte);
 { Draw 'E' segment }
 var
   j, posX, posY: integer;
 begin
   if odd(kSegments[i] shr 2) then
+  begin
+    for j := 0 to 5 do
     begin
-      for j := 0 to 5 do begin
-        posX := lastXPos;
-        posY := offsetY + 10 * scale;
-        pointsE[j].x := xV[j] * scale + posX;
-        pointsE[j].y := yV[j] * scale + posY;
-      end;
-      Canvas.Polygon(pointsE);
+      posX := lastXPos;
+      posY := offsetY + 10 * scale;
+      pointsE[j].x := xV[j] * scale + posX;
+      pointsE[j].y := yV[j] * scale + posY;
     end;
+    Canvas.Polygon(pointsE);
+  end;
 end;
 
-procedure TDisplay.DrawF(i: Byte);
+procedure TDisplay.DrawF(i: byte);
 { Draw 'F' segment }
 var
   j, posX, posY, localOffset: integer;
@@ -194,18 +201,19 @@ begin
   else
     localOffset := 0;
   if odd(kSegments[i] shr 1) then
+  begin
+    for j := 0 to 5 do
     begin
-      for j := 0 to 5 do begin
-        posX := lastXPos + localOffset;
-        posY := offsetY + 1 * scale;
-        pointsF[j].x := xV[j] * scale + posX;
-        pointsF[j].y := yV[j] * scale + posY;
-      end;
-      Canvas.Polygon(pointsF);
+      posX := lastXPos + localOffset;
+      posY := offsetY + 1 * scale;
+      pointsF[j].x := xV[j] * scale + posX;
+      pointsF[j].y := yV[j] * scale + posY;
     end;
+    Canvas.Polygon(pointsF);
+  end;
 end;
 
-procedure TDisplay.DrawG(i: Byte);
+procedure TDisplay.DrawG(i: byte);
 { Draw 'G' segment }
 var
   j, posX, posY, localOffset: integer;
@@ -215,31 +223,32 @@ begin
   else
     localOffset := 0;
   if odd(kSegments[i]) then
+  begin
+    for j := 0 to 5 do
     begin
-      for j := 0 to 5 do begin
-        posX := lastXPos + localOffset + 1 * scale;
-        posY := offsetY + 9 * scale;
-        pointsG[j].x := xH[j] * scale + posX;
-        pointsG[j].y := yH[j] * scale + posY;
-      end;
-      Canvas.Polygon(pointsG);
+      posX := lastXPos + localOffset + 1 * scale;
+      posY := offsetY + 9 * scale;
+      pointsG[j].x := xH[j] * scale + posX;
+      pointsG[j].y := yH[j] * scale + posY;
     end;
+    Canvas.Polygon(pointsG);
+  end;
 end;
 
-procedure TDisplay.DrawDot(i: Byte);
+procedure TDisplay.DrawDot(i: byte);
 { Draw decimal point }
 begin
   if odd(kSegments[i] shr 7) then
-    begin
-      pointsH[0].x := lastXPos + 12 * scale;
-      pointsH[0].y := trunc(offsetY + 17.5 * scale);
-      pointsH[1].x := pointsH[0].x + 3 * scale;
-      pointsH[1].y := pointsH[0].y + 3 * scale;
-      Canvas.Ellipse(pointsH[0].x, pointsH[0].y, pointsH[1].x, pointsH[1].y);
-    end;
+  begin
+    pointsH[0].x := lastXPos + 12 * scale;
+    pointsH[0].y := trunc(offsetY + 17.5 * scale);
+    pointsH[1].x := pointsH[0].x + 3 * scale;
+    pointsH[1].y := pointsH[0].y + 3 * scale;
+    Canvas.Ellipse(pointsH[0].x, pointsH[0].y, pointsH[1].x, pointsH[1].y);
+  end;
 end;
 
-procedure TDisplay.DrawDigit(i: Byte);
+procedure TDisplay.DrawDigit(i: byte);
 begin
   DrawA(i);
   DrawB(i);
@@ -251,9 +260,35 @@ begin
   DrawDot(i);
 end;
 
-constructor TDisplay.create;
+procedure TDisplay.DrawDigit(c: char);
 begin
-  inherited create;
+  case c of
+    'e':
+    begin
+      DrawA(21);
+      DrawB(21);
+      DrawC(21);
+      DrawD(21);
+      DrawE(21);
+      DrawF(21);
+      DrawG(21);
+    end;
+    'r':
+    begin
+      DrawA(22);
+      DrawB(22);
+      DrawC(22);
+      DrawD(22);
+      DrawE(22);
+      DrawF(22);
+      DrawG(22);
+    end;
+  end;
+end;
+
+constructor TDisplay.Create;
+begin
+  inherited Create;
   color := clLime;
   offsetX := 3;
   offsetY := 3;
@@ -265,9 +300,9 @@ begin
   yV := yVr;
 end;
 
-destructor TDisplay.destroy;
+destructor TDisplay.Destroy;
 begin
-  inherited destroy;
+  inherited Destroy;
 end;
 
 procedure TDisplay.DrawDigits(n: real);
@@ -278,102 +313,124 @@ var
   oldPStyle: TPenStyle;
   oldWidth: longint;
   i, digit: integer;
-  nString: AnsiString;
+  nString: ansistring;
   theFormat: TFormatSettings;
 begin
   fn := n;
   lastXPos := offsetX;
   if assigned(Canvas) then
+  begin
+    Canvas.Clear;
+    oldBColor := Canvas.Brush.Color;
+    oldBStyle := Canvas.Brush.Style;
+    oldPColor := Canvas.Pen.Color;
+    oldPStyle := Canvas.Pen.Style;
+    oldWidth := Canvas.Pen.Width;
+    Canvas.Brush.Color := Color;
+    Canvas.Brush.Style := bsSolid;
+    Canvas.Pen.Style := psSolid;
+    Canvas.Pen.Color := oldBColor;
+    Canvas.Pen.Width := 1 + trunc(0.3 * scale);
+
+    theFormat := DefaultFormatSettings;
+    theFormat.DecimalSeparator := kDot;
+    if isNaN(n) or IsInfinite(n) then
     begin
-      Canvas.Clear;
-      oldBColor := Canvas.Brush.Color;
-      oldBStyle := Canvas.Brush.Style;
-      oldPColor := Canvas.Pen.Color;
-      oldPStyle := Canvas.Pen.Style;
-      oldWidth := Canvas.Pen.Width;
-      Canvas.Brush.Color := Color;
-      Canvas.Brush.Style := bsSolid;
-      Canvas.Pen.Style := psSolid;
-      Canvas.Pen.Color := oldBColor;
-      Canvas.Pen.Width := 1 + trunc(0.3 * scale);
+      // 'EEE'
+      DrawDigit(21);
+      lastXPos := lastXPos + 18 * scale;
+      DrawDigit(21);
+      lastXPos := lastXPos + 18 * scale;
+      digit := 21;
+    end
+    else
+    if errorState then
+    begin
+      // 'Err'
+      DrawDigit(21);
+      lastXPos := lastXPos + 18 * scale;
+      DrawDigit(22);
+      lastXPos := lastXPos + 18 * scale;
+      digit := 22;
+    end
+    else
+    begin
+      nString := FloatToStr(n, theFormat);
 
-      theFormat := DefaultFormatSettings;
-      theFormat.DecimalSeparator := kDot;
-      if isNaN(n) or IsInfinite(n) then
-        begin
-          nString := 'EEE';
-          digit := 20;
-        end
-      else
+      i := 1;
+      if length(nString) > 1 then
       begin
-        nString := FloatToStr(n, theFormat);
-
-        i := 1;
-        if length(nString) > 1 then
+        for i := 2 to length(nString) do
         begin
-          if nString[i] = '-' then // negative number
+          if nString[i - 1] = '-' then // negative number or exponent
           begin
             digit := 20;
             DrawDigit(digit);
             lastXPos := lastXPos + 18 * scale;
-          end;
-          for i := 2 to length(nString) do
+          end
+          else if LowerCase(nString[i - 1]) = 'e' then  // exponent
+          begin
+            digit := 21;
+            DrawDigit(digit);
+            lastXPos := lastXPos + 18 * scale;
+          end
+          else
           begin
             if nString[i] <> kDot then // no decimal dot
+            begin
+              if TryStrToInt(nString[i - 1], digit) then
               begin
-                if TryStrToInt(nString[i - 1], digit) then
-                  begin
-                    DrawDigit(digit);
-                    lastXPos := lastXPos + 18 * scale;
-                  end;
-              end
-            else
-              begin // following decimal dot
-                digit := StrToInt(nString[i - 1]);
-                DrawDigit(digit + 10);
+                DrawDigit(digit);
                 lastXPos := lastXPos + 18 * scale;
               end;
+            end
+            else
+            begin // following decimal dot
+              digit := StrToInt(nString[i - 1]);
+              DrawDigit(digit + 10);
+              lastXPos := lastXPos + 18 * scale;
+            end;
           end;
         end;
-        digit := StrToInt(nString[i]);
       end;
-      DrawDigit(digit);
+      digit := StrToInt(nString[i]);
+    end;
+    DrawDigit(digit);
 
-      Canvas.Pen.Width := oldWidth;
-      Canvas.Pen.Style := oldPStyle;
-      Canvas.Pen.Color := oldPColor;
-      Canvas.Brush.Style := oldBStyle;
-      Canvas.Brush.Color := oldBColor;
-    end
+    Canvas.Pen.Width := oldWidth;
+    Canvas.Pen.Style := oldPStyle;
+    Canvas.Pen.Color := oldPColor;
+    Canvas.Brush.Style := oldBStyle;
+    Canvas.Brush.Color := oldBColor;
+  end
   else
     Error('Canvas not assigned');
 end;
 
-procedure TDisplay.Error(msg: String);
+procedure TDisplay.Error(msg: string);
 begin
   raise Exception(msg) at
-     get_caller_addr(get_frame),
-     get_caller_frame(get_frame);
+  get_caller_addr(get_frame),
+  get_caller_frame(get_frame);
 end;
 
 procedure TDisplay.SetStyle(theStyle: TFontStyles);
 begin
   fStyle := theStyle;
   if fsItalic in fStyle then
-    begin
-      xH := xHi;
-      yH := yHi;
-      xV := xVi;
-      yV := yVi;
-    end
+  begin
+    xH := xHi;
+    yH := yHi;
+    xV := xVi;
+    yV := yVi;
+  end
   else
-    begin
-      xH := xHr;
-      yH := yHr;
-      xV := xVr;
-      yV := yVr;
-    end;
+  begin
+    xH := xHr;
+    yH := yHr;
+    xV := xVr;
+    yV := yVr;
+  end;
 end;
 
 end.
-
