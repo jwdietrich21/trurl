@@ -14,8 +14,8 @@ object TrurlAboutBox: TTrurlAboutBox
     Left = 184
     Height = 16
     Top = 48
-    Width = 73
-    Caption = 'Trurl G 1.2.0'
+    Width = 71
+    Caption = 'Trurl G 1.2.1'
     ParentColor = False
   end
   object AboutLabel2: TLabel

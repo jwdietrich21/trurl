@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="rpnenginetests"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
@@ -14,10 +16,10 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MajorVersionNr Value="2"/>
-      <BuildNr Value="94"/>
-      <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Bet" LegalCopyright="2003-2019 J. W. Dietrich" ProductVersion="2.0.0"/>
+      <MajorVersionNr Value="1"/>
+      <MinorVersionNr Value="1"/>
+      <BuildNr Value="100"/>
+      <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Bet" LegalCopyright="2003-2025 J. W. Dietrich" LegalTrademarks="TRURL" ProductName="TRURL RPN Engine" ProductVersion="1.1.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -45,7 +47,7 @@
         <PackageName Value="FCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="4">
       <Unit0>
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -65,11 +67,6 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
       </Unit3>
-      <Unit4>
-        <Filename Value="bcd.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="BCD"/>
-      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

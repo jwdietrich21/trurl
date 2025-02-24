@@ -6,9 +6,9 @@ program rpnenginetests;
 
 { Unit Tests for Basic RPN Engine }
 
-{ Version 2.0 (Bet) }
+{ Version 1.1.0 (Bet) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2019 }
+{ (c) Johannes W. Dietrich, 2003 - 2025 }
 
 { Source code released under the BSD License }
 
@@ -24,12 +24,12 @@ program rpnenginetests;
 {$mode objfpc}{$H+}
 
 uses
-  Interfaces, Forms, GuiTestRunner, RPNEngineTestCases, BCD;
+  Interfaces, Forms, GuiTestRunner, RPNEngineTestCases;
 
 {$R *.res}
 
 begin
-  Application.Scaled := True;
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;
