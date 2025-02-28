@@ -318,6 +318,7 @@ begin
   Frame.ZRegDisplay := nil; // ZRegisterDisplay;
   Frame.TRegDisplay := nil; // TRegisterDisplay;
   Frame.EntryMode := Number;
+  Frame.ReplaceXAfterRollDown := true;
   DisplayX := TDisplay.create;
   DisplayX.Canvas := XRegisterPaintBox.Canvas;
   DisplayX.Color := clLime;
