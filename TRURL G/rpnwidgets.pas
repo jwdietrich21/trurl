@@ -6,9 +6,9 @@ unit RPNWidgets;
 
 { GUI Widgets for Basic RPN Engine }
 
-{ Version 1.0.1 (Aleph) }
+{ Version 1.1.0 (Bet) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2019 }
+{ (c) Johannes W. Dietrich, 2003 - 2025 }
 
 { Source code released under the BSD License }
 
@@ -41,6 +41,7 @@ public
   Engine: TEngine;
   TRegDisplay, ZRegDisplay, YRegDisplay, XRegDisplay: TControl;
   EntryMode: TEntryMode;
+  ReplaceXAfterRollDown: boolean;
   constructor create;
   destructor destroy; override;
   procedure HandleEnter;
@@ -76,6 +77,7 @@ begin
   inherited create;
   if RPNEngine_major <> 1 then
     {%H-}Error('RPN Engine version mismatch');
+  ReplaceXAfterRollDown := false;
 end;
 
 destructor TFrame.destroy;
@@ -219,6 +221,8 @@ begin
   CheckEngine;
   Engine.Stack.RollDown;
   DisplayRegisters;
+  if ReplaceXAfterRollDown then
+    EntryMode := PostEnter;
 end;
 
 procedure TFrame.DisplayRegisters;

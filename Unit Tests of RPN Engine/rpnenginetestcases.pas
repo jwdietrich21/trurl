@@ -528,10 +528,10 @@ begin
 end;
 
 procedure TControlTestCases.CodeVersionCheck;
-{ The subsequent tests are compatible with RPN Engine version 1.0 }
+{ The subsequent tests are compatible with RPN Engine version 1.1 }
 begin
   AssertEquals(1, RPNEngine_major);
-  AssertEquals(0, RPNEngine_minor);
+  AssertEquals(1, RPNEngine_minor);
 end;
 
 initialization

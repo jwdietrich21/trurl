@@ -38,12 +38,12 @@ TAngleMode = (Degree, Radian, Turn, Grad);
 
 const
   RPNEngine_major   = 1;
-  RPNEngine_minor   = 0;
-  RPNEngine_release = 1;
+  RPNEngine_minor   = 1;
+  RPNEngine_release = 0;
   RPNEngine_patch   = 100;
   RPNEngine_fullversion = ((RPNEngine_major * 100 + RPNEngine_minor) *
     100 + RPNEngine_release) * 100 + RPNEngine_patch;
-  RPNEngine_version = '1.0.1.100';
+  RPNEngine_version = '1.1.0.100';
   RPNEngine_internalversion = 'Bet';
 
 type

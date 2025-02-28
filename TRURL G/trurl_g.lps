@@ -33,6 +33,7 @@
         <Filename Value="rpnengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="27" Y="3"/>
         <UsageCount Value="38"/>
         <Loaded Value="True"/>
@@ -54,10 +55,9 @@
         <Filename Value="rpnwidgets.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="196"/>
-        <CursorPos X="40" Y="222"/>
+        <TopLine Value="22"/>
+        <CursorPos X="33" Y="2"/>
         <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit4>

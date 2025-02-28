@@ -6,9 +6,9 @@ unit RPNEngine;
 
 { Basic RPN Engine }
 
-{ Version 1.0.1 (Aleph) }
+{ Version 1.1.0 (Bet) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2019 }
+{ (c) Johannes W. Dietrich, 2003 - 2025 }
 
 { Source code released under the BSD License }
 
@@ -38,13 +38,13 @@ TAngleMode = (Degree, Radian, Turn, Grad);
 
 const
   RPNEngine_major   = 1;
-  RPNEngine_minor   = 0;
-  RPNEngine_release = 1;
-  RPNEngine_patch   = 95;
+  RPNEngine_minor   = 1;
+  RPNEngine_release = 0;
+  RPNEngine_patch   = 100;
   RPNEngine_fullversion = ((RPNEngine_major * 100 + RPNEngine_minor) *
     100 + RPNEngine_release) * 100 + RPNEngine_patch;
-  RPNEngine_version = '1.0.1.95';
-  RPNEngine_internalversion = 'Aleph';
+  RPNEngine_version = '1.1.0.100';
+  RPNEngine_internalversion = 'Bet';
 
 type
 

@@ -7,6 +7,7 @@
       <Unit0>
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos X="10" Y="3"/>
         <UsageCount Value="77"/>
@@ -25,8 +26,7 @@
         <Filename Value="rpnengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="13" Y="2"/>
+        <CursorPos Y="23"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -137,7 +137,7 @@
         <UsageCount Value="10"/>
       </Unit15>
     </Units>
-    <JumpHistory Count="19" HistoryIndex="18">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="222" TopLine="203"/>
@@ -213,6 +213,14 @@
         <Filename Value="rpnwidgets.pas"/>
         <Caret Line="312" Column="25" TopLine="288"/>
       </Position19>
+      <Position20>
+        <Filename Value="rpnengine.pas"/>
+        <Caret Line="23" Column="16"/>
+      </Position20>
+      <Position21>
+        <Filename Value="rpnenginetestcases.pas"/>
+        <Caret Line="524" Column="18" TopLine="516"/>
+      </Position21>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

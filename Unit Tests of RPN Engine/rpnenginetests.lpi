@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="100"/>
+      <BuildNr Value="101"/>
       <StringTable CompanyName="formatio reticularis" FileDescription="RPN Engine Unit Tester" InternalName="Bet" LegalCopyright="2003-2025 J. W. Dietrich" LegalTrademarks="TRURL" ProductName="TRURL RPN Engine" ProductVersion="1.1.0"/>
     </VersionInfo>
     <BuildModes Count="1">
