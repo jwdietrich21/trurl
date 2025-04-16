@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Cocoa Apple Silicon">
+    <BuildModes Active="Default">
       <SessionMatrixOptions Count="1">
         <Item1 ID="939324851222" Modes="Windows 32,Windows 64" Type="IDEMacro" MacroName="LCLWidgetType" Value="win32"/>
       </SessionMatrixOptions>
