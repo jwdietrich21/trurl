@@ -7,10 +7,8 @@
       <Unit0>
         <Filename Value="rpnenginetests.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="10" Y="3"/>
-        <UsageCount Value="77"/>
+        <UsageCount Value="78"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -19,7 +17,7 @@
         <UnitName Value="RPNEngineTestCases"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="77"/>
+        <UsageCount Value="78"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -34,16 +32,18 @@
           <TopLine Value="35"/>
           <CursorPos Y="2"/>
         </ExtraEditor1>
-        <UsageCount Value="77"/>
+        <UsageCount Value="78"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="rpnwidgets.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos Y="2"/>
-        <UsageCount Value="71"/>
+        <TopLine Value="15"/>
+        <CursorPos X="32" Y="46"/>
+        <UsageCount Value="72"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -137,7 +137,7 @@
         <UsageCount Value="10"/>
       </Unit15>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="25" HistoryIndex="24">
       <Position1>
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="222" TopLine="203"/>
@@ -221,6 +221,22 @@
         <Filename Value="rpnenginetestcases.pas"/>
         <Caret Line="524" Column="18" TopLine="516"/>
       </Position21>
+      <Position22>
+        <Filename Value="rpnenginetests.lpr"/>
+        <Caret Line="3" Column="10"/>
+      </Position22>
+      <Position23>
+        <Filename Value="rpnwidgets.pas"/>
+        <Caret Line="2"/>
+      </Position23>
+      <Position24>
+        <Filename Value="rpnwidgets.pas"/>
+        <Caret Line="44" Column="24" TopLine="18"/>
+      </Position24>
+      <Position25>
+        <Filename Value="rpnwidgets.pas"/>
+        <Caret Line="80" Column="24" TopLine="54"/>
+      </Position25>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -77,6 +77,7 @@ const
   kDot = '.';
 
 function AsciiDigits(n: real; errorState: boolean): TASCIIDisplay;
+function AsciiDigits(n: real): TASCIIDisplay;
 
 implementation
 
@@ -255,6 +256,11 @@ begin
   Result[0] := line0;
   Result[1] := line1;
   Result[2] := line2;
+end;
+
+function AsciiDigits(n: real): TASCIIDisplay;
+begin
+  result := AsciiDigits(n, false);
 end;
 
 end.
