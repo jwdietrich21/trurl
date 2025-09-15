@@ -6,7 +6,7 @@ unit AboutBox;
 
 { About Box }
 
-{ Version 1.2.1 (Columbia) }
+{ Version 1.0.0 () }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 

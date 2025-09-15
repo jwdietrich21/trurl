@@ -6,7 +6,7 @@ unit testappgui;
 
 { Test application for Segmitator unit }
 
-{ Version 1.1.0 (Dorado) }
+{ Version 1.2.0 (El Dorado) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 
@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Spin,
-  StdCtrls, ExtCtrls, Math, segmitator, segmitatorWidgets;
+  StdCtrls, ExtCtrls, ComCtrls, Math, segmitator, segmitatorWidgets;
 
 type
 
@@ -42,6 +42,8 @@ type
     TestPaintbox: TPaintBox;
     TestFloatSpinEdit: TFloatSpinEdit;
     TestASCIIMemo: TMemo;
+    DigitsTrackBar: TTrackBar;
+    procedure DigitsTrackBarChange(Sender: TObject);
     procedure FontsComboboxChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -78,7 +80,7 @@ begin
 
   TestASCIIMemo.Clear;
   TestASCIIMemo.Append(stringToTest);
-  DisplayStrings := ASCIIDigits(theNumber, error);
+  DisplayStrings := ASCIIDigits(theNumber, DigitsTrackBar.Position, error);
   TestASCIIMemo.Append(DisplayStrings[0]);
   TestASCIIMemo.Append(DisplayStrings[1]);
   TestASCIIMemo.Append(DisplayStrings[2]);
@@ -159,6 +161,12 @@ end;
 procedure TTestAppMainForm.FontsComboboxChange(Sender: TObject);
 begin
   TestAsciiMemo.Font.Name := FontsCombobox.Items[FontsCombobox.ItemIndex];
+end;
+
+procedure TTestAppMainForm.DigitsTrackBarChange(Sender: TObject);
+begin
+  Display.l := DigitsTrackBar.Position;
+  TestFloatSpinEditChange(Sender);
 end;
 
 end.

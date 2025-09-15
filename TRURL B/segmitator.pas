@@ -6,7 +6,7 @@ unit segmitator;
 
 { Unit implementing seven-segment displays as ASCII art }
 
-{ Version 1.1.0 (Dorado) }
+{ Version 1.2.0 (El Dorado) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 
@@ -76,7 +76,10 @@ const
 
   kDot = '.';
 
+function FloatToFixed(n: real; l: integer; FormatSettings: TFormatSettings): string;
+function AsciiDigits(n: real; l: integer; errorState: boolean): TASCIIDisplay;
 function AsciiDigits(n: real; errorState: boolean): TASCIIDisplay;
+function AsciiDigits(n: real): TASCIIDisplay;
 
 implementation
 
@@ -162,7 +165,29 @@ begin
   end;
 end;
 
-function AsciiDigits(n: real; errorState: boolean): TASCIIDisplay;
+function FloatToFixed(n: real; l: integer; FormatSettings: TFormatSettings): string;
+  { Returns the text representation of a floating point number with fixed length }
+var
+  format: string;
+  i, li, lf: integer;
+begin
+  li := length(IntToStr(trunc(n)));
+  if li > l then
+    Result := 'EEE'
+  else
+  begin
+    lf := l - li;
+    format := '0.';
+    for i := 1 to lf do
+    begin
+      format := format + '#';
+    end;
+    Result := FormatFloat(format, n);
+  end;
+end;
+
+function AsciiDigits(n: real; l: integer; errorState: boolean): TASCIIDisplay;
+
   { Returns array of lines as ASCII representation of the segment display }
 var
   i, digit: integer;
@@ -170,41 +195,27 @@ var
   theFormat: TFormatSettings;
   line0, line1, line2: string;
 begin
+  digit := 0;
   theFormat := DefaultFormatSettings;
   theFormat.DecimalSeparator := kDot;
   line0 := '';
   line1 := '';
   line2 := '';
-  if isNaN(n) or IsInfinite(n) then
+  if (not errorState) and (not isNan(n)) and not (IsInfinite(n)) then
   begin
-    // 'EEE'
-    digit := 21;
-    line0 := line0 + AsciiLine(0, digit);
-    line1 := line1 + AsciiLine(1, digit);
-    line2 := line2 + AsciiLine(2, digit);
-    digit := 21;
-    line0 := line0 + AsciiLine(0, digit);
-    line1 := line1 + AsciiLine(1, digit);
-    line2 := line2 + AsciiLine(2, digit);
-    digit := 21;
-  end
-  else
-  if errorState then
-  begin
-    // 'Err'
-    digit := 21;
-    line0 := line0 + AsciiLine(0, digit);
-    line1 := line1 + AsciiLine(1, digit);
-    line2 := line2 + AsciiLine(2, digit);
-    digit := 22;
-    line0 := line0 + AsciiLine(0, digit);
-    line1 := line1 + AsciiLine(1, digit);
-    line2 := line2 + AsciiLine(2, digit);
-    digit := 22;
-  end
+    if l = 0 then
+      nString := FloatToStr(n, theFormat)
+    else
+    begin
+      nString := FloatToFixed(n, l, theFormat);
+    end;
+  end;
+  if nString = 'Err' then
+    errorState := True
+  else if nString = 'EEE' then
+    n := Math.NaN
   else
   begin
-    nString := FloatToStr(n, theFormat);
     i := 1;
     if length(nString) > 1 then
     begin
@@ -247,7 +258,35 @@ begin
         end;
       end;
     end;
-    digit := StrToInt(nString[i]);
+    if length(nString) > 0 then
+      digit := StrToInt(nString[i]);
+  end;
+  if isNaN(n) or IsInfinite(n) then
+  begin
+    // 'EEE'
+    digit := 21;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 21;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 21;
+  end
+  else
+  if errorState then
+  begin
+    // 'Err'
+    digit := 21;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 22;
+    line0 := line0 + AsciiLine(0, digit);
+    line1 := line1 + AsciiLine(1, digit);
+    line2 := line2 + AsciiLine(2, digit);
+    digit := 22;
   end;
   line0 := line0 + AsciiLine(0, digit);
   line1 := line1 + AsciiLine(1, digit);
@@ -255,6 +294,16 @@ begin
   Result[0] := line0;
   Result[1] := line1;
   Result[2] := line2;
+end;
+
+function AsciiDigits(n: real; errorState: boolean): TASCIIDisplay;
+begin
+  Result := AsciiDigits(n, 0, errorState);
+end;
+
+function AsciiDigits(n: real): TASCIIDisplay;
+begin
+  Result := AsciiDigits(n, False);
 end;
 
 end.

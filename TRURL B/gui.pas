@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.2.1 (Columbia) }
+{ Version 1.0.0 () }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 
@@ -310,6 +310,7 @@ begin
   Frame.EntryMode := Number;
   Frame.ReplaceXAfterRollDown := true;
   DisplayX := TDisplay.create;
+  DisplayX.l := 11;
   DisplayX.Canvas := XRegisterPaintBox.Canvas;
   DisplayX.Color := clAqua;
   DisplayX.scale := 1;
@@ -317,6 +318,7 @@ begin
   DisplayX.offsetX := 9;
   DisplayX.offsetY := 9;
   DisplayY := TDisplay.create;
+  DisplayY.l := 11;
   DisplayY.Canvas := YRegisterPaintBox.Canvas;
   DisplayY.Color := clAqua;
   DisplayY.scale := 1;
@@ -324,6 +326,7 @@ begin
   DisplayY.offsetX := 9;
   DisplayY.offsetY := 9;
   DisplayZ := TDisplay.create;
+  DisplayZ.l := 11;
   DisplayZ.Canvas := ZRegisterPaintBox.Canvas;
   DisplayZ.Color := clAqua;
   DisplayZ.scale := 1;
@@ -331,6 +334,7 @@ begin
   DisplayZ.offsetX := 9;
   DisplayZ.offsetY := 9;
   DisplayT := TDisplay.create;
+  DisplayT.l := 11;
   DisplayT.Canvas := TRegisterPaintBox.Canvas;
   DisplayT.Color := clAqua;
   DisplayT.scale := 1;

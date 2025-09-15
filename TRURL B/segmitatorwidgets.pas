@@ -6,7 +6,7 @@ unit segmitatorWidgets;
 
 { Unit implementing seven-segment displays in graphic representation }
 
-{ Version 1.1.0 (Dorado) }
+{ Version 1.2.0 (El Dorado) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 
@@ -83,6 +83,7 @@ type
     scale: integer;
     offsetX, offsetY: integer;
     errorState: boolean;
+    l: integer;
     constructor Create;
     destructor Destroy; override;
     property Style: TFontStyles read fStyle write SetStyle;
@@ -334,29 +335,23 @@ begin
 
     theFormat := DefaultFormatSettings;
     theFormat.DecimalSeparator := kDot;
-    if isNaN(n) or IsInfinite(n) then
-    begin
-      // 'EEE'
-      DrawDigit(21);
-      lastXPos := lastXPos + 18 * scale;
-      DrawDigit(21);
-      lastXPos := lastXPos + 18 * scale;
-      digit := 21;
-    end
-    else
-    if errorState then
-    begin
-      // 'Err'
-      DrawDigit(21);
-      lastXPos := lastXPos + 18 * scale;
-      DrawDigit(22);
-      lastXPos := lastXPos + 18 * scale;
-      digit := 22;
-    end
-    else
-    begin
-      nString := FloatToStr(n, theFormat);
 
+    if (not errorState) and (not isNan(n)) and not (IsInfinite(n)) then
+    begin
+      if l = 0 then
+        nString := FloatToStr(n, theFormat)
+      else
+      begin
+        nString := FloatToFixed(n, l, theFormat);
+      end;
+    end;
+
+    if nString = 'Err' then
+      errorState := True
+    else if nString = 'EEE' then
+      n := Math.NaN
+    else
+    begin
       i := 1;
       if length(nString) > 1 then
       begin
@@ -393,8 +388,30 @@ begin
           end;
         end;
       end;
+      if length(nString) > 0 then
       digit := StrToInt(nString[i]);
     end;
+
+    if isNaN(n) or IsInfinite(n) then
+    begin
+      // 'EEE'
+      DrawDigit(21);
+      lastXPos := lastXPos + 18 * scale;
+      DrawDigit(21);
+      lastXPos := lastXPos + 18 * scale;
+      digit := 21;
+    end
+    else
+    if errorState then
+    begin
+      // 'Err'
+      DrawDigit(21);
+      lastXPos := lastXPos + 18 * scale;
+      DrawDigit(22);
+      lastXPos := lastXPos + 18 * scale;
+      digit := 22;
+    end;
+
     DrawDigit(digit);
 
     Canvas.Pen.Width := oldWidth;

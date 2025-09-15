@@ -17,9 +17,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <MinorVersionNr Value="1"/>
-      <BuildNr Value="32"/>
-      <StringTable Comments="Trurl, a suite of RPN calculators in and for Object Pascal" CompanyName="formatio reticularis" FileDescription="Segmitator Test App" InternalName="Dorado" LegalCopyright="1990-2025 J. W. Dietrich" ProductName="Segmitator Test App" ProductVersion="1.1.0"/>
+      <MinorVersionNr Value="2"/>
+      <BuildNr Value="38"/>
+      <StringTable Comments="Trurl, a suite of RPN calculators in and for Object Pascal" CompanyName="formatio reticularis" FileDescription="Segmitator Test App" InternalName="El Dorado" LegalCopyright="1990-2025 J. W. Dietrich" ProductName="Segmitator Test App" ProductVersion="1.2.0"/>
     </VersionInfo>
     <BuildModes Count="4">
       <Item1 Name="Default" Default="True"/>

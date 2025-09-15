@@ -2,35 +2,35 @@ object TestAppMainForm: TTestAppMainForm
   Left = 424
   Height = 409
   Top = 282
-  Width = 505
+  Width = 525
   Caption = 'Test App for Segmitator'
   ClientHeight = 409
-  ClientWidth = 505
+  ClientWidth = 525
+  LCLVersion = '4.2.0.0'
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '3.8.0.0'
   object TestFloatSpinEdit: TFloatSpinEdit
     Left = 16
     Height = 20
     Hint = 'Enter number to be tested here (or use the arrows on the right for small changes)'
     Top = 24
-    Width = 475
+    Width = 294
     Anchors = [akTop, akLeft, akRight]
     DecimalPlaces = 8
     Increment = 0.1
     MaxValue = 1000000000
     MinValue = -1000000000
-    OnChange = TestFloatSpinEditChange
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
+    OnChange = TestFloatSpinEditChange
   end
   object TestASCIIMemo: TMemo
     Left = 16
     Height = 97
     Top = 128
-    Width = 473
+    Width = 493
     Anchors = [akTop, akLeft, akRight]
     Color = 5000268
     Font.Color = clLime
@@ -43,7 +43,7 @@ object TestAppMainForm: TTestAppMainForm
     Left = 16
     Height = 20
     Top = 360
-    Width = 401
+    Width = 421
     Anchors = [akLeft, akRight, akBottom]
     ItemHeight = 18
     ItemIndex = 0
@@ -58,13 +58,13 @@ object TestAppMainForm: TTestAppMainForm
     Left = 17
     Height = 97
     Top = 256
-    Width = 472
+    Width = 492
     Anchors = [akTop, akLeft, akRight, akBottom]
     ParentColor = False
     OnPaint = TestPaintboxPaint
   end
   object ItalicCheckBox: TCheckBox
-    Left = 432
+    Left = 452
     Height = 18
     Top = 362
     Width = 53
@@ -77,7 +77,7 @@ object TestAppMainForm: TTestAppMainForm
     Left = 16
     Height = 41
     Top = 56
-    Width = 465
+    Width = 485
     Anchors = [akTop, akLeft, akRight]
     AutoFill = True
     Caption = 'Test extreme values:'
@@ -89,7 +89,7 @@ object TestAppMainForm: TTestAppMainForm
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 5
     ClientHeight = 14
-    ClientWidth = 455
+    ClientWidth = 475
     Columns = 5
     Items.Strings = (
       '+Infinity'
@@ -98,8 +98,8 @@ object TestAppMainForm: TTestAppMainForm
       'Error'
       'off'
     )
-    OnClick = TestValueRadioGroupClick
     TabOrder = 4
+    OnClick = TestValueRadioGroupClick
   end
   object CanvasLabel: TLabel
     AnchorSideBottom.Control = TestPaintbox
@@ -122,5 +122,20 @@ object TestAppMainForm: TTestAppMainForm
     BorderSpacing.Bottom = 7
     Caption = 'Demo of ASCII implementation:'
     ParentColor = False
+  end
+  object DigitsTrackBar: TTrackBar
+    Left = 323
+    Height = 25
+    Hint = 'Number of digits to display (0 for no restriction)'
+    Top = 24
+    Width = 177
+    Max = 9
+    Position = 0
+    OnChange = DigitsTrackBarChange
+    Anchors = [akTop, akRight]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
   end
 end
