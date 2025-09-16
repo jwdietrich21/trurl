@@ -531,6 +531,66 @@ object MainForm: TMainForm
   OnKeyUp = FormKeyUp
   OnPaint = FormPaint
   OnShow = FormShow
+  object Panel7: TPanel
+    Left = 38
+    Height = 48
+    Top = 307
+    Width = 48
+    ClientHeight = 48
+    ClientWidth = 48
+    ParentBackground = False
+    TabOrder = 2
+    OnMouseDown = Panel7MouseDown
+    OnMouseUp = Panel7MouseUp
+    object SevenSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Enabled = False
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 7
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = SevenSpeedButtonMouseDown
+      OnMouseUp = SevenSpeedButtonMouseUp
+    end
+  end
+  object Panel8: TPanel
+    Left = 93
+    Height = 48
+    Top = 307
+    Width = 48
+    ClientHeight = 48
+    ClientWidth = 48
+    ParentBackground = False
+    TabOrder = 3
+    OnMouseDown = Panel8MouseDown
+    OnMouseUp = Panel8MouseUp
+    object EightSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Enabled = False
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 8
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = EightSpeedButtonMouseDown
+      OnMouseUp = EightSpeedButtonMouseUp
+    end
+  end
   object DisplayBackgroundPanel: TPanel
     Left = 32
     Height = 136
@@ -829,40 +889,6 @@ object MainForm: TMainForm
     ShowCaption = False
     OnMouseDown = PlusSpeedButtonMouseDown
     OnMouseUp = PlusSpeedButtonMouseUp
-  end
-  object SevenSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 40
-    Height = 40
-    Top = 311
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 7
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = SevenSpeedButtonMouseDown
-    OnMouseUp = SevenSpeedButtonMouseUp
-  end
-  object EightSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 95
-    Height = 40
-    Top = 311
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 8
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = EightSpeedButtonMouseDown
-    OnMouseUp = EightSpeedButtonMouseUp
   end
   object NineSpeedButton: TSpeedButton
     Cursor = crHandPoint

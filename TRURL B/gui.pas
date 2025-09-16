@@ -44,6 +44,8 @@ type
     ActionList1: TActionList;
     ErrorLabel: TLabel;
     InvSpeedButton: TSpeedButton;
+    Panel7: TPanel;
+    Panel8: TPanel;
     VirtualEnterButton: TButton;
     PressedButtons: TImageList;
     StandardButtons: TImageList;
@@ -180,6 +182,14 @@ type
     procedure OneSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure OneSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel7MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel7MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel8MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel8MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PlusMinusSpeedButtonMouseDown(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -634,6 +644,36 @@ procedure TMainForm.OneSpeedButtonMouseUp(Sender: TObject;
 begin
   OneSpeedButton.Images := StandardButtons;
   OneSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Panel7MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  SevenSpeedButton.Down := true;
+  SevenSpeedButton.Images := PressedButtons;
+  Nr7ButtonClick(Sender);
+end;
+
+procedure TMainForm.Panel7MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  SevenSpeedButton.Images := StandardButtons;
+  SevenSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Panel8MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  EightSpeedButton.Down := true;
+  EightSpeedButton.Images := PressedButtons;
+  Nr8ButtonClick(Sender);
+end;
+
+procedure TMainForm.Panel8MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  EightSpeedButton.Images := StandardButtons;
+  EightSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);
