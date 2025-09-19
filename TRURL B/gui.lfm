@@ -531,14 +531,116 @@ object MainForm: TMainForm
   OnKeyUp = FormKeyUp
   OnPaint = FormPaint
   OnShow = FormShow
+  object Panel4: TPanel
+    Left = 38
+    Height = 48
+    Top = 352
+    Width = 48
+    BevelColor = 3486786
+    ClientHeight = 48
+    ClientWidth = 48
+    Color = clNone
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 5
+    OnMouseDown = Panel4MouseDown
+    OnMouseUp = Panel4MouseUp
+    object FourSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Enabled = False
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 4
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = FourSpeedButtonMouseDown
+      OnMouseUp = FourSpeedButtonMouseUp
+    end
+  end
+  object Panel5: TPanel
+    Left = 93
+    Height = 48
+    Top = 352
+    Width = 48
+    BevelColor = 3486786
+    ClientHeight = 48
+    ClientWidth = 48
+    Color = clNone
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 6
+    OnMouseDown = Panel5MouseDown
+    OnMouseUp = Panel5MouseUp
+    object FiveSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Enabled = False
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 5
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = FiveSpeedButtonMouseDown
+      OnMouseUp = FiveSpeedButtonMouseUp
+    end
+  end
+  object Panel6: TPanel
+    Left = 148
+    Height = 48
+    Top = 352
+    Width = 48
+    BevelColor = 3486786
+    ClientHeight = 48
+    ClientWidth = 48
+    Color = clNone
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 7
+    OnMouseDown = Panel6MouseDown
+    OnMouseUp = Panel6MouseUp
+    object SixSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Enabled = False
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 6
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = SixSpeedButtonMouseDown
+      OnMouseUp = SixSpeedButtonMouseUp
+    end
+  end
   object Panel7: TPanel
     Left = 38
     Height = 48
     Top = 307
     Width = 48
+    BevelColor = 3486786
     ClientHeight = 48
     ClientWidth = 48
+    Color = clNone
     ParentBackground = False
+    ParentColor = False
     TabOrder = 2
     OnMouseDown = Panel7MouseDown
     OnMouseUp = Panel7MouseUp
@@ -566,9 +668,12 @@ object MainForm: TMainForm
     Height = 48
     Top = 307
     Width = 48
+    BevelColor = 3486786
     ClientHeight = 48
     ClientWidth = 48
+    Color = clNone
     ParentBackground = False
+    ParentColor = False
     TabOrder = 3
     OnMouseDown = Panel8MouseDown
     OnMouseUp = Panel8MouseUp
@@ -589,6 +694,39 @@ object MainForm: TMainForm
       ShowCaption = False
       OnMouseDown = EightSpeedButtonMouseDown
       OnMouseUp = EightSpeedButtonMouseUp
+    end
+  end
+  object Panel9: TPanel
+    Left = 148
+    Height = 48
+    Top = 307
+    Width = 48
+    BevelColor = 3486786
+    ClientHeight = 48
+    ClientWidth = 48
+    Color = clNone
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 4
+    OnMouseDown = Panel9MouseDown
+    OnMouseUp = Panel9MouseUp
+    object NineSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Enabled = False
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 9
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = NineSpeedButtonMouseDown
+      OnMouseUp = NineSpeedButtonMouseUp
     end
   end
   object DisplayBackgroundPanel: TPanel
@@ -805,57 +943,6 @@ object MainForm: TMainForm
     OnMouseDown = MinusSpeedButtonMouseDown
     OnMouseUp = MinusSpeedButtonMouseUp
   end
-  object FourSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 40
-    Height = 40
-    Top = 357
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 4
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = FourSpeedButtonMouseDown
-    OnMouseUp = FourSpeedButtonMouseUp
-  end
-  object FiveSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 95
-    Height = 40
-    Top = 357
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 5
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = FiveSpeedButtonMouseDown
-    OnMouseUp = FiveSpeedButtonMouseUp
-  end
-  object SixSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 151
-    Height = 40
-    Top = 357
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 6
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = SixSpeedButtonMouseDown
-    OnMouseUp = SixSpeedButtonMouseUp
-  end
   object DivSpeedButton: TSpeedButton
     Cursor = crHandPoint
     Left = 206
@@ -889,23 +976,6 @@ object MainForm: TMainForm
     ShowCaption = False
     OnMouseDown = PlusSpeedButtonMouseDown
     OnMouseUp = PlusSpeedButtonMouseUp
-  end
-  object NineSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 151
-    Height = 40
-    Top = 311
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 9
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = NineSpeedButtonMouseDown
-    OnMouseUp = NineSpeedButtonMouseUp
   end
   object TimesSpeedButton: TSpeedButton
     Cursor = crHandPoint
