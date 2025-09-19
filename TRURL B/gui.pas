@@ -31,7 +31,7 @@ uses
   RPNEngine, RPNWidgets, segmitatorWidgets, aboutbox
   {$IFDEF WINDOWS}
   , Windows
-  {$ENDIF};
+  {$ENDIF}, Types;
 
 const
   clInactiveIndicator = $00565557;
@@ -44,12 +44,16 @@ type
     ActionList1: TActionList;
     ErrorLabel: TLabel;
     InvSpeedButton: TSpeedButton;
+    Panel1: TPanel;
+    PanelRD: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
     Panel6: TPanel;
     Panel7: TPanel;
     Panel8: TPanel;
     Panel9: TPanel;
+    PanelPwr: TPanel;
+    PwrSpeedButton: TSpeedButton;
     VirtualEnterButton: TButton;
     PressedButtons: TImageList;
     StandardButtons: TImageList;
@@ -187,6 +191,10 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure OneSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure Panel4MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Panel4MouseUp(Sender: TObject; Button: TMouseButton;
@@ -210,6 +218,14 @@ type
     procedure Panel9MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Panel9MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelPwrMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelPwrMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelRDMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelRDMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PlusMinusSpeedButtonMouseDown(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -666,6 +682,21 @@ begin
   OneSpeedButton.Down := false;
 end;
 
+procedure TMainForm.Panel1MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  OneSpeedButton.Down := true;
+  Nr1ButtonClick(Sender);
+  OneSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Panel1MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  OneSpeedButton.Images := StandardButtons;
+  OneSpeedButton.Down := false;
+end;
+
 procedure TMainForm.Panel4MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -754,6 +785,36 @@ procedure TMainForm.Panel9MouseUp(Sender: TObject; Button: TMouseButton;
 begin
   NineSpeedButton.Images := StandardButtons;
   NineSpeedButton.Down := false;
+end;
+
+procedure TMainForm.PanelPwrMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  PwrSpeedButton.Down := true;
+  PwrButtonClick(Sender);
+  PwrSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelPwrMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  PwrSpeedButton.Images := StandardButtons;
+  PwrSpeedButton.Down := false;
+end;
+
+procedure TMainForm.PanelRDMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  RollDownSpeedButton.Down := true;
+  RDButtonClick(Sender);
+  RollDownSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelRDMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  RollDownSpeedButton.Images := StandardButtons;
+  RollDownSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);

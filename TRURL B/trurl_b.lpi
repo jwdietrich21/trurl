@@ -22,7 +22,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="8"/>
+      <BuildNr Value="9"/>
       <StringTable Comments="Trurl B, an RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl B, an RPN calculator" LegalCopyright="2003-2025 J. W. Dietrich" ProductName="Trurl B" ProductVersion="1.0.0"/>
     </VersionInfo>
     <BuildModes Count="7">
