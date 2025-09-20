@@ -45,6 +45,11 @@ type
     ErrorLabel: TLabel;
     InvSpeedButton: TSpeedButton;
     Panel1: TPanel;
+    Panel0: TPanel;
+    PanelDot: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    PanelC: TPanel;
     PanelRD: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
@@ -128,6 +133,8 @@ type
     procedure CosButtonClick(Sender: TObject);
     procedure CSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure CSpeedButtonMouseEnter(Sender: TObject);
+    procedure CSpeedButtonMouseLeave(Sender: TObject);
     procedure CSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure DivButtonClick(Sender: TObject);
@@ -138,6 +145,7 @@ type
     procedure DotButtonClick(Sender: TObject);
     procedure DotSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure DotSpeedButtonMouseEnter(Sender: TObject);
     procedure DotSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure EditCopy1Execute(Sender: TObject);
@@ -191,9 +199,21 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure OneSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Panel0MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel0MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Panel1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel2MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel3MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Panel4MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -219,12 +239,23 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure Panel9MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PanelCMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelCMouseLeave(Sender: TObject);
+    procedure PanelCMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelDotMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelDotMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure PanelPwrMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PanelPwrMouseLeave(Sender: TObject);
     procedure PanelPwrMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PanelRDMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PanelRDMouseLeave(Sender: TObject);
     procedure PanelRDMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PlusMinusSpeedButtonMouseDown(Sender: TObject;
@@ -235,8 +266,11 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure PlusSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PwrSpeedButtonMouseEnter(Sender: TObject);
     procedure RollDownSpeedButtonMouseDown(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure RollDownSpeedButtonMouseEnter(Sender: TObject);
+    procedure RollDownSpeedButtonMouseLeave(Sender: TObject);
     procedure RollDownSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure SevenSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
@@ -682,6 +716,21 @@ begin
   OneSpeedButton.Down := false;
 end;
 
+procedure TMainForm.Panel0MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  ZeroSpeedButton.Down := true;
+  Nr0ButtonClick(Sender);
+  ZeroSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Panel0MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  ZeroSpeedButton.Images := StandardButtons;
+  ZeroSpeedButton.Down := false;
+end;
+
 procedure TMainForm.Panel1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -695,6 +744,36 @@ procedure TMainForm.Panel1MouseUp(Sender: TObject; Button: TMouseButton;
 begin
   OneSpeedButton.Images := StandardButtons;
   OneSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Panel2MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  TwoSpeedButton.Down := true;
+  Nr2ButtonClick(Sender);
+  TwoSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Panel2MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  TwoSpeedButton.Images := StandardButtons;
+  TwoSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Panel3MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  ThreeSpeedButton.Down := true;
+  Nr3ButtonClick(Sender);
+  ThreeSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.Panel3MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  ThreeSpeedButton.Images := StandardButtons;
+  ThreeSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Panel4MouseDown(Sender: TObject; Button: TMouseButton;
@@ -787,12 +866,52 @@ begin
   NineSpeedButton.Down := false;
 end;
 
+procedure TMainForm.PanelCMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  CSpeedButton.Down := true;
+  CButtonClick(Sender);
+  CSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelCMouseLeave(Sender: TObject);
+begin
+  CSpeedButton.enabled := true;
+end;
+
+procedure TMainForm.PanelCMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  CSpeedButton.Images := StandardButtons;
+  CSpeedButton.Down := false;
+end;
+
+procedure TMainForm.PanelDotMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  DotSpeedButton.Down := true;
+  DotButtonClick(Sender);
+  DotSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelDotMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  DotSpeedButton.Images := StandardButtons;
+  DotSpeedButton.Down := false;
+end;
+
 procedure TMainForm.PanelPwrMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   PwrSpeedButton.Down := true;
   PwrButtonClick(Sender);
   PwrSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelPwrMouseLeave(Sender: TObject);
+begin
+  PwrSpeedButton.Enabled := true;
 end;
 
 procedure TMainForm.PanelPwrMouseUp(Sender: TObject; Button: TMouseButton;
@@ -808,6 +927,11 @@ begin
   RollDownSpeedButton.Down := true;
   RDButtonClick(Sender);
   RollDownSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelRDMouseLeave(Sender: TObject);
+begin
+  RollDownSpeedButton.Enabled := true;
 end;
 
 procedure TMainForm.PanelRDMouseUp(Sender: TObject; Button: TMouseButton;
@@ -1234,6 +1358,11 @@ begin
   DotSpeedButton.Images := PressedButtons;
 end;
 
+procedure TMainForm.DotSpeedButtonMouseEnter(Sender: TObject);
+begin
+
+end;
+
 procedure TMainForm.DotSpeedButtonMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -1290,6 +1419,7 @@ procedure TMainForm.CButtonClick(Sender: TObject);
 begin
   Frame.HandleClear;
   RedrawDisplay(Sender);
+  CSpeedButton.enabled := true;
 end;
 
 procedure TMainForm.CSpeedButtonMouseDown(Sender: TObject;
@@ -1298,6 +1428,16 @@ begin
   CSpeedButton.Down := true;
   CButtonClick(Sender);
   CSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.CSpeedButtonMouseEnter(Sender: TObject);
+begin
+  CSpeedButton.enabled := false;
+end;
+
+procedure TMainForm.CSpeedButtonMouseLeave(Sender: TObject);
+begin
+  CSpeedButton.enabled := true;
 end;
 
 procedure TMainForm.CSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
@@ -1327,6 +1467,11 @@ procedure TMainForm.PlusSpeedButtonMouseUp(Sender: TObject;
 begin
   PlusSpeedButton.Images := StandardButtons;
   PlusSpeedButton.Down := false;
+end;
+
+procedure TMainForm.PwrSpeedButtonMouseEnter(Sender: TObject);
+begin
+  PwrSpeedButton.Enabled := false;
 end;
 
 procedure TMainForm.MinusButtonClick(Sender: TObject);
@@ -1486,6 +1631,16 @@ begin
   RollDownSpeedButton.Down := true;
   RDButtonClick(Sender);
   RollDownSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.RollDownSpeedButtonMouseEnter(Sender: TObject);
+begin
+  RollDownSpeedButton.Enabled := false;
+end;
+
+procedure TMainForm.RollDownSpeedButtonMouseLeave(Sender: TObject);
+begin
+  RollDownSpeedButton.Enabled := true
 end;
 
 procedure TMainForm.RollDownSpeedButtonMouseUp(Sender: TObject;
