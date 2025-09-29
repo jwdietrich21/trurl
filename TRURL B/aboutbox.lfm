@@ -1,11 +1,11 @@
 object TrurlAboutBox: TTrurlAboutBox
   Left = 394
-  Height = 186
+  Height = 113
   Top = 205
   Width = 448
   BorderStyle = bsSingle
   Caption = 'About Trurl B'
-  ClientHeight = 186
+  ClientHeight = 113
   ClientWidth = 448
   Position = poOwnerFormCenter
   LCLVersion = '4.2.0.0'
@@ -13,7 +13,7 @@ object TrurlAboutBox: TTrurlAboutBox
   object AboutLabel1: TLabel
     Left = 184
     Height = 16
-    Top = 48
+    Top = 24
     Width = 71
     Caption = 'Trurl B 1.0.0'
     ParentColor = False
@@ -21,7 +21,7 @@ object TrurlAboutBox: TTrurlAboutBox
   object AboutLabel2: TLabel
     Left = 184
     Height = 16
-    Top = 71
+    Top = 47
     Width = 168
     Caption = '© 2003-2025 J. W. Dietrich'
     ParentColor = False
@@ -29,7 +29,7 @@ object TrurlAboutBox: TTrurlAboutBox
   object Image1: TImage
     Left = 24
     Height = 112
-    Top = 48
+    Top = 24
     Width = 144
     Picture.Data = {
       07544269746D6170A2BC0900424DA2BC0900000000003600000028000000B902
@@ -19983,7 +19983,7 @@ object TrurlAboutBox: TTrurlAboutBox
   object EngineVersionLabel: TLabel
     Left = 184
     Height = 16
-    Top = 93
+    Top = 69
     Width = 176
     Caption = 'Based on TRURL RPN Engine'
     ParentColor = False

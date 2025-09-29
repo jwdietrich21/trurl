@@ -13,7 +13,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -25,9 +25,9 @@
         <UnitName Value="GUI"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="899"/>
-        <CursorPos X="33" Y="914"/>
-        <UsageCount Value="47"/>
+        <TopLine Value="1539"/>
+        <CursorPos X="36" Y="1553"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -37,7 +37,7 @@
         <UnitName Value="RPNEngine"/>
         <TopLine Value="224"/>
         <CursorPos X="10" Y="3"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -49,7 +49,7 @@
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="4"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -60,7 +60,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="155"/>
         <CursorPos X="20" Y="159"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -68,7 +68,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -77,7 +77,7 @@
         <UnitName Value="segmitatorWidgets"/>
         <EditorIndex Value="3"/>
         <CursorPos X="57" Y="22"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -243,123 +243,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="gui.pas"/>
-        <Caret Line="714" Column="2" TopLine="709"/>
+        <Caret Line="1409" TopLine="1403"/>
       </Position1>
       <Position2>
         <Filename Value="gui.pas"/>
-        <Caret Line="707" Column="3" TopLine="704"/>
+        <Caret Line="1416" TopLine="1403"/>
       </Position2>
       <Position3>
         <Filename Value="gui.pas"/>
-        <Caret Line="703" Column="3" TopLine="700"/>
+        <Caret Line="138" TopLine="124"/>
       </Position3>
       <Position4>
         <Filename Value="gui.pas"/>
-        <Caret Line="712" Column="33" TopLine="699"/>
+        <Caret Line="1405" Column="3" TopLine="1397"/>
       </Position4>
       <Position5>
         <Filename Value="gui.pas"/>
-        <Caret Line="714" Column="33" TopLine="701"/>
+        <Caret Line="1348" Column="32" TopLine="1346"/>
       </Position5>
       <Position6>
         <Filename Value="gui.pas"/>
-        <Caret Line="713" Column="33" TopLine="700"/>
+        <Caret Line="874" Column="32" TopLine="872"/>
       </Position6>
       <Position7>
         <Filename Value="gui.pas"/>
-        <Caret Line="715" Column="33" TopLine="702"/>
+        <Caret Line="1348" Column="3" TopLine="1323"/>
       </Position7>
       <Position8>
         <Filename Value="gui.pas"/>
-        <Caret Line="858" Column="3" TopLine="855"/>
+        <Caret Line="1407" Column="32" TopLine="1382"/>
       </Position8>
       <Position9>
         <Filename Value="gui.pas"/>
-        <Caret Line="868" Column="68" TopLine="847"/>
+        <Caret Line="1415" Column="41" TopLine="1391"/>
       </Position9>
       <Position10>
         <Filename Value="gui.pas"/>
-        <Caret Line="870" Column="68" TopLine="849"/>
+        <Caret Line="1425" Column="32" TopLine="1400"/>
       </Position10>
       <Position11>
         <Filename Value="gui.pas"/>
-        <Caret Line="869" Column="68" TopLine="848"/>
+        <Caret Line="1421" Column="65" TopLine="1409"/>
       </Position11>
       <Position12>
         <Filename Value="gui.pas"/>
-        <Caret Line="877" Column="68" TopLine="850"/>
+        <Caret Line="1620" Column="3" TopLine="1618"/>
       </Position12>
       <Position13>
         <Filename Value="gui.pas"/>
-        <Caret Line="863" Column="3" TopLine="852"/>
+        <Caret Line="1631" Column="38" TopLine="1618"/>
       </Position13>
       <Position14>
         <Filename Value="gui.pas"/>
-        <Caret Line="879" Column="58" TopLine="854"/>
+        <Caret Line="931" Column="84" TopLine="909"/>
       </Position14>
       <Position15>
         <Filename Value="gui.pas"/>
-        <Caret Line="1407" Column="16" TopLine="1405"/>
+        <Caret Line="1474" Column="34" TopLine="1462"/>
       </Position15>
       <Position16>
         <Filename Value="gui.pas"/>
-        <Caret Line="1409" TopLine="1403"/>
+        <Caret Line="914" Column="33" TopLine="899"/>
       </Position16>
       <Position17>
         <Filename Value="gui.pas"/>
-        <Caret Line="1416" TopLine="1403"/>
+        <Caret Line="916" Column="33" TopLine="901"/>
       </Position17>
       <Position18>
         <Filename Value="gui.pas"/>
-        <Caret Line="138" TopLine="124"/>
+        <Caret Line="915" Column="33" TopLine="900"/>
       </Position18>
       <Position19>
         <Filename Value="gui.pas"/>
-        <Caret Line="1405" Column="3" TopLine="1397"/>
+        <Caret Line="923" Column="33" TopLine="902"/>
       </Position19>
       <Position20>
         <Filename Value="gui.pas"/>
-        <Caret Line="1348" Column="32" TopLine="1346"/>
+        <Caret Line="911" Column="3" TopLine="903"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="874" Column="32" TopLine="872"/>
+        <Caret Line="918" Column="3" TopLine="905"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="1348" Column="3" TopLine="1323"/>
+        <Caret Line="919" Column="38" TopLine="924"/>
       </Position22>
       <Position23>
         <Filename Value="gui.pas"/>
-        <Caret Line="1407" Column="32" TopLine="1382"/>
+        <Caret Line="1665" Column="40" TopLine="1665"/>
       </Position23>
       <Position24>
         <Filename Value="gui.pas"/>
-        <Caret Line="1415" Column="41" TopLine="1391"/>
+        <Caret Line="1495" Column="37" TopLine="1484"/>
       </Position24>
       <Position25>
         <Filename Value="gui.pas"/>
-        <Caret Line="1425" Column="32" TopLine="1400"/>
+        <Caret Line="1497" Column="37" TopLine="1486"/>
       </Position25>
       <Position26>
         <Filename Value="gui.pas"/>
-        <Caret Line="1421" Column="65" TopLine="1409"/>
+        <Caret Line="1496" Column="37" TopLine="1485"/>
       </Position26>
       <Position27>
         <Filename Value="gui.pas"/>
-        <Caret Line="1620" Column="3" TopLine="1618"/>
+        <Caret Line="1504" Column="37" TopLine="1493"/>
       </Position27>
       <Position28>
         <Filename Value="gui.pas"/>
-        <Caret Line="1631" Column="38" TopLine="1618"/>
+        <Caret Line="918" Column="3" TopLine="915"/>
       </Position28>
       <Position29>
         <Filename Value="gui.pas"/>
-        <Caret Line="931" Column="84" TopLine="909"/>
+        <Caret Line="925" Column="3" TopLine="917"/>
       </Position29>
       <Position30>
         <Filename Value="gui.pas"/>
-        <Caret Line="1474" Column="34" TopLine="1462"/>
+        <Caret Line="935" Column="19" TopLine="914"/>
       </Position30>
     </JumpHistory>
     <RunParams>

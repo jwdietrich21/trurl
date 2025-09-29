@@ -46,10 +46,12 @@ type
     InvSpeedButton: TSpeedButton;
     Panel1: TPanel;
     Panel0: TPanel;
+    PanelPlus: TPanel;
     PanelDot: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     PanelC: TPanel;
+    PanelMinus: TPanel;
     PanelRD: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
@@ -187,6 +189,7 @@ type
     procedure MacAboutItemClick(Sender: TObject);
     procedure MinusSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure MinusSpeedButtonMouseEnter(Sender: TObject);
     procedure MinusSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure NineSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
@@ -248,6 +251,16 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure PanelDotMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PanelMinusMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelMinusMouseLeave(Sender: TObject);
+    procedure PanelMinusMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelPlusMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelPlusMouseLeave(Sender: TObject);
+    procedure PanelPlusMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure PanelPwrMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PanelPwrMouseLeave(Sender: TObject);
@@ -264,6 +277,7 @@ type
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure PlusSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PlusSpeedButtonMouseEnter(Sender: TObject);
     procedure PlusSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PwrSpeedButtonMouseEnter(Sender: TObject);
@@ -901,6 +915,46 @@ begin
   DotSpeedButton.Down := false;
 end;
 
+procedure TMainForm.PanelMinusMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  MinusSpeedButton.Down := true;
+  MinusButtonClick(Sender);
+  MinusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelMinusMouseLeave(Sender: TObject);
+begin
+  MinusSpeedButton.Enabled := true;
+end;
+
+procedure TMainForm.PanelMinusMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  MinusSpeedButton.Images := StandardButtons;
+  MinusSpeedButton.Down := false;
+end;
+
+procedure TMainForm.PanelPlusMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  PlusSpeedButton.Down := true;
+  PlusButtonClick(Sender);
+  PlusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelPlusMouseLeave(Sender: TObject);
+begin
+  PlusSpeedButton.Enabled := true;
+end;
+
+procedure TMainForm.PanelPlusMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  PlusSpeedButton.Images := StandardButtons;
+  PlusSpeedButton.Down := false;
+end;
+
 procedure TMainForm.PanelPwrMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -1462,6 +1516,11 @@ begin
   PlusSpeedButton.Images := PressedButtons;
 end;
 
+procedure TMainForm.PlusSpeedButtonMouseEnter(Sender: TObject);
+begin
+  PlusSpeedButton.Enabled := false;;
+end;
+
 procedure TMainForm.PlusSpeedButtonMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -1487,6 +1546,11 @@ begin
   MinusSpeedButton.Down := true;
   MinusButtonClick(Sender);
   MinusSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.MinusSpeedButtonMouseEnter(Sender: TObject);
+begin
+  MinusSpeedButton.Enabled := false;
 end;
 
 procedure TMainForm.MinusSpeedButtonMouseUp(Sender: TObject;
