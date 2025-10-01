@@ -46,6 +46,7 @@ type
     InvSpeedButton: TSpeedButton;
     Panel1: TPanel;
     Panel0: TPanel;
+    PanelTimes: TPanel;
     PanelPlus: TPanel;
     PanelDot: TPanel;
     Panel2: TPanel;
@@ -60,6 +61,7 @@ type
     Panel8: TPanel;
     Panel9: TPanel;
     PanelPwr: TPanel;
+    PanelDiv: TPanel;
     PwrSpeedButton: TSpeedButton;
     VirtualEnterButton: TButton;
     PressedButtons: TImageList;
@@ -142,6 +144,7 @@ type
     procedure DivButtonClick(Sender: TObject);
     procedure DivSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure DivSpeedButtonMouseEnter(Sender: TObject);
     procedure DivSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure DotButtonClick(Sender: TObject);
@@ -247,6 +250,11 @@ type
     procedure PanelCMouseLeave(Sender: TObject);
     procedure PanelCMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PanelDivMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelDivMouseLeave(Sender: TObject);
+    procedure PanelDivMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure PanelDotMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PanelDotMouseUp(Sender: TObject; Button: TMouseButton;
@@ -270,6 +278,11 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure PanelRDMouseLeave(Sender: TObject);
     procedure PanelRDMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelTimesMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelTimesMouseLeave(Sender: TObject);
+    procedure PanelTimesMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PlusMinusSpeedButtonMouseDown(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -336,6 +349,7 @@ type
     procedure TimerTimesTimer(Sender: TObject);
     procedure TimesSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure TimesSpeedButtonMouseEnter(Sender: TObject);
     procedure TimesSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure TRegisterPaintBoxPaint(Sender: TObject);
@@ -900,6 +914,26 @@ begin
   CSpeedButton.Down := false;
 end;
 
+procedure TMainForm.PanelDivMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  DivSpeedButton.Down := true;
+  DivButtonClick(Sender);
+  DivSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelDivMouseLeave(Sender: TObject);
+begin
+  DivSpeedButton.enabled := true;
+end;
+
+procedure TMainForm.PanelDivMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  DivSpeedButton.Images := StandardButtons;
+  DivSpeedButton.Down := false;
+end;
+
 procedure TMainForm.PanelDotMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -925,7 +959,7 @@ end;
 
 procedure TMainForm.PanelMinusMouseLeave(Sender: TObject);
 begin
-  MinusSpeedButton.Enabled := true;
+MinusSpeedButton.Enabled := true;
 end;
 
 procedure TMainForm.PanelMinusMouseUp(Sender: TObject; Button: TMouseButton;
@@ -993,6 +1027,26 @@ procedure TMainForm.PanelRDMouseUp(Sender: TObject; Button: TMouseButton;
 begin
   RollDownSpeedButton.Images := StandardButtons;
   RollDownSpeedButton.Down := false;
+end;
+
+procedure TMainForm.PanelTimesMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  TimesSpeedButton.Down := true;
+  TimesButtonClick(Sender);
+  TimesSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelTimesMouseLeave(Sender: TObject);
+begin
+  TimesSpeedButton.Enabled := true;
+end;
+
+procedure TMainForm.PanelTimesMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  TimesSpeedButton.Images := StandardButtons;
+  TimesSpeedButton.Down := false;
 end;
 
 procedure TMainForm.Nr2ButtonClick(Sender: TObject);
@@ -1575,6 +1629,11 @@ begin
   TimesSpeedButton.Images := PressedButtons;
 end;
 
+procedure TMainForm.TimesSpeedButtonMouseEnter(Sender: TObject);
+begin
+  TimesSpeedButton.Enabled := false;
+end;
+
 procedure TMainForm.TimesSpeedButtonMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -1644,6 +1703,11 @@ begin
   DivSpeedButton.Down := true;
   DivButtonClick(Sender);
   DivSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.DivSpeedButtonMouseEnter(Sender: TObject);
+begin
+  DivSpeedButton.Enabled := false;
 end;
 
 procedure TMainForm.DivSpeedButtonMouseUp(Sender: TObject;

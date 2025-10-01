@@ -531,6 +531,72 @@ object MainForm: TMainForm
   OnKeyUp = FormKeyUp
   OnPaint = FormPaint
   OnShow = FormShow
+  object PanelDiv: TPanel
+    Left = 202
+    Height = 48
+    Top = 307
+    Width = 48
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 48
+    ParentBackground = False
+    TabOrder = 19
+    OnMouseDown = PanelDivMouseDown
+    OnMouseLeave = PanelDivMouseLeave
+    OnMouseUp = PanelDivMouseUp
+    object DivSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 11
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = DivSpeedButtonMouseDown
+      OnMouseEnter = DivSpeedButtonMouseEnter
+      OnMouseUp = DivSpeedButtonMouseUp
+    end
+  end
+  object PanelTimes: TPanel
+    Left = 202
+    Height = 48
+    Top = 352
+    Width = 48
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 48
+    ParentBackground = False
+    TabOrder = 18
+    OnMouseDown = PanelTimesMouseDown
+    OnMouseLeave = PanelTimesMouseLeave
+    OnMouseUp = PanelTimesMouseUp
+    object TimesSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 18
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = TimesSpeedButtonMouseDown
+      OnMouseEnter = TimesSpeedButtonMouseEnter
+      OnMouseUp = TimesSpeedButtonMouseUp
+    end
+  end
   object PanelMinus: TPanel
     Left = 202
     Height = 48
@@ -1162,40 +1228,6 @@ object MainForm: TMainForm
     Brush.Color = 5657943
     Pen.Style = psClear
     Shape = stCircle
-  end
-  object DivSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 206
-    Height = 40
-    Top = 309
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 11
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = DivSpeedButtonMouseDown
-    OnMouseUp = DivSpeedButtonMouseUp
-  end
-  object TimesSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 206
-    Height = 40
-    Top = 357
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 18
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = TimesSpeedButtonMouseDown
-    OnMouseUp = TimesSpeedButtonMouseUp
   end
   object PlusMinusSpeedButton: TSpeedButton
     Cursor = crHandPoint
