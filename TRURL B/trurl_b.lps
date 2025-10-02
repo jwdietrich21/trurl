@@ -11,9 +11,10 @@
       <Unit0>
         <Filename Value="trurl_b.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -23,10 +24,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <CursorPos X="24" Y="7"/>
-        <UsageCount Value="49"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -34,9 +34,8 @@
         <Filename Value="rpnengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
-        <TopLine Value="224"/>
-        <CursorPos X="10" Y="3"/>
-        <UsageCount Value="49"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -48,7 +47,7 @@
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="4"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -57,9 +56,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNWidgets"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="155"/>
-        <CursorPos X="20" Y="159"/>
-        <UsageCount Value="49"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -67,7 +65,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -76,7 +74,7 @@
         <UnitName Value="segmitatorWidgets"/>
         <EditorIndex Value="3"/>
         <CursorPos X="57" Y="22"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>

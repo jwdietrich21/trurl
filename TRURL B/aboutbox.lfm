@@ -8,21 +8,21 @@ object TrurlAboutBox: TTrurlAboutBox
   ClientHeight = 113
   ClientWidth = 448
   Position = poOwnerFormCenter
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.0.0.4'
   OnCreate = FormCreate
   object AboutLabel1: TLabel
     Left = 184
-    Height = 16
+    Height = 15
     Top = 24
-    Width = 71
+    Width = 60
     Caption = 'Trurl B 1.0.0'
     ParentColor = False
   end
   object AboutLabel2: TLabel
     Left = 184
-    Height = 16
+    Height = 15
     Top = 47
-    Width = 168
+    Width = 138
     Caption = '© 2003-2025 J. W. Dietrich'
     ParentColor = False
   end
@@ -19982,9 +19982,9 @@ object TrurlAboutBox: TTrurlAboutBox
   end
   object EngineVersionLabel: TLabel
     Left = 184
-    Height = 16
+    Height = 15
     Top = 69
-    Width = 176
+    Width = 150
     Caption = 'Based on TRURL RPN Engine'
     ParentColor = False
   end
