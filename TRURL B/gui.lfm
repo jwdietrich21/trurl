@@ -521,7 +521,7 @@ object MainForm: TMainForm
   }
   Menu = MainMenu1
   Position = poScreenCenter
-  LCLVersion = '4.0.0.4'
+  LCLVersion = '4.2.0.0'
   Visible = True
   OnActivate = FormActivate
   OnCreate = FormCreate
@@ -531,6 +531,76 @@ object MainForm: TMainForm
   OnKeyUp = FormKeyUp
   OnPaint = FormPaint
   OnShow = FormShow
+  object PanelInv: TPanel
+    Left = 93
+    Height = 48
+    Top = 259
+    Width = 48
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 48
+    Color = 3486786
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 21
+    OnMouseDown = PanelInvMouseDown
+    OnMouseLeave = PanelInvMouseLeave
+    OnMouseUp = PanelInvMouseUp
+    object InvSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 19
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = InvSpeedButtonMouseDown
+      OnMouseEnter = InvSpeedButtonMouseEnter
+      OnMouseUp = InvSpeedButtonMouseUp
+    end
+  end
+  object PanelPlusMinus: TPanel
+    Left = 38
+    Height = 48
+    Top = 259
+    Width = 48
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 48
+    Color = 3486786
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 20
+    OnMouseDown = PanelPlusMinusMouseDown
+    OnMouseLeave = PanelPlusMinusMouseLeave
+    OnMouseUp = PanelPlusMinusMouseUp
+    object PlusMinusSpeedButton: TSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 40
+      Top = 5
+      Width = 40
+      AllowAllUp = True
+      Color = clBlack
+      Flat = True
+      Images = StandardButtons
+      ImageIndex = 16
+      ImageWidth = 39
+      Spacing = -1
+      ShowCaption = False
+      OnMouseDown = PlusMinusSpeedButtonMouseDown
+      OnMouseEnter = PlusMinusSpeedButtonMouseEnter
+      OnMouseUp = PlusMinusSpeedButtonMouseUp
+    end
+  end
   object PanelDiv: TPanel
     Left = 202
     Height = 48
@@ -1242,23 +1312,6 @@ object MainForm: TMainForm
     Pen.Style = psClear
     Shape = stCircle
   end
-  object PlusMinusSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 40
-    Height = 40
-    Top = 264
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 16
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = PlusMinusSpeedButtonMouseDown
-    OnMouseUp = PlusMinusSpeedButtonMouseUp
-  end
   object NumlockLabel1: TLabel
     Left = 40
     Height = 15
@@ -1299,23 +1352,6 @@ object MainForm: TMainForm
     ParentColor = False
     ParentFont = False
     OnClick = NumlockLabel1Click
-  end
-  object InvSpeedButton: TSpeedButton
-    Cursor = crHandPoint
-    Left = 95
-    Height = 40
-    Top = 264
-    Width = 40
-    AllowAllUp = True
-    Color = clBlack
-    Flat = True
-    Images = StandardButtons
-    ImageIndex = 19
-    ImageWidth = 39
-    Spacing = -1
-    ShowCaption = False
-    OnMouseDown = InvSpeedButtonMouseDown
-    OnMouseUp = InvSpeedButtonMouseUp
   end
   object MainMenu1: TMainMenu
     Left = 128
