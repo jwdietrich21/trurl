@@ -6,7 +6,7 @@ unit RPNWidgets;
 
 { GUI Widgets for Basic RPN Engine }
 
-{ Version 1.1.0 (Bet) }
+{ Version 1.2.0 (Gimel) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 
@@ -59,6 +59,7 @@ public
   procedure HandleASin;
   procedure HandleACos;
   procedure HandleATan;
+  procedure HandleSqr;
   procedure HandleSqrt;
   procedure HandleRollDown;
   procedure DisplayRegisters;
@@ -204,6 +205,14 @@ procedure TFrame.HandleATan;
 begin
   CheckEngine;
   Engine.ArcTangens;
+  DisplayRegisters;
+  EntryMode := PostOper;
+end;
+
+procedure TFrame.HandleSqr;
+begin
+  CheckEngine;
+  Engine.sqr;
   DisplayRegisters;
   EntryMode := PostOper;
 end;
