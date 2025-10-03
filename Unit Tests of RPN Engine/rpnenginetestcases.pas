@@ -6,7 +6,7 @@ unit RPNEngineTestCases;
 
 { Unit Tests for Basic RPN Engine }
 
-{ Version 1.1.0 (Bet) }
+{ Version 1.2.0 (Gimel) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 
@@ -68,6 +68,7 @@ type
     procedure ASinFunctionTest;
     procedure ACosFunctionTest;
     procedure ATanFunctionTest;
+    procedure sqrTest;
     procedure sqrootTest;
   end;
 
@@ -370,6 +371,18 @@ begin
   TestEngine.destroy;
 end;
 
+procedure TEngineSingleFunctionTestCases.sqrTest;
+var
+  TestEngine: TEngine;
+begin
+  TestEngine := TEngine.create;
+  TestEngine.Stack := TStack.create;
+  TestEngine.Stack.Push(5);
+  TestEngine.sqr;
+  AssertEquals(25, TestEngine.Stack.Pop);
+  TestEngine.destroy;
+end;
+
 procedure TEngineSingleFunctionTestCases.sqrootTest;
 var
   TestEngine: TEngine;
@@ -488,6 +501,7 @@ begin
   AssertEquals(-1, TestEngine.rpn(1, PlusMinusOp));
   AssertEquals(1, TestEngine.rpn(-1, PlusMinusOp));
   AssertEquals(0.2, TestEngine.rpn(5, InvertOp));
+  AssertEquals(49, TestEngine.rpn(7, sqrOp));
   AssertEquals(4, TestEngine.rpn(16, sqrtOp));
   TestEngine.destroy;
 end;
@@ -528,10 +542,10 @@ begin
 end;
 
 procedure TControlTestCases.CodeVersionCheck;
-{ The subsequent tests are compatible with RPN Engine version 1.1 }
+{ The subsequent tests are compatible with RPN Engine version 1.2 }
 begin
   AssertEquals(1, RPNEngine_major);
-  AssertEquals(1, RPNEngine_minor);
+  AssertEquals(2, RPNEngine_minor);
 end;
 
 initialization

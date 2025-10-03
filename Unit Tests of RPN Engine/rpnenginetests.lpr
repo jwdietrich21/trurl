@@ -6,7 +6,7 @@ program rpnenginetests;
 
 { Unit Tests for Basic RPN Engine }
 
-{ Version 1.1.0 (Bet) }
+{ Version 1.2.0 (Gimel) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 
@@ -29,7 +29,7 @@ uses
 {$R *.res}
 
 begin
-  Application.Scaled:=True;
+  Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;

@@ -50,6 +50,7 @@ type
     PanelEnter: TPanel;
     PanelPlusMinus: TPanel;
     PanelInv: TPanel;
+    PanelSqr: TPanel;
     PanelTimes: TPanel;
     PanelPlus: TPanel;
     PanelDot: TPanel;
@@ -67,6 +68,7 @@ type
     PanelPwr: TPanel;
     PanelDiv: TPanel;
     PwrSpeedButton: TSpeedButton;
+    SqrSpeedButton: TSpeedButton;
     VirtualEnterButton: TButton;
     PressedButtons: TImageList;
     StandardButtons: TImageList;
@@ -300,6 +302,11 @@ type
     procedure PanelRDMouseLeave(Sender: TObject);
     procedure PanelRDMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure PanelSqrMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelSqrMouseLeave(Sender: TObject);
+    procedure PanelSqrMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure PanelTimesMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PanelTimesMouseLeave(Sender: TObject);
@@ -331,6 +338,8 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure SixSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure SqrButtonClick(Sender: TObject);
+    procedure SqrSpeedButtonMouseEnter(Sender: TObject);
     procedure ThreeSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure ThreeSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
@@ -1111,6 +1120,26 @@ begin
   RollDownSpeedButton.Down := false;
 end;
 
+procedure TMainForm.PanelSqrMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  SqrSpeedButton.Down := true;
+  SqrButtonClick(Sender);
+  SqrSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelSqrMouseLeave(Sender: TObject);
+begin
+  SqrSpeedButton.Enabled := true;
+end;
+
+procedure TMainForm.PanelSqrMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  SqrSpeedButton.Images := StandardButtons;
+  SqrSpeedButton.Down := false;
+end;
+
 procedure TMainForm.PanelTimesMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -1460,6 +1489,16 @@ procedure TMainForm.SixSpeedButtonMouseUp(Sender: TObject;
 begin
   SixSpeedButton.Images := StandardButtons;
   SixSpeedButton.Down := false;
+end;
+
+procedure TMainForm.SqrButtonClick(Sender: TObject);
+begin
+
+end;
+
+procedure TMainForm.SqrSpeedButtonMouseEnter(Sender: TObject);
+begin
+  SqrSpeedButton.Enabled := false;
 end;
 
 procedure TMainForm.Nr7ButtonClick(Sender: TObject);
