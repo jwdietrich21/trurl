@@ -11,8 +11,9 @@
       <Unit0>
         <Filename Value="trurl_b.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="65" Y="19"/>
         <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -23,7 +24,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <CursorPos Y="2"/>
         <UsageCount Value="55"/>
