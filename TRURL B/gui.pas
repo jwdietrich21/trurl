@@ -1493,7 +1493,9 @@ end;
 
 procedure TMainForm.SqrButtonClick(Sender: TObject);
 begin
-
+  Frame.HandleSqr;
+  RedrawDisplay(Sender);
+  ActiveControl := VirtualEnterButton;
 end;
 
 procedure TMainForm.SqrSpeedButtonMouseEnter(Sender: TObject);
