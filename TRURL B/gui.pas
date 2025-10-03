@@ -43,9 +43,11 @@ type
   TMainForm = class(TForm)
     ActionList1: TActionList;
     ErrorLabel: TLabel;
+    Image1: TImage;
     InvSpeedButton: TSpeedButton;
     Panel1: TPanel;
     Panel0: TPanel;
+    PanelEnter: TPanel;
     PanelPlusMinus: TPanel;
     PanelInv: TPanel;
     PanelTimes: TPanel;
@@ -165,6 +167,7 @@ type
     procedure EnterButtonClick(Sender: TObject);
     procedure EnterSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure EnterSpeedButtonMouseEnter(Sender: TObject);
     procedure EnterSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FiveSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
@@ -261,6 +264,11 @@ type
     procedure PanelDotMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PanelDotMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelEnterMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PanelEnterMouseLeave(Sender: TObject);
+    procedure PanelEnterMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure PanelInvMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -963,6 +971,26 @@ begin
   DotSpeedButton.Down := false;
 end;
 
+procedure TMainForm.PanelEnterMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  EnterSpeedButton.Down := true;
+  EnterButtonClick(Sender);
+  EnterSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.PanelEnterMouseLeave(Sender: TObject);
+begin
+  EnterSpeedButton.Enabled := true;
+end;
+
+procedure TMainForm.PanelEnterMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  EnterSpeedButton.Images := StandardButtons;
+  EnterSpeedButton.Down := false;
+end;
+
 procedure TMainForm.PanelInvMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -1546,6 +1574,11 @@ begin
   EnterSpeedButton.Down := true;
   EnterButtonClick(Sender);
   EnterSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.EnterSpeedButtonMouseEnter(Sender: TObject);
+begin
+  EnterSpeedButton.Enabled := false;
 end;
 
 procedure TMainForm.EnterSpeedButtonMouseUp(Sender: TObject;
