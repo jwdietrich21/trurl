@@ -461,6 +461,7 @@ begin
   DisplayX.Canvas := XRegisterPaintBox.Canvas;
   DisplayX.Color := clAqua;
   DisplayX.scale := 1;
+  DisplayX.decScale := 4;
   DisplayX.Style := [];
   DisplayX.offsetX := 9;
   DisplayX.offsetY := 9;
@@ -469,6 +470,7 @@ begin
   DisplayY.Canvas := YRegisterPaintBox.Canvas;
   DisplayY.Color := clAqua;
   DisplayY.scale := 1;
+  DisplayY.decScale := 4;
   DisplayY.Style := [];
   DisplayY.offsetX := 9;
   DisplayY.offsetY := 9;
@@ -477,6 +479,7 @@ begin
   DisplayZ.Canvas := ZRegisterPaintBox.Canvas;
   DisplayZ.Color := clAqua;
   DisplayZ.scale := 1;
+  DisplayZ.decScale := 4;
   DisplayZ.Style := [];
   DisplayZ.offsetX := 9;
   DisplayZ.offsetY := 9;
@@ -485,6 +488,7 @@ begin
   DisplayT.Canvas := TRegisterPaintBox.Canvas;
   DisplayT.Color := clAqua;
   DisplayT.scale := 1;
+  DisplayT.decScale := 4;
   DisplayT.Style := [];
   DisplayT.offsetX := 9;
   DisplayT.offsetY := 9;

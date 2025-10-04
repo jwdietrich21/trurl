@@ -81,6 +81,7 @@ type
     Canvas: TCanvas;
     Color: TColor;
     scale: integer;
+    decScale: integer;
     offsetX, offsetY: integer;
     errorState: boolean;
     l: integer;
@@ -243,8 +244,8 @@ begin
   begin
     pointsH[0].x := lastXPos + 12 * scale;
     pointsH[0].y := trunc(offsetY + 17.5 * scale);
-    pointsH[1].x := pointsH[0].x + 3 * scale;
-    pointsH[1].y := pointsH[0].y + 3 * scale;
+    pointsH[1].x := pointsH[0].x + decScale * scale;
+    pointsH[1].y := pointsH[0].y + decScale * scale;
     Canvas.Ellipse(pointsH[0].x, pointsH[0].y, pointsH[1].x, pointsH[1].y);
   end;
 end;
@@ -295,6 +296,7 @@ begin
   offsetY := 3;
   Style := [];
   scale := 3;
+  decScale := 3;
   xH := xHr;
   yH := yHr;
   xV := xVr;
