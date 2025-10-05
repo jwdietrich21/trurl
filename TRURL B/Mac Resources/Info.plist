@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+TRURL B
+
+Version 1.0.0
+
+(c) J. W. Dietrich, 2003 - 2025
+
+Source code released under the BSD License
+See http://trurl.sourceforge.net for details
+-->
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key>
+  <string>English</string>
+  <key>CFBundleExecutable</key>
+  <string>Trurl B</string>
+  <key>CFBundleName</key>
+  <string>Trurl B</string>
+  <key>CFBundleDisplayName</key>
+  <string>Trurl</string>
+  <key>CFBundleIdentifier</key>
+  <string>net.sf.trurl.b</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleSignature</key>
+  <string>TruB</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0.0</string>
+  <key>CFBundleGetInfoString</key>
+  <string>1.0.0, ©2003-2025 J. W. Dietrich</string>
+  <key>NSHumanReadableCopyright</key>
+  <string>1.0.0, ©2003-2025 J. W. Dietrich</string>
+  <key>CFBundleVersion</key>
+  <string>1.0.0</string>
+  <key>LSApplicationCategoryType</key>
+  <string>public.app-category.utilities</string>
+  <key>CFBundleIconFile</key>
+  <string>trurl_b.icns</string>
+  <key>CSResourcesFileMapped</key>
+  <true/>
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeRole</key>
+      <string>Viewer</string>
+      <key>CFBundleTypeExtensions</key>
+      <array>
+        <string>*</string>
+      </array>
+      <key>CFBundleTypeOSTypes</key>
+      <array>
+        <string>fold</string>
+        <string>disk</string>
+        <string>****</string>
+      </array>
+    </dict>
+  </array>
+  <key>NSHighResolutionCapable</key>
+  <true/>
+  <key>LSMinimumSystemVersion</key>
+  <string>10.4.0</string>
+</dict>
+</plist>

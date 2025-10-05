@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Default">
+    <BuildModes Active="Cocoa Apple Silicon">
       <SessionMatrixOptions Count="1">
         <Item1 ID="939324851222" Modes="Windows 32,Windows 64" Type="IDEMacro" MacroName="LCLWidgetType" Value="win32"/>
       </SessionMatrixOptions>
@@ -12,8 +12,8 @@
         <Filename Value="trurl_b.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
-        <CursorPos X="65" Y="19"/>
-        <UsageCount Value="55"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -24,8 +24,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
         <EditorIndex Value="5"/>
-        <CursorPos X="16" Y="2"/>
-        <UsageCount Value="55"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -34,7 +34,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="RPNEngine"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -45,8 +45,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutBox"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="8" Y="2"/>
-        <UsageCount Value="55"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -56,7 +56,7 @@
         <UnitName Value="RPNWidgets"/>
         <EditorIndex Value="1"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -64,7 +64,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -73,9 +73,8 @@
         <UnitName Value="segmitatorWidgets"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="358"/>
-        <CursorPos X="48" Y="338"/>
-        <UsageCount Value="55"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -238,7 +237,7 @@
         <UsageCount Value="10"/>
       </Unit28>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="segmitatorwidgets.pas"/>
         <Caret Line="386" TopLine="356"/>
@@ -344,20 +343,16 @@
       </Position26>
       <Position27>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="2" TopLine="126"/>
+        <Caret Line="74" Column="22" TopLine="59"/>
       </Position27>
       <Position28>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="74" Column="22" TopLine="59"/>
+        <Caret Line="240" Column="27" TopLine="215"/>
       </Position28>
       <Position29>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="240" Column="27" TopLine="215"/>
-      </Position29>
-      <Position30>
-        <Filename Value="segmitatorwidgets.pas"/>
         <Caret Line="262" Column="10" TopLine="237"/>
-      </Position30>
+      </Position29>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -22,13 +22,45 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="29"/>
+      <BuildNr Value="32"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Trurl B, an RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl B, an RPN calculator" InternalName="functio" LegalCopyright="2003-2025 J. W. Dietrich" ProductName="Trurl B" ProductVersion="1.0.0"/>
     </VersionInfo>
-    <BuildModes Count="7">
-      <Item1 Name="Default" Default="True"/>
-      <Item2 Name="Carbon">
+    <BuildModes Count="8">
+      <Item1 Name="Deep Debugging" Default="True"/>
+      <Item2 Name="Default">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="Trurl B"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
+              <DebugInfoType Value="dsDwarf2Set"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item2>
+      <Item3 Name="Carbon">
         <MacroValues Count="1">
           <Macro2 Name="LCLWidgetType" Value="carbon"/>
         </MacroValues>
@@ -52,13 +84,15 @@
           <Linking>
             <Debugging>
               <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
               <DebugInfoType Value="dsDwarf2Set"/>
+              <StripSymbols Value="True"/>
             </Debugging>
             <LinkSmart Value="True"/>
           </Linking>
         </CompilerOptions>
-      </Item2>
-      <Item3 Name="Cocoa Intel 64">
+      </Item3>
+      <Item4 Name="Cocoa Intel 64">
         <MacroValues Count="1">
           <Macro1 Name="LCLWidgetType" Value="cocoa"/>
         </MacroValues>
@@ -91,8 +125,8 @@
             <CustomOptions Value="-WM10.14"/>
           </Other>
         </CompilerOptions>
-      </Item3>
-      <Item4 Name="Windows 32">
+      </Item4>
+      <Item5 Name="Windows 32">
         <MacroValues Count="1">
           <Macro1 Name="LCLWidgetType" Value="win32"/>
         </MacroValues>
@@ -128,8 +162,8 @@
             </Options>
           </Linking>
         </CompilerOptions>
-      </Item4>
-      <Item5 Name="Windows 64">
+      </Item5>
+      <Item6 Name="Windows 64">
         <MacroValues Count="1">
           <Macro1 Name="LCLWidgetType" Value="win32"/>
         </MacroValues>
@@ -165,8 +199,8 @@
             </Options>
           </Linking>
         </CompilerOptions>
-      </Item5>
-      <Item6 Name="Cocoa Apple Silicon">
+      </Item6>
+      <Item7 Name="Cocoa Apple Silicon">
         <MacroValues Count="1">
           <Macro1 Name="LCLWidgetType" Value="cocoa"/>
         </MacroValues>
@@ -179,20 +213,8 @@
             <IncludeFiles Value="$(ProjOutDir)"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
-          <Parsing>
-            <SyntaxOptions>
-              <IncludeAssertionCode Value="True"/>
-            </SyntaxOptions>
-          </Parsing>
           <CodeGeneration>
             <SmartLinkUnit Value="True"/>
-            <Checks>
-              <IOChecks Value="True"/>
-              <RangeChecks Value="True"/>
-              <OverflowChecks Value="True"/>
-              <StackChecks Value="True"/>
-            </Checks>
-            <VerifyObjMethodCallValidity Value="True"/>
             <TargetCPU Value="aarch64"/>
             <Optimizations>
               <OptimizationLevel Value="3"/>
@@ -211,8 +233,8 @@
             <CustomOptions Value="-WM10.14"/>
           </Other>
         </CompilerOptions>
-      </Item6>
-      <Item7 Name="Cocoa Intel 64 old macOS">
+      </Item7>
+      <Item8 Name="Cocoa Intel 64 old macOS">
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
@@ -242,7 +264,7 @@
             <CustomOptions Value="-WM10.4"/>
           </Other>
         </CompilerOptions>
-      </Item7>
+      </Item8>
       <SharedMatrixOptions Count="2">
         <Item1 ID="641322595451" Modes="Cocoa Intel 64,Cocoa Apple Silicon" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
         <Item2 ID="840570773534" Modes="Carbon" Type="IDEMacro" MacroName="LCLWidgetType" Value="carbon"/>
@@ -313,8 +335,20 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <IncludeAssertionCode Value="True"/>
+      </SyntaxOptions>
+    </Parsing>
     <CodeGeneration>
       <SmartLinkUnit Value="True"/>
+      <Checks>
+        <IOChecks Value="True"/>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+        <StackChecks Value="True"/>
+      </Checks>
+      <VerifyObjMethodCallValidity Value="True"/>
       <Optimizations>
         <OptimizationLevel Value="0"/>
       </Optimizations>
@@ -330,6 +364,11 @@
         </Win32>
       </Options>
     </Linking>
+    <Other>
+      <Verbosity>
+        <ShowDebugInfo Value="True"/>
+      </Verbosity>
+    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">
