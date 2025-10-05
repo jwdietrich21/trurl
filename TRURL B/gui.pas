@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.0.0 () }
+{ Version 1.0.0 (functio) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 
@@ -35,6 +35,8 @@ uses
 
 const
   clInactiveIndicator = $00565557;
+  kNumLockOn = 'Num Lock is activated. You can enter numbers via the numeric keypad.';
+  kNumLockOff = 'Num Lock is deactivated. Numbers cannot be entered via the numeric keypad.';
 
 type
 
@@ -74,7 +76,7 @@ type
     VirtualEnterButton: TButton;
     PressedButtons: TImageList;
     StandardButtons: TImageList;
-    NumlockLabel1: TLabel;
+    NumlockLabel: TLabel;
     Timer1: TTimer;
     Timer0: TTimer;
     TimerEnter: TTimer;
@@ -191,6 +193,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure FourSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Image1Click(Sender: TObject);
     procedure IndicateNumLockState(Sender: TObject);
     procedure IndicateErrorState(Sender: TObject);
     procedure InvButtonClick(Sender: TObject);
@@ -209,8 +212,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure NineSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure NumlockLabel1Click(Sender: TObject);
-    procedure NumlockLabel2Click(Sender: TObject);
+    procedure NumlockLabelClick(Sender: TObject);
     procedure OneSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure OneSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
@@ -609,7 +611,7 @@ begin
   TrurlAboutBox.ShowModal;
 end;
 
-procedure TMainForm.NumlockLabel1Click(Sender: TObject);
+procedure TMainForm.NumlockLabelClick(Sender: TObject);
 var
   keyState: TKeyboardState;
 begin
@@ -625,11 +627,6 @@ begin
     Keybd_Event(VK_NUMLOCK, 0, KEYEVENTF_EXTENDEDKEY or KEYEVENTF_KEYUP, 0) ;
   end;
   {$ENDIF}
-end;
-
-procedure TMainForm.NumlockLabel2Click(Sender: TObject);
-begin
-  NumlockLabel1Click(Sender);
 end;
 
 procedure TMainForm.WinAboutItemClick(Sender: TObject);
@@ -725,13 +722,14 @@ begin
   if Odd(GetKeyState(VK_NUMLOCK)) then
   begin
     NumLockIndicator.Brush.Color := clLime;
-    NumLockIndicator.Hint := 'Num Lock is activated. You can enter numbers via the numeric keypad.';
+    NumLockIndicator.Hint := kNumLockOn;
   end
   else
   begin
     NumLockIndicator.Brush.Color := clRed;
-    NumLockIndicator.Hint := 'Num Lock is deactivated. Numbers cannot be entered via the numeric keypad.';
+    NumLockIndicator.Hint := kNumLockOff;
   end;
+  NumLockLabel.Hint := NumLockIndicator.Hint;
   {$ENDIF}
 end;
 
@@ -1477,6 +1475,11 @@ procedure TMainForm.FourSpeedButtonMouseUp(Sender: TObject;
 begin
   FourSpeedButton.Images := StandardButtons;
   FourSpeedButton.Down := false;
+end;
+
+procedure TMainForm.Image1Click(Sender: TObject);
+begin
+  MacAboutItemClick(Sender);
 end;
 
 procedure TMainForm.Nr5ButtonClick(Sender: TObject);

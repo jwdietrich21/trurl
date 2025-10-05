@@ -373,7 +373,8 @@ begin
           end
           else
           begin
-            if nString[i] <> kDot then // no decimal dot
+            if (nString[i] <> theFormat.DecimalSeparator) and
+              (nString[i] <> DefaultFormatSettings.DecimalSeparator) then // no decimal separator
             begin
               if TryStrToInt(nString[i - 1], digit) then
               begin
@@ -391,7 +392,7 @@ begin
         end;
       end;
       if length(nString) > 0 then
-      digit := StrToInt(nString[i]);
+        digit := StrToInt(nString[i]);
     end;
 
     if isNaN(n) or IsInfinite(n) then
