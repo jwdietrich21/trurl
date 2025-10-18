@@ -446,10 +446,20 @@ implementation
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
+const
+  kdigitScale = 1;
+  kdecScale = 2;
+  kStandardRes = 96;
+  kDisplayLength = 11;
 var
-  formDPI: integer;
+  screenDPI, formDPI, decSize: integer;
 begin
   formDPI := PixelsPerInch;
+  screenDPI := Screen.PixelsPerInch;
+  if screenDPI <= kStandardRes * 1.5 then
+    decSize := kdecScale * 2
+  else
+    decSize := kdecScale;
   AdaptMenus;
   XRegisterBuffer := TControl.create(nil);
   Engine := TEngine.create;
@@ -462,38 +472,38 @@ begin
   Frame.EntryMode := Number;
   Frame.ReplaceXAfterRollDown := true;
   DisplayX := TDisplay.create;
-  DisplayX.l := 11;
+  DisplayX.l := kDisplayLength;
   DisplayX.Canvas := XRegisterPaintBox.Canvas;
   DisplayX.Color := clAqua;
-  DisplayX.scale := 1;
-  DisplayX.decScale := 4;
+  DisplayX.scale := kdigitScale;
+  DisplayX.decScale := decSize;
   DisplayX.Style := [];
   DisplayX.offsetX := 9;
   DisplayX.offsetY := 9;
   DisplayY := TDisplay.create;
-  DisplayY.l := 11;
+  DisplayY.l := kDisplayLength;
   DisplayY.Canvas := YRegisterPaintBox.Canvas;
   DisplayY.Color := clAqua;
-  DisplayY.scale := 1;
-  DisplayY.decScale := 4;
+  DisplayY.scale := kdigitScale;
+  DisplayY.decScale := decSize;
   DisplayY.Style := [];
   DisplayY.offsetX := 9;
   DisplayY.offsetY := 9;
   DisplayZ := TDisplay.create;
-  DisplayZ.l := 11;
+  DisplayZ.l := kDisplayLength;
   DisplayZ.Canvas := ZRegisterPaintBox.Canvas;
   DisplayZ.Color := clAqua;
-  DisplayZ.scale := 1;
-  DisplayZ.decScale := 4;
+  DisplayZ.scale := kdigitScale;
+  DisplayZ.decScale := decSize;
   DisplayZ.Style := [];
   DisplayZ.offsetX := 9;
   DisplayZ.offsetY := 9;
   DisplayT := TDisplay.create;
-  DisplayT.l := 11;
+  DisplayT.l := kDisplayLength;
   DisplayT.Canvas := TRegisterPaintBox.Canvas;
   DisplayT.Color := clAqua;
-  DisplayT.scale := 1;
-  DisplayT.decScale := 4;
+  DisplayT.scale := kdigitScale;
+  DisplayT.decScale := decSize;
   DisplayT.Style := [];
   DisplayT.offsetX := 9;
   DisplayT.offsetY := 9;

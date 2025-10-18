@@ -62,7 +62,9 @@ type
     pointsH: array[0..1] of TPoint;
     xH, yH, xV, yV: array[0..5] of integer;
     fStyle: TFontStyles;
+    fScale, fDecScale: integer;
     lastXPos: integer;
+    scalingFactor: real;
     fn: real;
     procedure DrawA(i: byte);
     procedure DrawB(i: byte);
@@ -77,17 +79,19 @@ type
     procedure DrawDigits(n: real);
     procedure Error(msg: string);
     procedure SetStyle(theStyle: TFontStyles);
+    procedure SetScaling(s: integer);
+    procedure SetDecScaling(s: integer);
   public
     Canvas: TCanvas;
     Color: TColor;
-    scale: integer;
-    decScale: integer;
     offsetX, offsetY: integer;
     errorState: boolean;
     l: integer;
     constructor Create;
     destructor Destroy; override;
     property Style: TFontStyles read fStyle write SetStyle;
+    property Scale: integer read fScale write SetScaling;
+    property decScale: integer read fDecScale write SetDecScaling;
     property n: real read fn write DrawDigits;
   end;
 
@@ -289,14 +293,20 @@ begin
 end;
 
 constructor TDisplay.Create;
+const
+  kStandardRes = 96;
+var
+  screenDPI: integer;
 begin
   inherited Create;
+  screenDPI := ScreenInfo.PixelsPerInchX;
+  scalingFactor := screenDPI / kStandardRes;
   color := clLime;
   offsetX := 3;
   offsetY := 3;
   Style := [];
-  scale := 3;
-  decScale := 3;
+  Scale := 3;
+  DecScale := 3;
   xH := xHr;
   yH := yHr;
   xV := xVr;
@@ -451,6 +461,16 @@ begin
     xV := xVr;
     yV := yVr;
   end;
+end;
+
+procedure TDisplay.SetScaling(s: integer);
+begin
+  fScale := trunc(s * scalingFactor);
+end;
+
+procedure TDisplay.SetDecScaling(s: integer);
+begin
+  fDecScale := trunc(s * scalingFactor);
 end;
 
 end.
