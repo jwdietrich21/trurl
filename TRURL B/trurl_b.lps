@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Cocoa Apple Silicon">
+    <BuildModes Active="Deep Debugging">
       <SessionMatrixOptions Count="1">
         <Item1 ID="939324851222" Modes="Windows 32,Windows 64" Type="IDEMacro" MacroName="LCLWidgetType" Value="win32"/>
       </SessionMatrixOptions>
@@ -23,8 +23,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <CursorPos Y="2"/>
+        <TopLine Value="440"/>
+        <CursorPos Y="453"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -71,9 +73,9 @@
         <Filename Value="segmitatorwidgets.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="segmitatorWidgets"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos Y="2"/>
+        <TopLine Value="4"/>
+        <CursorPos Y="4"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit6>
@@ -237,122 +239,126 @@
         <UsageCount Value="10"/>
       </Unit28>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="386" TopLine="356"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="607" Column="29" TopLine="579"/>
       </Position1>
       <Position2>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="376" Column="17" TopLine="351"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="609" Column="13" TopLine="579"/>
       </Position2>
       <Position3>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="455" Column="5" TopLine="414"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="461" TopLine="438"/>
       </Position3>
       <Position4>
         <Filename Value="gui.pas"/>
-        <Caret Line="13" Column="45"/>
       </Position4>
       <Position5>
         <Filename Value="gui.pas"/>
-        <Caret Line="464" Column="26" TopLine="445"/>
+        <Caret Line="13" Column="82"/>
       </Position5>
       <Position6>
         <Filename Value="gui.pas"/>
-        <Caret Line="13" Column="77"/>
+        <Caret Line="729" TopLine="698"/>
       </Position6>
       <Position7>
         <Filename Value="gui.pas"/>
-        <Caret Line="16" Column="20"/>
+        <Caret Line="38" Column="87" TopLine="22"/>
       </Position7>
       <Position8>
         <Filename Value="gui.pas"/>
-        <Caret Line="31" Column="50"/>
+        <Caret Line="735" TopLine="701"/>
       </Position8>
       <Position9>
         <Filename Value="gui.pas"/>
-        <Caret Line="129" Column="13" TopLine="96"/>
+        <Caret Line="2" Column="9"/>
       </Position9>
       <Position10>
         <Filename Value="gui.pas"/>
-        <Caret Line="131" Column="13" TopLine="98"/>
+        <Caret Line="633" Column="34" TopLine="614"/>
       </Position10>
       <Position11>
         <Filename Value="gui.pas"/>
-        <Caret Line="202" Column="23" TopLine="169"/>
+        <Caret Line="216" Column="28" TopLine="196"/>
       </Position11>
       <Position12>
         <Filename Value="gui.pas"/>
-        <Caret Line="399" Column="23" TopLine="366"/>
+        <Caret Line="633" TopLine="611"/>
       </Position12>
       <Position13>
         <Filename Value="gui.pas"/>
-        <Caret Line="607" Column="29" TopLine="579"/>
+        <Caret Line="215" Column="50" TopLine="196"/>
       </Position13>
       <Position14>
-        <Filename Value="gui.pas"/>
-        <Caret Line="609" Column="13" TopLine="579"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="358" TopLine="356"/>
       </Position14>
       <Position15>
-        <Filename Value="gui.pas"/>
-        <Caret Line="461" TopLine="438"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="74" Column="22" TopLine="59"/>
       </Position15>
       <Position16>
-        <Filename Value="gui.pas"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="240" Column="27" TopLine="215"/>
       </Position16>
       <Position17>
-        <Filename Value="gui.pas"/>
-        <Caret Line="13" Column="82"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="262" Column="10" TopLine="237"/>
       </Position17>
       <Position18>
-        <Filename Value="gui.pas"/>
-        <Caret Line="729" TopLine="698"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="2" TopLine="71"/>
       </Position18>
       <Position19>
-        <Filename Value="gui.pas"/>
-        <Caret Line="38" Column="87" TopLine="22"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="83" Column="10" TopLine="72"/>
       </Position19>
       <Position20>
-        <Filename Value="gui.pas"/>
-        <Caret Line="735" TopLine="701"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="104" Column="29" TopLine="79"/>
       </Position20>
       <Position21>
-        <Filename Value="gui.pas"/>
-        <Caret Line="2" Column="9"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="111" Column="49" TopLine="86"/>
       </Position21>
       <Position22>
-        <Filename Value="gui.pas"/>
-        <Caret Line="633" Column="34" TopLine="614"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="113" Column="36" TopLine="88"/>
       </Position22>
       <Position23>
-        <Filename Value="gui.pas"/>
-        <Caret Line="216" Column="28" TopLine="196"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="114" Column="36" TopLine="89"/>
       </Position23>
       <Position24>
-        <Filename Value="gui.pas"/>
-        <Caret Line="633" TopLine="611"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="126" Column="29" TopLine="101"/>
       </Position24>
       <Position25>
-        <Filename Value="gui.pas"/>
-        <Caret Line="215" Column="50" TopLine="196"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="133" Column="49" TopLine="108"/>
       </Position25>
       <Position26>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="358" TopLine="356"/>
+        <Caret Line="134" Column="34" TopLine="109"/>
       </Position26>
       <Position27>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="74" Column="22" TopLine="59"/>
+        <Caret Line="135" Column="36" TopLine="110"/>
       </Position27>
       <Position28>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="240" Column="27" TopLine="215"/>
+        <Caret Line="136" Column="36" TopLine="111"/>
       </Position28>
       <Position29>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="262" Column="10" TopLine="237"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="2"/>
       </Position29>
+      <Position30>
+        <Filename Value="gui.pas"/>
+        <Caret Line="452" Column="22" TopLine="437"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -360,6 +366,15 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="gui.pas"/>
+        <Line Value="453"/>
+      </Item>
+    </BreakPoints>
     <Watches>
       <Item>
         <Expression Value="MainForm.frame"/>

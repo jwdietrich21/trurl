@@ -446,7 +446,10 @@ implementation
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
+var
+  formDPI: integer;
 begin
+  formDPI := PixelsPerInch;
   AdaptMenus;
   XRegisterBuffer := TControl.create(nil);
   Engine := TEngine.create;
