@@ -25,7 +25,7 @@
         <UnitName Value="GUI"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <CursorPos X="12" Y="3"/>
+        <CursorPos X="65" Y="12"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -237,7 +237,7 @@
         <UsageCount Value="10"/>
       </Unit28>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="segmitatorwidgets.pas"/>
         <Caret Line="301" TopLine="288"/>
@@ -354,10 +354,6 @@
         <Filename Value="gui.pas"/>
         <Caret Line="460" Column="31" TopLine="446"/>
       </Position29>
-      <Position30>
-        <Filename Value="gui.pas"/>
-        <Caret Line="2" Column="17" TopLine="1713"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
