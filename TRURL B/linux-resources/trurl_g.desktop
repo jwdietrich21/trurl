@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=TRURL B
+GenericName=RPN Calculator
+Comment=TRURL B Calculator
+Exec="/home/pi/TRURL_B"
+Terminal=false
+Type=Application
+Icon=trurl_b.png
+Categories=Application;Education;Science;Calculator
