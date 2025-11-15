@@ -6,7 +6,7 @@ object TestAppMainForm: TTestAppMainForm
   Caption = 'Test App for Segmitator'
   ClientHeight = 409
   ClientWidth = 525
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.4.0.0'
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy

@@ -6,7 +6,7 @@ program trurl_b;
 
 { Main program file }
 
-{ Version 1.0.0 (functio) }
+{ Version 1.0.1 (functio) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 
@@ -37,8 +37,8 @@ begin
     {$DEFINE NewLaz}
   {$ENDIF}
   RequireDerivedFormResource:=True;
-  Application.Scaled := True;
-  Application.Title := 'Trurl B';
+  Application.Scaled:=True;
+  Application.Title:='Trurl B';
   {$IFDEF NewLaz}
     Application.Scaled := True;
   {$ENDIF}

@@ -6,7 +6,7 @@ unit segmitator;
 
 { Unit implementing seven-segment displays as ASCII art }
 
-{ Version 1.2.0 (El Dorado) }
+{ Version 1.3.0 (Fábrica) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 
@@ -182,7 +182,7 @@ begin
     begin
       format := format + '#';
     end;
-    Result := FormatFloat(format, n);
+    Result := FormatFloat(format, n, FormatSettings);
   end;
 end;
 

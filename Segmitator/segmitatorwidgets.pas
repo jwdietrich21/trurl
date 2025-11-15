@@ -6,7 +6,7 @@ unit segmitatorWidgets;
 
 { Unit implementing seven-segment displays in graphic representation }
 
-{ Version 1.2.0 (El Dorado) }
+{ Version 1.3.0 (Fábrica) }
 
 { (c) Johannes W. Dietrich, 1990 - 2025 }
 

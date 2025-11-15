@@ -843,14 +843,14 @@ object TrurlAboutBox: TTrurlAboutBox
     0000
   }
   Position = poOwnerFormCenter
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
   object AboutLabel1: TLabel
     Left = 184
     Height = 16
     Top = 32
-    Width = 71
-    Caption = 'Trurl B 1.0.0'
+    Width = 69
+    Caption = 'Trurl B 1.0.1'
     ParentColor = False
   end
   object AboutLabel2: TLabel

@@ -6,7 +6,7 @@ unit AboutBox;
 
 { About Box }
 
-{ Version 1.0.0 (functio) }
+{ Version 1.0.1 (functio) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 

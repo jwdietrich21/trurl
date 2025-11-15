@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.0.0 (functio) }
+{ Version 1.0.1 (functio) }
 
 { (c) Johannes W. Dietrich, 2003 - 2025 }
 
@@ -212,6 +212,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure NineSpeedButtonMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure NumLockIndicatorClick(Sender: TObject);
     procedure NumlockLabelClick(Sender: TObject);
     procedure OneSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -1625,6 +1626,11 @@ procedure TMainForm.NineSpeedButtonMouseUp(Sender: TObject;
 begin
   NineSpeedButton.Images := StandardButtons;
   NineSpeedButton.Down := false;
+end;
+
+procedure TMainForm.NumLockIndicatorClick(Sender: TObject);
+begin
+  NumlockLabelClick(Sender);
 end;
 
 procedure TMainForm.DotButtonClick(Sender: TObject);
