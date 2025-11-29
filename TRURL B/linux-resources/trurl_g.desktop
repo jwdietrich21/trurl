@@ -1,8 +1,9 @@
 [Desktop Entry]
 Name=TRURL B
 GenericName=RPN Calculator
+Version=1.0.1
 Comment=TRURL B Calculator
-Exec="/home/pi/TRURL_B"
+Exec="TRURL_B"
 Terminal=false
 Type=Application
 Icon=trurl_b.png

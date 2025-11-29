@@ -25,7 +25,7 @@
         <UnitName Value="GUI"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="18" Y="2"/>
         <UsageCount Value="62"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -240,123 +240,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="304" TopLine="288"/>
+        <Caret Line="447" TopLine="436"/>
       </Position1>
       <Position2>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="305" TopLine="288"/>
+        <Caret Line="307" TopLine="297"/>
       </Position2>
       <Position3>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="306" TopLine="288"/>
+        <Caret Line="466" TopLine="449"/>
       </Position3>
       <Position4>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="447" TopLine="436"/>
+        <Caret Line="467" TopLine="449"/>
       </Position4>
       <Position5>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="307" TopLine="297"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="465" TopLine="459"/>
       </Position5>
       <Position6>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="466" TopLine="449"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="466" TopLine="459"/>
       </Position6>
       <Position7>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="467" TopLine="449"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="467" TopLine="459"/>
       </Position7>
       <Position8>
         <Filename Value="gui.pas"/>
-        <Caret Line="465" TopLine="459"/>
+        <Caret Line="468" TopLine="459"/>
       </Position8>
       <Position9>
         <Filename Value="gui.pas"/>
-        <Caret Line="466" TopLine="459"/>
+        <Caret Line="469" TopLine="459"/>
       </Position9>
       <Position10>
-        <Filename Value="gui.pas"/>
-        <Caret Line="467" TopLine="459"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="466" TopLine="449"/>
       </Position10>
       <Position11>
-        <Filename Value="gui.pas"/>
-        <Caret Line="468" TopLine="459"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="467" TopLine="449"/>
       </Position11>
       <Position12>
-        <Filename Value="gui.pas"/>
-        <Caret Line="469" TopLine="459"/>
+        <Filename Value="segmitatorwidgets.pas"/>
+        <Caret Line="468" TopLine="449"/>
       </Position12>
       <Position13>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="466" TopLine="449"/>
+        <Caret Line="469" TopLine="449"/>
       </Position13>
       <Position14>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="467" TopLine="449"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="470" TopLine="459"/>
       </Position14>
       <Position15>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="468" TopLine="449"/>
+        <Caret Line="466" TopLine="449"/>
       </Position15>
       <Position16>
         <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="469" TopLine="449"/>
+        <Caret Line="83" Column="41" TopLine="63"/>
       </Position16>
       <Position17>
-        <Filename Value="gui.pas"/>
-        <Caret Line="470" TopLine="459"/>
-      </Position17>
-      <Position18>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="466" TopLine="449"/>
-      </Position18>
-      <Position19>
-        <Filename Value="segmitatorwidgets.pas"/>
-        <Caret Line="83" Column="41" TopLine="63"/>
-      </Position19>
-      <Position20>
         <Filename Value="segmitatorwidgets.pas"/>
         <Caret Line="94" Column="66" TopLine="82"/>
+      </Position17>
+      <Position18>
+        <Filename Value="gui.pas"/>
+        <Caret Line="450" Column="20" TopLine="447"/>
+      </Position18>
+      <Position19>
+        <Filename Value="gui.pas"/>
+        <Caret Line="457" Column="3" TopLine="441"/>
+      </Position19>
+      <Position20>
+        <Filename Value="gui.pas"/>
+        <Caret Line="452" Column="25" TopLine="441"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="450" Column="20" TopLine="447"/>
+        <Caret Line="459" Column="32" TopLine="441"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="457" Column="3" TopLine="441"/>
+        <Caret Line="505" Column="31" TopLine="484"/>
       </Position22>
       <Position23>
         <Filename Value="gui.pas"/>
-        <Caret Line="452" Column="25" TopLine="441"/>
+        <Caret Line="460" Column="31" TopLine="446"/>
       </Position23>
       <Position24>
         <Filename Value="gui.pas"/>
-        <Caret Line="459" Column="32" TopLine="441"/>
+        <Caret Line="15" Column="63"/>
       </Position24>
       <Position25>
         <Filename Value="gui.pas"/>
-        <Caret Line="505" Column="31" TopLine="484"/>
+        <Caret Line="632" Column="39" TopLine="628"/>
       </Position25>
       <Position26>
         <Filename Value="gui.pas"/>
-        <Caret Line="460" Column="31" TopLine="446"/>
+        <Caret Line="1633" Column="29" TopLine="1631"/>
       </Position26>
       <Position27>
-        <Filename Value="gui.pas"/>
-        <Caret Line="15" Column="63"/>
+        <Filename Value="aboutbox.pas"/>
+        <Caret Line="2"/>
       </Position27>
       <Position28>
         <Filename Value="gui.pas"/>
-        <Caret Line="632" Column="39" TopLine="628"/>
+        <Caret Line="2"/>
       </Position28>
       <Position29>
         <Filename Value="gui.pas"/>
-        <Caret Line="1633" Column="29" TopLine="1631"/>
+        <Caret Line="706" Column="71" TopLine="693"/>
       </Position29>
       <Position30>
-        <Filename Value="aboutbox.pas"/>
-        <Caret Line="2"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="2008" TopLine="2002"/>
       </Position30>
     </JumpHistory>
     <RunParams>
