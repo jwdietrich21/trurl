@@ -6,7 +6,7 @@ An RPN calculator for macOS
 
 Version 1.0.1
 
-(c) J. W. Dietrich, 2003 - 2025
+(c) J. W. Dietrich, 2003 - 2026
 
 Source code released under the BSD License
 See http://trurl.sourceforge.net for details
@@ -32,9 +32,9 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleShortVersionString</key>
   <string>1.0.1</string>
   <key>CFBundleGetInfoString</key>
-  <string>1.0.1, ©2003-2025 J. W. Dietrich</string>
+  <string>1.0.1, ©2003-2026 J. W. Dietrich</string>
   <key>NSHumanReadableCopyright</key>
-  <string>1.0.1, ©2003-2025 J. W. Dietrich</string>
+  <string>1.0.1, ©2003-2026 J. W. Dietrich</string>
   <key>CFBundleVersion</key>
   <string>1.0.1</string>
   <key>LSApplicationCategoryType</key>

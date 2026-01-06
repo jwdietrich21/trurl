@@ -8,7 +8,7 @@ unit AboutBox;
 
 { Version 1.0.1 (functio) }
 
-{ (c) Johannes W. Dietrich, 2003 - 2025 }
+{ (c) Johannes W. Dietrich, 2003 - 2026 }
 
 { Source code released under the BSD License }
 

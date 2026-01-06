@@ -23,9 +23,9 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="45"/>
+      <BuildNr Value="46"/>
       <Language Value="0809"/>
-      <StringTable Comments="Trurl B, an RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl B, an RPN calculator" InternalName="functio" LegalCopyright="2003-2025 J. W. Dietrich" ProductName="Trurl B" ProductVersion="1.0.0"/>
+      <StringTable Comments="Trurl B, an RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl B, an RPN calculator" InternalName="functio" LegalCopyright="2003-2026 J. W. Dietrich" ProductName="Trurl B" ProductVersion="1.0.0"/>
     </VersionInfo>
     <BuildModes Count="8">
       <Item1 Name="Deep Debugging" Default="True"/>
