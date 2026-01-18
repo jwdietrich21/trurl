@@ -73,7 +73,9 @@ type
     PwrSpeedButton: TSpeedButton;
     SqrSpeedButton: TSpeedButton;
     SqrtSpeedButton: TSpeedButton;
+    TimerRD: TTimer;
     TimerPlusMinus: TTimer;
+    TimerInv: TTimer;
     VirtualEnterButton: TButton;
     PressedButtons: TImageList;
     StandardButtons: TImageList;
@@ -384,12 +386,16 @@ type
     procedure TimerDotTimer(Sender: TObject);
     procedure TimerEnterStartTimer(Sender: TObject);
     procedure TimerEnterTimer(Sender: TObject);
+    procedure TimerInvStartTimer(Sender: TObject);
+    procedure TimerInvTimer(Sender: TObject);
     procedure TimerMinusStartTimer(Sender: TObject);
     procedure TimerMinusTimer(Sender: TObject);
     procedure TimerPlusMinusStartTimer(Sender: TObject);
     procedure TimerPlusMinusTimer(Sender: TObject);
     procedure TimerPlusStartTimer(Sender: TObject);
     procedure TimerPlusTimer(Sender: TObject);
+    procedure TimerRDStartTimer(Sender: TObject);
+    procedure TimerRDTimer(Sender: TObject);
     procedure TimerTimesStartTimer(Sender: TObject);
     procedure TimerTimesTimer(Sender: TObject);
     procedure TimesSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
@@ -611,6 +617,16 @@ begin
     begin
       TimerPlusMinus.Enabled := True;
       PlusMinusButtonClick(Sender);
+    end;
+    'i', 'I':
+    begin
+      TimerInv.Enabled := True;
+      InvButtonClick(Sender);
+    end;
+    'r', 'R':
+    begin
+      TimerRD.Enabled := True;
+      RDButtonClick(Sender);
     end;
     {$IF DEFINED(LINUX) or DEFINED(LCLCocoa)
         or DEFINED(LCLQt) or DEFINED(LCLQt5)
@@ -1437,6 +1453,19 @@ begin
   EnterSpeedButton.Down := False;
 end;
 
+procedure TMainForm.TimerInvStartTimer(Sender: TObject);
+begin
+  InvSpeedButton.Down := True;
+  InvSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerInvTimer(Sender: TObject);
+begin
+  TimerInv.Enabled := False;
+  InvSpeedButton.Images := StandardButtons;
+  InvSpeedButton.Down := False;
+end;
+
 procedure TMainForm.TimerMinusStartTimer(Sender: TObject);
 begin
   MinusSpeedButton.Down := True;
@@ -1474,6 +1503,19 @@ begin
   TimerPlus.Enabled := False;
   PlusSpeedButton.Images := StandardButtons;
   PlusSpeedButton.Down := False;
+end;
+
+procedure TMainForm.TimerRDStartTimer(Sender: TObject);
+begin
+  RollDownSpeedButton.Down := True;
+  RollDownSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerRDTimer(Sender: TObject);
+begin
+  TimerRD.Enabled := False;
+  RollDownSpeedButton.Images := StandardButtons;
+  RollDownSpeedButton.Down := False;
 end;
 
 procedure TMainForm.TimerTimesStartTimer(Sender: TObject);
