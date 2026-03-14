@@ -4,7 +4,7 @@
 TRURL B
 An RPN calculator for macOS
 
-Version 1.0.1
+Version 1.1.0
 
 (c) J. W. Dietrich, 2003 - 2026
 
@@ -30,13 +30,13 @@ See http://trurl.sourceforge.net for details
   <key>CFBundleSignature</key>
   <string>TruB</string>
   <key>CFBundleShortVersionString</key>
-  <string>1.0.1</string>
+  <string>1.1.0</string>
   <key>CFBundleGetInfoString</key>
-  <string>1.0.1, ©2003-2026 J. W. Dietrich</string>
+  <string>1.1.0, ©2003-2026 J. W. Dietrich</string>
   <key>NSHumanReadableCopyright</key>
-  <string>1.0.1, ©2003-2026 J. W. Dietrich</string>
+  <string>1.1.0, ©2003-2026 J. W. Dietrich</string>
   <key>CFBundleVersion</key>
-  <string>1.0.1</string>
+  <string>1.1.0</string>
   <key>LSApplicationCategoryType</key>
   <string>public.app-category.utilities</string>
   <key>CFBundleIconFile</key>

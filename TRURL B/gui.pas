@@ -6,7 +6,7 @@ unit GUI;
 
 { GUI }
 
-{ Version 1.0.1 (functio) }
+{ Version 1.1.0 (gestalt) }
 
 { (c) Johannes W. Dietrich, 2003 - 2026 }
 
