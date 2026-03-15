@@ -73,9 +73,12 @@ type
     PwrSpeedButton: TSpeedButton;
     SqrSpeedButton: TSpeedButton;
     SqrtSpeedButton: TSpeedButton;
+    TimerSqrt: TTimer;
+    TimerSqr: TTimer;
     TimerRD: TTimer;
     TimerPlusMinus: TTimer;
     TimerInv: TTimer;
+    TimerPwr: TTimer;
     VirtualEnterButton: TButton;
     PressedButtons: TImageList;
     StandardButtons: TImageList;
@@ -394,8 +397,14 @@ type
     procedure TimerPlusMinusTimer(Sender: TObject);
     procedure TimerPlusStartTimer(Sender: TObject);
     procedure TimerPlusTimer(Sender: TObject);
+    procedure TimerPwrStartTimer(Sender: TObject);
+    procedure TimerPwrTimer(Sender: TObject);
     procedure TimerRDStartTimer(Sender: TObject);
     procedure TimerRDTimer(Sender: TObject);
+    procedure TimerSqrStartTimer(Sender: TObject);
+    procedure TimerSqrTimer(Sender: TObject);
+    procedure TimerSqrtStartTimer(Sender: TObject);
+    procedure TimerSqrtTimer(Sender: TObject);
     procedure TimerTimesStartTimer(Sender: TObject);
     procedure TimerTimesTimer(Sender: TObject);
     procedure TimesSpeedButtonMouseDown(Sender: TObject; Button: TMouseButton;
@@ -627,6 +636,21 @@ begin
     begin
       TimerRD.Enabled := True;
       RDButtonClick(Sender);
+    end;
+    'w', 'W':
+    begin
+      TimerPwr.Enabled := True;
+      PwrButtonClick(Sender);
+    end;
+    's', 'S':
+    begin
+      TimerSqr.Enabled := True;
+      SqrButtonClick(Sender);
+    end;
+    'q', 'Q':
+    begin
+      TimerSqrt.Enabled := True;
+      SqrtButtonClick(Sender);
     end;
     {$IF DEFINED(LINUX) or DEFINED(LCLCocoa)
         or DEFINED(LCLQt) or DEFINED(LCLQt5)
@@ -1505,9 +1529,48 @@ begin
   PlusSpeedButton.Down := False;
 end;
 
+procedure TMainForm.TimerPwrStartTimer(Sender: TObject);
+begin
+  PwrSpeedButton.Down := True;
+  PwrSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerPwrTimer(Sender: TObject);
+begin
+  TimerPwr.Enabled := False;
+  PwrSpeedButton.Images := StandardButtons;
+  PwrSpeedButton.Down := False;
+end;
+
+procedure TMainForm.TimerSqrStartTimer(Sender: TObject);
+begin
+  SqrSpeedButton.Down := True;
+  SqrSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerSqrTimer(Sender: TObject);
+begin
+  TimerSqr.Enabled := False;
+  SqrSpeedButton.Images := StandardButtons;
+  SqrSpeedButton.Down := False;
+end;
+
+procedure TMainForm.TimerSqrtStartTimer(Sender: TObject);
+begin
+  SqrtSpeedButton.Down := True;
+  SqrtSpeedButton.Images := PressedButtons;
+end;
+
+procedure TMainForm.TimerSqrtTimer(Sender: TObject);
+begin
+  TimerSqrt.Enabled := False;
+  SqrtSpeedButton.Images := StandardButtons;
+  SqrtSpeedButton.Down := False;
+end;
+
 procedure TMainForm.TimerRDStartTimer(Sender: TObject);
 begin
-  RollDownSpeedButton.Down := True;
+RollDownSpeedButton.Down := True;
   RollDownSpeedButton.Images := PressedButtons;
 end;
 
