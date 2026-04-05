@@ -23,7 +23,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="49"/>
+      <BuildNr Value="53"/>
       <Language Value="0809"/>
       <StringTable Comments="Trurl B, an RPN calculator" CompanyName="formatio reticularis" FileDescription="Trurl B, an RPN calculator" InternalName="gestalt" LegalCopyright="2003-2026 J. W. Dietrich" ProductName="Trurl B" ProductVersion="1.1.0"/>
     </VersionInfo>
@@ -231,7 +231,7 @@
             <LinkSmart Value="True"/>
           </Linking>
           <Other>
-            <CustomOptions Value="-WM10.14"/>
+            <CustomOptions Value="-WM10.15"/>
           </Other>
         </CompilerOptions>
       </Item7>
@@ -336,6 +336,18 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <Conditionals Value="if TargetOS = &apos;darwin&apos; then
+  CustomOptions := &apos;-WM10.15&apos;;
+
+// example for adding linker options on Mac OS X
+//if TargetOS=&apos;darwin&apos; then
+//  LinkerOptions := &apos; -framework OpenGL&apos;;
+
+// example for adding a unit and include path on Windows
+//if SrcOS=&apos;win&apos; then begin
+//  UnitPath += &apos;;win&apos;;
+//  IncPath += &apos;;win&apos;;
+//end;"/>
     <Parsing>
       <SyntaxOptions>
         <IncludeAssertionCode Value="True"/>
